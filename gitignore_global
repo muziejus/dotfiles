@@ -1,0 +1,12 @@
+sh_history
+.bashrc
+.viminfo
+*~
+*.tmproj
+*.tmproj/*
+.DS_Store
+*.swp
+*.swo
+## To deal with the ssh tunnelling.
+directory_lib.yml
+config/directory_lib.yml
