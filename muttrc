@@ -1,0 +1,493 @@
+# Moacir's muttrc. Enjoy.
+
+###########
+# Settings
+###########
+
+set from = "moacir@moacir.com"
+set realname='Moacir'
+set abort_unmodified=no
+
+# Settings from: http://www.tristancollins.me/computing/mutt-and-fastmail-on-osx/
+# These are set in ~/.env
+set my_server = $FASTMAIL_SERVER
+set my_user = $FASTMAIL_USER
+# App password, not fastmail password
+set my_pass = $FASTMAIL_APP_PASSWORD
+
+# Account info
+set smtp_url = "smtp://$my_user:$my_pass@$my_server:587"
+set smtp_pass = $my_pass
+set imap_user = $my_user
+set imap_pass = $my_pass
+
+# Mailboxes
+set folder = "imaps://$my_server:992"
+set spoolfile = "="
+set record = "=Sent"
+set postponed = "imaps://$my_server:992/Drafts"
+# set postponed = "=Drafts"
+# set trash = "=Trash"
+# mailboxes = "="
+mailboxes ! =inboxen.academics =inboxen.at-inbox =inboxen.andover =inboxen.computing =inboxen.events =inboxen.politics =inboxen.receipts =inboxen.store =inboxen.subscription =inboxen.uchicagoedu =hpk-diaspora =lists.mlg-ics =lists.utd-exiles =lists.humanist =lists.dh-fr =lists.bosox
+
+# Cache
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+# Options
+set index_format = "%3C %Z %[%b %d %R] %-18.18L (%4c) %s"
+set imap_idle=yes
+unset imap_passive
+set timeout=15
+set mail_check = 5
+set imap_keepalive = 900
+set sort = threads
+set sort_browser=date
+set sort_aux=reverse-last-date-received
+set editor = "vim +8 %s"
+set pager_index_lines = 10
+set pager_context = 5
+unset markers
+set delete=yes
+set noconfirmappend
+set edit_headers
+unset mark_old
+set pager_stop
+set strict_threads = yes
+
+# Keyboard
+bind index "^" imap-fetch-mail
+# bind index \ed purge-message
+# bind pager \ed purge-message
+bind compose p postpone-message
+bind index p recall-message
+bind pager <up> previous-line
+bind pager <down> next-line
+bind pager "[" half-up
+bind pager "]" half-down
+
+# Delete and move up a message NOT SURE THIS WORKS! In which case uncomment the two lines above for purging
+#macro index,pager d "<delete-message><previous-entry><previous-entry>" "mark for deletion and move up"
+#macro index,pager \ed "<purge-message><previous-entry><previous-entry>" "mark for deletion and move up"
+
+# Tagging and threading
+bind index t tag-thread # is tag-entry
+#bind pager t tag-thread # is tag-entry; not a real command.
+# set auto_tag = yes # so I don't have to use ; when doing commands on tagged messages.
+
+# Querying
+# set query_command="/usr/local/bin/muttqt -q '%s'"
+# bind editor <Tab> complete-query
+# bind editor ^T complete
+
+# Mark read and delete - use "esc a"
+macro index \ea "<enter-command>unset resolve<enter><clear-flag>N<enter-command>set resolve<enter><save-message>=Trash<enter><sync-mailbox>" "mark read and delete"
+
+# Opening links etc
+macro index \cb |urlview 'call urlview to extract URLs out of a message'
+macro pager \cb |urlview 'call urlview to extract URLs out of a message'
+
+# Solarized
+source "~/.mutt/mutt-colors-solarized-dark-16.muttrc"
+
+# HTML emails
+set mailcap_path="~/.mailcap"
+auto_view text/html
+alternative_order text/plain text/html
+
+set alias_file=~/.mutt/aliases
+source $alias_file
+
+
+# Settings from http://www.elho.net/mutt/maildir/
+# set mbox_type=Maildir
+# #set folder="~/Maildir"
+# set mask="!^\\.[^.]"
+# #set mask="^."
+# #set folder="~/gmail2maildir/moacir@gmail.com/Maildir"
+# set folder="~/Mail"
+# set mbox="~/Mail"
+# #set mbox="~/gmail2maildir/moacir@gmail.com/Maildir"
+# set record="+.Sent"
+# set postponed="+.Drafts"
+# #set spoolfile = "~/gmail2maildir/moacir@gmail.com/Maildir"
+# #set spoolfile="/var/mail/moacir"
+# set spoolfile="~/Mail"
+#mailboxes ! + `for file in ~/gmail2maildir/moacir@gmail.com/Maildir/.*\\
+#do box=$(basename "$file")\\
+#if [ ! "$box" = '.' -a ! "$box" = '..' -a ! "$box" = '.customflags' -a ! "$box" = '.subscriptions' ]\\
+#then echo "\"+$box\" "\\
+#fi\\
+#done`
+#mailboxes ! + `sh muttlist.sh`
+#mailboxes `echo -n "+ "; /usr/local/bin/gfind ~/gmail2maildir/moacir@gmail.com/Maildir -maxdepth 1 -type d -name ".*" -printf "+'%f' "`
+# from:
+# http://shreevatsa.wordpress.com/2007/07/31/using-gmail-with-mutt-the-minimal-way/
+#set imap_user = "moacir@gmail.com"
+#set imap_pass = "!P7nch0n!!!"
+#set imap_keepalive = 900
+# set smtp_url = "smtp://moacir@moacir.com@smtp.gmail.com:587/"
+# set smtp_pass = "!P7nch0n!!!"
+#set folder = "imaps://imap.gmail.com:993"
+#set spoolfile = "+INBOX"
+#set postponed = "+[Gmail]/Drafts"
+# set header_cache=~/.mutt/cache/headers
+# set message_cachedir=~/.mutt/cache/bodies
+# set certificate_file=~/.mutt/certificates
+set move = no # Stop asking to "move read messages to mbox"!
+set sort = threads
+set sort_aux = 'last-date-received'
+#set imap_check_subscribed
+# set sendmail="/usr/local/bin/msmtp"
+# ignore "Authentication-Results:"
+# ignore "DomainKey-Signature:"
+# ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+auto_view text/html
+#set alias_file='~/.mutt/aliases'                # automatically saves aliases
+                                                 # to that file
+set allow_8bit					# so I can see furrin' files
+#set alternates=(moacir@.*uchicago.edu|mpdesape@.*uchicago.edu|.*@1984produkts.com|webmaster@.*uchicago.edu|yoshi@mariokart64.uchicago.edu|94mdesapereira@andover.edu|m-de-sa-pereira@uchicago.edu|.*@javljs.com|.*@telocity.com)
+# set ascii_chars
+set edit_hdrs
+# set editor='$EDITOR +8' #  :(
+set fast_reply
+#set hold                                        # doesn't move read mails from
+                                                 # $spoolfile to $mbox
+#set mbox='+inbox'
+#set pager='less' # This would open every email in less, which is not cool.
+set pager_stop                                  # at last page of email, pager
+                                                # stops, instead of jumping
+                                                # immediately ahead
+#set pgp_gpg='/usr/local/bin/gpg'
+#set pgp_default_version=gpg
+#set pgp_long_ids
+set postpone=ask-yes				# postpones msgs to $postpone
+#set query_command="/usr/local/bin/mutt-phquery"
+set recall=yes                                  # prompt for reading postponed
+                                                # mails with "m"
+#set record ="+[Gmail]/Sent Mail"
+set resolve					# hops to next msg after command
+						# is completed
+set reverse_alias				# addresses appear as aliases
+set reverse_name				# make me who I am
+set save_name                                   # saves to folder with the same
+                                                # name as the sender
+set shell=zsh
+set signature="~/.sig" # |"A
+set tmpdir=/tmp                                # where the tmp files go
+#set web_browser='screen lynx %s'
+
+#mailboxes +inbox 
+
+###########
+# Formatting
+###########
+
+set attribution='%F wrote on %d:\n'
+set date_format='%d %B %y'
+set forw_format='%s (fwd)'
+set hdr_format='%4C %Z %{%d %b} %-17.17F (%3l) %s'
+set pager_format='%S [%C/%T] %n (%l) %s'         # courtesy Sven
+set status_format='%v: %f (%s) [%M/%m] [N=%n,*=%t,post=%p,new=%b,del=%d]'
+
+###########
+# Folder hooking. This sets the commands for specific folders.
+###########
+
+folder-hook . set sort=threads # default sort method
+# folder-hook .*Sent.* set sort=reverse-date-recieved
+# folder-hook INBOX set sort=threads
+#source ~/.mutt/fcchooks				# for my private hookers
+
+###########
+# Header Weeding
+###########
+
+ignore received
+ignore message-
+ignore approved-by
+ignore content-
+ignore return-path
+ignore mime-
+ignore sender
+ignore X-Authentication-Warning
+ignore X-listmember
+ignore List-
+
+# #### Sidebar patch
+# # set up the sidebar, default not visible
+# set sidebar_width=12
+# set sidebar_visible=yes
+# set sidebar_delim='|'
+# #set sidebar_sort=yes
+# # which mailboxes to list in the sidebar
+# mailboxes =inbox
+# # color of folders with new mail
+# color sidebar_new yellow default
+# # ctrl-n, ctrl-p to select next, prev folder
+# # ctrl-o to open selected folder
+# bind index CP sidebar-prev
+# bind index CN sidebar-next
+# bind index CO sidebar-open
+# bind pager CP sidebar-prev
+# bind pager CN sidebar-next
+# bind pager CO sidebar-open
+# # sidebar-scroll-up
+# # sidebar-scroll-down
+# # b toggles sidebar visibility
+# macro index b '<enter-command>toggle sidebar_visible<enter>'
+# macro pager b '<enter-command>toggle sidebar_visible<enter>'
+# # Remap bounce-message function to "B"
+# bind index B bounce-message
+
+############
+# Key Bindings
+############
+
+bind index p previous-undeleted 		# was print
+bind index n next-undeleted			# was search-next
+bind index N search-next			# was toggle-new
+bind index e save-message			# was nothing
+bind browser \Spc next-page
+## Also from http://www.elho.net/mutt/maildir/
+#macro index c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+#macro pager c "<change-folder>?<toggle-mailboxes>" "open a different folder"
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+macro compose A "<attach-message>?<toggle-mailboxes>" "attach message(s) to this message"
+
+# Last, but not least, get mutt to display its version on startup.
+push V
+
+############
+# Aliases (I keep my aliases private, but here's one for starters)
+############
+
+alias usite usite@listhost.uchicago.edu (Usite Mailing List)
+
+#source ~/.mutt/aliases
+
+#############
+# Lists (Yeah, I'm on a few)
+#############
+
+# ACS Email lists
+lists tech-gang				# Usite Tech-Gang
+lists usite				# Usite discussion
+lists reg-cluster			# Regenstein Cluster Trouble
+lists crerar-cluster			# Crerar Cluster Trouble
+
+# Extracurricular lists
+
+lists dsa				# Democratic Socialists Announce
+lists dsa.d				# Democratic Socialists Discussion
+lists editors				# Maroon Editors
+lists mailman-users
+
+# Personal lists
+
+#source ~/.mutt/lists
+
+macro pager <ESC>z \
+	":set pager_index_lines=0\n:macro pager z <ESC>Z \"toggle zoom\"\n"
+macro pager <ESC>Z \
+	":set pager_index_lines=10\n:macro pager z <ESC>z \"toggle zoom\"\n"
+macro pager z <ESC>z "toggle zoom"
+
+# Stuff added by the government follows
+
+# imitate the old search-body function
+macro index \eb '/~b ' 'search in message bodies'
+#macro index \/ '/~b ' 'search in message bodies' #This causes a loop
+macro pager \er "| tr a-zA-Z n-za-mN-ZA-M | less"
+
+# to kill off email addresses
+#macro index \ck "| /home/moacir/bin/killer"
+#macro pager \ck "| /home/moacir/bin/killer"
+
+# set abort_nosubject=ask-yes
+# set abort_unmodified=yes
+# set alias_file="~/.muttrc"
+# set alias_format=""%2n %t %-10a   %r"
+# set allow_8bit
+# set alternates=""
+# unset arrow_cursor
+# unset ascii_chars
+# unset askbcc
+# unset askcc
+# set attach_format="%u%D%t%2n %T%.40d%> [%.7m/%.10M, %.6e, %s] "
+# set attach_split
+# set attach_sep="\n"
+# set attribution="On %d, %n wrote:"
+# unset autoedit
+# unset auto_tag
+# set beep
+# set beep_new
+# set charset="iso-8859-1"
+# set check_new
+# set collapse_unread
+# set confirmappend
+# set confirmcreate
+# set copy=yes
+# set date_format="!%a, %b %d, %Y at %I:%M:%S%p %Z"
+# set default_hook="~f %s !~P | (~P ~C %s)"
+# set delete=ask-yes
+# set dsn_notify=""
+# set dsn_return=""
+# unset edit_headers
+# set editor=""
+# set escape="~"
+# unset fast_reply
+# unset fcc_attach
+# set folder="~/Mail"
+# set folder_format="%N %F %2l %-8.8u %-8.8g %8s %d %f"
+# set followup_to
+# unset force_name
+# set forward_decode
+# unset forward_decrypt
+# set forward_format="[%a: %s]"
+# unset forward_quote
+# set hdrs
+# unset header
+# set help
+# unset hidden_host
+# set history=10
+# set hostname=""
+# set in_reply_to="%i; from %n on %{!%a, %b %d, %Y at %I:%M:%S%p %Z}"
+# set include=ask-yes
+# set indent_string="> "
+# set index_format="%4C %Z %{%b %d} %-15.15L (%4l) %s"
+# unset ignore_list_rely_to
+# set ispell="/usr/bin/ispell"
+# set locale="C"
+# set mail_check=5
+# set mailcap_path=""
+# set mark_old
+# set markers
+# set mask="!^\\.[^.]"
+# set mbox="~/mbox"
+# set mbox_type="mbox"
+# unset metoo
+# unset menu_scroll
+# unset meta_key
+# unset mh_purge
+# unset mime_forward
+# unset mime_forward_decode
+# set move=ask-no
+# set message_format="%s"
+# set pager="builtin"
+# unset pager_context
+# set pager_format="-%S- %C/%m: %-20.20n   %s"
+# set pager_index_lines=0
+# unset pager_stop
+# unset pip_split
+# unset pipe_decode
+# set pipe_sep="\n"
+# set post_indent_string=""
+# set postpone=ask-yes
+# set postponed="~/postponed"
+# set print=ask-no
+# set print_command="lpr"
+# set prompt_after=1
+# set quit=yes
+# set quote_regexp="^([ \t]*[|>:}#])+"
+# set reply_regexp="^(re([\\[0-9\\]+])*|aw):[ \t]*"
+# set read_inc=10
+# unset read_only
+# set realname=""
+# set recall=ask-yes
+# set record=""
+# unset reply_self
+# set reply_to=ask-yes
+# set resolve
+# unset reverse_alias
+# unset reverse_name
+# unset save_address
+# set save_empty
+# unset save_name
+# set sendmail_wait=0
+# set shell=""
+# set sig_dashes
+# set signature="~/.signature"
+# set simple_search="~f %s | ~s %s"
+# set smart_wrap
+# set smileys="(>From )|(:[-^]?[][)(><}{|/DP])"
+# set sort=date-sent
+# set sort_alias=alias
+# set sort_aux=date-sent
+# set sort_browser=subject
+# set sort_re
+# set spoolfile=""
+# set status_chars="-*%A"
+# set status_format="-%r-Mutt: %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d?%?F? Flag:%F?%?t? Tag:%t?%?p? Post:%p?%?b? Inc:%b?%?l? %l?]---(%s/%S)-%>-(%P)---"
+# unset status_on_top
+# unset strict_threads
+# set suspend
+# unset thorough_search
+# unset tilde
+# set timeout=600
+# set tmpdir=""
+# set to_chars="+TCF"
+# unset uncollapse_jump
+# unset use_8bitmime
+# set use_domain
+# set use_from
+# set use_mailcap
+# set visual=""
+# set wait_key
+# set wrap_search
+# set write_bcc
+# set write_inc=10
+
+## The following options are only vaild if you have
+## compiled in IMAP support
+
+# set imap_user=""
+# set imap_pass=""
+# set imap_checkinterval=""
+
+## The following options are only valid if you have 
+## compiled in PGP support
+
+# unset pgp_autosign
+# unset pgp_autoencrypt
+# set pgp_encryptself
+# unset pgp_long_ids
+# unset pgp_replyencrypt
+# unset pgp_replysign
+# set pgp_sign_as=""
+# set pgp_sign_micalg="pgp-md5"
+# set pgp_strict_enc
+# set pgp_timeout=300
+# set pgp_verify_sig=yes
+
+# set pgp_v2="/usr/local/bin/pgp"
+# set pgp_v2_language="en"
+# set pgp_v2_pubring=""
+# set pgp_v2_secring=""
+
+# set pgp_v5="no"
+# set pgp_v5_language=""
+# set pgp_v5_pubring=""
+# set pgp_v5_secring=""
+
+# set pgp_default_version="pgp2" # (Not really the default, but...)
+
+# Here, "default" means the value of $pgp_default_version:
+
+# set pgp_receive_version="default"
+# set pgp_key_version="default"
+# set pgp_send_version="default"
+
+## The following options are only available if you have
+## compiled in POP support
+
+# unset pop_delete
+# set pop_host=""
+# set pop_port=110
+# set pop_pass=""
+# set pop_user=""
+# unset pop_last
