@@ -3,6 +3,11 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/moacir/.oh-my-zsh
 
+# Fire up completions: https://docs.brew.sh/Shell-Completion
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
 source .zsh/solarized
 
 # Set name of the theme to load.
@@ -15,7 +20,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 DEFAULT_USER="moacir"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rvm root_indicator background_jobs history)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history)
 
 POWERLEVEL9K_RVM_BACKGROUND='black'
 POWERLEVEL9K_RVM_FOREGROUND='brcyan'
