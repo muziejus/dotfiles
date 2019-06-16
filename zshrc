@@ -8,7 +8,7 @@ if type brew &>/dev/null; then
   FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 fi
 
-source .zsh/solarized
+source ~/.zsh/solarized
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -114,3 +114,9 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 # export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
 source ~/.bin/tmuxinator.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/moacir/Desktop/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/moacir/Desktop/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/moacir/Desktop/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/moacir/Desktop/google-cloud-sdk/completion.zsh.inc'; fi
