@@ -9,6 +9,10 @@ set showcmd " display incomplete commands
 set incsearch " incremental searching ?
 "set noautochdir " Stop changing working directories on me.
 
+"stop saving swp to watched directories.
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swp//
+
 " Colors
 syntax enable " syntax highlighting
 set t_Co=256 "force vim to use 256 colors
@@ -48,6 +52,7 @@ autocmd FileType Markdown,vimwiki,pandoc,mkd,text,tex,plaintex,mail setlocal spe
 autocmd FileType Markdown,vimwiki,pandoc,mkd,text,tex,plaintex,mail call textobj#quote#init()
 autocmd FileType Markdown,vimwiki,pandoc,mkd,text,tex,plaintex,mail call textobj#sentence#init()
 autocmd FileType html setlocal spell spelllang=en_us "foldmethod=syntax foldlevel=1
+autocmd Filetype javascript,json if getfsize(@%) > 10000 | setlocal syntax=OFF | endif
 "autocmd FileType javascript,ruby,json " setlocal foldmethod=syntax foldlevel=0 foldlevelstart=2  as opposed to fold by indent.
 
 " Folding
@@ -97,6 +102,8 @@ Plug 'nathanaelkane/vim-indent-guides', { 'for': ['javascript', 'python', 'json'
 Plug 'vim-syntastic/syntastic', { 'for': ['ruby', 'python'] }
 Plug 'xojs/vim-xo'
 Plug 'w0rp/ale'
+Plug 'jparise/vim-graphql'
+Plug 'jxnblk/vim-mdx-js'
 " Autocomplete
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
