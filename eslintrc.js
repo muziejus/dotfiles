@@ -190,7 +190,7 @@ module.exports = exports = {
       "operator-linebreak": [ WARN, "after" ],
       "padded-blocks": [ WARN, "never" ],
       "quote-props": [ WARN, "consistent-as-needed" ],
-      "quotes": [ WARN, "single" ],
+      "quotes": [ WARN, "double" ],
       "require-jsdoc": [ WARN, {
           "require": {
               "FunctionDeclaration": true,
