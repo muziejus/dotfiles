@@ -54,6 +54,7 @@ autocmd FileType Markdown,vimwiki,pandoc,mkd,text,tex,plaintex,mail call textobj
 autocmd FileType html setlocal spell spelllang=en_us "foldmethod=syntax foldlevel=1
 autocmd Filetype javascript,json if getfsize(@%) > 10000 | setlocal syntax=OFF | endif
 "autocmd FileType javascript,ruby,json " setlocal foldmethod=syntax foldlevel=0 foldlevelstart=2  as opposed to fold by indent.
+autocmd BufNewFile,BufRead firestore.rules set filetype=firestore
 
 " Folding
 autocmd Syntax javascript,ruby,json,html setlocal foldmethod=syntax foldlevel=1 foldlevelstart=2
@@ -81,6 +82,7 @@ Plug 'chrisbra/NrrwRgn' " Create narrow regions
 Plug 'ctrlpvim/ctrlp.vim' " Find things
 Plug 'majutsushi/tagbar' " More tagging
 " Plug 'jonstoler/werewolf.vim'
+Plug 'Konfekt/vim-sentence-chopper'
 """ Text
 Plug 'kana/vim-textobj-user' " define textobjs easily
 Plug 'reedes/vim-textobj-quote' " for curly quotes
@@ -104,19 +106,13 @@ Plug 'xojs/vim-xo'
 Plug 'w0rp/ale'
 Plug 'jparise/vim-graphql'
 Plug 'jxnblk/vim-mdx-js'
+Plug 'leafgarland/typescript-vim'
+Plug 'delphinus/vim-firestore'
 " Autocomplete
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 " Plug 'mattn/emmet-vim' " Snippets with <c-y>,
 """ This is way too much IDE shit to get Javascript to work.
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 " Plug 'wokalski/autocomplete-flow'
 " Plug 'Shougo/neosnippet'
 " Plug 'Shougo/neosnippet-snippets'
@@ -125,6 +121,7 @@ Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'joukevandermaas/vim-ember-hbs'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 """ Filesystem
 " Plug 'wincent/command-t' " can't get the ruby library to linkup.
 Plug 'tpope/vim-projectionist'
@@ -256,6 +253,31 @@ let g:markdown_fenced_languages = ['html', 'javascript', 'ruby', 'python']
 " Utl
 nmap <F4> :Utl o u vsplit<cr>
  
+" CoC / Intellisense
+
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-css',
+  \ 'coc-json',
+  \ 'coc-html',
+  \ 'coc-vimlsp',
+  \ 'coc-highlight',
+  \ 'coc-ember'
+\ ]
+" Better display for messages
+" set cmdheight=2
+" You will have bad experience for diagnostic messages when it's default 4000.
+" set updatetime=300
+" don't give |ins-completion-menu| messages.
+" set shortmess+=c
+" always show signcolumns
+" set signcolumn=yes
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" vim-firestore
+let g:vim_firestore_warnings = 0
 
 " ale
 let g:ale_linters = {
@@ -268,14 +290,15 @@ let g:ale_lint_on_enter = 0
 " This breaks html fixes.
 " let g:ale_fix_on_save = 1
 
-" tern
-" Whether to include the types of the completions in the result data. Default: 0
-let g:deoplete#sources#ternjs#types = 1
-
 " ctrl-p
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
+
+" sentence-chopping
+nmap zy <plug>(ChopSentences)
+xmap zy <plug>(ChopSentences)
+onoremap <silent> . :<c-u>call search('\v\C%(%([^[:digit:]IVX]\|[)''"])\zs[.]\|[,;:!?])[[:space:])''"]\|[.,;:!?]$','W')<CR>
 
 " Spare functions
 
@@ -294,3 +317,9 @@ function! MarkdownLevel()
         return ">" . len(h) 
     endif
 endfunction
+
+function! MyFormatExpr(start, end)
+    silent execute a:start.','.a:end.'s/[.!?]\zs /\r/g'
+endfunction
+
+" set formatexpr=MyFormatExpr(v:lnum,v:lnum+v:count-1)
