@@ -13,20 +13,6 @@ set incsearch " incremental searching ?
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swp//
 
-" Colors
-syntax enable " syntax highlighting
-set t_Co=256 "force vim to use 256 colors
-" let g:werewolf_day_themes = ['PaperColor']
-" let g:werewolf_night_themes = ['solarized']
-" let g:werewolf_day_start = 7
-" let g:werewolf_day_end = 17
-colorschem solarized
-if strftime("%H") < 17
-  set background=light
-else
-  set background=dark
-endif
-
 " General Keymappings
 set backspace=indent,eol,start " backspace kills all in insert
 set pastetoggle=<F2> " make it easier to paste code.
@@ -52,7 +38,7 @@ autocmd FileType Markdown,vimwiki,pandoc,mkd,text,tex,plaintex,mail setlocal spe
 autocmd FileType Markdown,vimwiki,pandoc,mkd,text,tex,plaintex,mail call textobj#quote#init()
 autocmd FileType Markdown,vimwiki,pandoc,mkd,text,tex,plaintex,mail call textobj#sentence#init()
 autocmd FileType html setlocal spell spelllang=en_us "foldmethod=syntax foldlevel=1
-autocmd Filetype javascript,json if getfsize(@%) > 10000 | setlocal syntax=OFF | endif
+autocmd Filetype javascript,json if getfsize(@%) > 20000 | setlocal syntax=OFF | endif
 "autocmd FileType javascript,ruby,json " setlocal foldmethod=syntax foldlevel=0 foldlevelstart=2  as opposed to fold by indent.
 autocmd BufNewFile,BufRead firestore.rules set filetype=firestore
 
@@ -70,6 +56,9 @@ set exrc " allows for project-specific vimrcs.
 
 """ Plugins
 call plug#begin('~/.vim/plugged')
+Plug 'mhinz/vim-startify'
+Plug 'lifepillar/vim-solarized8'
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
@@ -129,6 +118,30 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 call plug#end()
 " Plugin 'vim-pandoc/vim-pandoc'
 " Plugin 'vim-pandoc/vim-pandoc-syntax' 
+
+" Colors
+syntax enable " syntax highlighting
+set t_Co=256 "force vim to use 256 colors
+" let g:werewolf_day_themes = ['PaperColor']
+" let g:werewolf_night_themes = ['solarized']
+" let g:werewolf_day_start = 7
+" let g:werewolf_day_end = 17
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+colorschem solarized8
+if strftime("%H") < 17
+  set background=light
+else
+  set background=dark
+endif
+
+" Printing
+set printfont=Ubuntu
+set printencoding=utf-8
+set printoptions="paper:letter,number:y"
+
+
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
@@ -218,7 +231,7 @@ let g:mustache_abbreviations = 1
 " let twitvim_old_retweet = 1
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Dropbox/notes/', 'syntax': 'markdown'}]
+let g:vimwiki_list = [{'path': '~/Library/Mobile Documents/com~apple~CloudDocs/notes', 'syntax': 'markdown'}]
 " let wiki.nested_syntaxes = {'ruby': 'ruby', 'python': 'python', 'javascript': 'javascript'}
 
 " autosave when loses focus
@@ -275,6 +288,18 @@ let g:coc_global_extensions = [
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
+" vim-startify
+let g:startify_custom_header = [
+    \ '    ██╗   ██╗██╗███╗   ███╗      ███████╗██╗███████╗███████╗████████╗ █████╗ ',
+    \ '    ██║   ██║██║████╗ ████║      ██╔════╝██║██╔════╝██╔════╝╚══██╔══╝██╔══██╗',
+    \ '    ██║   ██║██║██╔████╔██║█████╗█████╗  ██║█████╗  ███████╗   ██║   ███████║',
+    \ '    ╚██╗ ██╔╝██║██║╚██╔╝██║╚════╝██╔══╝  ██║██╔══╝  ╚════██║   ██║   ██╔══██║',
+    \ '     ╚████╔╝ ██║██║ ╚═╝ ██║      ██║     ██║███████╗███████║   ██║   ██║  ██║',
+    \ '      ╚═══╝  ╚═╝╚═╝     ╚═╝      ╚═╝     ╚═╝╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝',
+    \ ]
+                                                                         
+
 
 " vim-firestore
 let g:vim_firestore_warnings = 0
