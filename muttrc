@@ -9,10 +9,10 @@ source ~/.mutt/account.com.fastmail.moacir
 # source ~/.mutt/account.edu.columbia.mpd2149
 
 # Macros for switching accounts
-macro index <f4> '<sync-mailbox><enter-command>\
+macro index,pager <F4> '<sync-mailbox><enter-command>\
   source ~/.mutt/account.com.fastmail.moacir\
   <enter><change-folder>!<enter>'
-macro index <f5> '<sync-mailbox><enter-command>\
+macro index,pager <F5> '<sync-mailbox><enter-command>\
   source ~/.mutt/account.edu.columbia.mpd2149\
   <enter><change-folder>!<enter>'
 
