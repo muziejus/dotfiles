@@ -28,6 +28,9 @@ export RAILS_ENV=development
 
 export WANDERTEXT_DEV_COUCHDB=http://admin:admin@127.0.0.1:5984/wandertext
 
+# So gpg knows where to prompt for a password
+export GPG_TTY=$(tty)
+
 #umask 077  #sets default file protection to rwx for owner
 
 export REPLYTO=moacir@moacir.com

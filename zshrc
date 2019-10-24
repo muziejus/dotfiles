@@ -121,3 +121,6 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then . '/usr/local/google-
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
 eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
+
+# added by travis gem
+[ -f /Users/moacir/.travis/travis.sh ] && source /Users/moacir/.travis/travis.sh
