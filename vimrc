@@ -23,6 +23,9 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 map Q gq " don't use Ex mode
+nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p ")<CR><Esc>
+imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p ")<CR>
+" map <F3> :r!date +"\%Y-\%m-\%d \%H:\%M:\%S"
 nnoremap n nzz
 nnoremap N Nzz
 nnoremap * *zz
