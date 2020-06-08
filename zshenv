@@ -6,7 +6,7 @@
 #                       #
 #########################
 
-# export TERM=xterm-256color
+export TERM=xterm-256color 
 
 export HOME=/Users/moacir
 export zpath=$HOME/.zsh
@@ -19,9 +19,12 @@ export PYTHONPATH="/Applications/QGIS3.6.app/Contents/Resources/python/"
 # export LANG=lt_LT.UTF-8
 # export LC_CTYPE=lt_LT.UTF-8
 # export LANGUAGE=lt_LT.UTF-8
-export LANG=fr_FR.UTF-8
-export LC_CTYPE=fr_FR.UTF-8
-export LANGUAGE=fr_FR.UTF-8
+# export LANG=fr_FR.UTF-8
+# export LC_CTYPE=fr_FR.UTF-8
+# export LANGUAGE=fr_FR.UTF-8
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
 
 #export RAILS_ENV=local
 export RAILS_ENV=development
