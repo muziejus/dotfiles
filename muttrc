@@ -5,8 +5,8 @@
 ###########
 
 # Default account
-source ~/.mutt/account.com.fastmail.moacir
-# source ~/.mutt/account.edu.columbia.mpd2149
+# source ~/.mutt/account.com.fastmail.moacir
+source ~/.mutt/account.edu.columbia.mpd2149
 
 # Macros for switching accounts
 macro index,pager <F4> '<sync-mailbox><enter-command>\
