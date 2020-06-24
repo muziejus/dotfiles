@@ -282,7 +282,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-vimlsp',
   \ 'coc-ember',
-  \ 'coc-tailwindcss'
+  \ 'coc-tailwindcss',
+  \ 'coc-markdownlint'
 \ ]
 
 " Better display for messages
