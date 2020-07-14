@@ -424,6 +424,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " vim-startify
+set viminfo='100,n$HOME/.vim/files/info/viminfo
 let g:startify_custom_header = [
     \ '    ██╗   ██╗██╗███╗   ███╗      ███████╗██╗███████╗███████╗████████╗ █████╗ ',
     \ '    ██║   ██║██║████╗ ████║      ██╔════╝██║██╔════╝██╔════╝╚══██╔══╝██╔══██╗',
@@ -482,3 +483,4 @@ function! MyFormatExpr(start, end)
 endfunction
 
 " set formatexpr=MyFormatExpr(v:lnum,v:lnum+v:count-1)
+

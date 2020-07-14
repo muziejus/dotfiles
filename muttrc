@@ -4,9 +4,12 @@
 # Settings
 ###########
 
-# Default account
-# source ~/.mutt/account.com.fastmail.moacir
+# Accounts
+source ~/.mutt/account.com.fastmail.moacir
+folder-hook $folder 'source ~/.mutt/account.com.fastmail.moacir'
+
 source ~/.mutt/account.edu.columbia.mpd2149
+folder-hook $folder 'source ~/.mutt/account.edu.columbia.mpd2149'
 
 # Macros for switching accounts
 macro index,pager <F4> '<sync-mailbox><enter-command>\
@@ -16,6 +19,14 @@ macro index,pager <F5> '<sync-mailbox><enter-command>\
   source ~/.mutt/account.edu.columbia.mpd2149\
   <enter><change-folder>!<enter>'
 
+# Main options
+set envelope_from
+unset confirmappend
+set quit
+unset mark_old
+set pipe_decode
+set thorough_search
+set timeout = 0
 
 #set abort_unmodified=no
 
@@ -25,10 +36,9 @@ source "~/.mutt/mutt-colors-solarized-dark-16.muttrc"
 ## Attachments and HTML
 macro attach W "<save-entry><bol>~/Desktop/<eol>" "Save to desktop"
 macro pager \cb |urlview\n 'call urlview to extract URLs out of a message'
-set mailcap_path="~/.mailcap"
-auto_view text/html image/gif
-# alternative_order text/plain text/html
-alternative_order text/plain text/html image/*
+set mailcap_path="~/.mutt/mailcap"
+auto_view text/html text/calendar application/ics #image/gif
+alternative_order text/html text/plain text/enriched text/*
 set markers=no # Adds "+" at line wrap.
 set wrap=78
 
@@ -36,12 +46,28 @@ set wrap=78
 set alias_file=~/.mutt/aliases
 source $alias_file
 
-## Editing
+## Composing
 set editor = "vim +8 %s"
 set edit_headers
-set attribution='%F wrote on %d:\n'
 set date_format='%F'
+set askcc
+set fcc_attach
+set text_flowed
+unset mime_forward # forward attachments in body
+
+## Replying & forwarding
+set attribution='%F wrote on %d:\n'
+set reply_to
 set fast_reply
+set include # message in reply
+set forward_format = "Fwd: %s"
+set forward_decode
+set forward_quote # message in forward
+alternates ^moacir.p@columbia.edu$ ^mpd2149@columbia.edu$ @moacir.com$
+set reverse_name
+# set reverse_realname=yes
+# set use_from
+
 
 ## Binding
 bind index G last-entry
@@ -146,10 +172,6 @@ macro index C '<change-folder>!<enter>'
 #                                                 # to that file
 #set allow_8bit					# so I can see furrin' files
 ##set alternates=(moacir@.*uchicago.edu|mpdesape@.*uchicago.edu|.*@1984produkts.com|webmaster@.*uchicago.edu|yoshi@mariokart64.uchicago.edu|94mdesapereira@andover.edu|m-de-sa-pereira@uchicago.edu|.*@javljs.com|.*@telocity.com)
-alternates ^moacir.p@columbia.edu$ ^mpd2149@columbia.edu$ @moacir.com$
-set reverse_name=yes
-set reverse_realname=yes
-set use_from
 ## set ascii_chars
 #set edit_hdrs
 ## set editor='$EDITOR +8' #  :(

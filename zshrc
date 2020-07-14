@@ -16,7 +16,7 @@ source ~/.zsh/solarized
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="agnoster"
 POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 DEFAULT_USER="moacir"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir vcs)
@@ -110,7 +110,7 @@ export LESS="-x2"
 
 # For goofy EC2
 #
-export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME=$(/usr/libexec/java_home)
 # export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
 source ~/.bin/tmuxinator.zsh
@@ -135,3 +135,6 @@ export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export VOLTA_HOME="/Users/moacir/.volta"
 grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
