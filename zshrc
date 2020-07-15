@@ -125,12 +125,8 @@ if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then . '/usr/local/g
 # added by travis gem
 [ -f /Users/moacir/.travis/travis.sh ] && source /Users/moacir/.travis/travis.sh
 
-
-
+export PATH="/Users/moacir/d-preparation/scripts:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-
-
-
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export VOLTA_HOME="/Users/moacir/.volta"
