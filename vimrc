@@ -18,7 +18,9 @@ set directory=~/.vim/swp//
 " General Keymappings
 set backspace=indent,eol,start " backspace kills all in insert
 set pastetoggle=<F2> " make it easier to paste code.
-let mapleader="," " this removes backward f/t search
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+" let mapleader="," " this removes backward f/t search
 let maplocalleader="\\"
 set expandtab " to get a real tab, type Ctrl-V<Tab>
 set tabstop=2
@@ -44,14 +46,13 @@ autocmd FileType Markdown,vimwiki,pandoc,mkd,text,tex,plaintex,mail call textobj
 autocmd FileType Markdown,vimwiki,pandoc,mkd,text,tex,plaintex,mail call textobj#sentence#init()
 autocmd FileType html setlocal spell spelllang=en_us "foldmethod=syntax foldlevel=1
 autocmd Filetype javascript,json if getfsize(@%) > 20000 | setlocal syntax=OFF | endif
-"autocmd FileType javascript,ruby,json " setlocal foldmethod=syntax foldlevel=0 foldlevelstart=2  as opposed to fold by indent.
 autocmd BufNewFile,BufRead firestore.rules set filetype=firestore
 autocmd FileType json syntax match Comment +\/\/.\+$+ " Allow commenting for jsonc files.
 
-" Folding
-autocmd Syntax javascript,ruby,json,html setlocal foldmethod=syntax foldlevel=1 foldlevelstart=2
-" let g:vimwiki_folding = 'custom'
-let g:vimwiki_folding = 'expr'
+" Folding - see also vim-markdown
+autocmd Syntax javascript,ruby,json,html setlocal foldmethod=syntax foldlevel=2 foldlevelstart=3
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 
 " Spelling
 hi clear SpellBad " change look of misspelled words
@@ -60,10 +61,14 @@ hi link SpellBad Special
 " Colaboration
 set exrc " allows for project-specific vimrcs.
 
+" Get CoC to play with ALE before the plugins are launched.
+let g:ale_disable_lsp = 1
+
 """ Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-startify'
 Plug 'lifepillar/vim-solarized8'
+Plug 'morhetz/gruvbox'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -93,7 +98,7 @@ Plug 'airblade/vim-gitgutter' " shows changes in gutter
 Plug 'tpope/vim-fugitive' " Git wrapper.
 """ Syntax
 Plug 'tpope/vim-commentary' " creates gcc for commenting things
-Plug 'tpope/vim-endwise' " for adding an 'end' do a ruby 'do'
+" Plug 'tpope/vim-endwise' " for adding an 'end' do a ruby 'do'
 Plug 'tpope/vim-ragtag' " ^x mappings for editing xml
 Plug 'nathanaelkane/vim-indent-guides', { 'for': ['javascript', 'python', 'json', 'ruby'] } " Creates indent guides
 Plug 'vim-syntastic/syntastic', { 'for': ['ruby', 'python'] }
@@ -136,12 +141,13 @@ set t_Co=256 "force vim to use 256 colors
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-colorschem solarized8
-if strftime("%H") < 17
-  set background=light
-else
+" colorschem solarized8
+colorschem gruvbox
+" if strftime("%H") < 17
+"   set background=light
+" else
   set background=dark
-endif
+" endif
 
 " Printing
 set printfont=Ubuntu
@@ -152,6 +158,13 @@ set printoptions="paper:letter,number:y"
 
 " Autocomplete
 let g:deoplete#enable_at_startup = 1
+
+" fugitive (from https://www.youtube.com/watch?v=PO6DxfGPQvw)
+nmap <leader>gs :G<CR>
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
+nmap <leader>gc :Git commit<CR>
+nmap <leader>gpom :Git push origin main<CR>
 
 " Splits
 nnoremap <C-J> <C-W><C-J>
@@ -179,10 +192,13 @@ let g:airline#extensions#ale#enabled = 1
 set laststatus=2 " startsup airline
 
 " Vim-markdown
-" https://github.com/gabrielelana/vim-markdown
 let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_folding_level = 2
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_new_list_item_indent = 2
+" let g:vim_markdown_folding_disabled=1
+let g:markdown_fenced_languages = ['html', 'javascript', 'ruby', 'python']
+
 
 " syntastic
 " https://github.com/vim-syntastic/syntastic
@@ -214,9 +230,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 
 
-" set folding
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-vnoremap <Space> zf
 
 " Vim-notes
 let g:notes_directories = ['~/Documents/Notes', '~/Dropbox/Shared Notes']
@@ -238,7 +251,8 @@ let g:mustache_abbreviations = 1
 " let twitvim_old_retweet = 1
 
 " vimwiki
-let g:vimwiki_list = [{'path': '~/Library/Mobile Documents/com~apple~CloudDocs/notes', 'syntax': 'markdown'}]
+let g:vimwiki_list = [{'path': '/Users/moacir/Dropbox/notes', 'syntax': 'markdown', 'ext': '.md'}]
+" let g:vimwiki_list = [{'path': '/Users/moacir/Library/Mobile\ Documents/com\~apple\~CloudDocs/notes', 'syntax': 'markdown'}]
 " let wiki.nested_syntaxes = {'ruby': 'ruby', 'python': 'python', 'javascript': 'javascript'}
 
 " autosave when loses focus
@@ -266,25 +280,21 @@ au BufEnter /private/tmp/crontab.* setl backupcopy=yes
 " let g:UltiSnipsEditSplit="vertical"
 " let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
-" vim-markdown
-let g:vim_markdown_folding_disabled=1
-let g:markdown_fenced_languages = ['html', 'javascript', 'ruby', 'python']
-
 " Utl
 nmap <F4> :Utl o u vsplit<cr>
  
 " CoC / Intellisense
 let g:coc_global_extensions = [
-  \ 'coc-css',
   \ 'coc-highlight',
   \ 'coc-html',
   \ 'coc-json',
   \ 'coc-tsserver',
   \ 'coc-vimlsp',
   \ 'coc-ember',
-  \ 'coc-tailwindcss',
   \ 'coc-markdownlint'
 \ ]
+"\ 'coc-css',
+"\ 'coc-tailwindcss',
 
 " Better display for messages
 " set cmdheight=2
@@ -320,11 +330,8 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
 " <cr> could be remapped by other vim plugin, try `:verbose imap <CR>`.
-" if exists('*complete_info')
-"   inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-" else
-"   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" endif
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -442,6 +449,7 @@ let g:vim_firestore_warnings = 0
 " ale
 let g:ale_linters = {
 \   'javascript': ['xo'],
+\   'css': ['stylelint'],
 \}
 " let g:ale_linters_explicit = 1
 let g:ale_fixers = ['prettier', 'xo']
@@ -449,6 +457,11 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 " This breaks html fixes.
 " let g:ale_fix_on_save = 1
+" let g:ale_sign_error = '⚠️' "Less aggressive than the default '>>'
+" let g:ale_sign_warning = '💡'
+let g:ale_css_stylelint_options = '--config ~/.stylelintrc.js'
+
+
 
 " ctrl-p
 let g:ctrlp_map = '<c-p>'
