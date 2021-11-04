@@ -7,6 +7,7 @@ o.pastetoggle = "<F2>" -- make it easier to paste code
 o.showmode = false -- hide redundant "-- INSERT --"
 o.splitbelow = true -- make :sp open below
 o.splitright = true -- make :vs open to the right
+o.termguicolors = true -- make more subtle coloring available
 
 -- Window options
 wo.number = true -- line numbers

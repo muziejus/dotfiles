@@ -1,13 +1,9 @@
+require("plugins") -- lua/plugins.lua
 require("settings") -- lua/settings.lua
 require("maps") -- lua/maps.lua
 
 --[[
 "" Use vim stuff?
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"let &packpath = &runtimepath
-"" source ~/.vimrc
-"
-"set nu " Line numbers
 "" set cursorline " highlight current line
 "" set noautochdir " Stop changing working directories on me.
 "
@@ -15,29 +11,6 @@ require("maps") -- lua/maps.lua
 "" nvim should set these by default to something similar
 "" set backupdir=~/.vim/backup//
 "" set directory=~/.vim/swp//
-"
-"""" Keymappings
-"set pastetoggle=<F2> " make it easier to paste code.
-"nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p ")<CR><Esc>
-"imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p ")<CR>
-"" map <F3> :r!date +"\%Y-\%m-\%d \%H:\%M:\%S"
-"nnoremap <SPACE> <Nop>
-"let mapleader=" "
-"let maplocalleader="\\"
-"set expandtab " to get a real tab, type Ctrl-V<Tab>
-"" Center search results
-"nnoremap n nzz
-"nnoremap N Nzz
-"nnoremap * *zz
-"nnoremap # #zz
-"nnoremap g* g*zz
-"nnoremap g# g#zz
-"nnoremap G Gzz
-"
-"""" Tabs
-"set tabstop=2
-"set softtabstop=2
-"set shiftwidth=2
 "
 """" Filetypes
 "" autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
@@ -49,40 +22,6 @@ require("maps") -- lua/maps.lua
 "" autocmd BufNewFile,BufRead firestore.rules set filetype=firestore
 "" autocmd FileType json syntax match Comment +\/\/.\+$+ " Allow commenting for jsonc files.
 "
-"""" Plugins
-"call plug#begin('~/.vim/plugged')
-"" Editing
-"  Plug 'thinca/vim-visualstar'
-"" Look and Feel
-"  Plug 'arcticicestudio/nord-vim'
-"  Plug 'itchyny/lightline.vim'
-"  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-"" Org
-"  Plug 'vimwiki/vimwiki'
-"" Syntax
-"  Plug 'tpope/vim-commentary' " creates gcc for commenting things
-"" Git
-"  Plug 'airblade/vim-gitgutter' " shows changes in gutter
-"  Plug 'tpope/vim-fugitive' " Git wrapper.
-"" Autocomplete
-"  Plug 'neovim/nvim-lspconfig'
-"" Filesystem
-"  Plug 'tpope/vim-projectionist'
-"  Plug 'preservim/nerdtree'
-"  Plug 'Xuyuanp/nerdtree-git-plugin'
-"  Plug 'ryanoasis/vim-devicons'
-"call plug#end()
-"
-"colorscheme nord
-"
-"" Splits
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
-"" change the directions of new splits
-"set splitbelow
-"set splitright
 "" tmux_navigator things
 "" let g:tmux_navigator_no_mappings = 1
 "" nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
@@ -117,19 +56,7 @@ require("maps") -- lua/maps.lua
 "require'lspconfig'.html.setup{}
 "require'lspconfig'.ember.setup{}
 "EOF
-"" lightline
-"set noshowmode "get rid of rendundant -- INSERT --
-"let g:lightline = {
-"  \ 'colorscheme': 'nord'
-"  \ }
-"" fugitive (from https://www.youtube.com/watch?v=PO6DxfGPQvw)
-"nmap <leader>gs :G<CR>
-"nmap <leader>gh :diffget //3<CR>
-"nmap <leader>gu :diffget //2<CR>
-"nmap <leader>gc :Git commit<CR>
-"nmap <leader>gpom :Git push origin main<CR>
 "" vimwiki
-"let g:vimwiki_list = [{'path': '/Users/moacir/Dropbox/notes', 'syntax': 'markdown', 'ext': '.md'}]
 "" NERDTree
 "map <C-n> :NERDTreeToggle<CR> " toggle NERDtree
 "" NERDTree git status
