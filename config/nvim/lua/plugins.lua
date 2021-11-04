@@ -12,17 +12,17 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
        vim.cmd("colorscheme nord")
      end
    })
-   -- Plug 'itchyny/lightline.vim'
    Plug 'nvim-lualine/lualine.nvim'
+-- Org
+   Plug 'vimwiki/vimwiki'
+-- Syntax
+   Plug 'tpope/vim-commentary' -- creates gcc for commenting things
+   Plug 'p00f/nvim-ts-rainbow' -- creates rainbow parens for Treesitter
    Plug('nvim-treesitter/nvim-treesitter', {
      ['do'] = function()
        vim.cmd(':TSUpdate')
      end
    })
--- Org
-   Plug 'vimwiki/vimwiki'
--- Syntax
-   Plug 'tpope/vim-commentary' -- creates gcc for commenting things
 -- Git
    Plug('lewis6991/gitsigns.nvim', {branch = 'main'})
    Plug 'tpope/vim-fugitive' -- Git wrapper.
@@ -43,3 +43,4 @@ require("plugin-config.nvim-tree")
 require("plugin-config.nvim-web-devicons")
 require("plugin-config.gitsigns")
 require("plugin-config.nvim-autopairs")
+require("plugin-config.nvim-treesitter")
