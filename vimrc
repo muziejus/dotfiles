@@ -66,6 +66,7 @@ let g:ale_disable_lsp = 1
 
 """ Plugins
 call plug#begin('~/.vim/plugged')
+Plug 'thinca/vim-visualstar'
 Plug 'mhinz/vim-startify'
 Plug 'lifepillar/vim-solarized8'
 Plug 'morhetz/gruvbox'
