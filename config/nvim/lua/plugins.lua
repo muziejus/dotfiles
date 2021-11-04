@@ -5,26 +5,26 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
 -- Editing
    Plug 'thinca/vim-visualstar'
    Plug 'tpope/vim-surround'
+   Plug 'windwp/nvim-autopairs'
 -- Look and Feel
    Plug('arcticicestudio/nord-vim', {
      ['do'] = function()
        vim.cmd("colorscheme nord")
      end
    })
-   Plug 'itchyny/lightline.vim'
+   -- Plug 'itchyny/lightline.vim'
+   Plug 'nvim-lualine/lualine.nvim'
    Plug('nvim-treesitter/nvim-treesitter', {
      ['do'] = function()
        vim.cmd(':TSUpdate')
      end
    })
-   -- Plug 'ryanoasis/vim-devicons' -- works with NERDTree
 -- Org
    Plug 'vimwiki/vimwiki'
 -- Syntax
    Plug 'tpope/vim-commentary' -- creates gcc for commenting things
 -- Git
    Plug('lewis6991/gitsigns.nvim', {branch = 'main'})
-   -- Plug 'airblade/vim-gitgutter' -- shows changes in gutter
    Plug 'tpope/vim-fugitive' -- Git wrapper.
 -- Autocomplete
    Plug 'neovim/nvim-lspconfig'
@@ -36,27 +36,10 @@ vim.call("plug#begin", "~/.config/nvim/plugged")
    Plug 'nvim-lua/plenary.nvim'
 vim.call("plug#end")
 
--- Per Plugin
-  -- Nord
-  vim.cmd("colorscheme nord")
-
-  -- lightline
-  g.lightline = { colorscheme = "nord" }
-
-  -- vimwiki
-  g.vimwiki_list = {{
-    path = '/Users/moacir/Dropbox/notes', 
-    syntax = 'markdown', 
-    ext = '.md'}}
-
-  -- nvim-tree.lua
-  require'nvim-tree'.setup {}
-  -- nvim-web-devicons
-  g.nvim_tree_git_hl = 1
-  require'nvim-web-devicons'.setup {
-    default = true
-  }
-  -- gitsigns
-  require'gitsigns'.setup {
-    numhl = true
-  }
+-- rcup has to be run when adding new files here!
+require("plugin-config.nord-vim")
+require("plugin-config.vimwiki")
+require("plugin-config.nvim-tree")
+require("plugin-config.nvim-web-devicons")
+require("plugin-config.gitsigns")
+require("plugin-config.nvim-autopairs")

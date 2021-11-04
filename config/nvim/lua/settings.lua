@@ -8,14 +8,13 @@ o.showmode = false -- hide redundant "-- INSERT --"
 o.splitbelow = true -- make :sp open below
 o.splitright = true -- make :vs open to the right
 o.termguicolors = true -- make more subtle coloring available
+o.expandtab = true
+o.tabstop = 2
+o.softtabstop = 2
+o.shiftwidth = 2
 
 -- Window options
 wo.number = true -- line numbers
 
 -- Buffer options
-  -- tabs
-  bo.expandtab = true
-  bo.tabstop = 2
-  bo.softtabstop = 2
-  bo.shiftwidth = 2
 
