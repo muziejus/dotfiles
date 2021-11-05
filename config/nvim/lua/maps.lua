@@ -8,12 +8,17 @@ silent = { silent = true }
 map("n", "<Space>", "", {})
 vim.g.mapleader = " " -- would go in settings.lua but for the above
                       -- untested, though
+vim.g.maplocalleader = " "
 
-
+-- Insert Date and time
 map("n", "<F3>", 
   "i<C-R>=strftime('%Y-%m-%d %a %I:%M %p ')<CR><Esc>", options)
 map("i", "<F3>", 
   "<C-R>=strftime('%Y-%m-%d %a %I:%M %p ')<CR><Esc>", options)
+
+-- Deal with word wrap
+map('n', 'k', "v:count == 0 ? 'gk' : 'k'", { noremap = true, expr = true, silent = true })
+map('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true, expr = true, silent = true })
 
 -- Center search results
 map('n', 'n', 'nzz', {})
