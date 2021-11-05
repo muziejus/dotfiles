@@ -6,7 +6,8 @@
 #                       #
 #########################
 
-export TERM=xterm-256color 
+# export TERM=xterm-256color 
+# Don't set the terminal in here. Let the terminal program (alacritty) do it.
 
 export HOME=/Users/moacir
 export zpath=$HOME/.zsh
