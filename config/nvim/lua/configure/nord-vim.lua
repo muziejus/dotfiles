@@ -1,2 +1,5 @@
-vim.cmd("colorscheme nord")
+return {
+  'arcticicestudio/nord-vim',
+  config = vim.cmd[[colorscheme nord]]
+}
 

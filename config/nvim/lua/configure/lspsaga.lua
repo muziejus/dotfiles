@@ -1,3 +1,4 @@
+--[[
 local saga = require 'lspsaga'
 
 saga.init_lsp_saga{
@@ -15,3 +16,4 @@ map('v', '<leader>ca', ':<C-U>Lspsaga range_code_action<CR>', options)
 map('n', 'K', ':Lspsaga hover_doc<CR>', options)
 map('n', 'gh', ':Lspsaga lsp_finder<CR>', options)
 map('n', 'gr', ':Lspsaga rename<CR>', options)
+]]--
