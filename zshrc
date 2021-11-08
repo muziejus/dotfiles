@@ -68,7 +68,7 @@ POWERLEVEL9K_RVM_FOREGROUND='brcyan'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(tmux history tmuxinator zsh-autosuggestions git osx jump zsh-completions zsh-syntax-highlighting)
-plugins=(tmux history tmuxinator git osx jump zsh-syntax-highlighting)
+plugins=(tmux history tmuxinator git macos jump zsh-syntax-highlighting)
 
 # User configuration
 
