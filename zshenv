@@ -54,8 +54,8 @@ export HISTFILE=$zpath/history
 export HISTSIZE=5000
 export SAVEHIST=$HISTSIZE
 
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 
 # trn happiness
 NNTPSERVER=uchinews.uchicago.edu
