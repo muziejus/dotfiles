@@ -3,13 +3,13 @@ local M = {}
 
 M.default = {
   -- Special keys
-    -- Insert Date and time
-    -- { mode = 'n', {
-    --   { "<F3>", "i<C-R>=strftime('%Y-%m-%d %a %I:%M %p ')<CR><Esc>", options },
-    -- },
-    -- { mode = 'i', {
-    --   { "<F3>", "<C-R>=strftime('%Y-%m-%d %a %I:%M %p ')<CR><Esc>", options },
-    -- },
+  -- Insert Date and time
+  { mode = 'n', {
+    { "<F3>", "i<C-R>=strftime('%Y-%m-%d %a %I:%M %p ')<CR><Esc>", options },
+  }},
+  { mode = 'i', {
+    { "<F3>", "<C-R>=strftime('%Y-%m-%d %a %I:%M %p ')<CR><Esc>", options },
+  }},
   { options = { expr = true }, 
     {
       -- Word wrap
@@ -42,6 +42,13 @@ M.default = {
       {'gu', ':diffget //2<CR>'},
       {'gc', ':Git commit<CR>'},
       {'gpom', ':Git push origin main<CR>'},
+      -- Telescope
+      {'f', {
+        { 'f', '<CMD>Telescope find_files<CR>'},
+        { 'g', '<CMD>Telescope live_grep<CR>'},
+        { 'b', '<CMD>Telescope buffers<CR>'},
+        { 'h', '<CMD>Telescope help_tags<CR>'},
+      }}
     },
   },
 }

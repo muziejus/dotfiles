@@ -29,6 +29,8 @@ return require('packer').startup(function(use)
 -- Utilities / Dependencies
   -- use 'akinsho/toggleterm.nvim'
   use 'nvim-lua/plenary.nvim'
+  use(require('configure.telescope'))
+  use(require('configure.telescope-fzf-native'))
 -- Editing
   use 'thinca/vim-visualstar'
   use 'tpope/vim-surround'
