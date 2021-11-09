@@ -9,7 +9,6 @@ end
 require("plugins") -- lua/plugins.lua
 require("lsp") -- lua/lsp/init.lua
 require("settings") -- lua/settings.lua
--- require("statusline")
 
 -- Autocompile packer when the plugins file changes.
 vim.cmd([[

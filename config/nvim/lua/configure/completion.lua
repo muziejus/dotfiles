@@ -9,15 +9,15 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-nvim-lua',
   },
-  -- after = { 'nvim-autopairs' },
+  after = { 'nvim-autopairs' },
   config = function()
     local cmp = require('cmp')
     cmp.setup({
-      snippet = {
-        expand = function(args)
-          require('luasnip').lsp_expand(args.body)
-        end,
-      },
+     snippet = {
+       expand = function(args)
+         require('luasnip').lsp_expand(args.body)
+       end,
+     },
       mapping = require('keymaps').get_cmp_mappings(),
       sources = {
         { name = 'nvim_lsp' },
