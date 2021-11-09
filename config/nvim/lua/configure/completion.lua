@@ -21,10 +21,12 @@ return {
       mapping = require('keymaps').get_cmp_mappings(),
       sources = {
         { name = 'nvim_lsp' },
+        { name = 'treesitter' },
         { name = 'luasnip' },
         -- { name = 'nvim_lua' },
         { name = 'path' },
         { name = 'buffer' },
+        { name = 'spell' },
       },
       formatting = {
         format = require('lspkind').cmp_format({ with_text = true }),

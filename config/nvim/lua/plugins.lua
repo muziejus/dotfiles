@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
 
   use(require('configure.nest'))
   -- Look and Feel
+  use(require('configure.tmux'))
   use(require("configure.nord-vim"))
   use(require('configure.web-devicons'))
   use(require('configure.lualine'))

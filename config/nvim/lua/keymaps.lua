@@ -18,14 +18,10 @@ M.default = {
     },
   },
   -- Split mappings
-  -- { options = { silent = false }, -- not sure why these aren't working
-  --   {
-  --     {'<C-J>', '<C-W><C-J>'},
-  --     {'<C-K>', '<C-W><C-K>'},
-  --     {'<C-L>', '<C-W><C-L>'},
-  --     {'<C-H>', '<C-W><C-H>'},
-  --   },
-  -- },
+  {'<C-k>', ':TmuxNavigateUp<CR>'},
+  {'<C-j>', ':TmuxNavigateDown<CR>'},
+  {'<C-h>', ':TmuxNavigateLeft<CR>'},
+  {'<C-l>', ':TmuxNavigateRight<CR>'},
   -- Center search results
   {'n', 'nzz'},
   {'N', 'Nzz'},
