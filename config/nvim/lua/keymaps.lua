@@ -53,40 +53,40 @@ M.default = {
 --After searching, pressing escape stops the highlight
 --{("n", "<esc>", ":noh<cr><esc>", silent)
 
--- function M.get_cmp_mappings()
---   local cmp = require('cmp')
---   return {
---     ['<S-Tab>'] = require('cmp').mapping.select_prev_item(),
---     ['<Tab>'] = require('cmp').mapping.select_next_item(),
---     ['<C-p>'] = require('cmp').mapping.select_prev_item(),
---     ['<C-n>'] = require('cmp').mapping.select_next_item(),
---     ['<C-d>'] = require('cmp').mapping.scroll_docs(-4),
---     ['<C-f>'] = require('cmp').mapping.scroll_docs(4),
---     ['<C-Space>'] = require('cmp').mapping.complete(),
---     ['<C-e>'] = require('cmp').mapping.close(),
---     ['<CR>'] = require('cmp').mapping.confirm {
---       behavior = require('cmp').ConfirmBehavior.Replace,
---       select = true,
-  --   },
---     ['<Tab>'] = function(fallback)
---       if cmp.visible() then
---         cmp.select_next_item()
---       elseif luasnip.expand_or_jumpable() then
---         luasnip.expand_or_jump()
---       else
---         fallback()
---       end
---     end,
---     ['<S-Tab>'] = function(fallback)
---       if cmp.visible() then
---         cmp.select_prev_item()
---       elseif luasnip.jumpable(-1) then
---         luasnip.jump(-1)
---       else
---         fallback()
---       end
---     end,
---   }
--- end
+function M.get_cmp_mappings()
+  local cmp = require('cmp')
+  return {
+    ['<S-Tab>'] = require('cmp').mapping.select_prev_item(),
+    ['<Tab>'] = require('cmp').mapping.select_next_item(),
+    ['<C-p>'] = require('cmp').mapping.select_prev_item(),
+    ['<C-n>'] = require('cmp').mapping.select_next_item(),
+    ['<C-d>'] = require('cmp').mapping.scroll_docs(-4),
+    ['<C-f>'] = require('cmp').mapping.scroll_docs(4),
+    ['<C-Space>'] = require('cmp').mapping.complete(),
+    ['<C-e>'] = require('cmp').mapping.close(),
+    ['<CR>'] = require('cmp').mapping.confirm {
+      behavior = require('cmp').ConfirmBehavior.Replace,
+      select = true,
+    },
+    ['<Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+        luasnip.expand_or_jump()
+      else
+        fallback()
+      end
+    end,
+    ['<S-Tab>'] = function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end,
+  }
+end
 
 return M

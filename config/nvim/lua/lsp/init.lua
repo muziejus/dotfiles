@@ -9,5 +9,8 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
 })
 
 require('lsp.typescript')
+require('lsp.ember')
 require('lsp.html')
+require('lsp.tailwindcss')
+require('lsp.null-ls')
 

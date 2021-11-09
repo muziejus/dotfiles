@@ -21,8 +21,8 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive' -- Git wrapper.
   use 'tpope/vim-rhubarb' -- GitHub
 -- -- Autocomplete + LSP
-  use 'neovim/nvim-lspconfig'
-  -- use(require('configure.completion'))
+  use(require('configure.lspconfig'))
+  use(require('configure.completion'))
 --    use 'glepnir/lspsaga.nvim'
   -- Filesystem
   use 'tpope/vim-eunuch' -- Work on filesystem via buffers

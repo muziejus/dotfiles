@@ -9,7 +9,7 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-nvim-lua',
   },
-  after = { 'nvim-autopairs' },
+  -- after = { 'nvim-autopairs' },
   config = function()
     local cmp = require('cmp')
     cmp.setup({
@@ -23,8 +23,8 @@ return {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         -- { name = 'nvim_lua' },
-        -- { name = 'path' },
-        -- { name = 'buffer' },
+        { name = 'path' },
+        { name = 'buffer' },
       },
       formatting = {
         format = require('lspkind').cmp_format({ with_text = true }),
