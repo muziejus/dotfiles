@@ -9,7 +9,13 @@ return {
       additional_vim_regex_highlighting = false, -- disable :syntax on
     },
     incremental_selection = {
-      enable = true
+      enable = true,
+      keymaps = {
+        init_selection = "gnn",
+        node_incremental = "grn",
+        scope_incremental = "grc",
+        node_decremental = "grm",
+      }
     },
     ensure_installed = {
       "bibtex", "latex", "graphql",
