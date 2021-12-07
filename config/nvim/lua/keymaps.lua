@@ -58,6 +58,8 @@ M.default = {
 
 function M.get_cmp_mappings()
   local cmp = require('cmp')
+  local luasnip = require('luasnip')
+
   return {
     ['<S-Tab>'] = require('cmp').mapping.select_prev_item(),
     ['<Tab>'] = require('cmp').mapping.select_next_item(),

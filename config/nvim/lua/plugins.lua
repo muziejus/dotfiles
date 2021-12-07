@@ -36,6 +36,11 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired' -- [ and ] macros for moving around
   use(require('configure.autopairs'))
+-- Text
+  use 'kana/vim-textobj-user' -- define textobjs easily
+  use 'reedes/vim-textobj-quote' -- for curly quotes
+  use 'reedes/vim-textobj-sentence' -- for sentences
+  use(require('configure.markdown'))
 
   if packer_bootstrap then
     require('packer').sync()
