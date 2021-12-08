@@ -111,7 +111,7 @@ export LESS="-x2"
 # export JAVA_HOME=$(/usr/libexec/java_home)
 # export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
-source ~/.bin/tmuxinator.zsh
+# source ~/.bin/tmuxinator.zsh
 # eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib)"
 
 # added by travis gem
