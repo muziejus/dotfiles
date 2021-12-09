@@ -66,7 +66,8 @@ POWERLEVEL9K_RVM_FOREGROUND='brcyan'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(tmux history tmuxinator zsh-autosuggestions git osx jump zsh-completions zsh-syntax-highlighting)
-plugins=(tmux history tmuxinator git macos jump zsh-syntax-highlighting)
+### zsh-syntax-highlighting is installed via homebrew as below.
+plugins=(tmux history tmuxinator git macos jump)
 
 # User configuration
 
@@ -147,3 +148,5 @@ unset __conda_setup
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
