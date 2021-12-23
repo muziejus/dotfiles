@@ -9,4 +9,4 @@ PATH="$PATH:/Applications/Visual Studio Code - Insiders.app/Contents/Resources/a
 
 export PATH
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
