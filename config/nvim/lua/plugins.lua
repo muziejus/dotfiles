@@ -46,7 +46,7 @@ return require('packer').startup(function(use)
   use 'vim-pandoc/vim-pandoc-syntax'
 
 
-  if packer_bootstrap then
+  if Packer_bootstrap then
     require('packer').sync()
   end
 end)

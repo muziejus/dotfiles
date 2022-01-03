@@ -3,7 +3,7 @@ local fn = vim.fn
 local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  local packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
 require("settings") -- lua/settings.lua
@@ -12,7 +12,7 @@ require("keymaps") -- lua/keymaps.lua
 require("lsp") -- lua/lsp/init.lua
 
 -- Autocompile packer when the plugins file changes.
-vim.cmd([[
+vim.cmd([[       
   augroup packer_user_config
     autocmd!
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
