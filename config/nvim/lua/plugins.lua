@@ -42,7 +42,9 @@ return require('packer').startup(function(use)
   use 'kana/vim-textobj-user' -- define textobjs easily
   use 'reedes/vim-textobj-quote' -- for curly quotes
   use 'reedes/vim-textobj-sentence' -- for sentences
-  use(require('configure.markdown'))
+  use(require('configure.pandoc'))
+  use 'vim-pandoc/vim-pandoc-syntax'
+
 
   if packer_bootstrap then
     require('packer').sync()
