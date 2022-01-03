@@ -17,6 +17,28 @@ M.default = {
       {'j', "v:count == 0 ? 'gj' : 'j'"},
     },
   },
+  { mode = 'n', options = { noremap = true, silent = true},
+    {
+      -- LSPconfig
+      {'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>'},
+      {'gd', '<cmd>lua vim.lsp.buf.definition()<CR>'},
+      {'K', '<cmd>lua vim.lsp.buf.hover()<CR>'},
+      {'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>'},
+      {'<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>'},
+      {'<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>'},
+      {'<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>'},
+      {'<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>'},
+      {'<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>'},
+      {'<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>'},
+      {'<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>'},
+      {'gr', '<cmd>lua vim.lsp.buf.references()<CR>'},
+      {'<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>'},
+      {'[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>'},
+      {']d', '<cmd>lua vim.diagnostic.goto_next()<CR>'},
+      {'<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>'},
+      {'<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>'}, 
+    }
+  },
   -- Split mappings
   {'<C-k>', ':TmuxNavigateUp<CR>'},
   {'<C-j>', ':TmuxNavigateDown<CR>'},
@@ -36,6 +58,13 @@ M.default = {
 
   { '<leader>', 
     {
+      -- Trouble
+      {'xx', '<cmd>TroubleToggle<cr>'},
+      {'xw', '<cmd>TroubleToggle workspace_diagnostics<cr>'},
+      {'xd', '<cmd>TroubleToggle document_diagnostics<cr>'},
+      {'xq', '<cmd>TroubleToggle quickfix<cr>'},
+      {'xl', '<cmd>TroubleToggle loclist<cr>'},
+      {'gR', '<cmd>TroubleToggle lsp_references<cr>'},
       -- Fugitive (from https://www.youtube.com/watch?v=PO6DxfGPQvw)
       {'gs', ':G<CR>'},
       {'gh', ':diffget //3<CR>'},
