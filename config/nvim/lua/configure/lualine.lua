@@ -72,13 +72,11 @@ return {
       },
       sections = {
         lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff',
-                      -- {'diagnostics', sources={'nvim_lsp'}}
-                      },
+        lualine_b = {'branch', 'diff', },
         lualine_c = { filepath ,
-          { 
+          {
             'diagnostics',
-            sources = { 'nvim_lsp' },
+            sources = { 'nvim_diagnostic' },
             sections = { 'error', 'warn', 'info', 'hint' },
             always_visible = is_file_open,
             update_in_insert = true,
@@ -113,16 +111,6 @@ return {
       -- sections = {
       --   lualine_a = { get_mode },
       --   lualine_b = { "branch" },
-      --   lualine_c = {
-      --     filepath,
-      --     { 
-      --       'diagnostics',
-      --       sources = { 'nvim_lsp' },
-      --       sections = { 'error', 'warn', 'info', 'hint' },
-      --       always_visible = is_file_open,
-      --       update_in_insert = true,
-      --     },
-      --     'diff'
       --   },
       --   lualine_x = { 'filetype' },
       --   lualine_y = { 'progress' },
