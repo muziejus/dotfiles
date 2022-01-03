@@ -19,7 +19,7 @@ return require('packer').startup(function(use)
   use(require('configure.lualine'))
   use 'tpope/vim-commentary' -- creates gcc for commenting things
 -- Org
-  -- use(require('configure.vimwiki'))
+  use(require('configure.vimwiki'))
 -- Git
   use(require('configure.gitsigns'))
   use 'tpope/vim-fugitive' -- Git wrapper.
