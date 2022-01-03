@@ -3,6 +3,8 @@ return {
   requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
   config = function()
     require'navigator'.setup({
+      default_mapping = false,
+      keymaps = {{key = '<leader>K', func = 'signature_help()'}},
       on_attach = function(client, bufnr)
         local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 

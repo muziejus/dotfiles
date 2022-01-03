@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
 -- Autocomplete, syntax, and LSP
   -- use 'neovim/nvim-lspconfig'
   use(require('configure.lspconfig'))
-  use(require('configure.navigator')) -- configures lspconfig for me.
+  -- use(require('configure.navigator')) -- configures lspconfig for me.
   use(require('configure.completion'))
   use(require('configure.trouble'))
   use(require('configure.treesitter'))
@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
 -- Org
   -- use(require('configure.vimwiki'))
 -- Git
-  use(require('configure.gitsigns')) 
+  use(require('configure.gitsigns'))
   use 'tpope/vim-fugitive' -- Git wrapper.
   use 'tpope/vim-rhubarb' -- GitHub
 -- Filesystem
@@ -50,4 +50,3 @@ return require('packer').startup(function(use)
 end)
 
 -- require("configure.toggleterm")
-  

@@ -13,4 +13,5 @@ require('lsp.ember')
 require('lsp.html')
 require('lsp.tailwindcss')
 require('lsp.null-ls')
+require('lsp.sumneko-lua')
 
