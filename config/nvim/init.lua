@@ -20,11 +20,15 @@ vim.cmd([[
 ]])
 
 vim.cmd([[
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+  nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+  nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+  nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 ]])
+-- nnoremap <C-J> <C-W><C-J>
+-- nnoremap <C-K> <C-W><C-K>
+-- nnoremap <C-L> <C-W><C-L>
+-- nnoremap <C-H> <C-W><C-H>
 
 --[[
 "" Use vim stuff?

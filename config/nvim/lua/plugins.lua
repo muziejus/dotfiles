@@ -5,14 +5,13 @@ return require('packer').startup(function(use)
 
 -- Keybindings
   use(require('configure.which-key'))
-  -- use(require('configure.nest'))
 -- Autocomplete, syntax, and LSP
   -- use 'neovim/nvim-lspconfig'
   use(require('configure.lspconfig'))
   use(require('configure.navigator')) -- configures lspconfig for me.
-  -- use(require('configure.completion'))
-  -- use(require('configure.trouble'))
-  -- use(require('configure.treesitter'))
+  use(require('configure.completion'))
+  use(require('configure.trouble'))
+  use(require('configure.treesitter'))
   -- Look and Feel
   use(require('configure.tmux'))
   use(require("configure.nord-vim"))

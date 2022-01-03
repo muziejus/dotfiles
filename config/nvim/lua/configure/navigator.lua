@@ -2,7 +2,22 @@ return {
   'ray-x/navigator.lua',
   requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
   config = function()
-    require'navigator'.setup()
+    require'navigator'.setup({
+      on_attach = function(client, bufnr)
+        local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+        -- Enable completion triggered by <c-x><c-o>
+        buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+      end,
+      lsp_installer = true,
+      lsp = {
+        format_on_save = true,
+        disable_lsp = { 'svelte', 'kotlin_language_server', 'angularls' },
+        servers = {
+          'ember',
+        }
+      }
+    })
   end
 }
 

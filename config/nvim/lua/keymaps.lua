@@ -40,6 +40,11 @@ wk.register({
       d = {"i<C-R>=strftime('%Y-%m-%d %a %I:%M %p ')<CR><Esc>", "Insert Current Time" },
     },
   },
+  -- Split mappings
+  ['<C-k>'] = {':TmuxNavigateUp<CR>'},
+  ['<C-j>'] = {':TmuxNavigateDown<CR>'},
+  ['<C-h>'] = {':TmuxNavigateLeft<CR>'},
+  ['<C-l>'] = {':TmuxNavigateRight<CR>'},
 })
 
 --  -- Special keys
@@ -73,11 +78,6 @@ wk.register({
 --      -- {'<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>'}, 
 --    }
 --  },
---  -- Split mappings
---  {'<C-k>', ':TmuxNavigateUp<CR>'},
---  {'<C-j>', ':TmuxNavigateDown<CR>'},
---  {'<C-h>', ':TmuxNavigateLeft<CR>'},
---  {'<C-l>', ':TmuxNavigateRight<CR>'},
 --  -- Center search results
 --  {'n', 'nzz'},
 --  {'N', 'Nzz'},
