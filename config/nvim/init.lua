@@ -6,9 +6,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
   packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-require("plugins") -- lua/plugins.lua
-require("lsp") -- lua/lsp/init.lua
 require("settings") -- lua/settings.lua
+require("plugins") -- lua/plugins.lua
+require("keymaps") -- lua/keymaps.lua
+-- require("lsp") -- lua/lsp/init.lua Not clear we need the language servers configured.
 
 -- Autocompile packer when the plugins file changes.
 vim.cmd([[

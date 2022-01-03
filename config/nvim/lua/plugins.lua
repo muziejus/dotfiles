@@ -3,29 +3,32 @@
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use(require('configure.nest'))
+-- Keybindings
+  use(require('configure.which-key'))
+  -- use(require('configure.nest'))
+-- Autocomplete, syntax, and LSP
+  -- use 'neovim/nvim-lspconfig'
+  use(require('configure.lspconfig'))
+  use(require('configure.navigator')) -- configures lspconfig for me.
+  -- use(require('configure.completion'))
+  -- use(require('configure.trouble'))
+  -- use(require('configure.treesitter'))
   -- Look and Feel
   use(require('configure.tmux'))
   use(require("configure.nord-vim"))
   use(require('configure.web-devicons'))
   use(require('configure.lualine'))
+  use 'tpope/vim-commentary' -- creates gcc for commenting things
 -- Org
-  use(require('configure.vimwiki'))
+  -- use(require('configure.vimwiki'))
 -- Git
   use(require('configure.gitsigns')) 
   use 'tpope/vim-fugitive' -- Git wrapper.
   use 'tpope/vim-rhubarb' -- GitHub
--- Autocomplete, syntax, and LSP
-  use 'tpope/vim-commentary' -- creates gcc for commenting things
-  use(require('configure.lspconfig'))
-  use(require('configure.completion'))
-  use(require('configure.trouble'))
-  use(require('configure.treesitter'))
-  -- use 'glepnir/lspsaga.nvim'
 -- Filesystem
   use 'tpope/vim-eunuch' -- Work on filesystem via buffers
   use 'tpope/vim-projectionist'
-  use(require('configure.nvim-tree'))
+  -- use(require('configure.nvim-tree'))
 -- Utilities / Dependencies
   -- use 'akinsho/toggleterm.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -47,6 +50,5 @@ return require('packer').startup(function(use)
   end
 end)
 
--- require("configure.lspsaga")
 -- require("configure.toggleterm")
   

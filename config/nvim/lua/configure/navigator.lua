@@ -1,8 +1,16 @@
--- See keymaps file for lspconfig keymaps.
 return {
-  'neovim/nvim-lspconfig',
-  requires = { 'jose-elias-alvarez/null-ls.nvim' },
-  -- config = function()
+  'ray-x/navigator.lua',
+  requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' },
+  config = function()
+    require'navigator'.setup()
+  end
+}
+
+-- -- See keymaps file for lspconfig keymaps.
+-- return {
+--   'neovim/nvim-lspconfig',
+--   requires = { 'jose-elias-alvarez/null-ls.nvim' },
+--   config = function()
 --     vim.cmd([[
 --       autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 1000)
 --       autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 1000)
@@ -12,4 +20,4 @@ return {
 --       autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_sync(nil, 1000)
 --     ]])
 --   end
-}
+-- }
