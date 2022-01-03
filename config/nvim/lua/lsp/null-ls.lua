@@ -6,18 +6,19 @@ local sources = {
   -- b.diagnostics.eslint.with({
   --   command = 'eslint_d',
   -- }),
-  -- b.formatting.prettierd.with({
-    -- filetypes = {
-    --   'html',
-    --   'json',
-    --   'javascript',
-    --   'typescript',
-    --   'javascriptreact',
-    --   'typescriptreact',
-    --   'scss',
-    --   'css',
-    -- },
-  -- }),
+  b.formatting.prettierd.with({
+    prefer_local = 'node_modules/.bin',
+    filetypes = {
+      'html',
+      'json',
+      'javascript',
+      'typescript',
+      'javascriptreact',
+      'typescriptreact',
+      'scss',
+      'css',
+    },
+  }),
   -- b.formatting.stylua,
   -- b.diagnostics.luacheck,
   b.formatting.shfmt.with({
@@ -38,12 +39,17 @@ if vim.fn.filereadable('./node_modules/.bin/stylelint') > 0 then
   )
 end
 
-null_ls.config({
+null_ls.setup({
+  -- on_attach = require('lsp.utils').on_attach,
+  on_attach = function(client)
+    if client.resolved_capabilities.document_formatting then
+      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    end
+  end,
   sources = sources,
 })
 
-require('lspconfig')['null-ls'].setup({
-  autostart = true,
-  on_attach = require('lsp.utils').on_attach,
-})
+-- require('lspconfig')['null-ls'].setup({
+--   autostart = true,
+-- })
 
