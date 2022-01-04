@@ -6,8 +6,8 @@ return {
     --   \ 'syntax': 'markdown', 'ext': '.wikimd'}]
     -- ]])
     vim.g.vimwiki_list = {{
-      path = '/Users/moacir/Dropbox/notes', 
-      syntax = 'markdown', 
+      path = "/Users/moacir/Library/Mobile Documents/com~apple~CloudDocs/notes",
+      syntax = 'markdown',
       ext = '.wikimd'}} -- This will hopefully stop treating every md file as a vimwiki file.
     vim.g.vimwiki_global_ext = 0
     vim.cmd([[

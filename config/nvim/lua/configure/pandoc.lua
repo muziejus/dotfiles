@@ -1,3 +1,6 @@
+-- Eventually replace with:
+-- https://github.com/aspeddro/pandoc.nvim
+
 return {
   'vim-pandoc/vim-pandoc',
   config = function()
