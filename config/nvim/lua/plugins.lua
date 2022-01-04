@@ -36,6 +36,7 @@ return require('packer').startup(function(use)
   use(require('configure.telescope-fzf-native'))
 -- Editing
   use(require('configure.zen-mode'))
+  use(require('configure.twilight'))
   use 'thinca/vim-visualstar'
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired' -- [ and ] macros for moving around
