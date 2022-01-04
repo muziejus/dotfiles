@@ -52,4 +52,3 @@ null_ls.setup({
 -- require('lspconfig')['null-ls'].setup({
 --   autostart = true,
 -- })
-

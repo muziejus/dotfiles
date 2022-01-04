@@ -20,7 +20,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-commentary' -- creates gcc for commenting things
 -- Org
   -- use(require('configure.vimwiki'))
-  use(require('configure.neorg'))
+  -- use(require('configure.neorg'))
 -- Git
   use(require('configure.gitsigns'))
   use 'tpope/vim-fugitive' -- Git wrapper.
