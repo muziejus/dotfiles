@@ -19,6 +19,7 @@ return require('packer').startup(function(use)
   use(require('configure.lualine'))
   use 'tpope/vim-commentary' -- creates gcc for commenting things
 -- Org
+  use(require('configure.wiki'))
   -- use(require('configure.vimwiki'))
   -- use(require('configure.neorg'))
 -- Git
@@ -29,6 +30,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-eunuch' -- Work on filesystem via buffers
   use 'tpope/vim-projectionist'
   use(require('configure.nvim-tree'))
+  use 'chazy/dirsettings' -- for autocommitting wiki.
 -- Utilities / Dependencies
   -- use 'akinsho/toggleterm.nvim'
   use 'nvim-lua/plenary.nvim'
