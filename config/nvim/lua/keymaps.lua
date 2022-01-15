@@ -18,6 +18,10 @@ wk.register({
       h = { '<CMD>Telescope help_tags<CR>', "Help Tags"},
       r = { '<CMD>Telescope oldfiles<CR>', "Open Recent File"},
       n = { '<CMD>enew<CR>', "New File" },
+      t = {
+        name = "+type",
+        m = { "<CMD>set filetype=markdown<CR>", "Set to Markdown"},
+      },
     },
     g = {
       -- Git
@@ -43,10 +47,12 @@ wk.register({
       d = {"i<C-R>=strftime('%Y-%m-%d %a %I:%M %p ')<CR><Esc>", "Insert Current Time" },
     },
     w = {
-      name = "+workspace",
+      name = "+workspace/wiki",
       a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add Workspace Folder'},
       r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove Workspace Folder'},
       l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List Workspace Folders'},
+      w = { "<Plug>wiki-index <CR> <CMD>set filetype=markdown<CR>",
+            "Open Wiki index and set filetype to Markdown"},
     },
     l = {
       name = "+lsp",
