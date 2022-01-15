@@ -11,6 +11,15 @@ require("plugins") -- lua/plugins.lua
 require("keymaps") -- lua/keymaps.lua
 require("lsp") -- lua/lsp/init.lua
 
+vim.cmd([[
+  let g:nord_cursor_line_number_background = 1
+  let g:nord_bold_vertical_split_line = 1
+  let g:nord_italic = 1
+  let g:nord_italic_comments = 1
+  colorscheme nord
+]])
+
+
 -- Autocompile packer when the plugins file changes.
 vim.cmd([[       
   augroup packer_user_config

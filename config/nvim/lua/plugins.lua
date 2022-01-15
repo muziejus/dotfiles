@@ -14,7 +14,7 @@ return require('packer').startup(function(use)
   use(require('configure.treesitter'))
   -- Look and Feel
   use(require('configure.tmux'))
-  use(require("configure.nord-vim"))
+  use('arcticicestudio/nord-vim')
   use(require('configure.web-devicons'))
   use(require('configure.lualine'))
   use 'tpope/vim-commentary' -- creates gcc for commenting things

@@ -1,5 +1,19 @@
-return {
-  'arcticicestudio/nord-vim',
-  config = vim.cmd[[colorscheme nord]]
-}
+-- This is all done in init.nvim now.
+--
+-- return {
+  -- 'shaunsingh/nord.nvim',
+  -- config = function()
+  --   vim.g.nord_contrast = true
+  --   vim.g.nord_borders = true
+    -- vim.cmd([[
+    -- let g:nord_cursor_line_number_background = 1
+    -- let g:nord_bold_vertical_split_line = 1
+    -- let g:nord_italic = 1
+    -- let g:nord_italic_comments = 1
+    -- colorscheme nord
+    -- ]])
+    -- vim.cmd[[colorscheme nord]]
+    -- require('nord').set()
+  -- end
+-- }
 
