@@ -6,6 +6,7 @@ local bo = vim.bo
 -- Global options
 o.autowriteall = true -- write all buffers when moving away from them
 o.breakindent = true
+o.clipboard = "unnamed"
 o.completeopt = 'menuone,noselect' -- better completion experience
 o.conceallevel = 0 -- don't obfuscate markdown
 o.cmdheight = 2
