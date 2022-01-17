@@ -83,10 +83,10 @@ wk.register({
   gr = { '<cmd>lua vim.lsp.buf.references()<CR>', "Go to References"},
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', "Hover"},
   -- Split mappings
-  ['<C-k>'] = {':TmuxNavigateUp<CR>'},
-  ['<C-j>'] = {':TmuxNavigateDown<CR>'},
-  ['<C-h>'] = {':TmuxNavigateLeft<CR>'},
-  ['<C-l>'] = {':TmuxNavigateRight<CR>'},
+  ['<C-k>'] = {':KittyNavigateUp<CR>'},
+  ['<C-j>'] = {':KittyNavigateDown<CR>'},
+  ['<C-h>'] = {':KittyNavigateLeft<CR>'},
+  ['<C-l>'] = {':KittyNavigateRight<CR>'},
 ----{("n", "<esc>", ":noh<cr><esc>", silent)
   ['<esc>'] = {":noh<CR><ESC>"},
   ['<C-n>'] = {':NvimTreeToggle<CR>', "NvimTree Toggle"},

@@ -4,6 +4,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
 -- Keybindings
+  use(require('configure.kitty-navigator'))
   use(require('configure.which-key'))
 -- Autocomplete, syntax, and LSP
   -- use 'neovim/nvim-lspconfig'
@@ -17,6 +18,7 @@ return require('packer').startup(function(use)
   use('arcticicestudio/nord-vim')
   use(require('configure.web-devicons'))
   use(require('configure.lualine'))
+  use 'fladson/vim-kitty'
   use 'tpope/vim-commentary' -- creates gcc for commenting things
 -- Org
   use(require('configure.wiki'))
