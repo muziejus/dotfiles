@@ -14,10 +14,11 @@ return require('packer').startup(function(use)
   use(require('configure.trouble'))
   use(require('configure.treesitter'))
   -- Look and Feel
-  use(require('configure.tmux'))
+  -- use(require('configure.tmux'))
   use('arcticicestudio/nord-vim')
   use(require('configure.web-devicons'))
   use(require('configure.lualine'))
+  use(require('configure.indent-blankline'))
   use 'fladson/vim-kitty'
   use 'tpope/vim-commentary' -- creates gcc for commenting things
 -- Org
