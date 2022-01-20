@@ -1145,7 +1145,7 @@
   #######################[ rvm: ruby version from rvm (https://rvm.io) ]########################
   # Rvm color.
   typeset -g POWERLEVEL9K_RVM_FOREGROUND=0
-  typeset -g POWERLEVEL9K_RVM_BACKGROUND=240
+  typeset -g POWERLEVEL9K_RVM_BACKGROUND=1
   # Don't show @gemset at the end.
   typeset -g POWERLEVEL9K_RVM_SHOW_GEMSET=false
   # Don't show ruby- at the front.
