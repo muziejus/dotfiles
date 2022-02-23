@@ -12,7 +12,7 @@ local sources = {
       'html',
       'json',
       'javascript',
-      'typescript',
+      -- 'typescript',
       'javascriptreact',
       'typescriptreact',
       'scss',

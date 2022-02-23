@@ -52,7 +52,7 @@ return {
          { name = 'spell' },
        }),
        formatting = {
-       format = require('lspkind').cmp_format({ with_text = true }),
+         format = require('lspkind').cmp_format({ with_text = true }),
       },
     })
 

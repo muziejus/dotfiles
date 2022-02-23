@@ -51,8 +51,8 @@ wk.register({
       a = { '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', 'Add Workspace Folder'},
       r = { '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', 'Remove Workspace Folder'},
       l = { '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', 'List Workspace Folders'},
-      w = { "<Plug>wiki-index <CR> <CMD>set filetype=markdown<CR>",
-            "Open Wiki index and set filetype to Markdown"},
+      -- w = { "<Plug>wiki-index <CR> <CMD>set filetype=markdown<CR>",
+      --       "Open Wiki index and set filetype to Markdown"},
     },
     l = {
       name = "+lsp",
