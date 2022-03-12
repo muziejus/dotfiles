@@ -35,6 +35,9 @@ o.tabstop = 2
 wo.number = true -- line numbers
 wo.relativenumber = true -- line numbers, but relative
 wo.signcolumn = "yes" -- show the sign column so it doesn't shift the text
+wo.foldmethod = 'expr'
+wo.foldexpr = 'nvim_treesitter#foldexpr()'
+wo.foldlevel= 1
 
 -- Buffer options
 
