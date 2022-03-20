@@ -11,14 +11,13 @@ require("plugins") -- lua/plugins.lua
 require("keymaps") -- lua/keymaps.lua
 require("lsp") -- lua/lsp/init.lua
 
-vim.cmd([[
-  let g:nord_cursor_line_number_background = 1
-  let g:nord_bold_vertical_split_line = 1
-  let g:nord_italic = 1
-  let g:nord_italic_comments = 1
-  colorscheme nord
-]])
-
+-- Done in auto-dark-mode
+-- vim.cmd([[
+--   let g:nord_cursor_line_number_background = 1
+--   let g:nord_bold_vertical_split_line = 1
+--   let g:nord_italic = 1
+--   let g:nord_italic_comments = 1
+-- ]])
 
 -- Autocompile packer when the plugins file changes.
 vim.cmd([[       
@@ -27,13 +26,12 @@ vim.cmd([[
     autocmd BufWritePost plugins.lua source <afile> | PackerCompile
   augroup end
 ]])
-
-vim.cmd([[
-  nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
-  nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
-  nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
-  nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-]])
+-- vim.cmd([[
+--   nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
+--   nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
+--   nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
+--   nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
+-- ]])
 -- nnoremap <C-J> <C-W><C-J>
 -- nnoremap <C-K> <C-W><C-K>
 -- nnoremap <C-L> <C-W><C-L>

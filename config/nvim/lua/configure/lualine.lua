@@ -94,6 +94,17 @@ return {
         lualine_y = {},
         lualine_z = {}
       },
+      tabline = {
+        lualine_a = {'buffers'},
+        lualine_b = {'branch'},
+        lualine_c = {'filename'},
+        -- lualine_c = {require'tabline'.tabline_buffers},
+        -- lualine_b = {'branch'},
+        lualine_x = {},
+        -- lualine_x = {require'tabline'.tabline_tabs},
+        lualine_y = {},
+        lualine_z = {}
+      }
     }
   end
 }

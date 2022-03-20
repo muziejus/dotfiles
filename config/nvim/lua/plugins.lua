@@ -15,16 +15,17 @@ return require('packer').startup(function(use)
   use(require('configure.treesitter'))
   -- Look and Feel
   -- use(require('configure.tmux'))
+  use(require('configure/auto-dark-mode'))
   use('arcticicestudio/nord-vim')
+  use('haystackandroid/snow')
   use(require('configure.web-devicons'))
   use(require('configure.lualine'))
+  use(require('configure.tabline'))
   use(require('configure.indent-blankline'))
   use 'fladson/vim-kitty'
   use 'tpope/vim-commentary' -- creates gcc for commenting things
 -- Org
   use(require('configure.wiki'))
-  -- use(require('configure.vimwiki'))
-  -- use(require('configure.neorg'))
 -- Git
   use(require('configure.gitsigns'))
   use 'tpope/vim-fugitive' -- Git wrapper.
