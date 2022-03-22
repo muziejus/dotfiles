@@ -22,7 +22,6 @@ o.pumheight = 10 -- popup menu height
 o.scrolloff = 8 -- always show 8 lines above and below the cursor
 o.showmode = false -- hide redundant "-- INSERT --"
 o.showtabline = 2 -- show tabs
-o.laststatus = 3 -- show global statusline.
 o.splitbelow = true -- make :sp open below
 o.splitright = true -- make :vs open to the right
 o.termguicolors = true -- make more subtle coloring available

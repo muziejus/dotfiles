@@ -68,6 +68,7 @@ return {
 
     require('lualine').setup {
       options = {
+        globalstatus = true,
         theme = "nord",
       },
       sections = {

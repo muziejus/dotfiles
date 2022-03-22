@@ -19,6 +19,10 @@ require("lsp") -- lua/lsp/init.lua
 --   let g:nord_italic_comments = 1
 -- ]])
 
+-- vim.cmd([[
+--   set laststatus=3
+-- ]])
+
 -- Autocompile packer when the plugins file changes.
 vim.cmd([[       
   augroup packer_user_config

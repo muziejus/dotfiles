@@ -155,4 +155,3 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
