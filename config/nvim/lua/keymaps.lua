@@ -17,7 +17,26 @@ wk.register({
       b = { '<CMD>Telescope buffers<CR>', "Find Buffers"},
       h = { '<CMD>Telescope help_tags<CR>', "Help Tags"},
       r = { '<CMD>Telescope oldfiles<CR>', "Open Recent File"},
+      v = { '<CMD>Telescope registers<CR>', "Show/Paste Registers"},
       n = { '<CMD>enew<CR>', "New File" },
+      G = { 
+        name = "+git",
+        c = { '<CMD>Telescope git_commits<CR>', "Show Commits"},
+        b = { '<CMD>Telescope git_bcommits<CR>', "Show Buffer Commits"},
+        s = { '<CMD>Telescope git_status<CR>', "Show Status"},
+        t = { '<CMD>Telescope git_stash<CR>', "Show Stashes"},
+
+      },
+      l = {
+        name = "+lsp",
+        r = { '<CMD>Telescope lsp_references<CR>', "Show References"},
+        d = { '<CMD>Telescope lsp_definitions<CR>', "Show Definitions"},
+        t = { '<CMD>Telescope lsp_type_definitions<CR>', "Show Type Definitions"},
+        i = { '<CMD>Telescope lsp_implementations<CR>', "Show Implementations"},
+        c = { '<CMD>Telescope lsp_code_actions<CR>', "Show Code Actions"},
+        ds = { '<CMD>Telescope lsp_document_symbols<CR>', "Show Document Symbols"},
+        ws = { '<CMD>Telescope lsp_workspace_symbols<CR>', "Show Workspace Symbols"},
+      },
       t = {
         name = "+type",
         m = { "<CMD>set filetype=markdown<CR>", "Set to Markdown"},
