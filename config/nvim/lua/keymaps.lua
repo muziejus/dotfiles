@@ -46,6 +46,9 @@ wk.register({
       -- Git
       name = "+git",
       s = { "<CMD>G<CR>", "git status" },
+      l = { "<CMD>diffget LOCAL<CR>", "get LOCAL diff"},
+      b = { "<CMD>diffget BASE<CR>", "get BASE diff"},
+      r = { "<CMD>diffget REMOTE<CR>", "get REMOTE diff"},
       h = { "<CMD>diffget //3<CR>", "diffget 3" },
       u = { "<CMD>diffget //2<CR>", "diffget 2" },
       c = { "<CMD>Git commit<CR>", "git commit" },
