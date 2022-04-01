@@ -12,6 +12,7 @@ require('lsp.typescript')
 require('lsp.ember')
 require('lsp.html')
 require('lsp.tailwindcss')
+require('lsp.pyright')
 require('lsp.null-ls')
 require('lsp.sumneko-lua')
 
