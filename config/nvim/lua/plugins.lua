@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
 -- Autocomplete, syntax, and LSP
   -- use 'neovim/nvim-lspconfig'
   use(require('configure.lspconfig'))
+  use(require('configure.typescript'))
   -- use(require('configure.navigator')) -- configures lspconfig for me.
   use(require('configure.completion'))
   use(require('configure.trouble'))
@@ -46,7 +47,7 @@ return require('packer').startup(function(use)
   use 'thinca/vim-visualstar'
   use 'tpope/vim-surround'
   use 'tpope/vim-unimpaired' -- [ and ] macros for moving around
-  use(require('configure.autopairs'))
+  -- use(require('configure.autopairs'))
 -- Text
   use 'kana/vim-textobj-user' -- define textobjs easily
   use 'reedes/vim-textobj-quote' -- for curly quotes
