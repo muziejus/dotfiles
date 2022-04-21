@@ -5,7 +5,7 @@ return {
     'folke/trouble.nvim',
   },
   config = function()
-    -- local trouble = require('trouble.providers.telescope')
+    local trouble = require('trouble.providers.telescope')
 
     require('telescope').setup({
       defaults = {

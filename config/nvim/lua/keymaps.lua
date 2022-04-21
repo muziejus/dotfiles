@@ -112,7 +112,8 @@ wk.register({
 ----{("n", "<esc>", ":noh<cr><esc>", silent)
   ['<esc>'] = {":noh<CR><ESC>"},
   ['<C-n>'] = {':NvimTreeToggle<CR>', "NvimTree Toggle"},
-  H = {'^', "Jump to start of line"}
+  H = {'^', "Jump to start of line"},
+  ['<C-Bslash>'] = {':ToggleTerm<CR>', "ToggleTerm"},
 })
 
 -- LSPconfig

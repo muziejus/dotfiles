@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
   use(require('configure.nvim-tree'))
   use 'chazy/dirsettings' -- for autocommitting wiki.
 -- Utilities / Dependencies
-  -- use 'akinsho/toggleterm.nvim'
+  use(require('configure.toggleterm'))
   use 'nvim-lua/plenary.nvim'
   use(require('configure.telescope'))
   use(require('configure.telescope-fzf-native'))
