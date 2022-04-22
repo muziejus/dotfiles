@@ -7,18 +7,17 @@ return require('packer').startup(function(use)
   use(require('configure.kitty-navigator'))
   use(require('configure.which-key'))
 -- Autocomplete, syntax, and LSP
-  -- use 'neovim/nvim-lspconfig'
   use(require('configure.lspconfig'))
   use(require('configure.typescript'))
-  -- use(require('configure.navigator')) -- configures lspconfig for me.
+  use(require('configure.lsp-signature'))
   use(require('configure.completion'))
   use(require('configure.trouble'))
   use(require('configure.treesitter'))
   -- Look and Feel
-  -- use(require('configure.tmux'))
   use(require('configure/auto-dark-mode'))
   use('arcticicestudio/nord-vim')
   use('haystackandroid/snow')
+  use('NLKNguyen/papercolor-theme')
   use(require('configure.web-devicons'))
   use(require('configure.lualine'))
   use(require('configure.tabline'))
@@ -60,5 +59,3 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
-
--- require("configure.toggleterm")
