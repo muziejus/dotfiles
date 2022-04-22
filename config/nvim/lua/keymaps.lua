@@ -62,7 +62,7 @@ wk.register({
       l = { "<CMD>TroubleToggle loclist<CR>", "Loclist" },
       d = { "<CMD>TroubleToggle document_diagnostics<CR>", "List Document Diagnostics" },
       w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "List Workspace Diagnostics" },
-      -- {'gR', '<cmd>TroubleToggle lsp_references<cr>'},
+      r = {'<cmd>TroubleToggle lsp_references<cr>'},
     },
     i = {
       name = "+insert",
@@ -102,7 +102,7 @@ wk.register({
   gi = { '<cmd>lua vim.lsp.buf.implementation()<CR>', "Go to Implementation"},
   gd = { '<cmd>lua vim.lsp.buf.definition()<CR>', "Go to Definition"},
   gD = { '<cmd>lua vim.lsp.buf.declaration()<CR>', "Go to Declaration"},
-  gr = { '<cmd>lua vim.lsp.buf.references()<CR>', "Go to References"},
+  gr = { '<cmd>TroubleToggle lsp_references<CR>', "Go to References"},
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', "Hover"},
   -- Split mappings
   ['<C-k>'] = {':KittyNavigateUp<CR>'},
