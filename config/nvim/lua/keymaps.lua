@@ -7,6 +7,20 @@ vim.g.maplocalleader = " "
 
 local wk = require("which-key")
 
+local Terminal = require("toggleterm.terminal").Terminal
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+
+function _LAZYGIT_TOGGLE()
+  lazygit:toggle()
+end
+
+local node = Terminal:new({ cmd = "node", hidden = true })
+
+function _NODE_TOGGLE()
+  node:toggle()
+end
+
+
 wk.register({
   ["<leader>"] = {
     f = {
@@ -42,6 +56,7 @@ wk.register({
         m = { "<CMD>set filetype=markdown<CR>", "Set to Markdown"},
       },
     },
+    G = {"<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit"},
     g = {
       -- Git
       name = "+git",
@@ -96,7 +111,9 @@ wk.register({
     e = { '<cmd>lua vim.diagnostic.open_float()<CR>', "Open Float"},
     q = { '<cmd>lua vim.diagnostic.setloclist()<CR>', "Set Loclist"},
     F = { '<cmd>lua vim.lsp.buf.formatting()<CR>', "Format"},
-    K = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature Help"},
+    S = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature Help"},
+    K = { '<cmd>lua vim.lsp.buf.hover()<CR>', "Hover"},
+    N = {"<cmd>lua _NODE_TOGGLE()<CR>", "Node"},
   },
   -- Generic LSP
   gi = { '<cmd>lua vim.lsp.buf.implementation()<CR>', "Go to Implementation"},
@@ -104,16 +121,16 @@ wk.register({
   gD = { '<cmd>lua vim.lsp.buf.declaration()<CR>', "Go to Declaration"},
   gr = { '<cmd>TroubleToggle lsp_references<CR>', "Go to References"},
   K = { '<cmd>lua vim.lsp.buf.hover()<CR>', "Hover"},
+  -- Misc
+  H = {'^', "Jump to start of line"},
+  ['<esc>'] = {"<CMD>noh<CR><ESC>"},
+  ['<C-n>'] = {'<CMD>NvimTreeToggle<CR>', "NvimTree Toggle"},
+  ['<C-Bslash>'] = {':ToggleTerm<CR>', "ToggleTerm"},
   -- Split mappings
   ['<C-k>'] = {':KittyNavigateUp<CR>'},
   ['<C-j>'] = {':KittyNavigateDown<CR>'},
   ['<C-h>'] = {':KittyNavigateLeft<CR>'},
   ['<C-l>'] = {':KittyNavigateRight<CR>'},
-----{("n", "<esc>", ":noh<cr><esc>", silent)
-  ['<esc>'] = {":noh<CR><ESC>"},
-  ['<C-n>'] = {':NvimTreeToggle<CR>', "NvimTree Toggle"},
-  H = {'^', "Jump to start of line"},
-  ['<C-Bslash>'] = {':ToggleTerm<CR>', "ToggleTerm"},
 })
 
 -- LSPconfig
