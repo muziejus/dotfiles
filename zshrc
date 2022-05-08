@@ -150,6 +150,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export CARGO_PATH="$HOME/.cargo"
+export PATH="$CARGO_PATH/bin:$PATH"
+
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
