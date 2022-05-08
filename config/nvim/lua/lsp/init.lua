@@ -15,4 +15,4 @@ require('lsp.tailwindcss')
 require('lsp.pyright')
 require('lsp.null-ls')
 require('lsp.sumneko-lua')
-
+require('lsp.glint')
