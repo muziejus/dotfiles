@@ -1,15 +1,9 @@
--- Install packer
-local fn = vim.fn
-local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  Packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-end
-
-require("settings") -- lua/settings.lua
+require("options") -- lua/options.lua
 require("plugins") -- lua/plugins.lua
 require("keymaps") -- lua/keymaps.lua
 require("lsp") -- lua/lsp/init.lua
+
+
 
 -- Done in auto-dark-mode
 -- vim.cmd([[
@@ -18,29 +12,7 @@ require("lsp") -- lua/lsp/init.lua
 --   let g:nord_italic = 1
 --   let g:nord_italic_comments = 1
 -- ]])
-
--- vim.cmd([[
---   set laststatus=3
--- ]])
-
--- Autocompile packer when the plugins file changes.
-vim.cmd([[       
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
--- vim.cmd([[
---   nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
---   nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
---   nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
---   nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
--- ]])
--- nnoremap <C-J> <C-W><C-J>
--- nnoremap <C-K> <C-W><C-K>
--- nnoremap <C-L> <C-W><C-L>
--- nnoremap <C-H> <C-W><C-H>
-
+--
 --[[
 "" Use vim stuff?
 "" set cursorline " highlight current line
@@ -101,4 +73,3 @@ vim.cmd([[
 "" NERDTree git status
 "let g:NERDTreeGitStatusUseNerdFonts = 1
 --]]
-

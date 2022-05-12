@@ -11,10 +11,7 @@ require('lspconfig').sumneko_lua.setup({
         -- Setup your lua path
         path = runtime_path,
       },
-      diagnostics = {
-        -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
-      },
+      diagnostics = { globals = { 'vim' } },
       workspace = {
         -- Make the server aware of Neovim runtime files
         -- library = vim.api.nvim_get_runtime_file("", true),
@@ -29,6 +26,6 @@ require('lspconfig').sumneko_lua.setup({
       },
     },
   },
-  -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-  -- on_attach = require('lsp.utils').on_attach,
+  capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  on_attach = require('lsp.utils').on_attach,
 })

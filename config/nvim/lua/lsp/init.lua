@@ -1,18 +1,55 @@
--- from https://github.com/mrjones2014/dotfiles/blob/master/.config/nvim/lua/lsp/init.lua
+-- based on https://github.com/LunarVim/Neovim-from-scratch/blob/06-LSP/lua/user/lsp/handlers.lua
+local M = {}
 
--- set diagnostics to update in insert mode
-vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = true,
-})
+M.setup = function()
+  local signs = {
+    { name = "DiagnosticSignError", text = "" },
+    { name = "DiagnosticSignWarn", text = "" },
+    { name = "DiagnosticSignHint", text = "" },
+    { name = "DiagnosticSignInfo", text = "" },
+  }
 
-require('lsp.typescript')
-require('lsp.ember')
-require('lsp.html')
-require('lsp.tailwindcss')
-require('lsp.pyright')
-require('lsp.null-ls')
-require('lsp.sumneko-lua')
-require('lsp.glint')
+  for _, sign in ipairs(signs) do
+    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+  end
+
+  local config = {
+    virtual_text = false, -- ghost text
+    signs = {
+      active = signs,
+    },
+    update_in_insert = true,
+    underline = true,
+    severity_sort = true,
+    float = {
+      focusable = false,
+      style = "minimal",
+      border = "rounded",
+      source = "always",
+      header = "",
+      prefix = "",
+    },
+  }
+
+  vim.diagnostic.config(config)
+
+  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    border = "rounded",
+  })
+
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+    border = "rounded",
+  })
+end
+
+M.setup()
+
+require("lsp.typescript")
+require("lsp.ember")
+require("lsp.jsonls")
+require("lsp.html")
+require("lsp.tailwindcss")
+require("lsp.pyright")
+require("lsp.null-ls")
+require("lsp.lua")
+require("lsp.glint")
