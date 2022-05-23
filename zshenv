@@ -15,6 +15,9 @@ export zpath=$HOME/.zsh
 # Load in secret files
 source $HOME/.env
 
+# Hopefully this will force prettierd to stop overriding local settings.
+export PRETTIERD_LOCAL_PRETTIER_ONLY=1
+
 export PYTHONPATH="/Applications/QGIS3.6.app/Contents/Resources/python/"
 
 # export LANG=lt_LT.UTF-8
