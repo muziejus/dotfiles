@@ -7,6 +7,9 @@ local sources = {
   --   command = 'eslint_d',
   -- }),
   b.formatting.prettierd.with({
+    env = {
+      PRETTIERD_LOCAL_PRETTIER_ONLY = 1
+    },
     prefer_local = "node_modules/.bin",
     filetypes = {
       "html",
