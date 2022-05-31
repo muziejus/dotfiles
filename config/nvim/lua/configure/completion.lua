@@ -13,7 +13,6 @@ return {
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets", -- snippet collection
   },
-  --]]
   -- after = { 'nvim-autopairs' },
   config = function()
     local cmp_status_ok, cmp = pcall(require, "cmp")
@@ -85,45 +84,23 @@ return {
         ["<C-p>"] = cmp.mapping.select_prev_item(),
         ["<C-n>"] = cmp.mapping.select_next_item(),
       },
-      --[[sources = cmp.config.sources({
-        { name = 'treesitter' },
-        { name = 'luasnip' },
-        -- { name = 'neorg' },
-        { name = 'pandoc_references' },
-      }, {
-        { name = 'path' },
-        { name = 'buffer' },
-        { name = 'spell' },
-      }),
-      --]]
-      sources = {
+      sources = cmp.config.sources({
         -- Order matters.
         { name = "luasnip" },
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
         { name = "buffer" },
         { name = "path" },
-      },
+        -- { name = 'treesitter' },
+        -- { name = 'pandoc_references' },
+        -- { name = 'spell' },
+      }),
       confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
         select = false,
       },
       formatting = {
         format = require("lspkind").cmp_format({ with_text = true }),
-        --[[
-        fields = { "kind", "abbr", "menu" },
-        format = function(entry, vim_item)
-          -- Kind icons
-          vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-          vim_item.menu = ({
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-          })[entry.source.name]
-          return vim_item
-        end,
-        ]]
-        --
       },
       experimental = {
         ghost_text = true,
