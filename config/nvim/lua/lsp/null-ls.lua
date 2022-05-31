@@ -8,7 +8,7 @@ local sources = {
   -- }),
   b.formatting.prettierd.with({
     env = {
-      PRETTIERD_LOCAL_PRETTIER_ONLY = 1
+      PRETTIERD_LOCAL_PRETTIER_ONLY = 1,
     },
     prefer_local = "node_modules/.bin",
     filetypes = {
@@ -31,7 +31,7 @@ local sources = {
   b.diagnostics.shellcheck.with({
     diagnostics_format = "#{m} [#{s}] [#{c}]",
   }),
-  b.completion.spell,
+  -- b.completion.spell,
 }
 
 if vim.fn.filereadable("./node_modules/.bin/stylelint") > 0 then
@@ -44,6 +44,7 @@ if vim.fn.filereadable("./node_modules/.bin/stylelint") > 0 then
 end
 
 null_ls.setup({
+  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   -- on_attach = require('lsp.utils').on_attach,
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then

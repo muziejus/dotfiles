@@ -49,13 +49,13 @@
 --   }
 -- end
 
-require('lspconfig').glint.setup {
+require("lspconfig").glint.setup({
+  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
   on_attach = function()
     for i, server in ipairs(vim.lsp.buf_get_clients()) do
-      print(server.name)
-      if server.name == 'tsserver' then
+      if server.name == "tsserver" then
         vim.lsp.get_client_by_id(server.id).stop()
       end
     end
   end,
-}
+})

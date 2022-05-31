@@ -2,16 +2,18 @@ return {
   "hrsh7th/nvim-cmp", -- The completion plugin
   requires = {
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer", -- buffer completions
+    -- "hrsh7th/cmp-buffer", -- buffer completions
     "hrsh7th/cmp-path", -- path completions
     "hrsh7th/cmp-cmdline", -- cmdline completions
-    "saadparwaiz1/cmp_luasnip", -- snippet completions
-    -- compare: https://github.com/aspeddro/cmp-pandoc.nvim
-    "jc-doyle/cmp-pandoc-references", -- pandoc completions
+    "hrsh7th/cmp-nvim-lua", -- for vim config files.
     "onsails/lspkind-nvim",
-    "hrsh7th/cmp-nvim-lua",
+    -- compare: https://github.com/aspeddro/cmp-pandoc.nvim
+    -- "jc-doyle/cmp-pandoc-references", -- pandoc completions
     "L3MON4D3/LuaSnip",
+    "saadparwaiz1/cmp_luasnip", -- snippet completions
     "rafamadriz/friendly-snippets", -- snippet collection
+    "petertriho/cmp-git",
+    "davidsierradz/cmp-conventionalcommits",
   },
   -- after = { 'nvim-autopairs' },
   config = function()
@@ -33,6 +35,9 @@ return {
     end
 
     cmp.setup({
+      completion = {
+        autocomplete = false,
+      },
       snippet = {
         -- A snippet engine MUST be defined
         expand = function(args)
@@ -88,9 +93,8 @@ return {
         -- Order matters.
         { name = "luasnip" },
         { name = "nvim_lsp" },
-        { name = "nvim_lua" },
-        { name = "buffer" },
-        { name = "path" },
+        -- { name = "buffer" },
+        -- { name = "path" },
         -- { name = 'treesitter' },
         -- { name = 'pandoc_references' },
         -- { name = 'spell' },
@@ -108,21 +112,37 @@ return {
       },
     })
 
+    cmp.setup.filetype("lua", {
+      sources = cmp.config.sources({
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+        { name = "nvim_lua" },
+      }),
+    })
+
+    cmp.setup.filetype({ "javscript", "typescript" }, {
+      sources = cmp.config.sources({
+        { name = "luasnip" },
+        { name = "nvim_lsp" },
+      }),
+    })
+
     cmp.setup.filetype("gitcommit", {
       sources = cmp.config.sources({
         { name = "cmp_git" },
-      }, {
-        { name = "buffer" },
+        { name = "conventionalcommits" },
+        --   }, {
+        --     { name = "buffer" },
       }),
     })
 
     -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
-    cmp.setup.cmdline("/", {
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = "buffer" },
-      },
-    })
+    -- cmp.setup.cmdline("/", {
+    --   mapping = cmp.mapping.preset.cmdline(),
+    --   sources = {
+    --     { name = "buffer" },
+    --   },
+    -- })
 
     -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
     cmp.setup.cmdline(":", {
@@ -133,28 +153,5 @@ return {
         { name = "cmdline" },
       }),
     })
-
-    --[[
-    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
-    require('lspconfig')['sumneko_lua'].setup {
-      capabilities = capabilities
-    }
-    require('lspconfig')['tsserver'].setup {
-      capabilities = capabilities
-    }
-    require('lspconfig')['ember'].setup {
-      capabilities = capabilities
-    }
-    require('lspconfig')['html'].setup {
-      capabilities = capabilities
-    }
-    -- require('lspconfig')['null_ls'].setup {
-    --   capabilities = capabilities
-    -- }
-    require('lspconfig')['tailwindcss'].setup {
-      capabilities = capabilities
-    }
-    --]]
   end,
 }
