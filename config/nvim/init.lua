@@ -3,7 +3,9 @@ require("plugins") -- lua/plugins.lua
 require("keymaps") -- lua/keymaps.lua
 require("lsp") -- lua/lsp/init.lua
 
-
+vim.cmd([[
+  set termguicolors
+]])
 
 -- Done in auto-dark-mode
 -- vim.cmd([[
