@@ -54,9 +54,8 @@ return packer.startup(function(use)
   use(require("configure.lsp-signature"))
   -- Look and Feel
   use(require("configure/auto-dark-mode"))
+  use("sainnhe/everforest")
   use("arcticicestudio/nord-vim")
-  use("haystackandroid/snow")
-  use("NLKNguyen/papercolor-theme")
   use("fladson/vim-kitty")
   use("tpope/vim-commentary") -- creates gcc for commenting things
   use(require("configure.web-devicons"))

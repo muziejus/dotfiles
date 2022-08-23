@@ -1,7 +1,6 @@
 -- Nonicons doesn't work with Alacritty
 -- local icons = require('nvim-nonicons')
 
-
 -- local mode_icons = {
 --   ['n'] = icons.get('vim-normal-mode'),
 --   ['no'] = icons.get('vim-normal-mode'),
@@ -45,101 +44,102 @@
 -- end
 
 return {
-  'nvim-lualine/lualine.nvim',
-  requires = {'kyazdani42/nvim-web-devicons', opt = true},
+  "nvim-lualine/lualine.nvim",
+  requires = { "kyazdani42/nvim-web-devicons", opt = true },
   config = function()
     local function is_file_open()
-      return #(vim.fn.expand('%')) > 0
+      return #(vim.fn.expand("%")) > 0
     end
 
     local function filepath()
-      local path = vim.fn.expand('%')
+      local path = vim.fn.expand("%")
       if vim.fn.winwidth(0) <= 84 then
         path = vim.fn.pathshorten(path)
       end
 
       if not path or #path == 0 then
-        return ''
+        return ""
       end
 
-      local icon = require('nvim-web-devicons').get_icon(path)
-      return icon .. '  ' .. path
+      local icon = require("nvim-web-devicons").get_icon(path)
+      return icon .. "  " .. path
     end
 
-    require('lualine').setup {
+    require("lualine").setup({
       options = {
         globalstatus = true,
-        theme = "nord",
+        theme = "everforest",
       },
       sections = {
-        lualine_a = {'mode'},
-        lualine_b = {'branch', 'diff', },
-        lualine_c = { filepath ,
+        lualine_a = { "mode" },
+        lualine_b = { "branch", "diff" },
+        lualine_c = {
+          filepath,
           {
-            'diagnostics',
-            sources = { 'nvim_diagnostic' },
-            sections = { 'error', 'warn', 'info', 'hint' },
+            "diagnostics",
+            sources = { "nvim_diagnostic" },
+            sections = { "error", "warn", "info", "hint" },
             always_visible = is_file_open,
             update_in_insert = true,
-          }
+          },
         },
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
-        lualine_y = {'progress'},
-        lualine_z = {'location'}
+        lualine_x = { "encoding", "fileformat", "filetype" },
+        lualine_y = { "progress" },
+        lualine_z = { "location" },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
-        lualine_x = {'location'},
+        lualine_c = { "filename" },
+        lualine_x = { "location" },
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
       tabline = {
-        lualine_a = {'buffers'},
-        lualine_b = {'branch'},
-        lualine_c = {'filename'},
+        lualine_a = { "buffers" },
+        lualine_b = { "branch" },
+        lualine_c = { "filename" },
         -- lualine_c = {require'tabline'.tabline_buffers},
         -- lualine_b = {'branch'},
         lualine_x = {},
         -- lualine_x = {require'tabline'.tabline_tabs},
         lualine_y = {},
-        lualine_z = {}
-      }
-    }
-  end
+        lualine_z = {},
+      },
+    })
+  end,
 }
 --     require('lualine').setup {
-      -- options = {
-      --   theme = "nord",
-      --   disabled_filetypes = { 
-      --     'fugitive',
-      --     'NvimTree', 
-      --     'term', 
-      --     'terminal', 
-      --     'TelescopePrompt'
-      --   }
-      -- },
-      -- sections = {
-      --   lualine_a = { get_mode },
-      --   lualine_b = { "branch" },
-      --   },
-      --   lualine_x = { 'filetype' },
-      --   lualine_y = { 'progress' },
-      --   lualine_z = { 'location' },
-      -- },
-      -- inactive_sections = {},
-      -- extensions = { 'nvim-tree' },
-      -- tabline = {
-      --   lualine_a = {'buffers'},
-      --   lualine_b = {},
-      --   lualine_c = {},
-      --   -- lualine_b = {'branch'},
-      --   -- lualine_c = {'filename'},
-      --   lualine_x = {},
-      --   lualine_y = {},
-      --   lualine_z = {}
-      -- }
-    -- }
-  -- end
+-- options = {
+--   theme = "nord",
+--   disabled_filetypes = {
+--     'fugitive',
+--     'NvimTree',
+--     'term',
+--     'terminal',
+--     'TelescopePrompt'
+--   }
+-- },
+-- sections = {
+--   lualine_a = { get_mode },
+--   lualine_b = { "branch" },
+--   },
+--   lualine_x = { 'filetype' },
+--   lualine_y = { 'progress' },
+--   lualine_z = { 'location' },
+-- },
+-- inactive_sections = {},
+-- extensions = { 'nvim-tree' },
+-- tabline = {
+--   lualine_a = {'buffers'},
+--   lualine_b = {},
+--   lualine_c = {},
+--   -- lualine_b = {'branch'},
+--   -- lualine_c = {'filename'},
+--   lualine_x = {},
+--   lualine_y = {},
+--   lualine_z = {}
+-- }
+-- }
+-- end
 -- }
