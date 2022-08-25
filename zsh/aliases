@@ -1,0 +1,122 @@
+
+#########################
+#                       #
+#   my .zsh/aliases, sourced by .zshrc
+#                       #
+#########################
+
+#########################
+#    yipee! aliases!    #
+#########################
+
+source ~/.zsh/uncommitted-aliases
+
+# unalias run-help
+# alias run-help
+HELPDIR=/usr/local/share/zsh/helpfiles
+
+alias kitty='kitty -o allow_remote_control=yes --single-instance --listen-on unix:/tmp/mykitty'
+alias ls='exa --git --header -F'
+alias grep='rg'
+
+alias gs='git status '
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gcmn='git commit --no-verify -m'
+alias gd='git diff'
+alias gphm='git push heroku master'
+alias gpom='git push origin main; echo "💥 BAM! You did the thing! 🎉"'
+
+alias be='bundle exec'
+alias start-redis='redis-server /usr/local/etc/redis.conf'
+#alias   ruby19='/usr/local/bin/ruby'
+#alias   irb='irb19'
+#alias   irb19='/usr/local/bin/irb'
+
+alias vi='nvim'
+alias vim='nvim'
+alias mutt='neomutt'
+alias muttalias='vi ~/.mutt/aliases'
+alias dev='ssh moacir@dev.moacir.com'
+
+# alias lightMode="/Applications/kitty.app/Contents/MacOS/kitty @ set-colors --all --configured ~/.config/kitty/themes/kitty-gruvbox-theme/gruvbox_light.conf"
+alias lightMode="/Applications/kitty.app/Contents/MacOS/kitty @ set-colors --all --configured ~/.config/kitty/themes/everforest-light-medium.conf"
+alias darkMode="/Applications/kitty.app/Contents/MacOS/kitty @ set-colors --all --configured ~/.config/kitty/themes/everforest-dark-medium.conf"
+# alias darkMode="2>/dev/null defaults read -g AppleInterfaceStyle"
+
+
+# alias   whois='whois -h whois.geektools.com'
+#alias   emacs='emacs -fn -b&h-lucidatypewriter-medium-r-normal--12----m-60-iso8859-1'
+#alias   emacs='emacs -fn 6x12'
+#alias   xlock='xlock -mode penrose'
+# alias   xlock='xlock -modelist "bouboule daisy grav ifs lightning maze penrose star swarm tri"'
+# alias   grep='egrep'
+# alias   screens='screen -ls'
+# alias   getscreen='screen -R'
+# alias   killscreen='screen -d'
+# alias   noemacs='emacs -nw'
+# alias   nemacs='emacs -nw'
+# alias	pd='pushd'
+# alias	uu='uptime ; echo -n " users:   " ; users'
+# alias   untar='tar xvf'
+#alias   ls='ls -F --color=yes'
+# alias   ls='ls -F'
+# alias   la='ls -aFC'
+# alias   lal='ls -laF'
+# alias   f='finger -l'
+# alias   pine='pine -i'
+alias   kill='kill -9'
+alias   more='less'
+# alias   out='logout'
+# alias   psl='ps -l'
+# alias   news='trn -c'
+# alias   readable='chmod 744'
+# alias   public='chmod 755'
+# alias   writable='chmod 766' 
+# alias   siz='set noglob ; eval `/usr/local/bin/resize` ; unset noglob'
+# alias   gnus='emacs -nw -f gnus'
+# alias   doctor='emacs -f doctor'
+# alias   tetris='~enf1/bin/tetris'
+# alias   toast='games/toast'
+# alias   jazzweb='lynx http://www.acns.nwu.edu/jazz/search/'
+# alias   espnet='lynx http://espnet.sportszone.com/mlb/today/sco.html'
+# alias   esponet='lynx http://espnet.sportszone.com/mlb/today/sco.html'
+# alias   infoseek='lynx http://www.infoseek.com/'
+# alias   altavista='lynx http://www.altavista.digital.com/'
+# alias   webmutt='lynx http://www.cs.hmc.edu/~me/mutt'
+
+# directory stuff
+alias   back='cd -'
+alias   ..='cd ..'                 
+alias   ...='cd ../..'             
+alias   ....='cd ../../..'         
+alias   .....='cd ../../../..'     
+
+alias Projects='cd ~/Projects'
+alias NYU='cd ~/documents/Teaching/NYU'
+
+# personal stuff
+# alias   homepage='lynx http://redtape/users/moacir/words.html'
+# alias   plan='emacs .plan'
+
+# typo control
+# alias   emasc='emacs'
+# alias   eamcs='emacs'
+# alias   macs='emacs'
+# alias   emac='emacs'
+# alias   pie='pine'
+# alias   pin='pine'
+# alias   pein='pine'
+# alias   pien='pine'
+# alias   pnie='pine'
+# alias   ppine='pine'
+# alias   ric='irc'
+# alias   logput='logout'
+# alias   ou='logout'
+alias   mroe='more'
+# alias   ouit='out'
+# alias   trn='slrn'
+# alias	tnr='slrn'
+# alias   humaun='humsun1'
+# alias   humsun='humsun1'
+# alias   humaun1='humsun1'
