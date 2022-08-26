@@ -1,9 +1,13 @@
 return {
-  'kyazdani42/nvim-tree.lua',
+  "kyazdani42/nvim-tree.lua",
   requires = {
-    'kyazdani42/nvim-web-devicons',
+    "kyazdani42/nvim-web-devicons",
   },
   config = function()
-    require'nvim-tree'.setup {}
-  end
+    require("nvim-tree").setup({
+      renderer = {
+        highlight_git = true,
+      },
+    })
+  end,
 }
