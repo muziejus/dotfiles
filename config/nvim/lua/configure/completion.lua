@@ -8,12 +8,14 @@ return {
     "hrsh7th/cmp-nvim-lua", -- for vim config files.
     "onsails/lspkind-nvim",
     -- compare: https://github.com/aspeddro/cmp-pandoc.nvim
+    "aspeddro/cmp-pandoc.nvim",
     -- "jc-doyle/cmp-pandoc-references", -- pandoc completions
     "L3MON4D3/LuaSnip",
     "saadparwaiz1/cmp_luasnip", -- snippet completions
     "rafamadriz/friendly-snippets", -- snippet collection
     "petertriho/cmp-git",
     "davidsierradz/cmp-conventionalcommits",
+    "uga-rosa/cmp-dictionary",
   },
   -- after = { 'nvim-autopairs' },
   config = function()
@@ -35,6 +37,7 @@ return {
     end
 
     cmp.setup({
+      enabled = true,
       completion = {
         autocomplete = false,
       },
@@ -96,7 +99,7 @@ return {
         -- { name = "buffer" },
         -- { name = "path" },
         -- { name = 'treesitter' },
-        -- { name = 'pandoc_references' },
+        -- { name = "pandoc_references" },
         -- { name = 'spell' },
       }),
       confirm_opts = {
@@ -110,6 +113,21 @@ return {
         ghost_text = true,
         native_menu = false, -- See below
       },
+    })
+
+    require("cmp_pandoc").setup()
+
+    require("cmp_dictionary").setup({
+      dic = {
+        ["*"] = { "/usr/share/dict/words" },
+      },
+    })
+
+    cmp.setup.filetype("markdown", {
+      sources = cmp.config.sources({
+        { name = "cmp_pandoc" },
+        { name = "dictionary", keyword_length = 2 },
+      }),
     })
 
     cmp.setup.filetype("lua", {
