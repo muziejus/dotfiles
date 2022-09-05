@@ -51,11 +51,10 @@ return packer.startup(function(use)
   use(require("configure.treesitter"))
   use(require("configure.trouble"))
   use(require("configure.typescript"))
-  use(require("configure.lsp-signature"))
+  -- use(require("configure.lsp-signature")) -- conflicts with nvim-cmp
   -- Look and Feel
   use(require("configure/auto-dark-mode"))
   use("sainnhe/everforest")
-  use("arcticicestudio/nord-vim")
   use("fladson/vim-kitty")
   use("tpope/vim-commentary") -- creates gcc for commenting things
   use(require("configure.web-devicons"))
@@ -90,7 +89,7 @@ return packer.startup(function(use)
   use("reedes/vim-textobj-quote") -- for curly quotes
   use("reedes/vim-textobj-sentence") -- for sentences
   use(require("configure.pandoc"))
-  use("vim-pandoc/vim-pandoc-syntax")
+  -- use("vim-pandoc/vim-pandoc-syntax")
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
