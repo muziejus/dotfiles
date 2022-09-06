@@ -65,16 +65,16 @@ return packer.startup(function(use)
   -- use(require("configure.telescope"))
   -- use(require("configure.telescope-fzf-native"))
   use(require("configure.toggleterm"))
-  -- use("nvim-lua/plenary.nvim")
+  use("nvim-lua/plenary.nvim")
   -- -- Org
   -- use(require("configure.wiki"))
   -- -- Editing
-  -- use(require("configure.zen-mode"))
-  -- use(require("configure.twilight"))
-  -- use("thinca/vim-visualstar")
-  -- use("tpope/vim-surround")
-  -- use("tpope/vim-unimpaired") -- [ and ] macros for moving around
-  -- use(require("configure.autopairs"))
+  use(require("configure.zen-mode"))
+  use(require("configure.twilight"))
+  use("thinca/vim-visualstar")
+  use("tpope/vim-surround")
+  use("tpope/vim-unimpaired") -- [ and ] macros for moving around
+  use(require("configure.autopairs"))
   -- -- Git
   -- use(require("configure.gitsigns"))
   -- use("tpope/vim-fugitive") -- Git wrapper.
@@ -85,9 +85,9 @@ return packer.startup(function(use)
   -- use(require("configure.nvim-tree"))
   -- use("chazy/dirsettings") -- for autocommitting wiki.
   -- -- Text
-  -- use("kana/vim-textobj-user") -- define textobjs easily
-  -- use("reedes/vim-textobj-quote") -- for curly quotes
-  -- use("reedes/vim-textobj-sentence") -- for sentences
+  use("kana/vim-textobj-user") -- define textobjs easily
+  use("reedes/vim-textobj-quote") -- for curly quotes
+  use("reedes/vim-textobj-sentence") -- for sentences
   -- use(require("configure.pandoc"))
   -- -- use("vim-pandoc/vim-pandoc-syntax")
 
