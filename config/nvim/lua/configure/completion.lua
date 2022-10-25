@@ -6,8 +6,8 @@ return {
     "hrsh7th/cmp-buffer", -- buffer completions
     "hrsh7th/cmp-path", -- path completions
     "hrsh7th/cmp-cmdline", -- cmdline completions
-    --"hrsh7th/cmp-nvim-lua", -- for vim config files.
-    --"onsails/lspkind-nvim",
+    "hrsh7th/cmp-nvim-lua", -- for vim config files.
+    "onsails/lspkind-nvim",
     -- compare: https://github.com/aspeddro/cmp-pandoc.nvim
     "aspeddro/cmp-pandoc.nvim",
     -- "jc-doyle/cmp-pandoc-references", -- pandoc completions
@@ -31,9 +31,9 @@ return {
     end
 
     cmp.setup({
---      completion = {
---        autocomplete = true,
---      },
+      --      completion = {
+      --        autocomplete = true,
+      --      },
       snippet = {
         -- A snippet engine MUST be defined
         expand = function(args)
@@ -45,50 +45,36 @@ return {
         -- documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
---         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
---         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
---         ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
---         ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
---         ["<C-e>"] = cmp.mapping({
---           i = cmp.mapping.abort(),
---           c = cmp.mapping.close(),
---         }),
---         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
---         ["<S-Tab>"] = cmp.mapping(function(fallback)
---           if cmp.visible() then
---             cmp.select_prev_item()
---           elseif lusasnip.jumpable(-1) then
---             luasnip.jump(-1)
---           else
---             fallback()
---           end
---         end, {
---           "i",
---           "s",
---         }),
---         ["<Tab>"] = cmp.mapping(function(fallback)
---           if cmp.visible() then
---             cmp.select_next_item()
---           elseif luasnip.expandable() then
---             luasnip.expand()
---           elseif luasnip.expand_or_jumpable() then
---             luasnip.expand_or_jump()
---           elseif check_backspace() then
---             fallback()
---           else
---             fallback()
---           end
---         end, {
---           "i",
---           "s",
---         }),
---         ["<C-p>"] = cmp.mapping.select_prev_item(),
---         ["<C-n>"] = cmp.mapping.select_next_item(),
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        --         ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
+        --         ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
+        --         ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+        ["<S-Tab>"] = cmp.mapping(function()
+          if cmp.visible() then
+            cmp.select_prev_item()
+          elseif vim.fn["vsnip#jumpable"](-1) == 1 then
+            feedkey("<Plug>(vsnip-jump-prev)", "")
+          end
+        end, { "i", "s" }),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          elseif vim.fn["vsnip#available"](1) == 1 then
+            feedkey("<Plug>(vsnip-expand-or-jump)", "")
+          elseif has_words_before() then
+            cmp.complete()
+          elseif check_backspace() then
+            fallback()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+        ["<C-p>"] = cmp.mapping.select_prev_item(),
+        ["<C-n>"] = cmp.mapping.select_next_item(),
       }),
       sources = cmp.config.sources({
         -- Order matters.
@@ -99,18 +85,18 @@ return {
         -- { name = 'spell' },
       }, {
         { name = "buffer" },
-      })
---       confirm_opts = {
---         behavior = cmp.ConfirmBehavior.Replace,
---         select = false,
---       },
---       formatting = {
---         format = require("lspkind").cmp_format({ with_text = true }),
---       },
---       experimental = {
---         ghost_text = true,
---         native_menu = false, -- See below
---       },
+      }),
+      --       confirm_opts = {
+      --         behavior = cmp.ConfirmBehavior.Replace,
+      --         select = false,
+      --       },
+      --       formatting = {
+      --         format = require("lspkind").cmp_format({ with_text = true }),
+      --       },
+      --       experimental = {
+      --         ghost_text = true,
+      --         native_menu = false, -- See below
+      --       },
     })
 
     require("cmp_pandoc").setup()
@@ -128,7 +114,7 @@ return {
         { name = "cmp_pandoc" },
         { name = "dictionary", keyword_length = 2 },
       }, {
-        {name="buffer"}
+        { name = "buffer" },
       }),
     })
 

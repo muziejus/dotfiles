@@ -113,6 +113,7 @@ wk.register({
     S = { '<cmd>lua vim.lsp.buf.signature_help()<CR>', "Signature Help" },
     K = { '<cmd>lua vim.lsp.buf.hover()<CR>', "Hover" },
     N = { "<cmd>lua _NODE_TOGGLE()<CR>", "Lazygit" },
+    Z = { "<cmd>Zenmode<CR>", "Zen Mode"},
   },
   -- Generic LSP
   gi = { '<cmd>lua vim.lsp.buf.implementation()<CR>', "Go to Implementation" },
