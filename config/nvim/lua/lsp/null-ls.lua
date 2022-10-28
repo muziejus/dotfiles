@@ -44,7 +44,7 @@ if vim.fn.filereadable("./node_modules/.bin/stylelint") > 0 then
 end
 
 null_ls.setup({
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
   -- on_attach = require('lsp.utils').on_attach,
   on_attach = function(client)
     if client.resolved_capabilities.document_formatting then

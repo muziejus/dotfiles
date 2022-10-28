@@ -107,7 +107,7 @@ return {
       },
     })
 
-    print("got past pandoc and dictionary setup")
+    -- print("got past pandoc and dictionary setup")
 
     cmp.setup.filetype("markdown", {
       sources = cmp.config.sources({

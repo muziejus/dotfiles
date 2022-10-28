@@ -1,7 +1,7 @@
 -- local util = require'lspconfig.util'
 
 require("lspconfig").ember.setup({
-  capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  capabilities = require("cmp_nvim_lsp").default_capabilities(),
   on_attach = require("lsp.utils").on_attach,
   -- These are the defaults.
   -- cmd = { "ember-language-server", "--stdio" },
