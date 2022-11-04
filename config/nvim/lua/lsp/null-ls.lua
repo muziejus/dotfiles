@@ -45,15 +45,11 @@ end
 
 null_ls.setup({
   capabilities = require("cmp_nvim_lsp").default_capabilities(),
-  -- on_attach = require('lsp.utils').on_attach,
   on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
+    if client.server_capabilities.documentFormattingProvider then
+      -- vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()")
+      vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
     end
   end,
   sources = sources,
 })
-
--- require('lspconfig')['null-ls'].setup({
---   autostart = true,
--- })
