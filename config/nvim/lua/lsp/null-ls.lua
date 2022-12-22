@@ -2,6 +2,7 @@ local null_ls = require("null-ls")
 local b = null_ls.builtins
 
 local sources = {
+  require("typescript.extensions.null-ls.code-actions"),
   b.code_actions.gitsigns,
   -- b.diagnostics.eslint.with({
   --   command = 'eslint_d',
