@@ -42,10 +42,10 @@ local options = {
   -- These are covered in the folding config.
   -- foldmethod = "expr",
   -- foldexpr = "nvim_treesitter#foldexpr()",
-  foldlevel = 99,
-  foldcolumn = "1",
-  foldlevelstart = 99,
-  foldenable = true,
+  -- foldlevel = 99,
+  -- foldcolumn = "1",
+  -- foldlevelstart = 99,
+  -- foldenable = true,
   --termguicolors = true,                    -- make more subtle coloring available
 }
 
