@@ -130,13 +130,13 @@ wk.register({
   ["<C-h>"] = { ":KittyNavigateLeft<CR>" },
   ["<C-l>"] = { ":KittyNavigateRight<CR>" },
   -- ufo Folding
-  z = {
-    R = { 'require("ufo").openAllFolds', "Open All Folds with ufo" },
-    M = { 'require("ufo").closeAllFolds', "Close All Folds with ufo" },
-    r = { 'require("ufo").openFoldsExceptKinds', "Open Folds except Kinds with ufo" },
-    m = { 'require("ufo").closeFoldsWith', "Close Folds with ufo" },
-    ["<space>"] = { 'require("ufo").peekFoldedLinesUnderCursor', "Peek Folds" },
-  },
+  -- z = {
+  --   R = { '<cmd> lua require("ufo").openAllFolds<CR>', "Open All Folds with ufo" },
+  --   M = { '<cmd> lua require("ufo").closeAllFolds<CR>', "Close All Folds with ufo" },
+  --   r = { '<cmd> lua require("ufo").openFoldsExceptKinds<CR>', "Open Folds except Kinds with ufo" },
+  --   m = { '<cmd> lua require("ufo").closeFoldsWith<CR>', "Close Folds with ufo" },
+  --   ["<space>"] = { '<cmd> lua require("ufo").peekFoldedLinesUnderCursor<CR>', "Peek Folds" },
+  -- },
 })
 
 -- LSPconfig

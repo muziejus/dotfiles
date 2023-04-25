@@ -61,7 +61,7 @@ return packer.startup(function(use)
   use(require("configure.lualine"))
   use(require("configure.tabline"))
   use(require("configure.indent-blankline"))
-  use(require("configure.folding"))
+  -- use(require("configure.folding"))
   -- -- Utilities / Dependencies
   use(require("configure.telescope"))
   use(require("configure.telescope-fzf-native"))
