@@ -1,10 +1,7 @@
 return {
   "fladson/vim-kitty",
   {
-    'knubie/nvim-kitty-navigator',
+    'knubie/vim-kitty-navigator',
     build = 'cp kitty/* ~/.config/kitty/',
-    config = function()
-        require('nvim-kitty-navigator').setup()
-    end
   }
 }
