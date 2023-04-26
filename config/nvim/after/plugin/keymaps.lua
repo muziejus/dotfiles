@@ -70,11 +70,5 @@ wk.register({
   ["<C-e>"] = { ui.toggle_quick_menu, "Toggle Harpoon Menu" },
   ["<C-n>"] = { "<CMD>Telescope find_files<CR>", "Telescope Find File" },
   ["<C-p>"] = { "<CMD>Telescope git_files<CR>", "Telescope Find Git File" },
-  -- Split mappings
-  -- ["<C-k>"] = { vim.cmd.KittyNavigateUp },
-  -- ["<C-j>"] = { vim.cmd.KittyNavigateDown },
-  -- ["<C-h>"] = { vim.cmd.KittyNavigateLeft },
-  -- ["<C-l>"] = { vim.cmd.KittyNavigateRight },
-
 })
 
