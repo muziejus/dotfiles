@@ -7,7 +7,7 @@ wk.register({
     f = {
       name = "+file",
       -- Telescope
-            f = { "<CMD>Telescope find_files<CR>", "Find File" },
+      f = { "<CMD>Telescope find_files<CR>", "Find File" },
       g = { "<CMD>Telescope live_grep<CR>", "Grep Files" },
       b = { "<CMD>Telescope buffers<CR>", "Find Buffers" },
       h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
@@ -15,8 +15,8 @@ wk.register({
       v = { "<CMD>Telescope registers<CR>", "Show/Paste Registers" },
       n = { "<CMD>enew<CR>", "New File" },
       s = { function()
-              require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ")})
-            end, "Search with Grep" },
+        require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
+      end, "Search with Grep" },
       G = {
         name = "+git",
         c = { "<CMD>Telescope git_commits<CR>", "Show Commits" },
@@ -65,14 +65,13 @@ wk.register({
   },
   z = {
     -- Folding
-    R = { require("ufo").openAllFolds, "Open all folds"},
-    M = { require("ufo").closeAllFolds, "Close all folds"},
-    r = { require("ufo").openFoldsExceptKinds, "Open folds except kinds"},
-    m = { require("ufo").closeFoldsWith, "Close folds with"},
-    ["<space>"] = { require("ufo").peekFoldedLinesUnderCursor, "Peek folded lines"},
+    R = { require("ufo").openAllFolds, "Open all folds" },
+    M = { require("ufo").closeAllFolds, "Close all folds" },
+    r = { require("ufo").openFoldsExceptKinds, "Open folds except kinds" },
+    m = { require("ufo").closeFoldsWith, "Close folds with" },
+    ["<space>"] = { require("ufo").peekFoldedLinesUnderCursor, "Peek folded lines" },
   },
   ["<C-e>"] = { ui.toggle_quick_menu, "Toggle Harpoon Menu" },
   ["<C-n>"] = { "<CMD>Telescope find_files<CR>", "Telescope Find File" },
   ["<C-p>"] = { "<CMD>Telescope git_files<CR>", "Telescope Find Git File" },
 })
-

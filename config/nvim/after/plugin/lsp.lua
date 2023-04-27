@@ -29,13 +29,15 @@ lsp.configure("lua_ls", {
 
 lsp.on_attach(function(_, bufnr)
   lsp.default_keymaps({buffer = bufnr})
-  -- local opts = { buffer = bufnr, remap = false }
-  -- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-  -- vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
-  -- vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-  -- vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-  -- vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-  -- vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  local opts = {buffer = bufnr}
+
+  vim.keymap.set({'n', 'x'}, 'gq', function()
+    vim.lsp.buf.format({
+      async = false,
+      timeout_ms = 10000,
+      -- filter == allow_format({'lua_ls', 'tsserver'}) -- if needed
+    })
+  end, opts)
 end)
 
 lsp.set_sign_icons({
@@ -55,21 +57,21 @@ require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup({
   mapping = {
-    ['<CR>'] = cmp.mapping.confirm({select=true}),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-f>'] = cmp_action.luasnip_jump_forward(),
     ['<C-b>'] = cmp_action.luasnip_jump_backward(),
     ['<Tab>'] = cmp_action.luasnip_supertab(),
     ['<S-Tab>'] = cmp_action.luasnip_shift_supertab(),
   },
   sources = {
-    {name = 'cmp_pandoc' },
-    {name = 'path'},
-    {name = 'nvim_lsp'},
-    {name = 'buffer', keyword_length = 3},
-    {name = 'luasnip', keyword_length = 2},
+    { name = 'cmp_pandoc' },
+    { name = 'path' },
+    { name = 'nvim_lsp' },
+    { name = 'buffer',    keyword_length = 3 },
+    { name = 'luasnip',   keyword_length = 2 },
   },
   formatting = {
-    fileds = {'abbr', 'kind', 'menu'},
+    fileds = { 'abbr', 'kind', 'menu' },
     format = require('lspkind').cmp_format({
       mode = 'symbol',
       maxwidth = 50,
