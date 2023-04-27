@@ -12,7 +12,6 @@ local options = {
   softtabstop = 2,
   shiftwidth = 2,
   expandtab = true,
-  showtabline = 2,
   -- Text stuff
   breakindent = true, -- long lines get broken and indented
   smartindent = true,

@@ -3,4 +3,5 @@ return {
   --   name = 'rose-pine',
   -- },
   "sainnhe/everforest",
+  "folke/tokyonight.nvim",
 }
