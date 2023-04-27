@@ -61,6 +61,7 @@ wk.register({
     [";"] = { function() ui.nav_file(4) end, "Harpoon file 4" },
     -- Misc
     u = { vim.cmd.UndotreeToggle, "Toggle Undo Tree" },
+    z = { vim.cmd.ZenMode, "Enable Zen mode" },
   },
   z = {
     -- Folding
