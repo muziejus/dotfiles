@@ -66,6 +66,9 @@ wk.register({
     -- Folding
     R = { require("ufo").openAllFolds, "Open all folds"},
     M = { require("ufo").closeAllFolds, "Close all folds"},
+    r = { require("ufo").openFoldsExceptKinds, "Open folds except kinds"},
+    m = { require("ufo").closeFoldsWith, "Close folds with"},
+    ["<space>"] = { require("ufo").peekFoldedLinesUnderCursor, "Peek folded lines"},
   },
   ["<C-e>"] = { ui.toggle_quick_menu, "Toggle Harpoon Menu" },
   ["<C-n>"] = { "<CMD>Telescope find_files<CR>", "Telescope Find File" },
