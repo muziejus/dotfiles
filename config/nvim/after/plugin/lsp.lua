@@ -1,4 +1,5 @@
-local lsp = require('lsp-zero').preset("recommended")
+local lsp = require('lsp-zero')
+lsp.preset("minimal")
 
 lsp.set_server_config({
   capabilities = {
@@ -56,6 +57,11 @@ local cmp_action = require('lsp-zero').cmp_action()
 require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup({
+  snippet = {
+    expand = function (args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
