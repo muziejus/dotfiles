@@ -62,9 +62,16 @@ wk.register({
     -- Misc
     u = { vim.cmd.UndotreeToggle, "Toggle Undo Tree" },
     z = { vim.cmd.ZenMode, "Enable Zen mode" },
+    ["<space>"] = { "zA", "Toggle folds recursively" },
   },
+  -- Folding
+  K = { function ()
+    local winid = require('ufo').peekFoldedLinesUnderCursor()
+    if not winid then
+      vim.lsp.buf.hover()
+    end
+  end, "Peek fold or hover"},
   z = {
-    -- Folding
     R = { require("ufo").openAllFolds, "Open all folds" },
     M = { require("ufo").closeAllFolds, "Close all folds" },
     r = { require("ufo").openFoldsExceptKinds, "Open folds except kinds" },
