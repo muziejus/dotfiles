@@ -51,6 +51,17 @@ wk.register({
       c = { "<CMD>Git commit<CR>", "git commit" },
       pom = { "<CMD>Git push origin main<CR>", "git commit origin main" },
     },
+    -- Trouble
+    -- See also gR
+    x = {
+      name = "+trouble",
+      x = { "<CMD>TroubleToggle<CR>", "Toggle Trouble" },
+      q = { "<CMD>TroubleToggle quickfix<CR>", "Quickfix" },
+      l = { "<CMD>TroubleToggle loclist<CR>", "Loclist" },
+      d = { "<CMD>TroubleToggle document_diagnostics<CR>", "List Document Diagnostics" },
+      w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "List Workspace Diagnostics" },
+      r = { "<cmd>TroubleToggle lsp_references<cr>" },
+    },
     -- Harpoon
     -- See also <C-e>
     h = { ui.toggle_quick_menu, "Toggle Harpoon Menu" },
@@ -62,7 +73,10 @@ wk.register({
     -- Misc
     u = { vim.cmd.UndotreeToggle, "Toggle Undo Tree" },
     z = { vim.cmd.ZenMode, "Enable Zen mode" },
-    ["<space>"] = { "zA", "Toggle folds recursively" },
+    ["<space>"] = { "za", "Toggle fold" },
+  },
+  g = {
+    R = { "<cmd>TroubleToggle lsp_references<cr>", "LSP References"},
   },
   -- Folding
   K = { function ()
