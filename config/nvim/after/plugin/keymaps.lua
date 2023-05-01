@@ -93,6 +93,6 @@ wk.register({
     ["<space>"] = { require("ufo").peekFoldedLinesUnderCursor, "Peek folded lines" },
   },
   ["<C-e>"] = { ui.toggle_quick_menu, "Toggle Harpoon Menu" },
-  ["<C-n>"] = { "<CMD>Telescope find_files<CR>", "Telescope Find File" },
+  ["<C-n>"] = { vim.cmd.NvimTreeToggle, "Toggle Nvim Tree" },
   ["<C-p>"] = { "<CMD>Telescope git_files<CR>", "Telescope Find Git File" },
 })
