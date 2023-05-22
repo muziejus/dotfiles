@@ -6,6 +6,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Loaded after .zshenv and before .zlogin
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+# So that the pyenv plugin for oh-my-zsh works.
 
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 
@@ -72,7 +76,7 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   # Add wisely, as too many plugins slow down shell startup.
   # plugins=(tmux history tmuxinator zsh-autosuggestions git osx jump zsh-completions zsh-syntax-highlighting)
   ### zsh-syntax-highlighting is installed via homebrew as below.
-  plugins=(tmux history tmuxinator git macos jump)
+  plugins=(tmux history tmuxinator git macos jump pyenv)
 
   # User configuration
 
@@ -122,15 +126,14 @@ export LESS="-x2"
 # added by travis gem
 [ -f /Users/moacir/.travis/travis.sh ] && source /Users/moacir/.travis/travis.sh
 
+# Check .zprofile for PATH changes, too.
+
 export PATH="/Users/moacir/d-preparation/scripts:$PATH"
 export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 export CARGO_PATH="$HOME/.cargo"
 export PATH="$CARGO_PATH/bin:$PATH"
