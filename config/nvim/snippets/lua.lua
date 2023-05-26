@@ -70,10 +70,27 @@ end --}}}
 
 local myFirstSnippet = s("myFirstSnippet", {
   t("Hola! This is my first snippet in Luasnip"),
-  i(1, "placeholder_text"),
+  i(1, " placeholder_text"),
   t({"", "This is another text node" }),
 })
 table.insert(snippets, myFirstSnippet)
+
+local mySecondSnippet = s("mySecondSnippet",
+  fmt(
+    [[
+local {} = function({})
+    {}
+end
+]],
+    {
+      i(1, "myVar"),
+      i(2, "myArg1"),
+      i(3, "-- TODO: something"),
+    }
+  )
+)
+
+table.insert(snippets, mySecondSnippet)
 
 -- Start Refactoring --
 
