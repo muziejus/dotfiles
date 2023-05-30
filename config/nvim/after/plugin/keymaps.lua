@@ -39,6 +39,10 @@ wk.register({
         m = { "<CMD>set filetype=markdown<CR>", "Set to Markdown" },
       },
     },
+    s = {
+      -- Snippets
+      r = {"<cmd>source ~/.config/nvim/after/plugin/luasnip.lua<CR>", "Reload LuaSnip"},
+    },
     g = {
       -- Git
       name = "+git",

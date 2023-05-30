@@ -34,13 +34,13 @@ table.insert(autosnippets, inlineMath)
 local vector = s({ trig = "(%a)vec", regTrig = true },
 {
   f(function (_, snip)
-    return "\\vector{" .. snip.captures[1] .. "} "
+    return "\\vec{" .. snip.captures[1] .. "} "
     end
   )
 })
 table.insert(autosnippets, vector)
 
-local hat = s({ trig = "(%a)hat", regTrig = true },
+local hat = s({ trig = "([xyz])hat", regTrig = true },
 {
   f(function (_, snip)
     return "\\hat{" .. snip.captures[1] .. "} "
