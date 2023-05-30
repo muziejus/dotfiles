@@ -31,10 +31,10 @@ local inlineMath = s({ trig = "%smm", regTrig = true },
 })
 table.insert(autosnippets, inlineMath)
 
-local vector = s({ trig = "(%a)vec", regTrig = true },
+local vector = s({ trig = "([%a0])vec", regTrig = true },
 {
   f(function (_, snip)
-    return "\\vec{" .. snip.captures[1] .. "} "
+    return "\\vec{" .. snip.captures[1] .. "}"
     end
   )
 })
@@ -59,5 +59,11 @@ local sum = s("sum", {
   t({"}"})
 })
 table.insert(snippets, sum)
+
+local linearOperator = s("linearOperator", {
+  t("\\mathscr{L}")
+})
+table.insert(autosnippets, linearOperator)
+
 
 return snippets, autosnippets
