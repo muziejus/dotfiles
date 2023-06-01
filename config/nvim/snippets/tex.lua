@@ -23,13 +23,22 @@ local displayMath = s("dm", {
 }, { condition = tex.in_text })
 table.insert(autosnippets, displayMath)
 
-local inlineMath = s({ trig = "%smm", regTrig = true }, 
+local inlineMath = s({ trig = "ilm", regTrig = true }, 
 {
   t({" $ "}),
   i(1, "math"),
   t({" $"}),
 })
 table.insert(autosnippets, inlineMath)
+
+local Rn = s({ trig = "R([%dnm])", regTrig = true },
+{
+  f(function (_, snip)
+    return "\\R^" .. snip.captures[1] .. " "
+    end
+  )
+})
+table.insert(autosnippets, Rn)
 
 local vector = s({ trig = "([%a0])vec", regTrig = true },
 {
@@ -40,10 +49,10 @@ local vector = s({ trig = "([%a0])vec", regTrig = true },
 })
 table.insert(autosnippets, vector)
 
-local hat = s({ trig = "([xyz])hat", regTrig = true },
+local hat = s({ trig = "([eijxyz])hat", regTrig = true },
 {
   f(function (_, snip)
-    return "\\hat{" .. snip.captures[1] .. "} "
+    return "\\hat{" .. snip.captures[1] .. "}"
     end
   )
 })
