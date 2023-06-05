@@ -17,28 +17,101 @@ end
 local snippets, autosnippets = {}, {}
 
 local displayMath = s("dm", {
-  t({ "\\[", "  " }),
+  t({ "$$", "  " }),
   i(1),
-  t({ "", "\\]" }),
+  t({ "", "$$" }),
 }, { condition = tex.in_text })
 table.insert(autosnippets, displayMath)
 
 local inlineMath = s({ trig = "ilm", regTrig = true }, 
 {
-  t({" $ "}),
+  t({"$"}),
   i(1, "math"),
-  t({" $"}),
+  t({"$"}),
 })
 table.insert(autosnippets, inlineMath)
 
-local Rn = s({ trig = "R([%dnm])", regTrig = true },
-{
+-- Environments
+local align = s("ali", {
+  t({"\\begin{align*}", "  "}),
+  i(1, "align"),
+  t({"", "\\end{align*}"})
+})
+table.insert(autosnippets, align)
+
+local bmatrix = s("bmat", {
+  t({"\\begin{bmatrix}", "  "}),
+  i(1, "bmatrix"),
+  t({"", "\\end{bmatrix}"})
+})
+table.insert(autosnippets, bmatrix)
+
+local columnVector = s("colvec", {
+  t({"\\begin{bmatrix} "}),
+  i(1, "x"),
+  t({"_"}),
+  i(2, "1"),
+  t({" \\\\ \\vdots \\\\ "}),
+  i(3, "x"),
+  t({"_"}),
+  i(4, "n"),
+  t({" \\end{bmatrix}"})
+})
+table.insert(autosnippets, columnVector)
+
+local rowVector = s("rowvec", {
+  t({"\\begin{bmatrix} "}),
+  i(1, "x"),
+  t({"_"}),
+  i(2, "1"),
+  t({" & \\ldots & "}),
+  i(3, "x"),
+  t({"_"}),
+  i(4, "n"),
+  t({" \\end{bmatrix}"})
+})
+table.insert(autosnippets, rowVector)
+
+-- Shortcuts
+
+local squared = s({trig="([%a])sr", regTrig = true}, {
   f(function (_, snip)
-    return "\\R^" .. snip.captures[1] .. " "
-    end
+    return snip.captures[1] .. "^2"
+  end)
+})
+table.insert(autosnippets, squared)
+
+local cubed = s({trig="([%a])cb", regTrig = true}, {
+  f(function (_, snip)
+    return snip.captures[1] .. "^3"
+  end)
+})
+table.insert(autosnippets, cubed)
+
+local power = s({trig="([%a])td", regTrig = true}, {
+  f(function (_, snip)
+    return snip.captures[1] .. "^{"
+  end),
+  i(1, "power"),
+  t("}")
+})
+table.insert(autosnippets, power)
+
+local subscript = s({trig = "([%a])(%d)", regTrig = true }, {
+  f(function (_, snip)
+    return snip.captures[1] .. "_" .. snip.captures[2]
+  end
   )
 })
-table.insert(autosnippets, Rn)
+table.insert(autosnippets, subscript)
+
+local subscript2 = s({trig = "([%a])(%d%d)", regTrig = true }, {
+  f(function (_, snip)
+    return snip.captures[1] .. "_{" .. snip.captures[2] .. "}"
+  end
+  )
+})
+table.insert(autosnippets, subscript2)
 
 local vector = s({ trig = "([%a0])vec", regTrig = true },
 {
@@ -58,13 +131,22 @@ local hat = s({ trig = "([eijxyz])hat", regTrig = true },
 })
 table.insert(autosnippets, hat)
 
+local fraction = s("frac", {
+  t({"\\frac{"}),
+  i(1, "num"),
+  t({"}{"}),
+  i(2, "den"),
+  t({"}"})
+})
+table.insert(snippets, fraction)
+
 local sum = s("sum", {
   t({"\\sum_{"}),
-  i({1, "n"}),
+  i(1, "n"),
   t({" = "}),
-  i({2, "1"}),
+  i(2, "1"),
   t({"}^{"}),
-  i({3, "\\infty"}),
+  i(3, "\\infty"),
   t({"}"})
 })
 table.insert(snippets, sum)
@@ -74,5 +156,36 @@ local linearOperator = s("linearOperator", {
 })
 table.insert(autosnippets, linearOperator)
 
+local shortintertext = s("shint", {
+  t({"\\shortintertext{"}),
+  i(1, "intertext"),
+  t({"}", ""})
+})
+table.insert(autosnippets, shortintertext)
+
+-- Symbols
+local alignEqual = s("==", {
+  t({"&="})
+})
+table.insert(snippets, alignEqual)
+
+local mapsto = s("!>", {
+  t({"\\mapsto"})
+})
+table.insert(autosnippets, mapsto)
+
+local implies = s("=>", {
+  t({"\\implies"})
+})
+table.insert(autosnippets, implies)
+
+-- local Rn = s({ trig = "R([%dnm])", regTrig = true },
+-- {
+--   f(function (_, snip)
+--     return "\\R^" .. snip.captures[1] .. " "
+--     end
+--   )
+-- })
+-- table.insert(autosnippets, Rn)
 
 return snippets, autosnippets
