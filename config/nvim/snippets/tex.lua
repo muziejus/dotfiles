@@ -46,31 +46,31 @@ local bmatrix = s("bmat", {
 })
 table.insert(autosnippets, bmatrix)
 
-local columnVector = s("colvec", {
-  t({"\\begin{bmatrix} "}),
-  i(1, "x"),
-  t({"_"}),
-  i(2, "1"),
-  t({" \\\\ \\vdots \\\\ "}),
-  i(3, "x"),
-  t({"_"}),
-  i(4, "n"),
-  t({" \\end{bmatrix}"})
-})
-table.insert(autosnippets, columnVector)
+-- local columnVector = s("colvec", {
+--   t({"\\begin{bmatrix} "}),
+--   i(1, "x"),
+--   t({"_"}),
+--   i(2, "1"),
+--   t({" \\\\ \\vdots \\\\ "}),
+--   i(3, "x"),
+--   t({"_"}),
+--   i(4, "n"),
+--   t({" \\end{bmatrix}"})
+-- })
+-- table.insert(autosnippets, columnVector)
 
-local rowVector = s("rowvec", {
-  t({"\\begin{bmatrix} "}),
-  i(1, "x"),
-  t({"_"}),
-  i(2, "1"),
-  t({" & \\ldots & "}),
-  i(3, "x"),
-  t({"_"}),
-  i(4, "n"),
-  t({" \\end{bmatrix}"})
-})
-table.insert(autosnippets, rowVector)
+-- local rowVector = s("rowvec", {
+--   t({"\\begin{bmatrix} "}),
+--   i(1, "x"),
+--   t({"_"}),
+--   i(2, "1"),
+--   t({" & \\ldots & "}),
+--   i(3, "x"),
+--   t({"_"}),
+--   i(4, "n"),
+--   t({" \\end{bmatrix}"})
+-- })
+-- table.insert(autosnippets, rowVector)
 
 -- Shortcuts
 
@@ -168,6 +168,11 @@ local alignEqual = s("==", {
   t({"&="})
 })
 table.insert(snippets, alignEqual)
+
+local equivalent = s("===", {
+  t({"\\equiv"})
+})
+table.insert(snippets, equivalent)
 
 local mapsto = s("!>", {
   t({"\\mapsto"})
