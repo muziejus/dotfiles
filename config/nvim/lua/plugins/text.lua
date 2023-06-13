@@ -1,5 +1,5 @@
 return {
-  {"lervag/vimtex"},
-  {"vim-pandoc/vim-pandoc"},
+  -- {"lervag/vimtex"},
+  -- {"vim-pandoc/vim-pandoc"},
   {"vim-pandoc/vim-pandoc-syntax"},
 }
