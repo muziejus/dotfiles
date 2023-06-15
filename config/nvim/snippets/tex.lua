@@ -122,7 +122,7 @@ local vector = s({ trig = "([%a0])vec", regTrig = true },
 })
 table.insert(autosnippets, vector)
 
-local hat = s({ trig = "([eijxyz])hat", regTrig = true },
+local hat = s({ trig = "([beijxyz])hat", regTrig = true },
 {
   f(function (_, snip)
     return "\\hat{" .. snip.captures[1] .. "}"
@@ -183,6 +183,21 @@ local implies = s("=>", {
   t({"\\implies"})
 })
 table.insert(autosnippets, implies)
+
+local leftrightarrow = s("<->", {
+  t({"\\leftrightarrow"})
+})
+table.insert(autosnippets, leftrightarrow)
+
+local commadots = s(",...,", {
+  t({", \\dotsc ,"})
+})
+table.insert(autosnippets, commadots)
+
+local plusdots = s("+...+", {
+  t({"+ \\dotsb +"})
+})
+table.insert(autosnippets, plusdots)
 
 -- local Rn = s({ trig = "R([%dnm])", regTrig = true },
 -- {
