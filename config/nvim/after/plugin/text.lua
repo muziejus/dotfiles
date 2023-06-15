@@ -1,7 +1,47 @@
-vim.cmd [[
-  let g:pandoc#syntax#conceal#use=0
-  let g:pandoc#syntax#conceal#blacklist=["inlinemath","codeblock_start","codeblock_delim","inlinecode"]
-  let g:pandoc#command#use_message_buffers=1
+PandocAutoexecCommand = function ()
+  local vim_pandoc_template = vim.b.pandoc_yaml_data.vim_pandoc_template
+  if not vim_pandoc_template then
+    vim_pandoc_template = "article"
+  end
+  local command = "Pandoc #" .. vim_pandoc_template
+  vim.cmd(command)
+end
+
+-- PandocAutoOpenCommand = function (file)
+--   print(file)
+-- end
+
+vim.g["pandoc#command#autoexec_on_writes"] = 1
+vim.g["pandoc#command#autoexec_command"] = "lua PandocAutoexecCommand()"
+-- vim.g["pandoc#command#custom_open"] = "lua PandocAutoOpenCommand(file)"
+vim.g["pandoc#command#custom_open"] = "MyPandocOpen"
+vim.g["pandoc#biblio#sources"] = "yGtbc"
+vim.g["pandoc#biblio#use_bibtool"] = 1
+vim.g["pandoc#syntax#conceal#use"] = 0
+vim.g["pandoc#syntax#conceal#blacklist"] = { "inlinemath","codeblock_start","codeblock_delim","inlinecode" }
+
+vim.cmd[[
+	function! MyPandocOpen(file)
+		let file = shellescape(fnamemodify(a:file, ':p'))
+		let file_extension = fnamemodify(a:file, ':e')
+		if file_extension is? 'pdf'
+      return "/Applications/Skim.app/Contents/MacOS/Skim " . file
+		elseif file_extension is? 'html'
+			if !empty($BROWSER)
+				return expand('$BROWSER') . ' ' . file
+			elseif executable('firefox')
+				return 'firefox ' . file
+			elseif executable('chromium')
+				return 'chromium ' . file
+			endif
+		elseif file_extension is? 'odt' && executable('okular')
+			return 'okular ' . file
+		elseif file_extension is? 'epub' && executable('okular')
+			return 'okular ' . file
+		else
+			return 'xdg-open ' . file
+		endif
+	endfunction
 ]]
 
 
