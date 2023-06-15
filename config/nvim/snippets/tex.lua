@@ -199,6 +199,10 @@ local plusdots = s("+...+", {
 })
 table.insert(autosnippets, plusdots)
 
+local vectordots = s("&...&", {
+  t({"& \\dotsb &"})
+})
+table.insert(autosnippets, vectordots)
 -- local Rn = s({ trig = "R([%dnm])", regTrig = true },
 -- {
 --   f(function (_, snip)
