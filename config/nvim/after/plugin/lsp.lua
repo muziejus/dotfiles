@@ -28,10 +28,6 @@ lsp.configure("lua_ls", {
   },
 })
 
-lsp.configure("texlab", {
-  filetypes = { "tex", "plaintex", "bib", "markdown", "pandoc" }
-})
-
 lsp.on_attach(function(_, bufnr)
   lsp.default_keymaps({buffer = bufnr})
   local opts = {buffer = bufnr}

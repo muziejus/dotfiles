@@ -2,7 +2,7 @@ require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = {
     "javascript", "typescript",
-    "bibtex", "latex", "graphql",
+    "graphql",
     "yaml", "regex",
     "html", "css", "jsonc",
     "glimmer",
@@ -10,7 +10,7 @@ require'nvim-treesitter.configs'.setup {
     "lua", "vim", "vimdoc", "query",
     "diff", "git_rebase", "gitcommit", "gitignore"
   },
-  ignore_install = { "json" },
+  ignore_install = { "json", "latex" },
 
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
@@ -26,6 +26,7 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
+    disable = {"latex"},
   },
 
   rainbow = {
