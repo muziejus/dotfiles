@@ -54,8 +54,6 @@ lsp.setup()
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
-require('luasnip.loaders.from_vscode').lazy_load()
-
 cmp.setup({
   snippet = {
     expand = function (args)
@@ -77,7 +75,7 @@ cmp.setup({
     { name = 'cmp_pandoc' },
     { name = 'path' },
     { name = 'nvim_lsp' },
-    { name = 'buffer',    keyword_length = 3 },
+    { name = 'buffer',    keyword_length = 5 },
     { name = 'luasnip',   keyword_length = 2 },
   },
   formatting = {
