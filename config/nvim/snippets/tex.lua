@@ -1,13 +1,22 @@
 -- https://github.com/gillescastel/latex-snippets/blob/master/tex.snippets
 
-local ls = require("luasnip") --{{{
+local ls = require("luasnip")
 local s = ls.s --> snippet
 local i = ls.i --> insert node
 local t = ls.t --> text node
+local c = ls.choice_node --> choice_node
+local extras = require("luasnip.extras")
+local rep = extras.rep
+local fmt = require("luasnip.extras.fmt").fmt --> format node
+
+-- local conditions = require("luasnip.extras.conditions")
+local conds_expand = require("luasnip.extras.conditions.expand")
 
 local f = ls.function_node
 
 local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
+
+local fmt_angle = ls.extend_decorator.apply(fmt, { delimiters = "<>" })
 
 local function math()
   return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 1
@@ -36,13 +45,28 @@ return {
   i(1, "math"),
   t({"$"}),
 }),
+
 -- Environments
+
+  autosnippet({
+    trig="beg",
+    name="environment",
+    condition=conds_expand.line_begin
+    },
+    fmt_angle([[
+      \begin{<>}
+        <>
+      \end{<>}
+    ]],
+      {i(1), i(2), rep(1)}
+    )
+  ),
+
 -- local align = s("ali", {
 --   t({"\\begin{align*}", "  "}),
 --   i(1, "align"),
 --   t({"", "\\end{align*}"})
 -- })
--- table.insert(autosnippets, align)
 
 s({
   trig="bmat",
@@ -112,6 +136,18 @@ name="hat"},
   )
 }, {condition=math}),
 
+autosnippet({
+  trig="//",
+  name="fraction //",
+  condition=math
+},
+  fmt_angle([[\frac{<>}{<>}]],
+  {
+    i(1, "numerator"), 
+    i(2, "denominator")
+  })
+),
+
 autosnippet({trig="frac",
 name="frac(tion)"},
 {
@@ -148,6 +184,11 @@ name="align equal"}, {
   t({"&="})
 }, {condition=math}),
 
+autosnippet({trig="!=",
+name="not equal"}, {
+  t({"\ne"})
+}, {condition=math}),
+
 autosnippet({trig="===", 
 name="equivalent",}, {
   t({"\\equiv"})
@@ -162,5 +203,51 @@ autosnippet({trig="=>",
 name="implies",},{
   t({"\\implies"})
 }, {condition=math}),
+
+-- template
+autosnippet({
+  trig="doctemp", 
+  name="basic template", 
+  dscr="A basic template for LaTeX expecting variables that get passed into inputs",
+  condition=conds_expand.line_begin,
+},
+  fmt_angle([[
+    \documentclass[letter,12pt,article,oneside]{memoir}
+
+    \newcommand{\mytitle}{<>}
+    \newcommand{\myauthorname}{<>}
+    \newcommand{\myauthorid}{<>}
+    % The inputs template is one of:
+    % - document
+    % - article
+    % - letter
+    % - math-lecture-notes
+    % - math-homework
+    \newcommand{\myinputstemplate}{<>}
+
+    % Which file to input for basic settings.
+    \input{}
+    \begin{document}
+
+    <>
+
+    \end{document}
+    ]],
+    {
+      i(1, "Title"),
+      i(2, "Moacir P. de Sá Pereira"),
+      i(3, "mpd2149"),
+      c(4, {
+        t("document"),
+        t("article"),
+        t("letter"),
+        t("math-lecture-notes"),
+        t("math-homework"),
+        }
+      ),
+      i(5),
+    }
+    )
+  )
 }
 

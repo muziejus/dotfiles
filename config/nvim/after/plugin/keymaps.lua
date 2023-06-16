@@ -99,4 +99,8 @@ wk.register({
   ["<C-e>"] = { ui.toggle_quick_menu, "Toggle Harpoon Menu" },
   ["<C-n>"] = { vim.cmd.NvimTreeToggle, "Toggle Nvim Tree" },
   ["<C-p>"] = { "<CMD>Telescope git_files<CR>", "Telescope Find Git File" },
+  -- Insert / Visual mode
+  ["<C-u>"] = { function()
+    require("luasnip.extras.select_choice")()
+  end, "Cycle LuaSnip choice node", mode="i" }
 })
