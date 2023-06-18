@@ -73,6 +73,7 @@ cmp.setup({
   },
   sources = {
     { name = 'cmp_pandoc' },
+    { name = 'latex_symbols'},
     { name = 'path' },
     { name = 'nvim_lsp' },
     { name = 'buffer',    keyword_length = 5 },

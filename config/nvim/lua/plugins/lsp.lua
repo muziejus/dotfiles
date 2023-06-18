@@ -20,6 +20,7 @@ return {
     { 'hrsh7th/cmp-nvim-lsp' }, -- Required
     -- See snippets.lua for snippets.
     { "aspeddro/cmp-pandoc.nvim" },
+    { "kdheepak/cmp-latex-symbols" },
     { "onsails/lspkind-nvim" },
   }
 }

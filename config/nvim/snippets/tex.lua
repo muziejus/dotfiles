@@ -7,7 +7,8 @@ local t = ls.t --> text node
 local c = ls.choice_node --> choice_node
 local extras = require("luasnip.extras")
 local rep = extras.rep
-local fmt = require("luasnip.extras.fmt").fmt --> format node
+-- local fmt = require("luasnip.extras.fmt").fmt --> format node
+local fmta = require("luasnip.extras.fmt").fmta --> format node
 
 -- local conditions = require("luasnip.extras.conditions")
 local conds_expand = require("luasnip.extras.conditions.expand")
@@ -16,7 +17,6 @@ local f = ls.function_node
 
 local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 
-local fmt_angle = ls.extend_decorator.apply(fmt, { delimiters = "<>" })
 
 local function math()
   return vim.api.nvim_eval('vimtex#syntax#in_mathzone()') == 1
@@ -53,7 +53,7 @@ return {
     name="environment",
     condition=conds_expand.line_begin
     },
-    fmt_angle([[
+    fmta([[
       \begin{<>}
         <>
       \end{<>}
@@ -141,7 +141,7 @@ autosnippet({
   name="fraction //",
   condition=math
 },
-  fmt_angle([[\frac{<>}{<>}]],
+  fmta([[\frac{<>}{<>}]],
   {
     i(1, "numerator"), 
     i(2, "denominator")
@@ -178,6 +178,30 @@ name="short intertext",}
   t({"}", ""})
 }, {condition=math}),
 
+-- Formatting
+  autosnippet({trig="__",
+    name="ital"},
+    fmta("\textit{<>}",
+      {i(1)}
+    )
+  ),
+
+  autosnippet({trig="**",
+    name="bold"},
+    fmta("\textbf{<>}",
+      {i(1)}
+    )
+  ),
+
+  autosnippet({trig="tx",
+    name="text"},
+    fmta("\text{<>}\\;",
+      {i(1)}
+    ), {condition=math}
+  ),
+
+
+
 -- Symbols
 autosnippet({trig="==",
 name="align equal"}, {
@@ -211,7 +235,7 @@ autosnippet({
   dscr="A basic template for LaTeX expecting variables that get passed into inputs",
   condition=conds_expand.line_begin,
 },
-  fmt_angle([[
+  fmta([[
     \documentclass[letter,12pt,article,oneside]{memoir}
 
     \newcommand{\mytitle}{<>}

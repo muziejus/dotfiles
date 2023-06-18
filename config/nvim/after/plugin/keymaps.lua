@@ -5,27 +5,27 @@ local ui = require("harpoon.ui")
 wk.register({
   ["<leader>"] = {
     f = {
-      name = "+file",
+      name = "+FIND",
       -- Telescope
       f = { "<CMD>Telescope find_files<CR>", "Find File" },
       g = { "<CMD>Telescope live_grep<CR>", "Grep Files" },
+      c = { "<CMD>Telescope bibtex<CR>", "Find Citation" },
       b = { "<CMD>Telescope buffers<CR>", "Find Buffers" },
       h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
       r = { "<CMD>Telescope oldfiles<CR>", "Open Recent File" },
       v = { "<CMD>Telescope registers<CR>", "Show/Paste Registers" },
-      n = { "<CMD>enew<CR>", "New File" },
       s = { function()
         require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
       end, "Search with Grep" },
       G = {
-        name = "+git",
+        name = "+GIT",
         c = { "<CMD>Telescope git_commits<CR>", "Show Commits" },
         b = { "<CMD>Telescope git_bcommits<CR>", "Show Buffer Commits" },
         s = { "<CMD>Telescope git_status<CR>", "Show Status" },
         t = { "<CMD>Telescope git_stash<CR>", "Show Stashes" },
       },
       l = {
-        name = "+lsp",
+        name = "+LSP",
         r = { "<CMD>Telescope lsp_references<CR>", "Show References" },
         d = { "<CMD>Telescope lsp_definitions<CR>", "Show Definitions" },
         t = { "<CMD>Telescope lsp_type_definitions<CR>", "Show Type Definitions" },
@@ -69,7 +69,22 @@ wk.register({
     -- Harpoon
     -- See also <C-e>
     h = { ui.toggle_quick_menu, "Toggle Harpoon Menu" },
-    a = { mark.add_file, "Harpoon add file" },
+    a = {
+      name = "ACTIONS",
+      -- b = { "<cmd>terminal bibexport -o %:p:r.bib %:p:r.aux<CR>", "bib export"},
+      c = { "<cmd>VimtexClean<CR>", "clean aux" },
+      -- g = { "<cmd>e ~/.config/nvim/templates/Glossary.tex<CR>", "edit glossary"},
+      -- h = { "<cmd>lua _HTOP_TOGGLE()<CR>", "htop" },
+      -- i = { "<cmd>IlluminateToggle<CR>", "illuminate" },
+      -- l = { "<cmd>lua vim.g.cmptoggle = not vim.g.cmptoggle<CR>", "LSP"},
+      p = { '<cmd>lua require("nabla").popup()<CR>', "preview symbols"},
+      -- r = { "<cmd>VimtexErrors<CR>", "report errors" },
+      s = { "<cmd>e ~/.config/nvim/snippets/tex.lua<CR>", "edit snippets"},
+      u = { "<cmd>cd %:p:h<CR>", "update cwd" },
+      -- w = { "<cmd>TermExec cmd='pandoc %:p -o %:p:r.docx'<CR>" , "word"},
+      v = { "<plug>(vimtex-context-menu)", "vimtex menu" },
+    },
+    -- a = { mark.add_file, "Harpoon add file" },
     j = { function() ui.nav_file(1) end, "Harpoon file 1" },
     k = { function() ui.nav_file(2) end, "Harpoon file 2" },
     l = { function() ui.nav_file(3) end, "Harpoon file 3" },

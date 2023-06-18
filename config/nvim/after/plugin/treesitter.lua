@@ -37,4 +37,13 @@ require'nvim-treesitter.configs'.setup {
   playground = {
     enabled = true,
   },
+
+  indent = {
+    enable = true,
+    disable = { "latex" }
+  },
+
+  autopairs = {
+    enable = true,
+  },
 }

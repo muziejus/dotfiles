@@ -1,9 +1,12 @@
+-- Don't forget that TeX things are handled at the ftplugin-level.
+
+
 PandocAutoexecCommand = function ()
   local vim_pandoc_template = vim.b.pandoc_yaml_data.vim_pandoc_template
-  if not vim_pandoc_template then
-    vim_pandoc_template = "article"
+  local command = "Pandoc pdf"
+  if vim_pandoc_template then
+    command = "Pandoc #" .. vim_pandoc_template
   end
-  local command = "Pandoc #" .. vim_pandoc_template
   vim.cmd(command)
 end
 
