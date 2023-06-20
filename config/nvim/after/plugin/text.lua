@@ -23,28 +23,28 @@ vim.g["pandoc#biblio#use_bibtool"] = 1
 vim.g["pandoc#syntax#conceal#use"] = 0
 vim.g["pandoc#syntax#conceal#blacklist"] = { "inlinemath","codeblock_start","codeblock_delim","inlinecode" }
 
-vim.cmd[[
-	function! MyPandocOpen(file)
-		let file = shellescape(fnamemodify(a:file, ':p'))
-		let file_extension = fnamemodify(a:file, ':e')
-		if file_extension is? 'pdf'
-      return "/Applications/Skim.app/Contents/MacOS/Skim " . file
-		elseif file_extension is? 'html'
-			if !empty($BROWSER)
-				return expand('$BROWSER') . ' ' . file
-			elseif executable('firefox')
-				return 'firefox ' . file
-			elseif executable('chromium')
-				return 'chromium ' . file
-			endif
-		elseif file_extension is? 'odt' && executable('okular')
-			return 'okular ' . file
-		elseif file_extension is? 'epub' && executable('okular')
-			return 'okular ' . file
-		else
-			return 'xdg-open ' . file
-		endif
-	endfunction
-]]
-
-
+-- vim.cmd[[
+-- 	function! MyPandocOpen(file)
+-- 		let file = shellescape(fnamemodify(a:file, ':p'))
+-- 		let file_extension = fnamemodify(a:file, ':e')
+-- 		if file_extension is? 'pdf'
+--       return "/Applications/Skim.app/Contents/MacOS/Skim " . file
+-- 		elseif file_extension is? 'html'
+-- 			if !empty($BROWSER)
+-- 				return expand('$BROWSER') . ' ' . file
+-- 			elseif executable('firefox')
+-- 				return 'firefox ' . file
+-- 			elseif executable('chromium')
+-- 				return 'chromium ' . file
+-- 			endif
+-- 		elseif file_extension is? 'odt' && executable('okular')
+-- 			return 'okular ' . file
+-- 		elseif file_extension is? 'epub' && executable('okular')
+-- 			return 'okular ' . file
+-- 		else
+-- 			return 'xdg-open ' . file
+-- 		endif
+-- 	endfunction
+-- ]]
+--
+--

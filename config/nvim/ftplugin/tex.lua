@@ -7,8 +7,9 @@ vim.g.vimtex_compiler_latexmk_engines = {
   ["_"] = "-xelatex",
 }
 
-vim.g.vimtex_view_method = "skim"
+-- vim.g.vimtex_view_method = "skim" -- this is set in init.lua
 vim.g.vimtex_view_skim_sync = 1
+vim.g.vimtex_view_skim_activate = 1
 vim.g.vimtex_view_skim_reading_bar = 1
 
 vim.opt["conceallevel"] = 2
