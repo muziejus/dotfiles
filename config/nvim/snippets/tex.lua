@@ -148,6 +148,23 @@ autosnippet({
   })
 ),
 
+autosnippet({
+    trig="([+,&])%.%.%.",
+    regTrig = true,
+    name="ellipses",
+  },
+    {
+      f(function (_, snip)
+          local ellipses = "\\dotsb"
+          if snip.captures[1] == "," then
+            ellipses = "\\dotsc"
+          end
+        return snip.captures[1] .. " " .. ellipses .. " " .. snip.captures[1] .. " "
+      end
+      )
+  },
+    {condition=math}),
+
 autosnippet({trig="frac",
 name="frac(tion)"},
 {
@@ -178,24 +195,27 @@ name="short intertext",}
   t({"}", ""})
 }, {condition=math}),
 
+-- Typos
+  autosnippet("codt", t"cdot"),
+
 -- Formatting
   autosnippet({trig="__",
     name="ital"},
-    fmta("\textit{<>}",
+    fmta("\\textit{<>}",
       {i(1)}
     )
   ),
 
   autosnippet({trig="**",
     name="bold"},
-    fmta("\textbf{<>}",
+    fmta("\\textbf{<>}",
       {i(1)}
     )
   ),
 
   autosnippet({trig="tx",
     name="text"},
-    fmta("\text{<>}\\;",
+    fmta("\\text{<>}\\;",
       {i(1)}
     ), {condition=math}
   ),
