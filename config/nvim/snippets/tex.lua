@@ -230,7 +230,7 @@ name="align equal"}, {
 
 autosnippet({trig="!=",
 name="not equal"}, {
-  t({"\ne"})
+  t({"\\ne"})
 }, {condition=math}),
 
 autosnippet({trig="===", 
