@@ -103,7 +103,7 @@ name="to da power"}, {
   t("}")
 }, {condition=math}),
 
-autosnippet({trig = "([%a])(%d)", regTrig = true, name="subscript" }, {
+autosnippet({trig = "([%a}])(%d)", regTrig = true, name="subscript" }, {
   f(function (_, snip)
     return snip.captures[1] .. "_" .. snip.captures[2]
   end
