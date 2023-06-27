@@ -1,6 +1,4 @@
 local wk = require("which-key")
-local mark = require("harpoon.mark")
-local ui = require("harpoon.ui")
 
 wk.register({
 	["<leader>"] = {
@@ -28,6 +26,20 @@ wk.register({
 				t = { "<CMD>Telescope git_stash<CR>", "Show Stashes" },
 			},
 			l = {
+				name = "+VimTeX",
+				i = { "<plug>(vimtex-info)", "Info" },
+				I = { "<plug>(vimtex-info-full)", "Info Full" },
+				t = { "<plug>(vimtex-toc-open)", "ToC Open" },
+				T = { "<plug>(vimtex-toc-toggle)", "ToC Toggle" },
+				q = { "<plug>(vimtex-log)", "Log" },
+				v = { "<plug>(vimtex-view)", "View" },
+				r = { "<plug>(vimtex-reverse-search)", "Reverse Search" },
+				l = { "<plug>(vimtex-compile)", "Compile" },
+				L = { "<plug>(vimtex-compile-selected)", "Compile Selected" },
+				k = { "<plug>(vimtex-stop)", "Stop" },
+				K = { "<plug>(vimtex-stop-all)", "Stop All" },
+			},
+			L = {
 				name = "+LSP",
 				r = { "<CMD>Telescope lsp_references<CR>", "Show References" },
 				d = { "<CMD>Telescope lsp_definitions<CR>", "Show Definitions" },
@@ -69,9 +81,6 @@ wk.register({
 			w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "List Workspace Diagnostics" },
 			r = { "<cmd>TroubleToggle lsp_references<cr>" },
 		},
-		-- Harpoon
-		-- See also <C-e>
-		h = { ui.toggle_quick_menu, "Toggle Harpoon Menu" },
 		a = {
 			name = "ACTIONS",
 			-- b = { "<cmd>terminal bibexport -o %:p:r.bib %:p:r.aux<CR>", "bib export"},
@@ -86,31 +95,6 @@ wk.register({
 			u = { "<cmd>cd %:p:h<CR>", "update cwd" },
 			-- w = { "<cmd>TermExec cmd='pandoc %:p -o %:p:r.docx'<CR>" , "word"},
 			v = { "<plug>(vimtex-context-menu)", "vimtex menu" },
-		},
-		-- a = { mark.add_file, "Harpoon add file" },
-		j = {
-			function()
-				ui.nav_file(1)
-			end,
-			"Harpoon file 1",
-		},
-		k = {
-			function()
-				ui.nav_file(2)
-			end,
-			"Harpoon file 2",
-		},
-		l = {
-			function()
-				ui.nav_file(3)
-			end,
-			"Harpoon file 3",
-		},
-		[";"] = {
-			function()
-				ui.nav_file(4)
-			end,
-			"Harpoon file 4",
 		},
 		-- Misc
 		u = { vim.cmd.UndotreeToggle, "Toggle Undo Tree" },
@@ -137,7 +121,6 @@ wk.register({
 		m = { require("ufo").closeFoldsWith, "Close folds with" },
 		["<space>"] = { require("ufo").peekFoldedLinesUnderCursor, "Peek folded lines" },
 	},
-	["<C-e>"] = { ui.toggle_quick_menu, "Toggle Harpoon Menu" },
 	["<C-n>"] = { vim.cmd.NvimTreeToggle, "Toggle Nvim Tree" },
 	["<C-p>"] = { "<CMD>Telescope git_files<CR>", "Telescope Find Git File" },
 	-- Insert / Visual mode
