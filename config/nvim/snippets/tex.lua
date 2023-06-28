@@ -105,6 +105,8 @@ return {
 		t("}"),
 	}, { condition = math }),
 
+	autosnippet("nxn", t("n \\times n"), { condition = math }),
+
 	autosnippet({ trig = "([%a}])(%d)", regTrig = true, name = "subscript" }, {
 		f(function(_, snip)
 			return snip.captures[1] .. "_" .. snip.captures[2]
