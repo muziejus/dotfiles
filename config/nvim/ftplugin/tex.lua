@@ -13,6 +13,7 @@ vim.g.vimtex_compiler_latexmk_engines = {
 vim.g.vimtex_view_skim_sync = 1
 vim.g.vimtex_view_skim_activate = 1
 vim.g.vimtex_view_skim_reading_bar = 1
+vim.g.vimtex_quickfix_mode = 0
 
 vim.opt["conceallevel"] = 2
 vim.cmd("highlight Conceal guifg=" .. colors.orange .. " guibg=NONE")

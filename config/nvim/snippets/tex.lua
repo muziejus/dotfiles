@@ -57,7 +57,7 @@ return {
 		fmta(
 			[[
       \begin{<>}
-         <>
+        <>
       \end{<>}
     ]],
 			{ i(1), i(2), rep(1) }
@@ -192,7 +192,7 @@ return {
 	autosnippet({ trig = "shint", name = "short intertext" }, {
 		t({ "\\shortintertext{" }),
 		i(1, "intertext"),
-		t({ "}", "" }),
+		t({ "}" }),
 	}, { condition = math }),
 
 	-- Typos
