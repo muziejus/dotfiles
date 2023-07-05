@@ -50,6 +50,22 @@ return {
 
 	autosnippet(
 		{
+			trig = "mjava",
+			name = "minted java environment",
+			condition = conds_expand.line_begin,
+		},
+		fmta(
+			[[
+      \begin{minted}{java}
+        <>
+      \end{minted}
+    ]],
+			{ i(1) }
+		)
+	),
+
+	autosnippet(
+		{
 			trig = "beg",
 			name = "environment",
 			condition = conds_expand.line_begin,
@@ -97,7 +113,7 @@ return {
 		end),
 	}, { condition = math }),
 
-	autosnippet({ trig = "([%a])td", regTrig = true, name = "to da power" }, {
+	autosnippet({ trig = "([%a%d])td", regTrig = true, name = "to da power" }, {
 		f(function(_, snip)
 			return snip.captures[1] .. "^{"
 		end),
@@ -135,12 +151,12 @@ return {
 		{
 			trig = "//",
 			name = "fraction //",
-			condition = math,
 		},
 		fmta([[\frac{<>}{<>}]], {
 			i(1, "numerator"),
 			i(2, "denominator"),
-		})
+		}),
+		{ condition = math }
 	),
 
 	autosnippet(
@@ -148,13 +164,15 @@ return {
 			trig = "([^%s]+)/",
 			regTrig = true,
 			name = "fraction/",
+			condition = math,
 		},
 		fmta("\\frac{<>}{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
 			i(1, "denominator"),
-		})
+		}),
+		{ condition = math }
 	),
 
 	autosnippet({ trig = "frac", name = "frac(tion)" }, {
