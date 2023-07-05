@@ -1,6 +1,5 @@
 # Loaded after .zshenv and before .zshrc
 
-PATH="/usr/local/bin"
 PATH="$PATH:/Users/moacir/bin"
 # PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.6/bin"
 PATH="$PATH:/Library/TeX/texbin"

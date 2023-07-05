@@ -128,9 +128,6 @@ export LESS="-x2"
 
 # Check .zprofile for PATH changes, too.
 
-export PATH="/Users/moacir/d-preparation/scripts:$PATH"
-export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
@@ -145,8 +142,8 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$HOMEBREW_PREFIX/bin:$PATH"
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+# source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+# source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
 # pnpm
 export PNPM_HOME="/Users/moacir/Library/pnpm"

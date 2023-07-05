@@ -19,7 +19,7 @@ source $HOME/.env
 export PRETTIERD_LOCAL_PRETTIER_ONLY=1
 
 # export PYTHONPATH="/Applications/QGIS3.6.app/Contents/Resources/python/"
-export POETRY_HOME="~/Library/Application Support/pypoetry/venv/bin/poetry"
+export POETRY_HOME="/Users/moacir/Library/Application Support/pypoetry/venv/bin/poetry"
 
 # export LANG=lt_LT.UTF-8
 # export LC_CTYPE=lt_LT.UTF-8
