@@ -130,12 +130,12 @@ cmp.setup({
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
 		["<C-f>"] = cmp_action.luasnip_jump_forward(),
 		["<C-b>"] = cmp_action.luasnip_jump_backward(),
-		["<Tab>"] = cmp_action.luasnip_supertab(),
-		["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
+		-- ["<Tab>"] = cmp_action.luasnip_supertab(),
+		-- ["<S-Tab>"] = cmp_action.luasnip_shift_supertab(),
 	},
 	sources = {
 		{ name = "cmp_pandoc" },
-		{ name = "latex_symbols" },
+		-- { name = "latex_symbols" }, -- don't actually like this one bit.
 		{ name = "path" },
 		{ name = "nvim_lsp" },
 		{ name = "buffer", keyword_length = 5 },
