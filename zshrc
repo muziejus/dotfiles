@@ -76,7 +76,7 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   # Add wisely, as too many plugins slow down shell startup.
   # plugins=(tmux history tmuxinator zsh-autosuggestions git osx jump zsh-completions zsh-syntax-highlighting)
   ### zsh-syntax-highlighting is installed via homebrew as below.
-  plugins=(tmux history tmuxinator git macos jump pyenv)
+  plugins=(history git macos jump pyenv poetry)
 
   # User configuration
 
@@ -134,6 +134,7 @@ export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+export PATH="$PATH:$POETRY_HOME/bin"
 
 export CARGO_PATH="$HOME/.cargo"
 export PATH="$CARGO_PATH/bin:$PATH"
