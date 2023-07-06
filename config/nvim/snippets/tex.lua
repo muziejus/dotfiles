@@ -96,6 +96,17 @@ return {
 	}, { condition = math }),
 
 	-- Shortcuts
+	autosnippet({
+		trig = "`([%a])",
+		regTrig = true,
+		name = "code",
+	}, {
+		f(function(_, snip)
+			return "\\texttt{" .. snip.captures[1]
+		end),
+		i(1),
+		t("}"),
+	}),
 
 	autosnippet({
 		trig = "([%a])sr",
