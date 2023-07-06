@@ -135,7 +135,7 @@ cmp.setup({
 	},
 	mapping = {
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
-		["<Esc>"] = cmp.mapping.abort(),
+		-- ["<Esc>"] = cmp.mapping.abort(),
 		["<C-f>"] = cmp_action.luasnip_jump_forward(),
 		["<C-b>"] = cmp_action.luasnip_jump_backward(),
 		["<Tab>"] = cmp.mapping(function(fallback)
