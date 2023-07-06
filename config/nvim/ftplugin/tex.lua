@@ -37,5 +37,10 @@ require("nvim-surround").buffer_setup({
 			find = "\\%a-it%b{}",
 			delete = "^(\\%a-it{)().-(})()$",
 		},
+		["T"] = {
+			add = { "\\texttt{", "}" },
+			find = "\\%a-tt%b{}",
+			delete = "^(\\%a-tt{)().-(})()$",
+		},
 	},
 })
