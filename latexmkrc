@@ -1,5 +1,7 @@
 $pdflatex = "xelatex --shell-escape %O %S";
 
+# $clean_ext = "_minted-%R/* _minted-%R";
+
 push @generated_exts, "cb";
 push @generated_exts, "cb2";
 push @generated_exts, "spl";
@@ -12,4 +14,8 @@ push @generated_exts, "nlg";
 push @generated_exts, "nlo";
 push @generated_exts, "nls";
 push @generated_exts, "synctex.gz";
+push @generated_exts, "synctex(busy)";
 push @generated_exts, "run.xml";
+push @generated_exts, "fls";
+push @generated_exts, "pyg";
+push @generated_exts, "out.pyg";
