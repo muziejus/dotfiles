@@ -97,18 +97,6 @@ return {
 
 	-- Shortcuts
 	autosnippet({
-		trig = "`([%a])",
-		regTrig = true,
-		name = "code",
-	}, {
-		f(function(_, snip)
-			return "\\texttt{" .. snip.captures[1]
-		end),
-		i(1),
-		t("}"),
-	}),
-
-	autosnippet({
 		trig = "([%a])sr",
 		regTrig = true,
 		name = "squared",
@@ -228,9 +216,22 @@ return {
 	autosnippet("codt", t("cdot")),
 
 	-- Formatting
+	autosnippet({ trig = "tt", name = "type" }, fmta("\\texttt{<>}", { i(1) })),
 	autosnippet({ trig = "__", name = "ital" }, fmta("\\textit{<>}", { i(1) })),
 	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) })),
 	autosnippet({ trig = "tx", name = "text" }, fmta("\\text{<>}\\;", { i(1) }), { condition = math }),
+
+	autosnippet({
+		trig = "`([%a])",
+		regTrig = true,
+		name = "code",
+	}, {
+		f(function(_, snip)
+			return "\\texttt{" .. snip.captures[1]
+		end),
+		i(1),
+		t("}"),
+	}),
 
 	-- Symbols
 	autosnippet({ trig = "==", name = "align equal" }, {
