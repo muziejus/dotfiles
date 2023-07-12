@@ -26,14 +26,19 @@ local function env(name)
 	return (is_inside[1] > 0 and is_inside[2] > 0)
 end
 
+local function notMinted()
+	local in_minted = env("minted")
+	return not in_minted
+end
+
 return {
 	autosnippet({
 		trig = "dm",
 		name = "display math",
 	}, {
-		t({ "$$", "  " }),
+		t({ "\\[", "  " }),
 		i(1),
-		t({ "", "$$" }),
+		t({ "", "\\]" }),
 	}),
 
 	autosnippet({
@@ -218,7 +223,7 @@ return {
 	-- Formatting
 	autosnippet({ trig = "tt", name = "type" }, fmta("\\texttt{<>}", { i(1) })),
 	autosnippet({ trig = "__", name = "ital" }, fmta("\\textit{<>}", { i(1) })),
-	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) })),
+	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = notMinted }),
 	autosnippet({ trig = "tx", name = "text" }, fmta("\\text{<>}\\;", { i(1) }), { condition = math }),
 
 	autosnippet({
