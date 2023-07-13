@@ -61,7 +61,6 @@ return {
 		{
 			trig = "mjava",
 			name = "minted java environment",
-			condition = conds_expand.line_begin,
 		},
 		fmta(
 			[[
@@ -70,14 +69,16 @@ return {
       \end{minted}
     ]],
 			{ i(1) }
-		)
+		),
+		{
+			condition = conds_expand.line_begin,
+		}
 	),
 
 	autosnippet(
 		{
 			trig = "beg",
 			name = "environment",
-			condition = conds_expand.line_begin,
 		},
 		fmta(
 			[[
@@ -86,7 +87,10 @@ return {
       \end{<>}
     ]],
 			{ i(1), i(2), rep(1) }
-		)
+		),
+		{
+			condition = conds_expand.line_begin,
+		}
 	),
 
 	s({
