@@ -31,6 +31,10 @@ local function notMinted()
 	return not in_minted
 end
 
+local function inList()
+	return env("enumerate") or env("itemize")
+end
+
 return {
 	autosnippet({
 		trig = "dm",
@@ -84,12 +88,6 @@ return {
 			{ i(1), i(2), rep(1) }
 		)
 	),
-
-	-- local align = s("ali", {
-	--   t({"\\begin{align*}", "  "}),
-	--   i(1, "align"),
-	--   t({"", "\\end{align*}"})
-	-- })
 
 	s({
 		trig = "bmat",
@@ -221,6 +219,58 @@ return {
 	autosnippet("codt", t("cdot")),
 
 	-- Formatting
+	autosnippet({ trig = "- ", name = "item" }, t("\\item "), {
+		condition = inList and conds_expand.line_begin,
+	}),
+
+	autosnippet(
+		{ trig = "1. ", name = "enumerate" },
+		fmta(
+			[[
+    \begin{enumerate}
+      \item <>
+    \end{enumerate}]],
+			{ i(1) }
+		),
+		{ condition = conds_expand.line_begin }
+	),
+
+	autosnippet(
+		{ trig = "- ", name = "itemize" },
+		fmta(
+			[[
+    \begin{itemize}
+      \item <>
+    \end{itemize}]],
+			{ i(1) }
+		),
+		{ condition = conds_expand.line_begin }
+	),
+
+	autosnippet(
+		{ trig = "# ", name = "chapter" },
+		fmta("\\chapter*{<>}", { i(1) }),
+		{ condition = conds_expand.line_begin }
+	),
+
+	autosnippet(
+		{ trig = "## ", name = "section" },
+		fmta("\\section*{<>}", { i(1) }),
+		{ condition = conds_expand.line_begin }
+	),
+
+	autosnippet(
+		{ trig = "### ", name = "subsection" },
+		fmta("\\subsection*{<>}", { i(1) }),
+		{ condition = conds_expand.line_begin }
+	),
+
+	autosnippet(
+		{ trig = "#### ", name = "subsubsection" },
+		fmta("\\subsubsection*{<>}", { i(1) }),
+		{ condition = conds_expand.line_begin }
+	),
+
 	autosnippet({ trig = "tt", name = "type" }, fmta("\\texttt{<>}", { i(1) })),
 	autosnippet({ trig = "__", name = "ital" }, fmta("\\textit{<>}", { i(1) })),
 	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = notMinted }),
