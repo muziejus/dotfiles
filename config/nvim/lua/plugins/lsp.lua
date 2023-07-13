@@ -23,6 +23,7 @@ return {
 			{ "aspeddro/cmp-pandoc.nvim" },
 			{ "kdheepak/cmp-latex-symbols" },
 			{ "onsails/lspkind-nvim" },
+			{ "mfussenegger/nvim-jdtls" },
 		},
 	},
 	{
