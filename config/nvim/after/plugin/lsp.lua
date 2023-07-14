@@ -162,12 +162,13 @@ cmp.setup({
 		end, { "i", "s" }),
 	},
 	sources = {
-		{ name = "cmp_pandoc" },
-		-- { name = "latex_symbols" }, -- don't actually like this one bit.
-		{ name = "path" },
-		{ name = "nvim_lsp" },
-		{ name = "buffer", keyword_length = 5 },
 		{ name = "luasnip", keyword_length = 2 },
+		{ name = "buffer", keyword_length = 5 },
+		{ name = "nvim_lsp_signature_help" },
+		{ name = "cmp_pandoc" },
+		{ name = "calc" },
+		{ name = "nvim_lsp" },
+		{ name = "path" },
 	},
 	formatting = {
 		fileds = { "abbr", "kind", "menu" },
@@ -179,4 +180,21 @@ cmp.setup({
 	},
 })
 
+cmp.setup.filetype("tex", {
+	sources = cmp.config.sources({
+		{ name = "luasnip", keyword_length = 2 },
+		-- { name = "latex_symbols" }, -- don't actually like this one bit.
+		{ name = "nvim_lsp" },
+		{ name = "buffer", keyword_length = 5 },
+	}),
+})
+
+cmp.setup.filetype("gitcommit", {
+	sources = cmp.config.sources({
+		{ name = "git" },
+		{ name = "conventionalcommits" },
+	}),
+})
+
+require("cmp_git").setup()
 require("cmp_pandoc").setup()
