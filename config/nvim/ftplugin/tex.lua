@@ -1,4 +1,13 @@
+local cmp = require("cmp")
 local colors = require("tokyonight.colors").setup()
+
+cmp.setup.filetype("tex", {
+	sources = cmp.config.sources({
+		{ name = "luasnip", keyword_length = 2 },
+		-- { name = "latex_symbols" }, -- don't actually like this one bit.
+		{ name = "nvim_lsp" },
+	}),
+})
 
 vim.g.vimtex_delim_toggle_mod_list = {
 	{ "\\left", "\\right" },
