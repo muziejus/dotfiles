@@ -141,6 +141,10 @@ cmp.setup({
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
+			elseif luasnip.choice_active() then
+				luasnip.change_choice(1)
+			elseif luasnip.expandable() then
+				luasnip.expand()
 			-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
 			-- they way you will only jump inside the snippet region
 			elseif luasnip.expand_or_jumpable() then
@@ -154,6 +158,8 @@ cmp.setup({
 		["<S-Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_prev_item()
+			elseif luasnip.choice_active() then
+				luasnip.change_choice(-1)
 			elseif luasnip.jumpable(-1) then
 				luasnip.jump(-1)
 			else
@@ -180,14 +186,9 @@ cmp.setup({
 	},
 })
 
-cmp.setup.filetype("tex", {
-	sources = cmp.config.sources({
-		{ name = "luasnip", keyword_length = 2 },
-		-- { name = "latex_symbols" }, -- don't actually like this one bit.
-		{ name = "nvim_lsp" },
-		{ name = "buffer", keyword_length = 5 },
-	}),
-})
+-- setup in ftplugin for java.
+
+-- setup in ftplugin for tex.
 
 cmp.setup.filetype("gitcommit", {
 	sources = cmp.config.sources({

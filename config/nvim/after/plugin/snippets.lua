@@ -9,6 +9,14 @@ ls.config.setup({
 	updateevents = "TextChanged,TextChangedI",
 	enable_autosnippets = true,
 	ext_opts = {
+		[types.choiceNode] = {
+			active = {
+				virt_text = { { "choice", "Search" } },
+			},
+			unvisited = {
+				hl_group = "Number",
+			},
+		},
 		[types.insertNode] = {
 			active = {
 				hl_group = "TermCursor",
@@ -17,7 +25,8 @@ ls.config.setup({
 				virt_text = { { "unvisited", "Search" } },
 			},
 			passive = {
-				virt_text = { { "Pass", "Search" } },
+				hl_group = "IncSearch",
+				virt_text = { { "Passive", "Search" } },
 			},
 		},
 	},
