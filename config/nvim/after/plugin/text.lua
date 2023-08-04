@@ -1,27 +1,26 @@
 -- Don't forget that TeX things are handled at the ftplugin-level.
 
-
-PandocAutoexecCommand = function ()
-  local vim_pandoc_template = vim.b.pandoc_yaml_data.vim_pandoc_template
-  local command = "Pandoc pdf"
-  if vim_pandoc_template then
-    command = "Pandoc #" .. vim_pandoc_template
-  end
-  vim.cmd(command)
+PandocAutoexecCommand = function()
+	local vim_pandoc_template = vim.b.pandoc_yaml_data.vim_pandoc_template
+	local command = "Pandoc pdf"
+	if vim_pandoc_template then
+		command = "Pandoc #" .. vim_pandoc_template
+	end
+	vim.cmd(command)
 end
 
 -- PandocAutoOpenCommand = function (file)
 --   print(file)
 -- end
 
-vim.g["pandoc#command#autoexec_on_writes"] = 1
+-- vim.g["pandoc#command#autoexec_on_writes"] = 1
 vim.g["pandoc#command#autoexec_command"] = "lua PandocAutoexecCommand()"
 -- vim.g["pandoc#command#custom_open"] = "lua PandocAutoOpenCommand(file)"
 vim.g["pandoc#command#custom_open"] = "MyPandocOpen"
 vim.g["pandoc#biblio#sources"] = "yGtbc"
 vim.g["pandoc#biblio#use_bibtool"] = 1
 vim.g["pandoc#syntax#conceal#use"] = 0
-vim.g["pandoc#syntax#conceal#blacklist"] = { "inlinemath","codeblock_start","codeblock_delim","inlinecode" }
+vim.g["pandoc#syntax#conceal#blacklist"] = { "inlinemath", "codeblock_start", "codeblock_delim", "inlinecode" }
 
 -- vim.cmd[[
 -- 	function! MyPandocOpen(file)
