@@ -1,0 +1,29 @@
+{
+  "name": "dotfiles",
+  "version": "0.0.1",
+  "private": true,
+  "repository": "https://github.com/muziejus/dotfiles.git",
+  "description": "Some dotfiles",
+  "keywords": [],
+  "author": "Moacir P. de Sá Pereira <github@moacir.moacir.com> (http://moacir.com)",
+  "license": "MIT",
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "subject-case": [
+        2,
+        "always",
+        "sentence-case"
+      ],
+      "subject-full-stop": [
+        0
+      ]
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0"
+  }
+}
