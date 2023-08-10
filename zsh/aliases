@@ -21,7 +21,7 @@ alias grep='rg'
 
 alias skim='/Applications/Skim.app/Contents/MacOS/Skim'
 
-alias rcup='rcup -x package.json -x pnpm_lock.yaml -x node_modules'
+# alias rcup='rcup -x package.json -x pnpm_lock.yaml -x node_modules'
 
 alias gs='git status '
 alias gc='git commit'
