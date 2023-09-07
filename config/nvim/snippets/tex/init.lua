@@ -32,6 +32,10 @@ local function in_list()
 	return env("enumerate") or env("itemize")
 end
 
+local function not_in_list()
+	return not in_list()
+end
+
 -- local minted = make_condition(in_minted)
 -- local list = make_condition(in_list)
 
@@ -98,10 +102,11 @@ return {
     \end{itemize}]],
 			{ i(1) }
 		),
-		{ condition = conds_expand.line_begin }
+		{ condition = conds_expand.line_begin and not_in_list }
 	),
 
 	autosnippet({ trig = "- ", name = "item" }, t("\\item "), {
+		condition = in_list and conds_expand.line_begin,
 		-- condition = list and conds_expand.line_begin,
 	}),
 
@@ -131,7 +136,7 @@ return {
 
 	autosnippet({ trig = "tt", name = "type" }, fmta("\\texttt{<>}", { i(1) })),
 	autosnippet({ trig = "__", name = "ital" }, fmta("\\textit{<>}", { i(1) })),
-	-- autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = not minted }),
+	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = not minted }),
 
 	autosnippet({
 		trig = "`([%a])",
