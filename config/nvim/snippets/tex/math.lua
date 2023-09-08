@@ -144,6 +144,10 @@ return {
 	automath("codt", t("cdot")),
 
 	-- Symbols
+	automath("≤", t("\\le")),
+
+	automath("≥", t("\\ge")),
+
 	automath("==", t("&=")),
 
 	automath("!=", t("\\ne")),
@@ -153,4 +157,10 @@ return {
 	automath("!>", t("\\mapsto")),
 
 	automath("=>", t("\\implies")),
+
+	automath("->", t("\\rightarrow")),
+
+	automath("<-", t("\\longleftarrow")),
+
+	automath("\\gets", t("\\longleftarrow")),
 }

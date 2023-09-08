@@ -11,7 +11,7 @@ local rep = extras.rep
 local fmta = require("luasnip.extras.fmt").fmta --> format node
 
 -- local conditions = require("luasnip.extras.conditions")
--- local make_condition = require("luasnip.extras.conditions").make_condition
+local make_condition = require("luasnip.extras.conditions").make_condition
 local conds_expand = require("luasnip.extras.conditions.expand")
 
 local f = ls.function_node
@@ -36,7 +36,7 @@ local function not_in_list()
 	return not in_list()
 end
 
--- local minted = make_condition(in_minted)
+local minted = make_condition(in_minted)
 -- local list = make_condition(in_list)
 
 return {
@@ -102,7 +102,7 @@ return {
     \end{itemize}]],
 			{ i(1) }
 		),
-		{ condition = conds_expand.line_begin and not_in_list }
+		{ condition = conds_expand.line_begin - in_list }
 	),
 
 	autosnippet({ trig = "- ", name = "item" }, t("\\item "), {
@@ -136,7 +136,7 @@ return {
 
 	autosnippet({ trig = "tt", name = "type" }, fmta("\\texttt{<>}", { i(1) })),
 	autosnippet({ trig = "__", name = "ital" }, fmta("\\textit{<>}", { i(1) })),
-	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = not minted }),
+	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = -minted }),
 
 	autosnippet({
 		trig = "`([%a])",
