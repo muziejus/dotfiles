@@ -48,20 +48,20 @@ return {
 	-- shortcuts
 
 	automath(
-		{ trig = "([%a])sr", regTrig = true },
+		{ trig = "([%a%)])sr", regTrig = true, wordTrig = false },
 		f(function(_, snip)
 			return snip.captures[1] .. "^2"
 		end)
 	),
 
 	automath(
-		{ trig = "([%a])cb", regTrig = true },
+		{ trig = "([%a%)])cb", regTrig = true, wordTrig = false },
 		f(function(_, snip)
 			return snip.captures[1] .. "^3"
 		end)
 	),
 
-	automath({ trig = "([%a%d])td", regTrig = true }, {
+	automath({ trig = "([%a%d%)])td", regTrig = true, wordTrig = false }, {
 		f(function(_, snip)
 			return snip.captures[1] .. "^{"
 		end),
@@ -70,7 +70,7 @@ return {
 	}),
 
 	automath( -- subscript digit
-		{ trig = "([%a}])(%d)", regTrig = true },
+		{ trig = "([%a%)])(%d)", regTrig = true, wordTrig = false },
 		f(function(_, snip)
 			return snip.captures[1] .. "_" .. snip.captures[2]
 		end)
@@ -87,6 +87,13 @@ return {
 		{ trig = "([%a0])vec", regTrig = true },
 		f(function(_, snip)
 			return "\\vec{" .. snip.captures[1] .. "}"
+		end)
+	),
+
+	automath(
+		{ trig = "([eijxyzmb])bar", regTrig = true },
+		f(function(_, snip)
+			return "\\bar{" .. snip.captures[1] .. "}"
 		end)
 	),
 
