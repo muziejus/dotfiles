@@ -46,6 +46,11 @@ return {
 	}),
 
 	-- shortcuts
+	automath("prob", {
+		t("\\mathbb{P}("),
+		i(1, "E"),
+		t(")"),
+	}),
 
 	automath(
 		{ trig = "([%a%)])sr", regTrig = true, wordTrig = false },
@@ -115,6 +120,16 @@ return {
 	automath(
 		{ trig = "([^%s$]+)/", regTrig = true },
 		fmta("\\frac{<>}{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
+			i(1, "denominator"),
+		})
+	),
+
+	automath(
+		{ trig = "([^%s$]+)choose", regTrig = true },
+		fmta("\\binom{<>}{<>}", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
