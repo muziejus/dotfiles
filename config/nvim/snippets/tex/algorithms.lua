@@ -51,10 +51,10 @@ return {
 		),
 		{ condition = conds_expand.line_begin - algorithm }
 	),
-	beginalgo("Var", fmta("\\SetKWData{<>}{<>}", { i(1, "Key"), i(2, "text") })),
-	beginalgo("Func", fmta("\\SetKWFunction{<>}{<>}", { i(1, "Key"), i(2, "text") })),
-	beginalgo("Data", fmta("\\KWData{<>}", { i(1, "data") })),
-	beginalgo("Result", fmta("\\KWResult{<>}", { i(1, "result") })),
+	beginalgo("Var", fmta("\\SetKwData{<>}{<>}", { i(1, "Key"), i(2, "text") })),
+	beginalgo("Func", fmta("\\SetKwFunction{<>}{<>}", { i(1, "Key"), i(2, "text") })),
+	beginalgo("Data", fmta("\\KwData{<>}", { i(1, "data") })),
+	beginalgo("Result", fmta("\\KwResult{<>}", { i(1, "result") })),
 	beginalgo(
 		"For",
 		fmta(
@@ -64,6 +64,30 @@ return {
       }
       ]],
 			{ i(1, "condition"), i(2) }
+		)
+	),
+	beginalgo(
+		"If",
+		fmta(
+			[[
+      \If{<>}{
+        <>
+      }
+      ]],
+			{ i(1, "condition"), i(2) }
+		)
+	),
+	beginalgo(
+		"Ife",
+		fmta(
+			[[
+      \eIf{<>}{
+        <>
+      }{
+        <>
+      }
+      ]],
+			{ i(1, "condition"), i(2, "then"), i(3, "else") }
 		)
 	),
 	beginalgo(

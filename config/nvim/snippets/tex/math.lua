@@ -182,7 +182,7 @@ return {
 
 	automath("->", t("\\rightarrow")),
 
-	automath("<-", t("\\longleftarrow")),
+	automath("<-", t("\\leftarrow")),
 
 	automath("\\gets", t("\\longleftarrow")),
 }
