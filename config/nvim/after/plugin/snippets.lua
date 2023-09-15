@@ -18,14 +18,14 @@ ls.config.setup({
 			},
 		},
 		[types.insertNode] = {
-			active = {
-				hl_group = "TermCursor",
-			},
+			-- active = {
+			-- 	hl_group = "TermCursor",
+			-- },
 			unvisited = {
 				virt_text = { { "unvisited", "Search" } },
 			},
 			passive = {
-				hl_group = "IncSearch",
+				-- hl_group = "IncSearch",
 				virt_text = { { "Passive", "Search" } },
 			},
 		},
