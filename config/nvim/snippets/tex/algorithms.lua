@@ -8,11 +8,10 @@ local f = ls.function_node
 
 local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 
-local make_condition = require("luasnip.extras.conditions").make_condition
+-- local make_condition = require("luasnip.extras.conditions").make_condition
 local conds_expand = require("luasnip.extras.conditions.expand")
 
 local function env(name)
-	-- local is_inside = vim.fn["vimtex#env#is_inside"](name)
 	local is_inside = vim.api.nvim_eval("vimtex#env#is_inside('" .. name .. "')")
 	return (is_inside[1] > 0 and is_inside[2] > 0)
 end
@@ -21,16 +20,21 @@ local function in_algorithm()
 	return env("algorithm")
 end
 
-local algorithm = make_condition(in_algorithm)
+local function start_of_algo_line()
+	return env("algorithm") and conds_expand.line_begin
+end
+
+-- local algorithm = make_condition(in_algorithm)
 
 local algo = ls.extend_decorator.apply(s, {
 	snippetType = "autosnippet",
-	condition = algorithm,
+	condition = in_algorithm,
 })
 
 local beginalgo = ls.extend_decorator.apply(s, {
 	snippetType = "autosnippet",
-	condition = algorithm + conds_expand.line_begin,
+	condition = start_of_algo_line,
+	-- condition = conds_expand.line_begin + in_algorithm,
 })
 
 return {
@@ -49,7 +53,7 @@ return {
       ]],
 			{ i(1, "caption"), i(2) }
 		),
-		{ condition = conds_expand.line_begin - algorithm }
+		{ condition = conds_expand.line_begin - in_algorithm }
 	),
 	beginalgo("Var", fmta("\\SetKwData{<>}{<>}", { i(1, "Key"), i(2, "text") })),
 	beginalgo("Func", fmta("\\SetKwFunction{<>}{<>}", { i(1, "Key"), i(2, "text") })),
