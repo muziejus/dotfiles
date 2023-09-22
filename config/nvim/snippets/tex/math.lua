@@ -46,6 +46,12 @@ return {
 	}),
 
 	-- shortcuts
+	automath("exp", {
+		t("\\mathbb{E}["),
+		i(1, "X"),
+		t("]"),
+	}),
+
 	automath("prob", {
 		t("\\mathbb{P}("),
 		i(1, "E"),

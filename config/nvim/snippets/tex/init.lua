@@ -78,6 +78,25 @@ return {
 		}
 	),
 
+	autosnippet(
+		{
+			trig = "tabu",
+			name = "tabular",
+		},
+		fmta(
+			[[
+      \begin{tabularx}{\textwidth}{|X|X|X|X|}
+        \hline
+        <>
+      \end{tabularx}
+    ]],
+			{ i(1) }
+		),
+		{
+			condition = conds_expand.line_begin,
+		}
+	),
+
 	-- Shortcuts
 
 	-- Formatting
