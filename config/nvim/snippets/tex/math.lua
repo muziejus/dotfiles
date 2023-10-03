@@ -162,6 +162,39 @@ return {
 		})
 	),
 
+	math(
+		"int",
+		fmta([[\int_{<>}^{<>} <> \mathop{<>}]], {
+			i(1, "-\\infty"),
+			i(2, "\\infty"),
+			i(3, "f(x)"),
+			i(4, "dx"),
+		})
+	),
+
+	math(
+		"intt",
+		fmta([[\int_{<>}^{<>}\int_{<>}^{<>} <> \mathop{<>} \mathop{<>}]], {
+			i(1, "-\\infty"),
+			i(2, "\\infty"),
+			i(3, "-\\infty"),
+			i(4, "\\infty"),
+			i(5, "f(x,y)"),
+			i(6, "dx"),
+			i(7, "dy"),
+		})
+	),
+
+	math(
+		"iint",
+		fmta([[\iint_{<>} <> \mathop{<>} \mathop{<>}]], {
+			i(1, "R"),
+			i(2, "f(x,y)"),
+			i(3, "dx"),
+			i(4, "dy"),
+		})
+	),
+
 	automath("tx", fmta("\\text{<>}\\;", { i(1) })),
 
 	automath("shint", fmta("\\shortintertext{<>}", i(1))),
