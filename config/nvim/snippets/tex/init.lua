@@ -85,10 +85,13 @@ return {
 		},
 		fmta(
 			[[
-      \begin{tabularx}{\textwidth}{|X|X|X|X|}
-        \hline
-        <>
-      \end{tabularx}
+      \begin{table}[h]
+        % rcl or p{1in}
+        \begin{longtable}{rrr} \toprule
+          <>\\
+          \bottomrule
+        \end{longtable}
+      \end{table}
     ]],
 			{ i(1) }
 		),

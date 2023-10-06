@@ -3,6 +3,8 @@ local s = ls.s --> snippet
 local i = ls.i --> insert node
 local t = ls.t --> text node
 local fmta = require("luasnip.extras.fmt").fmta --> format node
+local extras = require("luasnip.extras")
+local rep = extras.rep
 
 local f = ls.function_node
 
@@ -56,7 +58,7 @@ return {
 		{ condition = conds_expand.line_begin - in_algorithm }
 	),
 	beginalgo("Var", fmta("\\SetKwData{<>}{<>}", { i(1, "Key"), i(2, "text") })),
-	beginalgo("Func", fmta("\\SetKwFunction{<>}{<>}", { i(1, "Key"), i(2, "text") })),
+	beginalgo("Func", fmta("\\SetKwFunction{<>}{<>}", { i(1, "Key"), rep(1) })),
 	beginalgo("Data", fmta("\\KwData{<>}", { i(1, "data") })),
 	beginalgo("Result", fmta("\\KwResult{<>}", { i(1, "result") })),
 	beginalgo(
