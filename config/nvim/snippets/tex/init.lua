@@ -88,6 +88,7 @@ return {
       \begin{table}[h]
         % rcl or p{1in}
         \begin{longtable}{rrr} \toprule
+          \midrule
           <>\\
           \bottomrule
         \end{longtable}
