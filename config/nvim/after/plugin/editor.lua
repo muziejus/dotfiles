@@ -10,6 +10,8 @@ vim.g.copilot_filetypes = {
 
 require("nvim-surround").setup({})
 
+require("ibl").setup()
+
 require("Comment").setup({
 	---Add a space b/w comment and the line
 	padding = true,

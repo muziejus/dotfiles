@@ -5,6 +5,7 @@ return {
 	"numToStr/Comment.nvim",
 	-- "tpope/vim-surround",
 	{ "kylechui/nvim-surround", version = "*", event = "VeryLazy" },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	-- "tpope/vim-unimpaired", -- [ and ] macros for moving around
 	{
 		"windwp/nvim-autopairs",
