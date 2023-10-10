@@ -129,6 +129,18 @@ return {
 	),
 
 	autosnippet(
+		{ trig = "i. ", name = "enumerate roman" },
+		fmta(
+			[[
+    \begin{enumerate}[label=\roman*)]
+      \item <>
+    \end{enumerate}]],
+			{ i(1) }
+		),
+		{ condition = conds_expand.line_begin }
+	),
+
+	autosnippet(
 		{ trig = "- ", name = "itemize" },
 		fmta(
 			[[
