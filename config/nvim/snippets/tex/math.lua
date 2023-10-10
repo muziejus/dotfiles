@@ -3,6 +3,8 @@ local s = ls.s --> snippet
 local i = ls.i --> insert node
 local t = ls.t --> text node
 local fmta = require("luasnip.extras.fmt").fmta --> format node
+local extras = require("luasnip.extras")
+local conds_expand = require("luasnip.extras.conditions.expand")
 
 local f = ls.function_node
 
@@ -20,6 +22,24 @@ local automath = ls.extend_decorator.apply(s, {
 })
 
 return {
+	autosnippet(
+		{
+			trig = "bali",
+			name = "align*",
+		},
+		fmta(
+			[[
+      \begin{align*}
+        <>
+      \end{align*}
+    ]],
+			{ i(1) }
+		),
+		{
+			condition = conds_expand.line_begin,
+		}
+	),
+
 	autosnippet({
 		trig = "dm",
 		name = "display math",
