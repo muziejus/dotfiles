@@ -14,6 +14,11 @@ vim.g.vimtex_delim_toggle_mod_list = {
 	{ "\\big", "\\big" },
 }
 
+vim.g.vimtex_env_toggle_math_map = {
+	["$"] = "\\[",
+	["\\["] = "align*",
+}
+
 -- vim.g.vimtex_view_method = "skim" -- this is set in
 -- nvim/lua/plugins/text.lua
 vim.g.vimtex_view_skim_sync = 1
