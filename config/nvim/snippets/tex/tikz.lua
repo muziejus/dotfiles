@@ -63,7 +63,7 @@ return {
 		{ condition = conds_expand.line_begin }
 	),
 	autotikz(
-		{ trig = "nm", name = "math node" },
+		{ trig = "dr", name = "draw arrow" },
 		fmta("\\draw[s] (<>) to (<>);", { i(1), i(2) }),
 		{ condition = conds_expand.line_begin }
 	),

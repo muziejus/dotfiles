@@ -41,7 +41,23 @@ local minted = make_condition(in_minted)
 
 return {
 	-- Environments
-
+	autosnippet(
+		{
+			trig = "bmini",
+			name = "minipage",
+		},
+		fmta(
+			[[
+    \noindent\begin{minipage}{.5\textwidth}
+      <>
+    \end{minipage}
+    ]],
+			{ i(1) }
+		),
+		{
+			condition = conds_expand.line_begin,
+		}
+	),
 	autosnippet(
 		{
 			trig = "mjava",
