@@ -57,7 +57,7 @@ return {
 		),
 		{ condition = conds_expand.line_begin - in_algorithm }
 	),
-	beginalgo("Var", fmta("\\SetKwData{<>}{<>}", { i(1, "Key"), i(2, "text") })),
+	beginalgo("Var", fmta("\\SetKwData{<>}{<>}", { i(1, "Key"), rep(1) })),
 	beginalgo("Func", fmta("\\SetKwFunction{<>}{<>}", { i(1, "Key"), rep(1) })),
 	beginalgo("Data", fmta("\\KwData{<>}", { i(1, "data") })),
 	beginalgo("Result", fmta("\\KwResult{<>}", { i(1, "result") })),
