@@ -22,12 +22,6 @@ local function env(name)
 	return (is_inside[1] > 0 and is_inside[2] > 0)
 end
 
-local function env(name)
-	-- local is_inside = vim.fn["vimtex#env#is_inside"](name)
-	local is_inside = vim.api.nvim_eval("vimtex#env#is_inside('" .. name .. "')")
-	return (is_inside[1] > 0 and is_inside[2] > 0)
-end
-
 local function in_tikz()
 	return env("tikzpicture")
 end
