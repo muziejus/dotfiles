@@ -28,7 +28,7 @@ end
 
 local autotikz = ls.extend_decorator.apply(s, {
 	snippetType = "autosnippet",
-	condition = in_tikz,
+	condition = in_tikz and conds_expand.line_begin,
 })
 
 return {
