@@ -6,8 +6,6 @@ local fmta = require("luasnip.extras.fmt").fmta --> format node
 local extras = require("luasnip.extras")
 local rep = extras.rep
 
-local f = ls.function_node
-
 local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 
 -- local make_condition = require("luasnip.extras.conditions").make_condition
@@ -19,11 +17,11 @@ local function env(name)
 end
 
 local function in_algorithm()
-	return env("algorithm")
+	return env("algorithm") or env("function")
 end
 
 local function start_of_algo_line()
-	return env("algorithm") and conds_expand.line_begin
+	return in_algorithm() and conds_expand.line_begin
 end
 
 -- local algorithm = make_condition(in_algorithm)
