@@ -106,4 +106,6 @@ return {
 		)
 	),
 	algo("To", t("\\KwTo")),
+	algo("(COM", fmta("(\\tcp*[f]{<>})", { i(1, "comment") })),
+	algo("COM", fmta("\\tcp*{<>}", { i(1, "comment") })),
 }
