@@ -101,16 +101,23 @@ return {
 		},
 		fmta(
 			[[
-      \begin{table}[h]
-        % rcl or p{1in}
+      \begin{table}[ht] % h in place, t top of page
+        % Use tabularx for full width tables
+        % \begin{tabularx}{\textwidth}{XXX}
+        % "X" type stretches to fill the width.
+        %
+        % To do quirky stuff in a cell, surround it with \makecell{}
+        %
+        % rcl or p{1in} are the standard column types.
         \begin{longtable}{rrr} \toprule
+          \thead{<>}
           \midrule
           <>\\
           \bottomrule
         \end{longtable}
       \end{table}
     ]],
-			{ i(1) }
+			{ i(1, "Header 1"), i(2) }
 		),
 		{
 			condition = conds_expand.line_begin,
