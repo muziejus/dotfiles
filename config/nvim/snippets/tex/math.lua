@@ -122,7 +122,7 @@ return {
 	),
 
 	automath(
-		{ trig = "([eijxyzmb])bar", regTrig = true },
+		{ trig = "([eijxyzmbEIJXYZMB])bar", regTrig = true },
 		f(function(_, snip)
 			return "\\bar{" .. snip.captures[1] .. "}"
 		end)
@@ -150,6 +150,15 @@ return {
 				return snip.captures[1]
 			end),
 			i(1, "denominator"),
+		})
+	),
+
+	automath(
+		{ trig = "([^%s$]+)pipe", regTrig = true },
+		fmta("\\pipe{<>}", {
+			f(function(_, snip)
+				return snip.captures[1]
+			end),
 		})
 	),
 
@@ -225,6 +234,8 @@ return {
 	automath("codt", t("cdot")),
 
 	-- Symbols
+	automath("|", t("\\;\\mid\\;")),
+
 	automath("≤", t("\\le")),
 
 	automath("≥", t("\\ge")),
