@@ -1,5 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
+	"archibate/lualine-time",
 	{
 		"romgrk/barbar.nvim",
 		dependencies = {
