@@ -129,7 +129,7 @@ return {
 	),
 
 	automath(
-		{ trig = "([eijxyzmb])hat", regTrig = true },
+		{ trig = "([eijxyzmbp])hat", regTrig = true },
 		f(function(_, snip)
 			return "\\hat{" .. snip.captures[1] .. "}"
 		end)
