@@ -242,6 +242,8 @@ return {
 	automath("codt", t("cdot")),
 
 	-- Symbols
+	automath("normal", t("\\mathcal{N}")),
+
 	automath("|", t("\\;\\mid\\;")),
 
 	automath("≤", t("\\le")),
@@ -257,6 +259,8 @@ return {
 	automath("!>", t("\\mapsto")),
 
 	automath("=>", t("\\implies")),
+
+	automath("<=", t("\\Leftarrow")),
 
 	automath("->", t("\\rightarrow")),
 
