@@ -19,6 +19,9 @@ vim.g.vimtex_env_toggle_math_map = {
 	["\\["] = "align*",
 }
 
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true
+
 -- vim.g.vimtex_view_method = "skim" -- this is set in
 -- nvim/lua/plugins/text.lua
 vim.g.vimtex_view_skim_sync = 1
