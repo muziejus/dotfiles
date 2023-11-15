@@ -110,7 +110,7 @@ return {
         %
         % rcl or p{1in} are the standard column types.
         \begin{longtable}{rrr} \toprule
-          \thead{<>}
+          \thead{<>} & \thead{} & \thead{}\\
           \midrule
           <>\\
           \bottomrule
