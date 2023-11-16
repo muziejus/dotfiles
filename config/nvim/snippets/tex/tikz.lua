@@ -35,9 +35,11 @@ return {
 		{ trig = "btik", name = "tikzpicture" },
 		fmta(
 			[[
-      \begin{tikzpicture}
-        <>
-      \end{tikzpicture}
+      \begin{center}
+        \begin{tikzpicture}
+          <>
+        \end{tikzpicture}
+      \end{center}
     ]],
 			{ i(1) }
 		),
@@ -58,6 +60,29 @@ return {
 	autosnippet(
 		{ trig = "dr", name = "draw arrow" },
 		fmta("\\draw[s] (<>) to (<>);", { i(1), i(2) }),
+		{ condition = start_of_tikz }
+	),
+	autosnippet(
+		{ trig = "matrix", name = "matrix" },
+		fmta(
+			[[
+        % Put node commands like |[fill=lightgray]| right after ampersand.
+        % To do quirky stuff in a node (linebreak) wrap the content in {}.
+        \matrix (m) [
+              matrix of math nodes,
+              row sep=-\pgflinewidth,
+              column sep=-\pgflinewidth,
+              %nodes in empty cells,
+              nodes={anchor=center, 
+              draw,
+              %fill=lightgray,
+              minimum size=1.5em, },
+              ] {
+              <>
+        };
+      ]],
+			{ i(1) }
+		),
 		{ condition = start_of_tikz }
 	),
 }
