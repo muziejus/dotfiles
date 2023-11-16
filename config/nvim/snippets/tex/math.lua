@@ -244,6 +244,10 @@ return {
 	-- Symbols
 	automath("normal", t("\\mathcal{N}")),
 
+	automath("Peasy", t("\\mathcal{P}")),
+
+	automath("NPhard", t("\\mathcal{N}\\mathcal{P}")),
+
 	automath("|", t("\\;\\mid\\;")),
 
 	automath("≤", t("\\le")),
