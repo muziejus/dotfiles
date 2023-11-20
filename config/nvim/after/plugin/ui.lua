@@ -9,3 +9,4 @@ require("litee.lib").setup({
 })
 
 require("litee.filetree").setup({})
+require("litee.gh").setup({})
