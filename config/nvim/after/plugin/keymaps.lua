@@ -141,7 +141,8 @@ wk.register({
 		m = { require("ufo").closeFoldsWith, "Close folds with" },
 		["<space>"] = { require("ufo").peekFoldedLinesUnderCursor, "Peek folded lines" },
 	},
-	["<C-n>"] = { vim.cmd.NvimTreeToggle, "Toggle Nvim Tree" },
+	["<C-n>"] = { vim.cmd.LTPopOutFiletree, "Toggle Nvim Tree" },
+	-- ["<C-n>"] = { vim.cmd.NvimTreeToggle, "Toggle Nvim Tree" },
 	["<C-p>"] = { "<CMD>Telescope git_files<CR>", "Telescope Find Git File" },
 	-- Insert / Visual mode
 	["<C-u>"] = {

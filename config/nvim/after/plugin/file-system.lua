@@ -1,5 +1,7 @@
-require("nvim-tree").setup({
-  renderer = {
-    highlight_git = true,
-  },
-})
+-- litee.filtree is setup w/ litee in ui.lua
+--
+-- require("nvim-tree").setup({
+--   renderer = {
+--     highlight_git = true,
+--   },
+-- })
