@@ -66,7 +66,7 @@ return {
 		{ trig = "matrix", name = "matrix" },
 		fmta(
 			[[
-        % Put node commands like |[fill=lightgray]| right after ampersand.
+        % Put node commands like |(a) [fill=lightgray]| right after ampersand.
         % To do quirky stuff in a node (linebreak) wrap the content in {}.
         \matrix (m) [
               matrix of math nodes,
@@ -74,9 +74,10 @@ return {
               column sep=-\pgflinewidth,
               %nodes in empty cells,
               nodes={anchor=center, 
-              draw,
-              %fill=lightgray,
-              minimum size=1.5em, },
+                draw,
+                %fill=lightgray,
+                minimum size=1.5em, 
+              },
               ] {
               <>
         };
