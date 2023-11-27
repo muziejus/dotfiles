@@ -242,6 +242,8 @@ return {
 	automath("codt", t("cdot")),
 
 	-- Symbols
+	automath("pvalue", t("p\\text{-value}\\;")),
+
 	automath("normal", t("\\mathcal{N}")),
 
 	automath("Peasy", t("\\mathcal{P}")),
