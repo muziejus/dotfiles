@@ -48,7 +48,7 @@ return {
 		}
 	),
 	autosnippet(
-		{ trig = "no", name = "node" },
+		{ trig = "nd", name = "node" },
 		fmta("\\node[n] (<>) at (<>) {<>};", { i(1), i(2, "0, 0"), rep(1) }),
 		{ condition = start_of_tikz }
 	),
@@ -58,7 +58,7 @@ return {
 		{ condition = start_of_tikz }
 	),
 	autosnippet(
-		{ trig = "dr", name = "draw arrow" },
+		{ trig = "dw", name = "draw arrow" },
 		fmta("\\draw[s] (<>) to (<>);", { i(1), i(2) }),
 		{ condition = start_of_tikz }
 	),
@@ -83,6 +83,47 @@ return {
         };
       ]],
 			{ i(1) }
+		),
+		{ condition = start_of_tikz }
+	),
+
+	autosnippet(
+		{ trig = "plot", name = "Plot" },
+		fmta(
+			[[
+      % https://tikz.dev/pgfplots/reference-axis
+      \begin{axis}[
+        % title={<>},
+        xlabel={<>},
+        ylabel={<>},
+        %% Math sizing done at plot, not axis level.
+        % enlargelimits=false, % automatically size graph
+        xmin=0, xmax=10,
+        ymin=0, ymax=100,
+        % xtick={0,20,40,60,80,100},
+        % ytick={0,20,40,60,80,100,120},
+        % axis lines = left,
+        ymajorgrids=true,
+        grid style=dashed,
+        legend pos=north west,
+      ]
+        \addplot[
+          %%% For math
+          % domain= -10:10,
+          % samples= 100,
+          %%% For data
+          only marks, 
+          % color=blue,
+          % mark=square, % square* will fill the square.
+        ]
+          coordinates {
+            (0, 0)
+            (1, 1)
+          }; % For math, just remove “coordinates” and type eq in {}
+        % \legend{}
+      \end{axis}
+      ]],
+			{ i(1, "Title"), i(2, "Xlabel"), i(3, "Ylabel") }
 		),
 		{ condition = start_of_tikz }
 	),
