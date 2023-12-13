@@ -1,5 +1,35 @@
 -- Don't forget that TeX things are handled at the ftplugin-level.
 
+-- Quarto
+require("quarto").setup({
+	debug = false,
+	closePreviewOnExit = true,
+	lspFeatures = {
+		enabled = true,
+		languages = { "python", "r", "julia", "bash" }, -- javascript?
+		chunks = "curly", -- or "all"
+		diagnostics = {
+			enabled = true,
+			triggers = { "BufWritePost" },
+		},
+		completion = {
+			enabled = true,
+		},
+	},
+	codeRunner = {
+		enabled = false,
+		default_method = nil, -- 'molten' or 'slime'
+		ft_runners = {}, -- filteype to runner, ie `{python = "molten"}`
+		never_run = { "yaml" },
+	},
+	keymap = {
+		hover = "K",
+		definition = "gd",
+		rename = "<leaderlR",
+		references = "gr",
+	},
+})
+
 PandocAutoexecCommand = function()
 	local vim_pandoc_template = vim.b.pandoc_yaml_data.vim_pandoc_template
 	local command = "Pandoc pdf"

@@ -13,4 +13,6 @@ return {
 	{ "jbyuki/nabla.nvim" },
 	{ "vim-pandoc/vim-pandoc" },
 	{ "vim-pandoc/vim-pandoc-syntax" },
+	{ "quarto-dev/quarto-nvim" },
+	{ "jmbuhr/otter.nvim" },
 }
