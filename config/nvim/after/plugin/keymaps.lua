@@ -12,6 +12,12 @@ wk.register({
 			h = { "<CMD>Telescope help_tags<CR>", "Help Tags" },
 			r = { "<CMD>Telescope oldfiles<CR>", "Open Recent File" },
 			v = { "<CMD>Telescope registers<CR>", "Show/Paste Registers" },
+			p = {
+				function()
+					vim.cmd("Telescope projections")
+				end,
+				"Find Projections",
+			},
 			s = {
 				function()
 					require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })

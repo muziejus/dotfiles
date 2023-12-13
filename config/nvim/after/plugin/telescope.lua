@@ -3,6 +3,7 @@ local trouble = require("trouble.providers.telescope")
 local telescope = require("telescope")
 
 telescope.load_extension("bibtex")
+telescope.load_extension("projections")
 
 telescope.setup({
 	defaults = {

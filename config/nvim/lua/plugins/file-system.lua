@@ -1,5 +1,6 @@
 return {
 	{ "tpope/vim-projectionist" },
+	{ "gnikdroy/projections.nvim", branch = "pre_release" },
 	{
 		"ldelossa/litee-filetree.nvim",
 		dependencies = {
