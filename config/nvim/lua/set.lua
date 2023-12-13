@@ -2,8 +2,11 @@ local options = {
 	-- Cursors and Look
 	guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20",
 	cursorline = true,
-	signcolumn = "yes", -- always show signcolumn
+	signcolumn = "yes:1", -- always show signcolumn
 	showmode = false, -- Don't show -- INSERT --
+	-- Search
+	ignorecase = false,
+	smartcase = true,
 	-- Line numbers
 	nu = true,
 	relativenumber = true,
@@ -17,7 +20,8 @@ local options = {
 	smartindent = true,
 	textwidth = 75,
 	conceallevel = 0, -- don't obfuscate Markdown
-	completeopt = { "menuone", "noselect" }, -- show completion menu but don't autoselect
+	-- completeopt = { "menuone", "noselect" }, -- show completion menu but don't autoselect
+	completeopt = "menuone,noinsert", -- show completion menu but don't autoselect
 	-- Splits
 	splitbelow = true,
 	splitright = true,
@@ -39,6 +43,7 @@ local options = {
 	-- Outside world
 	clipboard = "unnamedplus",
 	mouse = "a",
+	mousefocus = true,
 	-- Run fast
 	updatetime = 50,
 }
@@ -48,6 +53,8 @@ for k, v in pairs(options) do
 end
 
 vim.cmd("set whichwrap+=<,>,[,]") -- use arrow keys to wrap lines
+
+vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't auto continue comments
 
 vim.opt.isfname:append("@-@") -- Add "@" to possible filenames.
 vim.opt.shortmess:append("c") -- Move through "Hit Enter" messages quickly
