@@ -15,6 +15,7 @@ source ~/.zsh/uncommitted-aliases
 # alias run-help
 HELPDIR=/usr/local/share/zsh/helpfiles
 
+alias ssh='kitty ssh'
 alias kitty='kitty -o allow_remote_control=yes --single-instance --listen-on unix:/tmp/mykitty'
 alias ls='exa --git --header -F'
 alias grep='rg'
