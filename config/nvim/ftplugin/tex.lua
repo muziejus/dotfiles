@@ -45,7 +45,7 @@ require("nvim-surround").buffer_setup({
 			find = "`.-'",
 			delete = "^(`)().-(')()$",
 		},
-		["B"] = {
+		["O"] = {
 			add = { "\\textbf{", "}" },
 			find = "\\%a-bf%b{}",
 			delete = "^(\\%a-bf{)().-(})()$",
