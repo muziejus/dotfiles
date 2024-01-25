@@ -18,6 +18,16 @@ local f = ls.function_node
 
 local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 
+local function has_value(tab, val)
+	for _, value in ipairs(tab) do
+		if value == val then
+			return true
+		end
+	end
+
+	return false
+end
+
 local function env(name)
 	-- local is_inside = vim.fn["vimtex#env#is_inside"](name)
 	local is_inside = vim.api.nvim_eval("vimtex#env#is_inside('" .. name .. "')")
@@ -175,6 +185,23 @@ return {
 		{ condition = conds_expand.line_begin - in_list }
 	),
 
+	-- autosnippet(
+	-- 	{
+	-- 		trig = "  - ",
+	-- 		regTrig = true,
+	-- 		name = "item",
+	-- 	},
+	-- 	t("\\item "),
+	-- 	{
+	-- 		-- }, {
+	-- 		-- 	f(function()
+	-- 		-- 		return "\\item "
+	-- 		-- 	end),
+	-- 		-- }, {
+	-- 		condition = in_list and conds_expand.line_begin,
+	-- 	}
+	-- ),
+
 	autosnippet({ trig = "- ", name = "item" }, t("\\item "), {
 		condition = in_list and conds_expand.line_begin,
 		-- condition = list and conds_expand.line_begin,
@@ -207,6 +234,25 @@ return {
 	autosnippet({ trig = "tt", name = "type" }, fmta("\\texttt{<>}", { i(1) })),
 	autosnippet({ trig = "__", name = "ital" }, fmta("\\textit{<>}", { i(1) })),
 	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = -minted }),
+
+	autosnippet({
+		trig = "(%d+)(%a+)",
+		regTrig = true,
+		name = "unit",
+	}, {
+		f(function(_, snip)
+			return "\\qty{" .. snip.captures[1] .. "}{\\" .. snip.captures[2] .. "}"
+		end),
+	}, {
+		condition = function(_, _, captures)
+			local units = {
+				"ns",
+				"us",
+				"ms",
+			}
+			return has_value(units, captures[2])
+		end,
+	}),
 
 	autosnippet({
 		trig = "`([%a])",
