@@ -79,7 +79,7 @@ return {
 	}),
 
 	automath(
-		{ trig = "([%a%)])sr", regTrig = true, wordTrig = false },
+		{ trig = "([%a%)%d])sr", regTrig = true, wordTrig = false },
 		f(function(_, snip)
 			return snip.captures[1] .. "^2"
 		end)
