@@ -12,7 +12,7 @@ return {
 		event = "InsertEnter",
 		opts = {
 			disable_filetype = { "TelescopePrompt", "spectre_panel" },
-			disable_in_macro = false, -- disable when recording or executing a macro
+			disable_in_macro = true, -- disable when recording or executing a macro
 			disable_in_visualblock = false, -- disable when insert after visual block mode
 			disable_in_replace_mode = true,
 			ignored_next_char = [=[[%w%%%'%[%"%.%`%$]]=],
@@ -29,6 +29,7 @@ return {
 			map_c_w = false, -- map <c-w> to delete a pair if possible
 		},
 	},
+	"abecodes/tabout.nvim",
 	{
 		"folke/zen-mode.nvim",
 		dependencies = { "folke/twilight.nvim" },

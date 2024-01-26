@@ -96,3 +96,7 @@ require("twilight").setup({
 	},
 	exclude = {}, -- filetypes
 })
+
+require("tabout").setup({})
+
+require("nvim-autopairs").remove_rule("`")
