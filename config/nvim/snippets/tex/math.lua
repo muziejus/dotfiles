@@ -67,16 +67,30 @@ return {
 
 	-- shortcuts
 	automath("exp", {
-		t("\\mathbb{E}["),
+		t("\\mathbb{E}\\left[\\; "),
 		i(1, "X"),
-		t("]"),
+		t(" \\;\\right]"),
 	}),
 
 	automath("prob", {
-		t("\\mathbb{P}("),
+		t("\\mathbb{P}\\left[\\; "),
 		i(1, "E"),
-		t(")"),
+		t(" \\;\\right]"),
 	}),
+
+	automath(
+		{ trig = "mc(%a)", regTrig = true },
+		f(function(_, snip)
+			return "\\mathcal{" .. snip.captures[1] .. "}"
+		end)
+	),
+
+	automath(
+		{ trig = "bb(%a)", regTrig = true },
+		f(function(_, snip)
+			return "\\mathbb{" .. snip.captures[1] .. "}"
+		end)
+	),
 
 	automath(
 		{ trig = "([%a%)%d])sr", regTrig = true, wordTrig = false },
@@ -129,7 +143,7 @@ return {
 	),
 
 	automath(
-		{ trig = "([eijxyzmbp])hat", regTrig = true },
+		{ trig = "([eijxyzmbpf])hat", regTrig = true },
 		f(function(_, snip)
 			return "\\hat{" .. snip.captures[1] .. "}"
 		end)
