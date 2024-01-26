@@ -235,6 +235,16 @@ return {
 	autosnippet({ trig = "__", name = "ital" }, fmta("\\textit{<>}", { i(1) })),
 	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = -minted }),
 
+	s({
+		trig = "(%d+)",
+		regTrig = true,
+		name = "num",
+	}, {
+		f(function(_, snip)
+			return "\\num{" .. snip.captures[1] .. "}"
+		end),
+	}),
+
 	autosnippet({
 		trig = "(%d+)(%a+)",
 		regTrig = true,
