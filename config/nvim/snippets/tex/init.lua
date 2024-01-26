@@ -236,12 +236,48 @@ return {
 	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = -minted }),
 
 	s({
-		trig = "(%d+)",
+		trig = "([%d%.]+)",
 		regTrig = true,
 		name = "num",
 	}, {
 		f(function(_, snip)
 			return "\\num{" .. snip.captures[1] .. "}"
+		end),
+	}, {
+		condition = function()
+			return vim.api.nvim_eval("vimtex#syntax#in_mathzone()") == 0
+		end,
+	}),
+
+	-- This won't work because "$4" already puts you in mathzone.
+	-- autosnippet({
+	-- 	trig = "%$(%d+)",
+	-- 	regTrig = true,
+	-- 	name = "dollar",
+	-- }, {
+	-- 	f(function(_, snip)
+	-- 		return "\\$\\num{" .. snip.captures[1] .. "}"
+	-- 	end),
+	-- }, {
+	-- 	condition = function()
+	-- 		local inmath = vim.api.nvim_eval("vimtex#syntax#in_mathzone()")
+	-- 		return inmath == 0
+	-- 	end,
+	-- 	-- condition = function()
+	-- 	-- 	if not inmath then
+	-- 	-- 		return true
+	-- 	-- 	end
+	-- 	-- 	return false
+	-- 	-- end,
+	-- }),
+
+	autosnippet({
+		trig = "(%d+)%%",
+		regTrig = true,
+		name = "percent",
+	}, {
+		f(function(_, snip)
+			return "\\num{" .. snip.captures[1] .. "}\\%"
 		end),
 	}),
 
