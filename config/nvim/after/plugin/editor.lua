@@ -7,6 +7,7 @@ vim.g.copilot_filetypes = {
 	["lua"] = false,
 	["python"] = true,
 }
+require("auto-session").setup({})
 
 require("nvim-surround").setup({})
 

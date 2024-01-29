@@ -19,13 +19,14 @@ wk.register({
 			r = { "<CMD>Telescope oldfiles<CR>", "Open Recent File" },
 			R = { "<cmd>Telescope lsp_references<cr>", "References" },
 			v = { "<CMD>Telescope registers<CR>", "Show/Paste Registers" },
+			s = { "<CMD>Telescope session-lens<CR>", "Sessions" },
 			p = {
 				function()
 					vim.cmd("Telescope projections")
 				end,
 				"Find Projections",
 			},
-			s = { "<cmd>Telescope lsp_document_symbols<cr>", "symbols" },
+			-- s = { "<cmd>Telescope lsp_document_symbols<cr>", "symbols" },
 			-- s = {
 			-- 	function()
 			-- 		require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
