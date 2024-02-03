@@ -266,9 +266,11 @@ return {
 
 	automath("|", t("\\;\\mid\\;")),
 
-	automath("≤", t("\\le")),
+	automath(":=", t("\\coloneq")),
 
-	automath("≥", t("\\ge")),
+	-- automath("≤", t("\\le")),
+	--
+	-- automath("≥", t("\\ge")),
 
 	automath("==", t("&=")),
 
