@@ -67,15 +67,15 @@ return {
 
 	-- shortcuts
 	automath("exp", {
-		t("\\mathbb{E}\\left[\\; "),
+		t("\\mathbb{E}\\left[\\, "),
 		i(1, "X"),
-		t(" \\;\\right]"),
+		t(" \\,\\right]"),
 	}),
 
 	automath("prob", {
-		t("\\mathbb{P}\\left[\\; "),
+		t("\\mathbb{P}\\left[\\, "),
 		i(1, "E"),
-		t(" \\;\\right]"),
+		t(" \\,\\right]"),
 	}),
 
 	automath(
@@ -151,7 +151,7 @@ return {
 
 	automath(
 		"//",
-		fmta([[\frac{<>}{<>}]], {
+		fmta([[\frac{ <> }{ <> }]], {
 			i(1, "numerator"),
 			i(2, "denominator"),
 		})
@@ -159,7 +159,7 @@ return {
 
 	automath(
 		{ trig = "([^%s$]+)/", regTrig = true },
-		fmta("\\frac{<>}{<>}", {
+		fmta("\\frac{ <> }{ <> }", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
@@ -169,7 +169,7 @@ return {
 
 	automath(
 		{ trig = "([^%s$]+)pipe", regTrig = true },
-		fmta("\\pipe{<>}", {
+		fmta("\\pipe{ <> }", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
@@ -178,7 +178,7 @@ return {
 
 	automath(
 		{ trig = "([^%s$]+)choose", regTrig = true },
-		fmta("\\binom{<>}{<>}", {
+		fmta("\\binom{ <> }{ <> }", {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
@@ -199,7 +199,7 @@ return {
 
 	math(
 		"sum",
-		fmta([[\sum_{<>}^{<>}]], {
+		fmta([[\sum_{ <> }^{ <> }]], {
 			i(1, "i = 1"),
 			i(2, "n"),
 		})
@@ -207,7 +207,7 @@ return {
 
 	math(
 		"sumn",
-		fmta([[\sum_{<>}^{<>}]], {
+		fmta([[\sum_{ <> }^{ <> }]], {
 			i(1, "n = 1"),
 			i(2, "\\infty"),
 		})
@@ -215,7 +215,7 @@ return {
 
 	math(
 		"int",
-		fmta([[\int_{<>}^{<>} <> \mathop{<>}]], {
+		fmta([[\int_{ <> }^{ <> } <> \mathop{ <> }]], {
 			i(1, "-\\infty"),
 			i(2, "\\infty"),
 			i(3, "f(x)"),
@@ -225,7 +225,7 @@ return {
 
 	math(
 		"intt",
-		fmta([[\int_{<>}^{<>}\int_{<>}^{<>} <> \mathop{<>} \mathop{<>}]], {
+		fmta([[\int_{ <> }^{ <> }\int_{ <> }^{ <> } <> \mathop{ <> } \mathop{ <> }]], {
 			i(1, "-\\infty"),
 			i(2, "\\infty"),
 			i(3, "-\\infty"),
@@ -238,7 +238,7 @@ return {
 
 	math(
 		"iint",
-		fmta([[\iint_{<>} <> \mathop{<>} \mathop{<>}]], {
+		fmta([[\iint_{ <> } <> \mathop{ <> } \mathop{ <> }]], {
 			i(1, "R"),
 			i(2, "f(x,y)"),
 			i(3, "dx"),
@@ -246,9 +246,9 @@ return {
 		})
 	),
 
-	automath("tx", fmta("\\text{<>}\\;", { i(1) })),
+	automath("tx", fmta("\\text{ <> }\\;", { i(1) })),
 
-	automath("shint", fmta("\\shortintertext{<>}", i(1))),
+	automath("shint", fmta("\\shortintertext{ <> }", i(1))),
 
 	automath("nxn", t("n \\times n")),
 
@@ -256,7 +256,7 @@ return {
 	automath("codt", t("cdot")),
 
 	-- Symbols
-	automath("pvalue", t("p\\text{-value}\\;")),
+	automath("pvalue", t("p\\text{-value}\\,")),
 
 	automath("normal", t("\\mathcal{N}")),
 
@@ -264,7 +264,7 @@ return {
 
 	automath("NPhard", t("\\mathcal{N}\\mathcal{P}")),
 
-	automath("|", t("\\;\\mid\\;")),
+	automath("|", t("\\,\\mid\\,")),
 
 	automath(":=", t("\\coloneq")),
 
