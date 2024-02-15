@@ -51,7 +51,7 @@ require("nvim-treesitter.configs").setup({
 
 	indent = {
 		enable = true,
-		disable = { "latex" },
+		disable = { "python", "latex" },
 	},
 
 	autopairs = {

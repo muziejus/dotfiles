@@ -77,6 +77,8 @@ lsp.setup()
 local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
+		null_ls.builtins.diagnostics.ruff,
+		null_ls.builtins.formatting.black,
 		null_ls.builtins.diagnostics.commitlint,
 		null_ls.builtins.formatting.prettierd.with({
 			-- From my old null-ls setup.
@@ -106,6 +108,16 @@ null_ls.setup({
 		--   -- This file is symlinked from my dotfiles repo
 		--   extra_args = { "--config", "~/.cspell.json" }
 		-- }),
+	},
+})
+
+require("mason").setup({})
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"pyright",
+	},
+	handlers = {
+		lsp.default_setup,
 	},
 })
 
