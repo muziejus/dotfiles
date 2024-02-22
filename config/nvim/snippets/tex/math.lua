@@ -106,6 +106,12 @@ return {
 		end)
 	),
 
+	automath({ trig = "([%a%d%)])%*", regTrig = true, wordTrig = false }, {
+		f(function(_, snip)
+			return snip.captures[1] .. "^{*}"
+		end),
+	}),
+
 	automath({ trig = "([%a%d%)])td", regTrig = true, wordTrig = false }, {
 		f(function(_, snip)
 			return snip.captures[1] .. "^{"
