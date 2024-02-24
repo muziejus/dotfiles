@@ -9,6 +9,10 @@ cmp.setup.filetype("tex", {
 	}),
 })
 
+vim.g.vimtex_quickfix_ignore_filters = {
+	"unicode-math Warning",
+}
+
 vim.g.vimtex_delim_toggle_mod_list = {
 	{ "\\left", "\\right" },
 	{ "\\big", "\\big" },
