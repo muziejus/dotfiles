@@ -16,6 +16,9 @@ vim.g.vimtex_quickfix_ignore_filters = {
 vim.g.vimtex_delim_toggle_mod_list = {
 	{ "\\left", "\\right" },
 	{ "\\big", "\\big" },
+	{ "\\Big", "\\Big" },
+	{ "\\bigg", "\\bigg" },
+	{ "\\Bigg", "\\Bigg" },
 }
 
 vim.g.vimtex_env_toggle_math_map = {
