@@ -282,7 +282,7 @@ return {
 	}),
 
 	autosnippet({
-		trig = "(%d+)(%a+)",
+		trig = "([%d%.]+)(%a+)",
 		regTrig = true,
 		name = "unit",
 	}, {
@@ -295,6 +295,11 @@ return {
 				"ns",
 				"us",
 				"ms",
+				"b",
+				"kb",
+				"mb",
+				"gb",
+				"tb",
 			}
 			return has_value(units, captures[2])
 		end,
