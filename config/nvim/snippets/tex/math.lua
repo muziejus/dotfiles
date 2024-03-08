@@ -106,7 +106,7 @@ return {
 		end)
 	),
 
-	automath({ trig = "([%a%d%)])%*", regTrig = true, wordTrig = false }, {
+	automath({ trig = "([%a%d%)])star", regTrig = true, wordTrig = false }, {
 		f(function(_, snip)
 			return snip.captures[1] .. "^{*}"
 		end),
