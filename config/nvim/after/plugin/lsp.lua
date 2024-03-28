@@ -57,7 +57,7 @@ lsp.format_mapping("gq", {
 		timeout_ms = 10000,
 	},
 	servers = {
-		["null-ls"] = { "javascript", "typescript", "lua" },
+		["null-ls"] = { "javascript", "typescript", "lua", "python" },
 	},
 })
 
@@ -68,7 +68,7 @@ lsp.format_on_save({
 		timeout_ms = 10000,
 	},
 	servers = {
-		["null-ls"] = { "javascript", "typescript", "lua" },
+		["null-ls"] = { "javascript", "typescript", "lua", "python" },
 	},
 })
 
@@ -244,4 +244,4 @@ cmp.setup.filetype("gitcommit", {
 })
 
 require("cmp_git").setup()
-require("cmp_pandoc").setup()
+-- require("cmp_pandoc").setup()

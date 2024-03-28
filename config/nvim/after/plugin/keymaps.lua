@@ -76,6 +76,11 @@ wk.register({
 			ds = { "<CMD>Telescope lsp_document_symbols<CR>", "Show Document Symbols" },
 			ws = { "<CMD>Telescope lsp_workspace_symbols<CR>", "Show Workspace Symbols" },
 		},
+		T = {
+			name = "+terminal",
+			l = { "<cmd>lua _lazygit_toggle()<CR>", "Open Lazygit" },
+			g = { "<cmd>lua _lazygit_toggle()<CR>", "Open Lazygit" },
+		},
 		t = {
 			name = "+type",
 			m = { "<CMD>set filetype=markdown<CR>", "Set to Markdown" },
