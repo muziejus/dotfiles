@@ -4,6 +4,7 @@ local i = ls.i --> insert node
 local t = ls.t --> text node
 local fmta = require("luasnip.extras.fmt").fmta --> format node
 local extras = require("luasnip.extras")
+local rep = extras.rep
 local conds_expand = require("luasnip.extras.conditions.expand")
 
 local f = ls.function_node
@@ -66,7 +67,10 @@ return {
 	}),
 
 	-- shortcuts
-	automath("exp", {
+	automath({
+		trig = "[^\\]exp",
+		regTrig = true,
+	}, {
 		t("\\mathbb{E}\\left[\\, "),
 		i(1, "X"),
 		t(" \\,\\right]"),
@@ -86,7 +90,7 @@ return {
 	),
 
 	automath(
-		{ trig = "bb(%a)", regTrig = true },
+		{ trig = "bb([%a%d])", regTrig = true },
 		f(function(_, snip)
 			return "\\mathbb{" .. snip.captures[1] .. "}"
 		end)
@@ -157,15 +161,22 @@ return {
 
 	automath(
 		"//",
-		fmta([[\frac{ <> }{ <> }]], {
-			i(1, "numerator"),
-			i(2, "denominator"),
-		})
+		fmta(
+			[[\frac{ 
+    <> 
+    }{ 
+    <> 
+    }]],
+			{
+				i(1, "numerator"),
+				i(2, "denominator"),
+			}
+		)
 	),
 
 	automath(
 		{ trig = "([^%s$]+)/", regTrig = true },
-		fmta("\\frac{ <> }{ <> }", {
+		fmta([[\frac{ <> }{ <> }]], {
 			f(function(_, snip)
 				return snip.captures[1]
 			end),
@@ -219,6 +230,21 @@ return {
 		})
 	),
 
+	automath(
+		"bayes",
+		fmta(
+			[[
+          \frac{ \mathbb{P}\left[\, <> \,\mid\, <> \,\right] \cdot
+      \mathbb{P}\left[\, <> \,\right] }{ \mathbb{P}\left[\, <> \,\right] }
+      ]],
+			{
+				i(1, "X"),
+				i(2, "Y"),
+				rep(2),
+				rep(1),
+			}
+		)
+	),
 	math(
 		"int",
 		fmta([[\int_{ <> }^{ <> } <> \mathop{ <> }]], {
