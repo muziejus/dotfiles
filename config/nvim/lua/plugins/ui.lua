@@ -7,4 +7,13 @@ return {
 		"stevearc/dressing.nvim",
 		opts = {},
 	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			-- optional
+			"rcarriga/nvim-notify",
+		},
+	},
 }
