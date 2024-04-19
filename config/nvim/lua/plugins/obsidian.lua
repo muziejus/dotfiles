@@ -123,7 +123,7 @@ return {
 
 		-- Optional, boolean or a function that takes a filename and returns a boolean.
 		-- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
-		disable_frontmatter = false,
+		disable_frontmatter = true, --false,
 
 		-- Optional, alternatively you can customize the frontmatter data.
 		---@return table
@@ -270,7 +270,7 @@ return {
 			-- The default folder to place images in via `:ObsidianPasteImg`.
 			-- If this is a relative path it will be interpreted as relative to the vault root.
 			-- You can always override this per image by passing a full path to the command instead of just a filename.
-			img_folder = "assets/imgs", -- This is the default
+			img_folder = "assets", -- This is the default
 			-- A function that determines the text to insert in the note when pasting an image.
 			-- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
 			-- This is the default implementation.
