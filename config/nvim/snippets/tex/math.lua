@@ -160,6 +160,13 @@ return {
 	),
 
 	automath(
+		"norm",
+		fmta([[\lVert <> \rVert]], {
+			i(1, "\\vec{x}_i - \\vec{x}_j"),
+		})
+	),
+
+	automath(
 		"//",
 		fmta(
 			[[\frac{ 
