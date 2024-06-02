@@ -1,7 +1,7 @@
 local harpoon = require("harpoon")
 
 -- REQUIRED
-harpoon:setup()
+harpoon:setup({})
 -- REQUIRED
 
 -- Keymaps in keymaps.
