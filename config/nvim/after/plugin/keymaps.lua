@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local harpoon = require("harpoon")
 
 wk.register({
 	["<leader>"] = {
@@ -40,6 +41,57 @@ wk.register({
 			b = { "<CMD>Telescope git_bcommits<CR>", "Show Buffer Commits" },
 			s = { "<CMD>Telescope git_status<CR>", "Show Status" },
 			t = { "<CMD>Telescope git_stash<CR>", "Show Stashes" },
+		},
+		h = {
+			name = "+HARPOON",
+			A = {
+				function()
+					harpoon:list():add()
+				end,
+				"Add to Harpoon",
+			},
+			a = {
+				function()
+					harpoon:list():select(1)
+				end,
+				"Select File 1",
+			},
+			s = {
+				function()
+					harpoon:list():select(2)
+				end,
+				"Select File 2",
+			},
+			d = {
+				function()
+					harpoon:list():select(3)
+				end,
+				"Select File 3",
+			},
+			f = {
+				function()
+					harpoon:list():select(4)
+				end,
+				"Select File 4",
+			},
+			l = {
+				function()
+					harpoon.ui:toggle_quick_menu(harpoon:list())
+				end,
+				"List files",
+			},
+			n = {
+				function()
+					harpoon:list():next()
+				end,
+				"Next file",
+			},
+			p = {
+				function()
+					harpoon:list():prev()
+				end,
+				"Previous file",
+			},
 		},
 		l = {
 			name = "+VimTeX",
@@ -150,6 +202,7 @@ wk.register({
 		o = {
 			name = "+OBSIDIAN",
 			o = { "<CMD>ObsidianOpen<CR>", "Open in Obsidian" },
+			m = { "<CMD>ObsidianTemplate<CR>", "Apply Obsidian template" },
 			n = { "<CMD>ObsidianNew<CR>", "New Obsidian note" },
 			f = { "<CMD>ObsidianQuickSwitch<CR>", "Find note with picker" },
 			v = { "<CMD>ObsidianFollowLink vsplit<CR>", "Vsplit link" },
@@ -161,7 +214,7 @@ wk.register({
 			x = { "<CMD>ObsidianToggleCheckbox<CR>", "Toggle checkbox" },
 			X = { "<CMD>ObsidianExtractNote<CR>", "Extract selected text" },
 			i = { "<CMD>ObsidianPasteImg<CR>", "Paste image" },
-			-- l = { "<CMD>ObsidianLink<CR>", "Search with picker"},
+			l = { "<CMD>ObsidianLink<CR>", "Link visually selected text" },
 		},
 		-- Trouble
 		-- See also gR
