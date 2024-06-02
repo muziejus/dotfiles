@@ -123,7 +123,7 @@ return {
 
 		-- Optional, boolean or a function that takes a filename and returns a boolean.
 		-- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
-		disable_frontmatter = true, --false,
+		disable_frontmatter = false, --true, --false,
 
 		-- Optional, alternatively you can customize the frontmatter data.
 		---@return table
@@ -133,7 +133,16 @@ return {
 				note:add_alias(note.title)
 			end
 
-			local out = { id = note.id, aliases = note.aliases, tags = note.tags }
+			local today = os.date("%Y-%m-%d")
+
+			local out = {
+				id = note.id,
+				aliases = note.aliases,
+				tags = note.tags,
+				created = today,
+				modified = '<% tp.file.last_modified_date("dddd Do MMMM YYYY HH:mm:ss") %>',
+				people = {},
+			}
 
 			-- `note.metadata` contains any manually added fields in the frontmatter.
 			-- So here we just make sure those fields are kept in the frontmatter.
