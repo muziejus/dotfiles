@@ -148,7 +148,7 @@ return {
 
 		-- Optional, for templates (see below).
 		templates = {
-			subdir = "templates",
+			folder = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Brane/templates",
 			date_format = "%Y-%m-%d",
 			time_format = "%H:%M",
 			-- A map for custom variables, the key should be the variable and the value a function
