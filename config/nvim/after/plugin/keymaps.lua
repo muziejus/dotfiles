@@ -144,14 +144,15 @@ wk.register({
 		},
 		h = {
 			name = "+HUNKS",
-			a = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
-			s = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
-			r = { "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk" },
-			S = { "<CMD>Gitsigns stage_buffer<CR>", "Stage buffer" },
-			R = { "<CMD>Gitsigns reset_buffer<CR>", "Reset buffer" },
-			u = { "<CMD>Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
-			p = { "<CMD>Gitsigns preview_hunk<CR>", "Preview hunk" },
-			d = { "<CMD>Gitsigns diffthis<CR>", "Diff this" },
+			-- These are in the gitsigns config because they rely on visual mode.
+			-- a = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
+			-- s = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
+			-- r = { "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk" },
+			-- S = { "<CMD>Gitsigns stage_buffer<CR>", "Stage buffer" },
+			-- R = { "<CMD>Gitsigns reset_buffer<CR>", "Reset buffer" },
+			-- u = { "<CMD>Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
+			-- p = { "<CMD>Gitsigns preview_hunk<CR>", "Preview hunk" },
+			-- d = { "<CMD>Gitsigns diffthis<CR>", "Diff this" },
 			-- map('n', '<leader>hb', function() gs.blame_line{full=true} end)
 			-- map('n', '<leader>tb', gs.toggle_current_line_blame)
 			-- map('n', '<leader>hD', function() gs.diffthis('~') end)
@@ -205,13 +206,13 @@ wk.register({
 					t = { "<cmd>GHToggleThread<cr>", "Toggle" },
 				},
 			},
-			s = { vim.cmd.Git, "git status" },
+			s = { "<CMD>Neogit kind=split<CR>", "git status" },
 			l = { "<CMD>diffget LOCAL<CR>", "get LOCAL diff" },
 			b = { "<CMD>diffget BASE<CR>", "get BASE diff" },
 			r = { "<CMD>diffget REMOTE<CR>", "get REMOTE diff" },
 			j = { "<CMD>diffget //3<CR>", "diffget 3" },
 			f = { "<CMD>diffget //2<CR>", "diffget 2" },
-			c = { "<CMD>Git commit<CR>", "git commit" },
+			c = { "<CMD>Neogit commit<CR>", "git commit" },
 			pom = { "<CMD>Git push origin main<CR>", "git commit origin main" },
 		},
 		o = {
