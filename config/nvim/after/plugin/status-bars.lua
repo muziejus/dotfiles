@@ -33,7 +33,7 @@ require("lualine").setup({
 				update_in_insert = true,
 			},
 		},
-		lualine_x = { "encoding", "fileformat", "filetype" },
+		lualine_x = { "PencilMode", "encoding", "fileformat", "filetype" },
 		lualine_y = { "location" }, -- { "progress" },
 		lualine_z = { "ctime" }, -- { "location" },
 	},

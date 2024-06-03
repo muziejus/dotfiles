@@ -1,5 +1,14 @@
 return {
 	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+	{
 		"lervag/vimtex",
 		init = function()
 			vim.g.vimtex_view_method = "skim"
@@ -15,4 +24,10 @@ return {
 	{ "vim-pandoc/vim-pandoc-syntax" },
 	{ "quarto-dev/quarto-nvim" },
 	{ "jmbuhr/otter.nvim" },
+	{
+		"preservim/vim-pencil",
+		init = function()
+			vim.g["pencil#wrapModeDefault"] = "soft"
+		end,
+	},
 }
