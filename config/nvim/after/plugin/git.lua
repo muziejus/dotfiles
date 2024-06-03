@@ -1,4 +1,7 @@
 -- gh.nvim configured in ui.lua
+local neogit = require("neogit")
+
+neogit.setup()
 
 require("gitsigns").setup({
 	signcolumn = true,

@@ -42,7 +42,7 @@ wk.register({
 			s = { "<CMD>Telescope git_status<CR>", "Show Status" },
 			t = { "<CMD>Telescope git_stash<CR>", "Show Stashes" },
 		},
-		h = {
+		a = {
 			name = "+HARPOON",
 			A = {
 				function()
@@ -142,6 +142,21 @@ wk.register({
 			-- Snippets
 			r = { "<cmd>source ~/.config/nvim/after/plugin/snippets.lua<CR>", "Reload LuaSnip" },
 		},
+		h = {
+			name = "+HUNKS",
+			a = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
+			s = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
+			r = { "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk" },
+			S = { "<CMD>Gitsigns stage_buffer<CR>", "Stage buffer" },
+			R = { "<CMD>Gitsigns reset_buffer<CR>", "Reset buffer" },
+			u = { "<CMD>Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
+			p = { "<CMD>Gitsigns preview_hunk<CR>", "Preview hunk" },
+			d = { "<CMD>Gitsigns diffthis<CR>", "Diff this" },
+			-- map('n', '<leader>hb', function() gs.blame_line{full=true} end)
+			-- map('n', '<leader>tb', gs.toggle_current_line_blame)
+			-- map('n', '<leader>hD', function() gs.diffthis('~') end)
+			-- map('n', '<leader>td', gs.toggle_deleted)
+		},
 		g = {
 			-- Git
 			name = "+git",
@@ -236,7 +251,7 @@ wk.register({
 			x = { "<CMD>BufferPin<CR>", "Pin/Unpin Buffer" },
 			w = { "<CMD>BufferClose<CR>", "Close Buffer" },
 		},
-		a = {
+		A = {
 			name = "ACTIONS",
 			-- b = { "<cmd>terminal bibexport -o %:p:r.bib %:p:r.aux<CR>", "bib export"},
 			c = { "<cmd>VimtexClean<CR>", "clean aux" },
