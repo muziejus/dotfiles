@@ -3,6 +3,12 @@ lsp.preset("minimal")
 
 local luasnip = require("luasnip")
 
+local function allow_format(servers)
+	return function(client)
+		return vim.tbl_contains(servers, client.name)
+	end
+end
+
 lsp.set_server_config({
 	capabilities = {
 		textDocument = {
@@ -32,15 +38,14 @@ lsp.configure("lua_ls", {
 
 lsp.on_attach(function(_, bufnr)
 	lsp.default_keymaps({ buffer = bufnr })
-	local opts = { buffer = bufnr }
+	-- local opts = { buffer = bufnr }
 
-	vim.keymap.set({ "n", "x" }, "gq", function()
-		vim.lsp.buf.format({
-			async = false,
-			timeout_ms = 10000,
-			-- filter == allow_format({'lua_ls', 'tsserver'}) -- if needed
-		})
-	end, opts)
+	-- vim.keymap.set({ "n", "x" }, "gq", function()
+	-- 	vim.lsp.buf.format({
+	-- 		async = false,
+	-- 		timeout_ms = 10000,
+	-- 	})
+	-- end, opts)
 end)
 
 lsp.set_sign_icons({
@@ -51,15 +56,16 @@ lsp.set_sign_icons({
 })
 
 -- Format on gq
-lsp.format_mapping("gq", {
-	format_opts = {
-		async = false,
-		timeout_ms = 10000,
-	},
-	servers = {
-		["null-ls"] = { "javascript", "typescript", "lua", "python" },
-	},
-})
+-- lsp.format_mapping("gq", {
+-- 	format_opts = {
+-- 		async = false,
+-- 		timeout_ms = 10000,
+-- 		filter = allow_format({ "lua_ls", "tsserver", "pyright", "markdown-oxide" }),
+-- 	},
+-- 	servers = {
+-- 		["null-ls"] = { "javascript", "typescript", "lua", "python", "markdown" },
+-- 	},
+-- })
 
 -- Format on save, too.
 lsp.format_on_save({
