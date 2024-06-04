@@ -145,14 +145,15 @@ wk.register({
 		h = {
 			name = "+HUNKS",
 			-- These are in the gitsigns config because they rely on visual mode.
-			-- a = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
-			-- s = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
-			-- r = { "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk" },
-			-- S = { "<CMD>Gitsigns stage_buffer<CR>", "Stage buffer" },
-			-- R = { "<CMD>Gitsigns reset_buffer<CR>", "Reset buffer" },
-			-- u = { "<CMD>Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
-			-- p = { "<CMD>Gitsigns preview_hunk<CR>", "Preview hunk" },
-			-- d = { "<CMD>Gitsigns diffthis<CR>", "Diff this" },
+      -- Same for ]c and [c
+			a = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
+			s = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
+			r = { "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk" },
+			S = { "<CMD>Gitsigns stage_buffer<CR>", "Stage buffer" },
+			R = { "<CMD>Gitsigns reset_buffer<CR>", "Reset buffer" },
+			u = { "<CMD>Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
+			p = { "<CMD>Gitsigns preview_hunk<CR>", "Preview hunk" },
+			d = { "<CMD>Gitsigns diffthis<CR>", "Diff this" },
 			-- map('n', '<leader>hb', function() gs.blame_line{full=true} end)
 			-- map('n', '<leader>tb', gs.toggle_current_line_blame)
 			-- map('n', '<leader>hD', function() gs.diffthis('~') end)
