@@ -144,7 +144,8 @@ wk.register({
 		},
 		h = {
 			name = "+HUNKS",
-			-- These are in the gitsigns config because they rely on visual mode.
+			-- There are some bindings in the gitsigns config because they 
+      -- rely on visual mode.
       -- Same for ]c and [c
 			a = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
 			s = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
