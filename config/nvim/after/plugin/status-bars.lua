@@ -22,9 +22,9 @@ require("lualine").setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff" },
-		lualine_c = {
-			filepath,
+		lualine_b = {
+			"branch",
+			"diff",
 			{
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
@@ -32,6 +32,9 @@ require("lualine").setup({
 				always_visible = is_file_open,
 				update_in_insert = true,
 			},
+		},
+		lualine_c = {
+			-- filepath,
 		},
 		lualine_x = { "PencilMode", "encoding", "fileformat", "filetype" },
 		lualine_y = { "location" }, -- { "progress" },
