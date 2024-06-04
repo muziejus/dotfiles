@@ -79,8 +79,8 @@ require("gitsigns").setup({
 		end, { expr = true })
 
 		-- Actions
-		map({"v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
-		map({"v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+		map({ "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+		map({ "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
 		map("n", "<leader>hb", function()
 			gs.blame_line({ full = true })
 		end)
