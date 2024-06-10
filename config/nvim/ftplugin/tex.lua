@@ -13,6 +13,11 @@ cmp.setup.filetype("tex", {
 
 vim.g.vimtex_quickfix_ignore_filters = {
 	"unicode-math Warning",
+	"fontspec Warning",
+	"biblatex Warning",
+	"Missing character",
+	"Underfull",
+	"Overfulll",
 }
 
 vim.g.vimtex_delim_toggle_mod_list = {

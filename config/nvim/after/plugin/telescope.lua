@@ -1,4 +1,4 @@
-local trouble = require("trouble.providers.telescope")
+local open_with_trouble = require("trouble.sources.telescope").open
 
 local telescope = require("telescope")
 local previewers = require("telescope.previewers")
@@ -43,9 +43,9 @@ telescope.setup({
 			prompt_position = "top",
 		},
 		mappings = {
-			n = { ["<c-t>"] = trouble.open_with_trouble },
+			n = { ["<c-t>"] = open_with_trouble },
 			i = {
-				["<c-t>"] = trouble.open_with_trouble,
+				["<c-t>"] = open_with_trouble,
 				["<C-u>"] = false,
 				["<C-d>"] = false,
 				["<esc>"] = actions.close,

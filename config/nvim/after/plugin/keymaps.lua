@@ -238,12 +238,17 @@ wk.register({
 		-- See also gR
 		x = {
 			name = "+trouble",
-			x = { "<CMD>TroubleToggle<CR>", "Toggle Trouble" },
-			q = { "<CMD>TroubleToggle quickfix<CR>", "Quickfix" },
-			l = { "<CMD>TroubleToggle loclist<CR>", "Loclist" },
-			d = { "<CMD>TroubleToggle document_diagnostics<CR>", "List Document Diagnostics" },
-			w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "List Workspace Diagnostics" },
-			r = { "<cmd>TroubleToggle lsp_references<cr>" },
+			X = { "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", "Buffer Diagnostics (Trouble)" },
+			x = { "<CMD>Trouble diagnostics toggle<CR>", "Diagnostics (Trouble)" },
+			q = { "<CMD>Trouble qflist toggle<CR>", "Quickfix List (Trouble)" },
+			l = {
+				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+				"LSP Definitions / references / ... (Trouble)",
+			},
+			L = { "<CMD>Trouble loclist toggle<CR>", "Location List (Trouble)" },
+			-- d = { "<CMD>TroubleToggle document_diagnostics<CR>", "List Document Diagnostics" },
+			-- w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "List Workspace Diagnostics" },
+			s = { "<cmd>Trouble symbols toggle focus=false<CR>", "Symbols (Trouble)" },
 		},
 		b = {
 			name = "Barbar",
