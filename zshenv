@@ -18,6 +18,9 @@ source $HOME/.env
 # Hopefully this will force prettierd to stop overriding local settings.
 export PRETTIERD_LOCAL_PRETTIER_ONLY=1
 
+# For lazygit config:
+export XDG_CONFIG_HOME="$HOME/.config"
+
 # export PYTHONPATH="/Applications/QGIS3.6.app/Contents/Resources/python/"
 export POETRY_HOME="/Users/moacir/Library/Application Support/pypoetry/venv/bin/poetry"
 
