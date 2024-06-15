@@ -16,4 +16,4 @@ function ColorMyPencils(color)
 	})
 end
 
--- ColorMyPencils()
+ColorMyPencils()
