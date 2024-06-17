@@ -40,10 +40,10 @@ require("nvim-treesitter.configs").setup({
 		disable = { "latex" },
 	},
 
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-	},
+	-- rainbow = {
+	-- 	enable = true,
+	-- 	extended_mode = true,
+	-- },
 
 	playground = {
 		enabled = true,
