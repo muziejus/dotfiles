@@ -224,7 +224,7 @@ wk.register({
 			name = "+OBSIDIAN",
 			o = { "<CMD>ObsidianOpen<CR>", "Open in Obsidian" },
 			m = { "<CMD>ObsidianTemplate<CR>", "Apply Obsidian template" },
-			n = { "<CMD>ObsidianNew<CR>", "New Obsidian note" },
+			n = { "<CMD>ObsidianNewFromTemplate<CR>", "New Obsidian note from template" },
 			f = { "<CMD>ObsidianQuickSwitch<CR>", "Find note with picker" },
 			v = { "<CMD>ObsidianFollowLink vsplit<CR>", "Vsplit link" },
 			b = { "<CMD>ObsidianBacklinks<CR>", "Backlinks with picker" },
