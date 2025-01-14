@@ -1,33 +1,34 @@
 local wk = require("which-key")
 local harpoon = require("harpoon")
 
-wk.register({
-	["<leader>"] = {
-		f = {
+wk.add({
+	{
+		{
 			name = "+FIND",
 			-- Telescope
-			q = { "<cmd>Telescope quickfix<cr>", "Quickfix" },
-			f = { "<CMD>Telescope find_files<CR>", "File" },
-			g = { "<CMD>Telescope live_grep<CR>", "Grep Files" },
-			j = { "<cmd>Telescope jumplist<cr>", "Marks" },
-			k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-			l = { "<cmd>Telescope loclist<cr>", "Loclist" },
-			c = { "<CMD>Telescope bibtex<CR>", "Citation" },
-			C = { "<cmd>Telescope git_commits<cr>", "Commits" },
-			b = { "<CMD>Telescope buffers<CR>", "Buffers" },
-			B = { "<cmd>Telescope current_buffer_fuzzy_find<cr>", "Fuzzy" },
-			h = { "<CMD>Telescope help_tags<CR>", "Help" },
-			r = { "<CMD>Telescope oldfiles<CR>", "Open Recent File" },
-			R = { "<cmd>Telescope lsp_references<cr>", "References" },
-			v = { "<CMD>Telescope registers<CR>", "Show/Paste Registers" },
-			s = { "<CMD>Telescope session-lens<CR>", "Sessions" },
-			p = {
+			{ "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix" },
+			{ "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "File" },
+			{ "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Grep Files" },
+			{ "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Marks" },
+			{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
+			{ "<leader>fl", "<cmd>Telescope loclist<cr>", desc = "Loclist" },
+			{ "<leader>fc", "<CMD>Telescope bibtex<CR>", desc = "Citation" },
+			{ "<leader>fC", "<cmd>Telescope git_commits<cr>", desc = "Commits" },
+			{ "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "Buffers" },
+			{ "<leader>fB", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy" },
+			{ "<leader>fh", "<CMD>Telescope help_tags<CR>", desc = "Help" },
+			{ "<leader>fr", "<CMD>Telescope oldfiles<CR>", desc = "Open Recent File" },
+			{ "<leader>fR", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+			{ "<leader>fv", "<CMD>Telescope registers<CR>", desc = "Show/Paste Registers" },
+			{ "<leader>fs", "<CMD>Telescope session-lens<CR>", desc = "Sessions" },
+			{
+				"<leader>fp",
 				function()
 					vim.cmd("Telescope projections")
 				end,
-				"Find Projections",
+				desc = "Find Projections",
 			},
-			-- s = { "<cmd>Telescope lsp_document_symbols<cr>", "symbols" },
+			-- s = { "<leader><cmd>Telescope lsp_document_symbols<cr>", "symbols" },
 			-- s = {
 			-- 	function()
 			-- 		require("telescope.builtin").grep_string({ search = vim.fn.input("Grep > ") })
@@ -35,289 +36,298 @@ wk.register({
 			-- 	"Search with Grep",
 			-- },
 		},
-		G = {
+		{
 			name = "+GIT",
-			c = { "<CMD>Telescope git_commits<CR>", "Show Commits" },
-			b = { "<CMD>Telescope git_bcommits<CR>", "Show Buffer Commits" },
-			s = { "<CMD>Telescope git_status<CR>", "Show Status" },
-			t = { "<CMD>Telescope git_stash<CR>", "Show Stashes" },
+			{ "<leader>Gc", "<CMD>Telescope git_commits<CR>", desc = "Show Commits" },
+			{ "<leader>Gb", "<CMD>Telescope git_bcommits<CR>", desc = "Show Buffer Commits" },
+			{ "<leader>Gs", "<CMD>Telescope git_status<CR>", desc = "Show Status" },
+			{ "<leader>Gt", "<CMD>Telescope git_stash<CR>", desc = "Show Stashes" },
 		},
-		a = {
+		{
 			name = "+HARPOON",
-			A = {
+			{
+				"<leader>aA",
 				function()
 					harpoon:list():add()
 				end,
-				"Add to Harpoon",
+				desc = "Add to Harpoon",
 			},
-			a = {
+			{
+				"<leader>aa",
 				function()
 					harpoon:list():select(1)
 				end,
-				"Select File 1",
+				desc = "Select File 1",
 			},
-			s = {
+			{
+				"<leader>as",
 				function()
 					harpoon:list():select(2)
 				end,
-				"Select File 2",
+				desc = "Select File 2",
 			},
-			d = {
+			{
+				"<leader>ad",
 				function()
 					harpoon:list():select(3)
 				end,
-				"Select File 3",
+				desc = "Select File 3",
 			},
-			f = {
+			{
+				"<leader>af",
 				function()
 					harpoon:list():select(4)
 				end,
-				"Select File 4",
+				desc = "Select File 4",
 			},
-			l = {
+			{
+				"<leader>al",
 				function()
 					harpoon.ui:toggle_quick_menu(harpoon:list())
 				end,
-				"List files",
+				desc = "List files",
 			},
-			n = {
+			{
+				"<leader>an",
 				function()
 					harpoon:list():next()
 				end,
-				"Next file",
+				desc = "Next file",
 			},
-			p = {
+			{
+				"<leader>ap",
 				function()
 					harpoon:list():prev()
 				end,
-				"Previous file",
+				desc = "Previous file",
 			},
 		},
-		l = {
+		{
 			name = "+VimTeX",
-			i = { "<plug>(vimtex-info)", "Info" },
-			I = { "<plug>(vimtex-info-full)", "Info Full" },
-			T = { "<plug>(vimtex-toc-open)", "ToC Open" },
-			t = { "<plug>(vimtex-toc-toggle)", "ToC Toggle" },
-			q = { "<plug>(vimtex-log)", "Log" },
-			v = { "<plug>(vimtex-view)", "View" },
-			r = { "<plug>(vimtex-reverse-search)", "Reverse Search" },
-			l = { "<plug>(vimtex-compile)", "Compile" },
-			L = { "<plug>(vimtex-compile-selected)", "Compile Selected" },
-			k = { "<plug>(vimtex-stop)", "Stop" },
-			K = { "<plug>(vimtex-stop-all)", "Stop All" },
-			e = { "<plug>(vimtex-errors)", "Errors" },
-			o = { "<plug>(vimtex-compile-output)", "Compile Output" },
-			-- g = { "<cmd>lua _lazygit_toggle()<CR>", "Open Lazygit" },
-			g = { "<plug>(vimtex-status)", "Status" },
-			G = { "<plug>(vimtex-status-all)", "Status All" },
-			c = { "<plug>(vimtex-clean)", "Clean" },
-			C = { "<plug>(vimtex-clean-full)", "Clean Full" },
-			m = { "<plug>(vimtex-imaps-list)", "List i-maps" },
-			x = { "<plug>(vimtex-reload)", "Reload" },
-			X = { "<plug>(vimtex-reload-state)", "Reload State" },
-			s = { "<plug>(vimtex-toggle-main)", "Toggle Main" },
-			a = { "<plug>(vimtex-context-menu)", "Context Menu" },
+			{ "<leader>li", "<plug>(vimtex-info)", desc = "Info" },
+			{ "<leader>lI", "<plug>(vimtex-info-full)", desc = "Info Full" },
+			{ "<leader>lT", "<plug>(vimtex-toc-open)", desc = "ToC Open" },
+			{ "<leader>lt", "<plug>(vimtex-toc-toggle)", desc = "ToC Toggle" },
+			{ "<leader>lq", "<plug>(vimtex-log)", desc = "Log" },
+			{ "<leader>lv", "<plug>(vimtex-view)", desc = "View" },
+			{ "<leader>lr", "<plug>(vimtex-reverse-search)", desc = "Reverse Search" },
+			{ "<leader>ll", "<plug>(vimtex-compile)", desc = "Compile" },
+			{ "<leader>lL", "<plug>(vimtex-compile-selected)", desc = "Compile Selected" },
+			{ "<leader>lk", "<plug>(vimtex-stop)", desc = "Stop" },
+			{ "<leader>lK", "<plug>(vimtex-stop-all)", desc = "Stop All" },
+			{ "<leader>le", "<plug>(vimtex-errors)", desc = "Errors" },
+			{ "<leader>lo", "<plug>(vimtex-compile-output)", desc = "Compile Output" },
+			-- { "<leader>lg", "<cmd>lua _lazygit_toggle()<CR>", desc = "Open Lazygit" },
+			{ "<leader>lg", "<plug>(vimtex-status)", desc = "Status" },
+			{ "<leader>lG", "<plug>(vimtex-status-all)", desc = "Status All" },
+			{ "<leader>lc", "<plug>(vimtex-clean)", desc = "Clean" },
+			{ "<leader>lC", "<plug>(vimtex-clean-full)", desc = "Clean Full" },
+			{ "<leader>lm", "<plug>(vimtex-imaps-list)", desc = "List i-maps" },
+			{ "<leader>lx", "<plug>(vimtex-reload)", desc = "Reload" },
+			{ "<leader>lX", "<plug>(vimtex-reload-state)", desc = "Reload State" },
+			{ "<leader>ls", "<plug>(vimtex-toggle-main)", desc = "Toggle Main" },
+			{ "<leader>la", "<plug>(vimtex-context-menu)", desc = "Context Menu" },
 		},
-		L = {
+		{
 			name = "+LSP",
-			r = { "<CMD>Telescope lsp_references<CR>", "Show References" },
-			d = { "<CMD>Telescope lsp_definitions<CR>", "Show Definitions" },
-			t = { "<CMD>Telescope lsp_type_definitions<CR>", "Show Type Definitions" },
-			i = { "<CMD>Telescope lsp_implementations<CR>", "Show Implementations" },
-			c = { "<CMD>Telescope lsp_code_actions<CR>", "Show Code Actions" },
-			ds = { "<CMD>Telescope lsp_document_symbols<CR>", "Show Document Symbols" },
-			ws = { "<CMD>Telescope lsp_workspace_symbols<CR>", "Show Workspace Symbols" },
+			{ "<leader>Lr", "<CMD>Telescope lsp_references<CR>", desc = "Show References" },
+			{ "<leader>Ld", "<CMD>Telescope lsp_definitions<CR>", desc = "Show Definitions" },
+			{ "<leader>Lt", "<CMD>Telescope lsp_type_definitions<CR>", desc = "Show Type Definitions" },
+			{ "<leader>Li", "<CMD>Telescope lsp_implementations<CR>", desc = "Show Implementations" },
+			{ "<leader>Lc", "<CMD>Telescope lsp_code_actions<CR>", desc = "Show Code Actions" },
+			{ "<leader>Lds", "<CMD>Telescope lsp_document_symbols<CR>", desc = "Show Document Symbols" },
+			{ "<leader>Lws", "<CMD>Telescope lsp_workspace_symbols<CR>", desc = "Show Workspace Symbols" },
 		},
-		t = {
+		{
 			name = "+terminal",
-			t = { "<cmd>ToggleTerm<CR>", "Toggle Terminal" },
-			c = { "<cmd>ToggleTermSendCurrentLine<CR>", "ToggleTerm send current line" },
-			v = { "<cmd>ToggleTermSendVisualLines<CR>", "ToggleTerm send visual lines" },
-			-- l = { "<cmd>lua _lazygit_toggle()<CR>", "Open Lazygit" },
-			-- g = { "<cmd>lua _lazygit_toggle()<CR>", "Open Lazygit" },
+			{ "<leader>tt", "<cmd>ToggleTerm<CR>", desc = "Toggle Terminal" },
+			{ "<leader>tc", "<cmd>ToggleTermSendCurrentLine<CR>", desc = "ToggleTerm send current line" },
+			{ "<leader>tv", "<cmd>ToggleTermSendVisualLines<CR>", desc = "ToggleTerm send visual lines" },
+			-- l = { "<leader><cmd>lua _lazygit_toggle()<CR>", desc = "Open Lazygit" },
+			-- g = { "<leader><cmd>lua _lazygit_toggle()<CR>", desc = "Open Lazygit" },
 		},
-		T = {
+		{
 			name = "+type",
-			m = { "<CMD>set filetype=markdown<CR>", "Set to Markdown" },
+			{ "<leader>Tm", "<CMD>set filetype=markdown<CR>", desc = "Set to Markdown" },
 		},
-		s = {
+		{
 			-- Snippets
-			r = { "<cmd>source ~/.config/nvim/after/plugin/snippets.lua<CR>", "Reload LuaSnip" },
+			{ "<leader>sr", "<cmd>source ~/.config/nvim/after/plugin/snippets.lua<CR>", desc = "Reload LuaSnip" },
 		},
-		h = {
+		{
 			name = "+HUNKS",
 			-- There are some bindings in the gitsigns config because they
 			-- rely on visual mode.
 			-- Same for ]c and [c
-			a = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
-			s = { "<CMD>Gitsigns stage_hunk<CR>", "Stage hunk" },
-			r = { "<CMD>Gitsigns reset_hunk<CR>", "Reset hunk" },
-			S = { "<CMD>Gitsigns stage_buffer<CR>", "Stage buffer" },
-			R = { "<CMD>Gitsigns reset_buffer<CR>", "Reset buffer" },
-			u = { "<CMD>Gitsigns undo_stage_hunk<CR>", "Undo stage hunk" },
-			p = { "<CMD>Gitsigns preview_hunk<CR>", "Preview hunk" },
-			d = { "<CMD>Gitsigns diffthis<CR>", "Diff this" },
+			{ "<leader>ha", "<CMD>Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
+			{ "<leader>hs", "<CMD>Gitsigns stage_hunk<CR>", desc = "Stage hunk" },
+			{ "<leader>hr", "<CMD>Gitsigns reset_hunk<CR>", desc = "Reset hunk" },
+			{ "<leader>hS", "<CMD>Gitsigns stage_buffer<CR>", desc = "Stage buffer" },
+			{ "<leader>hR", "<CMD>Gitsigns reset_buffer<CR>", desc = "Reset buffer" },
+			{ "<leader>hu", "<CMD>Gitsigns undo_stage_hunk<CR>", desc = "Undo stage hunk" },
+			{ "<leader>hp", "<CMD>Gitsigns preview_hunk<CR>", desc = "Preview hunk" },
+			{ "<leader>hd", "<CMD>Gitsigns diffthis<CR>", desc = "Diff this" },
 			-- map('n', '<leader>hb', function() gs.blame_line{full=true} end)
 			-- map('n', '<leader>tb', gs.toggle_current_line_blame)
 			-- map('n', '<leader>hD', function() gs.diffthis('~') end)
 			-- map('n', '<leader>td', gs.toggle_deleted)
 		},
-		g = {
+		{
 			-- Git
 			name = "+git",
-			h = {
+			{
 				name = "+GitHub",
-				c = {
+				{
 					name = "+Commits",
-					c = { "<cmd>GHCloseCommit<cr>", "Close" },
-					e = { "<cmd>GHExpandCommit<cr>", "Expand" },
-					o = { "<cmd>GHOpenToCommit<cr>", "Open To" },
-					p = { "<cmd>GHPopOutCommit<cr>", "Pop Out" },
-					z = { "<cmd>GHCollapseCommit<cr>", "Collapse" },
+					{ "<leader>ghcc", "<cmd>GHCloseCommit<cr>", desc = "Close" },
+					{ "<leader>ghce", "<cmd>GHExpandCommit<cr>", desc = "Expand" },
+					{ "<leader>ghco", "<cmd>GHOpenToCommit<cr>", desc = "Open To" },
+					{ "<leader>ghcp", "<cmd>GHPopOutCommit<cr>", desc = "Pop Out" },
+					{ "<leader>ghcz", "<cmd>GHCollapseCommit<cr>", desc = "Collapse" },
 				},
-				i = {
+				{
 					name = "+Issues",
-					p = { "<cmd>GHPreviewIssue<cr>", "Preview" },
+					{ "<leader>ghip", "<cmd>GHPreviewIssue<cr>", desc = "Preview" },
 				},
-				l = {
+				{
 					name = "+Litee",
-					t = { "<cmd>LTPanel<cr>", "Toggle Panel" },
+					{ "<leader>ghlt", "<cmd>LTPanel<cr>", desc = "Toggle Panel" },
 				},
-				r = {
+				{
 					name = "+Review",
-					b = { "<cmd>GHStartReview<cr>", "Begin" },
-					c = { "<cmd>GHCloseReview<cr>", "Close" },
-					d = { "<cmd>GHDeleteReview<cr>", "Delete" },
-					e = { "<cmd>GHExpandReview<cr>", "Expand" },
-					s = { "<cmd>GHSubmitReview<cr>", "Submit" },
-					z = { "<cmd>GHCollapseReview<cr>", "Collapse" },
+					{ "<leader>ghrb", "<cmd>GHStartReview<cr>", desc = "Begin" },
+					{ "<leader>ghrc", "<cmd>GHCloseReview<cr>", desc = "Close" },
+					{ "<leader>ghrd", "<cmd>GHDeleteReview<cr>", desc = "Delete" },
+					{ "<leader>ghre", "<cmd>GHExpandReview<cr>", desc = "Expand" },
+					{ "<leader>ghrs", "<cmd>GHSubmitReview<cr>", desc = "Submit" },
+					{ "<leader>ghrz", "<cmd>GHCollapseReview<cr>", desc = "Collapse" },
 				},
-				p = {
+				{
 					name = "+Pull Request",
-					c = { "<cmd>GHClosePR<cr>", "Close" },
-					d = { "<cmd>GHPRDetails<cr>", "Details" },
-					e = { "<cmd>GHExpandPR<cr>", "Expand" },
-					o = { "<cmd>GHOpenPR<cr>", "Open" },
-					p = { "<cmd>GHPopOutPR<cr>", "PopOut" },
-					r = { "<cmd>GHRefreshPR<cr>", "Refresh" },
-					t = { "<cmd>GHOpenToPR<cr>", "Open To" },
-					z = { "<cmd>GHCollapsePR<cr>", "Collapse" },
+					{ "<leader>ghpc", "<cmd>GHClosePR<cr>", desc = "Close" },
+					{ "<leader>ghpd", "<cmd>GHPRDetails<cr>", desc = "Details" },
+					{ "<leader>ghpe", "<cmd>GHExpandPR<cr>", desc = "Expand" },
+					{ "<leader>ghpo", "<cmd>GHOpenPR<cr>", desc = "Open" },
+					{ "<leader>ghpp", "<cmd>GHPopOutPR<cr>", desc = "PopOut" },
+					{ "<leader>ghpr", "<cmd>GHRefreshPR<cr>", desc = "Refresh" },
+					{ "<leader>ghpt", "<cmd>GHOpenToPR<cr>", desc = "Open To" },
+					{ "<leader>ghpz", "<cmd>GHCollapsePR<cr>", desc = "Collapse" },
 				},
-				t = {
+				{
 					name = "+Threads",
-					c = { "<cmd>GHCreateThread<cr>", "Create" },
-					n = { "<cmd>GHNextThread<cr>", "Next" },
-					t = { "<cmd>GHToggleThread<cr>", "Toggle" },
+					{ "<leader>ghtc", "<cmd>GHCreateThread<cr>", desc = "Create" },
+					{ "<leader>ghtn", "<cmd>GHNextThread<cr>", desc = "Next" },
+					{ "<leader>ghtt", "<cmd>GHToggleThread<cr>", desc = "Toggle" },
 				},
 			},
-			s = { "<CMD>Neogit kind=split<CR>", "git status" },
-			l = { "<CMD>diffget LOCAL<CR>", "get LOCAL diff" },
-			b = { "<CMD>diffget BASE<CR>", "get BASE diff" },
-			r = { "<CMD>diffget REMOTE<CR>", "get REMOTE diff" },
-			j = { "<CMD>diffget //3<CR>", "diffget 3" },
-			f = { "<CMD>diffget //2<CR>", "diffget 2" },
-			c = { "<CMD>Neogit commit<CR>", "git commit" },
-			pom = { "<CMD>Git push origin main<CR>", "git commit origin main" },
+			{ "<leader>gs", "<CMD>Neogit kind=split<CR>", desc = "git status" },
+			{ "<leader>gl", "<CMD>diffget LOCAL<CR>", desc = "get LOCAL diff" },
+			{ "<leader>gb", "<CMD>diffget BASE<CR>", desc = "get BASE diff" },
+			{ "<leader>gr", "<CMD>diffget REMOTE<CR>", desc = "get REMOTE diff" },
+			{ "<leader>gj", "<CMD>diffget //3<CR>", desc = "diffget 3" },
+			{ "<leader>gf", "<CMD>diffget //2<CR>", desc = "diffget 2" },
+			{ "<leader>gc", "<CMD>Neogit commit<CR>", desc = "git commit" },
+			{ "<leader>gpom", "<CMD>Git push origin main<CR>", desc = "git commit origin main" },
 		},
-		o = {
+		{
 			name = "+OBSIDIAN",
-			o = { "<CMD>ObsidianOpen<CR>", "Open in Obsidian" },
-			m = { "<CMD>ObsidianTemplate<CR>", "Apply Obsidian template" },
-			n = { "<CMD>ObsidianNewFromTemplate<CR>", "New Obsidian note from template" },
-			f = { "<CMD>ObsidianQuickSwitch<CR>", "Find note with picker" },
-			v = { "<CMD>ObsidianFollowLink vsplit<CR>", "Vsplit link" },
-			b = { "<CMD>ObsidianBacklinks<CR>", "Backlinks with picker" },
-			t = { "<CMD>ObsidianTags<CR>", "Tags with picker" },
-			T = { "<CMD>ObsidianToday<CR>", "New daily note" },
-			D = { "<CMD>ObsidianDailies<CR>", "Dailies with picker" },
-			g = { "<CMD>ObsidianSearch<CR>", "Search with picker" },
-			x = { "<CMD>ObsidianToggleCheckbox<CR>", "Toggle checkbox" },
-			X = { "<CMD>ObsidianExtractNote<CR>", "Extract selected text" },
-			i = { "<CMD>ObsidianPasteImg<CR>", "Paste image" },
-			l = { "<CMD>ObsidianLink<CR>", "Link visually selected text" },
+			{ "<leader>oo", "<CMD>ObsidianOpen<CR>", desc = "Open in Obsidian" },
+			{ "<leader>om", "<CMD>ObsidianTemplate<CR>", desc = "Apply Obsidian template" },
+			{ "<leader>on", "<CMD>ObsidianNewFromTemplate<CR>", desc = "New Obsidian note from template" },
+			{ "<leader>of", "<CMD>ObsidianQuickSwitch<CR>", desc = "Find note with picker" },
+			{ "<leader>ov", "<CMD>ObsidianFollowLink vsplit<CR>", desc = "Vsplit link" },
+			{ "<leader>ob", "<CMD>ObsidianBacklinks<CR>", desc = "Backlinks with picker" },
+			{ "<leader>ot", "<CMD>ObsidianTags<CR>", desc = "Tags with picker" },
+			{ "<leader>oT", "<CMD>ObsidianToday<CR>", desc = "New daily note" },
+			{ "<leader>oD", "<CMD>ObsidianDailies<CR>", desc = "Dailies with picker" },
+			{ "<leader>og", "<CMD>ObsidianSearch<CR>", desc = "Search with picker" },
+			{ "<leader>ox", "<CMD>ObsidianToggleCheckbox<CR>", desc = "Toggle checkbox" },
+			{ "<leader>oX", "<CMD>ObsidianExtractNote<CR>", desc = "Extract selected text" },
+			{ "<leader>oi", "<CMD>ObsidianPasteImg<CR>", desc = "Paste image" },
+			{ "<leader>ol", "<CMD>ObsidianLink<CR>", desc = "Link visually selected text" },
 		},
 		-- Trouble
 		-- See also gR
-		x = {
+		{
 			name = "+trouble",
-			X = { "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", "Buffer Diagnostics (Trouble)" },
-			x = { "<CMD>Trouble diagnostics toggle<CR>", "Diagnostics (Trouble)" },
-			q = { "<CMD>Trouble qflist toggle<CR>", "Quickfix List (Trouble)" },
-			l = {
+			{ "<leader>xX", "<CMD>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer Diagnostics (Trouble)" },
+			{ "<leader>xx", "<CMD>Trouble diagnostics toggle<CR>", desc = "Diagnostics (Trouble)" },
+			{ "<leader>xq", "<CMD>Trouble qflist toggle<CR>", desc = "Quickfix List (Trouble)" },
+			{
+				"<leader>xl",
 				"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-				"LSP Definitions / references / ... (Trouble)",
+				desc = "LSP Definitions / references / ... (Trouble)",
 			},
-			L = { "<CMD>Trouble loclist toggle<CR>", "Location List (Trouble)" },
-			-- d = { "<CMD>TroubleToggle document_diagnostics<CR>", "List Document Diagnostics" },
-			-- w = { "<CMD>TroubleToggle workspace_diagnostics<CR>", "List Workspace Diagnostics" },
-			s = { "<cmd>Trouble symbols toggle focus=false<CR>", "Symbols (Trouble)" },
+			{ "<leader>xL", "<CMD>Trouble loclist toggle<CR>", desc = "Location List (Trouble)" },
+			-- { "<leader>d", "<CMD>TroubleToggle document_diagnostics<CR>", desc = "List Document Diagnostics" },
+			-- { "<leader>w", "<CMD>TroubleToggle workspace_diagnostics<CR>", desc = "List Workspace Diagnostics" },
+			{ "<leader>xs", "<cmd>Trouble symbols toggle focus=false<CR>", desc = "Symbols (Trouble)" },
 		},
-		b = {
+		{
 			name = "Barbar",
-			p = { "<CMD>BufferPrevious<CR>", "Previous Buffer" },
-			n = { "<CMD>BufferNext<CR>", "Next Buffer" },
-			["<"] = { "<CMD>BufferMovePrevious<CR>", "Move Previous Buffer" },
-			[">"] = { "<CMD>BufferMoveNext<CR>", "Move Next Buffer" },
-			x = { "<CMD>BufferPin<CR>", "Pin/Unpin Buffer" },
-			w = { "<CMD>BufferClose<CR>", "Close Buffer" },
+			{ "<leader>bp", "<CMD>BufferPrevious<CR>", desc = "Previous Buffer" },
+			{ "<leader>bn", "<CMD>BufferNext<CR>", desc = "Next Buffer" },
+			{ "<leader>b<", "<CMD>BufferMovePrevious<CR>", desc = "Move Previous Buffer" },
+			{ "<leader>b>", "<CMD>BufferMoveNext<CR>", desc = "Move Next Buffer" },
+			{ "<leader>bx", "<CMD>BufferPin<CR>", desc = "Pin/Unpin Buffer" },
+			{ "<leader>bw", "<CMD>BufferClose<CR>", desc = "Close Buffer" },
 		},
-		A = {
+		{
 			name = "ACTIONS",
-			-- b = { "<cmd>terminal bibexport -o %:p:r.bib %:p:r.aux<CR>", "bib export"},
-			c = { "<cmd>VimtexClean<CR>", "clean aux" },
-			-- g = { "<cmd>e ~/.config/nvim/templates/Glossary.tex<CR>", "edit glossary"},
-			-- h = { "<cmd>lua _HTOP_TOGGLE()<CR>", "htop" },
-			-- i = { "<cmd>IlluminateToggle<CR>", "illuminate" },
-			-- l = { "<cmd>lua vim.g.cmptoggle = not vim.g.cmptoggle<CR>", "LSP"},
-			p = { '<cmd>lua require("nabla").popup()<CR>', "preview symbols" },
-			-- r = { "<cmd>VimtexErrors<CR>", "report errors" },
-			s = { "<cmd>e ~/.config/nvim/snippets/tex.lua<CR>", "edit snippets" },
-			u = { "<cmd>cd %:p:h<CR>", "update cwd" },
-			-- w = { "<cmd>TermExec cmd='pandoc %:p -o %:p:r.docx'<CR>" , "word"},
-			v = { "<plug>(vimtex-context-menu)", "vimtex menu" },
+			-- { "<leader>b", "<cmd>terminal bibexport -o %:p:r.bib %:p:r.aux<CR>", "bib export"},
+			{ "<leader>Ac", "<cmd>VimtexClean<CR>", desc = "clean aux" },
+			-- { "<leader>g", "<cmd>e ~/.config/nvim/templates/Glossary.tex<CR>", "edit glossary"},
+			-- { "<leader>h", "<cmd>lua _HTOP_TOGGLE()<CR>", desc = "htop" },
+			-- { "<leader>i", "<cmd>IlluminateToggle<CR>", desc = "illuminate" },
+			-- { "<leader>l", "<cmd>lua vim.g.cmptoggle = not vim.g.cmptoggle<CR>", "LSP"},
+			{ "<leader>Ap", '<cmd>lua require("nabla").popup()<CR>', desc = "preview symbols" },
+			-- { "<leader>r", "<cmd>VimtexErrors<CR>", desc = "report errors" },
+			{ "<leader>As", "<cmd>e ~/.config/nvim/snippets/tex.lua<CR>", desc = "edit snippets" },
+			{ "<leader>Au", "<cmd>cd %:p:h<CR>", desc = "update cwd" },
+			-- { "<leader>w", "<cmd>TermExec cmd='pandoc %:p -o %:p:r.docx'<CR>" , "word"},
+			{ "<leader>Av", "<plug>(vimtex-context-menu)", desc = "vimtex menu" },
 		},
 		-- Misc
-		u = { vim.cmd.UndotreeToggle, "Toggle Undo Tree" },
-		z = { vim.cmd.ZenMode, "Enable Zen mode" },
-		["<space>"] = { "za", "Toggle fold" },
+		{ "<leader>u", vim.cmd.UndotreeToggle, desc = "Toggle Undo Tree" },
+		{ "<leader>z", vim.cmd.ZenMode, desc = "Enable Zen mode" },
+		{ "<leader><space>za", desc = "Toggle fold" },
 	},
-	g = {
-		R = { "<cmd>TroubleToggle lsp_references<cr>", "LSP References" },
-	},
+	{ "gR", "<cmd>TroubleToggle lsp_references<cr>", desc = "LSP References" },
 	-- Folding
-	K = {
-		function()
-			local winid = require("ufo").peekFoldedLinesUnderCursor()
-			if not winid then
-				vim.lsp.buf.hover()
-			end
-		end,
-		"Peek fold or hover",
+	{
+		{
+			"K",
+			function()
+				local winid = require("ufo").peekFoldedLinesUnderCursor()
+				if not winid then
+					vim.lsp.buf.hover()
+				end
+			end,
+			desc = "Peek fold or hover",
+		},
+		{ "zR", require("ufo").openAllFolds, desc = "Open all folds" },
+		{ "zM", require("ufo").closeAllFolds, desc = "Close all folds" },
+		{ "zr", require("ufo").openFoldsExceptKinds, desc = "Open folds except kinds" },
+		{ "zm", require("ufo").closeFoldsWith, desc = "Close folds with" },
+		{ "z<space>", require("ufo").peekFoldedLinesUnderCursor, desc = "Peek folded lines" },
 	},
-	z = {
-		R = { require("ufo").openAllFolds, "Open all folds" },
-		M = { require("ufo").closeAllFolds, "Close all folds" },
-		r = { require("ufo").openFoldsExceptKinds, "Open folds except kinds" },
-		m = { require("ufo").closeFoldsWith, "Close folds with" },
-		["<space>"] = { require("ufo").peekFoldedLinesUnderCursor, "Peek folded lines" },
-	},
-	["<C-n>"] = { vim.cmd.LTPopOutFiletree, "Toggle Nvim Tree" },
-	-- ["<C-n>"] = { vim.cmd.NvimTreeToggle, "Toggle Nvim Tree" },
-	["<C-p>"] = { "<CMD>Telescope git_files<CR>", "Telescope Find Git File" },
+	{ "<C-n>", vim.cmd.LTPopOutFiletree, desc = "Toggle Nvim Tree" },
+	-- {"<C-n>", vim.cmd.NvimTreeToggle, desc = "Toggle Nvim Tree" },
+	{ "<C-p>", "<CMD>Telescope git_files<CR>", desc = "Telescope Find Git File" },
 	-- Insert / Visual mode
-	["<C-u>"] = {
+	{
+		"<C-u>",
 		function()
 			require("luasnip.extras.select_choice")()
 		end,
-		"Cycle LuaSnip choice node",
+		desc = "Cycle LuaSnip choice node",
 		mode = "i",
 	},
 	-- Barbar. See also leader.
-	["<A-,>"] = { "<CMD>BufferPrevious<CR>", "Previous Buffer" },
-	["<A-.>"] = { "<CMD>BufferNext<CR>", "Next Buffer" },
-	["<A-<>"] = { "<CMD>BufferMovePrevious<CR>", "Move Previous Buffer" },
-	["<A->>"] = { "<CMD>BufferMoveNext<CR>", "Move Next Buffer" },
-	["<A-p>"] = { "<CMD>BufferPin<CR>", "Pin/Unpin Buffer" },
-	["<A-c>"] = { "<CMD>BufferClose<CR>", "Close Buffer" },
+	{ "<A-,>", "<CMD>BufferPrevious<CR>", desc = "Previous Buffer" },
+	{ "<A-.>", "<CMD>BufferNext<CR>", desc = "Next Buffer" },
+	{ "<A-<>", "<CMD>BufferMovePrevious<CR>", desc = "Move Previous Buffer" },
+	{ "<A->>", "<CMD>BufferMoveNext<CR>", desc = "Move Next Buffer" },
+	{ "<A-p>", "<CMD>BufferPin<CR>", desc = "Pin/Unpin Buffer" },
+	{ "<A-c>", "<CMD>BufferClose<CR>", desc = "Close Buffer" },
 })
