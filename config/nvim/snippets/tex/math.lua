@@ -160,6 +160,13 @@ return {
 	),
 
 	automath(
+		{ trig = "thetahat", regTrig = true },
+		f(function(_, snip)
+			return "\\hat{\\theta}"
+		end)
+	),
+
+	automath(
 		"norm",
 		fmta([[\lVert <> \rVert]], {
 			i(1, "\\vec{x}_i - \\vec{x}_j"),
