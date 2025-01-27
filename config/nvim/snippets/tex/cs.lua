@@ -8,6 +8,44 @@ local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" }
 
 return {
 	autosnippet(
+		{ trig = "bjs", name = "js" },
+		fmta(
+			[[
+\begin{lstlisting}[
+           language=javascript,
+           showspaces=false,
+           basicstyle=\ttfamily,
+           numbers=left,
+           numberstyle=\tiny,
+           commentstyle=\color{gray}
+        ]
+  <>
+\end{lstlisting}
+    ]],
+			{ i(1) }
+		)
+	),
+
+	autosnippet(
+		{ trig = "bpy", name = "py" },
+		fmta(
+			[[
+\begin{lstlisting}[
+           language=python,
+           showspaces=false,
+           basicstyle=\ttfamily,
+           numbers=left,
+           numberstyle=\tiny,
+           commentstyle=\color{gray}
+        ]
+  <>
+\end{lstlisting}
+    ]],
+			{ i(1) }
+		)
+	),
+
+	autosnippet(
 		{ trig = "bsql", name = "sql" },
 		fmta(
 			[[

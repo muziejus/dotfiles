@@ -11,6 +11,10 @@ local f = ls.function_node
 
 local autosnippet = ls.extend_decorator.apply(s, { snippetType = "autosnippet" })
 
+local function not_in_math()
+	return vim.api.nvim_eval("vimtex#syntax#in_mathzone()") == 0
+end
+
 local function in_math()
 	return vim.api.nvim_eval("vimtex#syntax#in_mathzone()") == 1
 end
@@ -20,6 +24,11 @@ local math = ls.extend_decorator.apply(s, { condition = in_math })
 local automath = ls.extend_decorator.apply(s, {
 	snippetType = "autosnippet",
 	condition = in_math,
+})
+
+local autonotmath = ls.extend_decorator.apply(s, {
+	snippetType = "autosnippet",
+	condition = not_in_math,
 })
 
 return {
@@ -97,7 +106,7 @@ return {
 	),
 
 	automath(
-		{ trig = "([%a%)%d])sr", regTrig = true, wordTrig = false },
+		{ trig = "([%a%)%d%}])sr", regTrig = true, wordTrig = false },
 		f(function(_, snip)
 			return snip.captures[1] .. "^2"
 		end)
@@ -162,7 +171,16 @@ return {
 	automath(
 		{ trig = "thetahat", regTrig = true },
 		f(function(_, snip)
-			return "\\hat{\\theta}"
+			-- Doesn't need the leading backslash
+			return "hat{\\theta}"
+		end)
+	),
+
+	automath(
+		{ trig = "sigmahat", regTrig = true },
+		f(function(_, snip)
+			-- Doesn't need the leading backslash
+			return "hat{\\sigma}"
 		end)
 	),
 
@@ -259,6 +277,7 @@ return {
 			}
 		)
 	),
+
 	math(
 		"int",
 		fmta([[\int_{ <> }^{ <> } <> \mathop{ <> }]], {
@@ -332,7 +351,30 @@ return {
 
 	automath("->", t("\\rightarrow")),
 
+	automath("x->", fmta("\\xrightarrow{ <> }", { i(1) })),
+
 	automath("<-", t("\\leftarrow")),
 
 	automath("\\gets", t("\\longleftarrow")),
+
+	automath("theta", t("\\theta")),
+
+	automath("sigma", t("\\sigma")),
+
+	automath("lambda", t("\\lambda")),
+
+	automath("epsilon", t("\\epsilon")),
+
+	automath("beta", t("\\beta")),
+
+	automath("mu", t("\\mu")),
+
+	automath("alpha", t("\\alpha")),
+
+	-- Not in math
+	autonotmath("theta", t("$\\theta$")),
+	autonotmath("lambda", t("$\\lambda$")),
+	autonotmath("sigma", t("$\\sigma$")),
+	autonotmath("Xbar", t("$\\bar{X}$")),
+	autonotmath("Xn", t("$X_n$")),
 }
