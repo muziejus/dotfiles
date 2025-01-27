@@ -76,7 +76,7 @@ if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
   # Add wisely, as too many plugins slow down shell startup.
   # plugins=(tmux history tmuxinator zsh-autosuggestions git osx jump zsh-completions zsh-syntax-highlighting)
   ### zsh-syntax-highlighting is installed via homebrew as below.
-  plugins=(history git macos jump pyenv poetry)
+  plugins=(history git macos jump pyenv poetry asdf)
 
   # User configuration
 
@@ -128,14 +128,16 @@ export LESS="-x2"
 
 # Check .zprofile for PATH changes, too.
 
+# Using asdf
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="$PATH:$POETRY_HOME/bin"
 
 export CARGO_PATH="$HOME/.cargo"
 export PATH="$CARGO_PATH/bin:$PATH"
 
+# Use asdf instead.
 # export VOLTA_HOME="$HOME/.volta"
 # export PATH="$VOLTA_HOME/bin:$PATH"
 
@@ -145,10 +147,13 @@ source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 # source "$HOMEBREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
+# Using asdf
 # pnpm
-export PNPM_HOME="/Users/moacir/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# export PNPM_HOME="/Users/moacir/Library/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
 # pnpm end
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
