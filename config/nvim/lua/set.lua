@@ -16,7 +16,10 @@ local options = {
 	shiftwidth = 2,
 	expandtab = true,
 	-- Text stuff
+	formatoptions = "tacqwn", -- see https://www.reddit.com/r/vim/comments/95gijh/comment/e3tyuja/
 	breakindent = true, -- long lines get broken and indented
+	breakindentopt = "shift:2,min:40,sbr",
+	autoindent = true,
 	smartindent = true,
 	textwidth = 75,
 	conceallevel = 0, -- don't obfuscate Markdown
@@ -54,7 +57,7 @@ end
 
 vim.cmd("set whichwrap+=<,>,[,]") -- use arrow keys to wrap lines
 
-vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't auto continue comments
+-- vim.opt.formatoptions:remove({ "c", "r", "o" }) -- don't auto continue comments
 
 vim.opt.isfname:append("@-@") -- Add "@" to possible filenames.
 vim.opt.shortmess:append("c") -- Move through "Hit Enter" messages quickly

@@ -18,6 +18,9 @@ vim.opt.spell = true
 --   lines:join("{}")
 --
 -- end
+-- vim.opt.formatexpr = OneSentencePerLine() --
+-- require("../lua/one-sentence-per-line")
+
 vim.api.nvim_command("call pencil#init()")
 
 vim.cmd([[
@@ -32,5 +35,3 @@ vim.cmd([[
     endfunction
     set formatexpr=OneSentencePerLine()
   ]])
-
--- vim.opt.formatexpr = OneSentencePerLine() -- require("../lua/one-sentence-per-line")
