@@ -247,7 +247,7 @@ return {
 	),
 
 	math(
-		"sum",
+		{ trig = "sum", dscr = "Sum i to n" },
 		fmta([[\sum_{ <> }^{ <> }]], {
 			i(1, "i = 1"),
 			i(2, "n"),
@@ -255,7 +255,7 @@ return {
 	),
 
 	math(
-		"sumn",
+		{ trig = "sumn", dscr = "Sum n to infinity" },
 		fmta([[\sum_{ <> }^{ <> }]], {
 			i(1, "n = 1"),
 			i(2, "\\infty"),
@@ -279,35 +279,35 @@ return {
 	),
 
 	math(
-		"int",
-		fmta([[\int_{ <> }^{ <> } <> \mathop{ <> }]], {
+		{ trig = "int", dscr = "Single integral" },
+		fmta([[\int_{ <> }^{ <> } <> \diff <> ]], {
 			i(1, "-\\infty"),
 			i(2, "\\infty"),
 			i(3, "f(x)"),
-			i(4, "dx"),
+			i(4, "x"),
 		})
 	),
 
 	math(
-		"intt",
-		fmta([[\int_{ <> }^{ <> }\int_{ <> }^{ <> } <> \mathop{ <> } \mathop{ <> }]], {
+		{ trig = "intt", dscr = "Double integral (xy)" },
+		fmta([[\int_{ <> }^{ <> }\int_{ <> }^{ <> } <> \diff <> \diff <>]], {
 			i(1, "-\\infty"),
 			i(2, "\\infty"),
 			i(3, "-\\infty"),
 			i(4, "\\infty"),
 			i(5, "f(x,y)"),
-			i(6, "dx"),
-			i(7, "dy"),
+			i(6, "x"),
+			i(7, "y"),
 		})
 	),
 
 	math(
-		"iint",
-		fmta([[\iint_{ <> } <> \mathop{ <> } \mathop{ <> }]], {
+		{ trig = "iint", dscr = "Double integral over area" },
+		fmta([[\iint_{ <> } <> \diff <>  \diff <> ]], {
 			i(1, "R"),
 			i(2, "f(x,y)"),
-			i(3, "dx"),
-			i(4, "dy"),
+			i(3, "x"),
+			i(4, "y"),
 		})
 	),
 
