@@ -16,6 +16,9 @@ local function filepath()
 	return icon .. "  " .. path
 end
 
+local function getWords()
+	return tostring(vim.fn.wordcount().words)
+end
 require("lualine").setup({
 	options = {
 		globalstatus = true,
@@ -36,7 +39,16 @@ require("lualine").setup({
 		lualine_c = {
 			-- filepath,
 		},
-		lualine_x = { "PencilMode", "encoding", "fileformat", "filetype" },
+		lualine_x = {
+			"PencilMode",
+			getWords,
+			--"encoding",
+			--"fileformat",
+			{
+				"filetype",
+				icon_only = true,
+			},
+		},
 		lualine_y = { "location" }, -- { "progress" },
 		lualine_z = { "ctime" }, -- { "location" },
 	},
