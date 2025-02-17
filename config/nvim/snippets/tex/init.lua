@@ -62,7 +62,7 @@ return {
       <>
     \end{minipage}
     ]],
-			{ i(1) }
+			{ i(0) }
 		),
 		{
 			condition = conds_expand.line_begin,
@@ -79,7 +79,7 @@ return {
         <>
       \end{minted}
     ]],
-			{ i(1) }
+			{ i(0) }
 		),
 		{
 			condition = conds_expand.line_begin,
@@ -144,7 +144,7 @@ return {
     \begin{enumerate}
       \item <>
     \end{enumerate}]],
-			{ i(1) }
+			{ i(0) }
 		),
 		{ condition = conds_expand.line_begin }
 	),
@@ -156,7 +156,7 @@ return {
     \begin{enumerate}[label=\alph*)]
       \item <>
     \end{enumerate}]],
-			{ i(1) }
+			{ i(0) }
 		),
 		{ condition = conds_expand.line_begin }
 	),
@@ -168,7 +168,7 @@ return {
     \begin{enumerate}[label=\roman*)]
       \item <>
     \end{enumerate}]],
-			{ i(1) }
+			{ i(0) }
 		),
 		{ condition = conds_expand.line_begin }
 	),
@@ -180,7 +180,7 @@ return {
     \begin{itemize}
       \item <>
     \end{itemize}]],
-			{ i(1) }
+			{ i(0) }
 		),
 		{ condition = conds_expand.line_begin - in_list }
 	),

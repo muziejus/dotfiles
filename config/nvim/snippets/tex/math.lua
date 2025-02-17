@@ -21,6 +21,8 @@ end
 
 local math = ls.extend_decorator.apply(s, { condition = in_math })
 
+local notmath = ls.extend_decorator.apply(s, { condition = not_in_math })
+
 local automath = ls.extend_decorator.apply(s, {
 	snippetType = "autosnippet",
 	condition = in_math,
@@ -43,7 +45,7 @@ return {
         <>
       \end{align*}
     ]],
-			{ i(1) }
+			{ i(0) }
 		),
 		{
 			condition = conds_expand.line_begin,
@@ -320,7 +322,15 @@ return {
 	-- Typos
 	automath("codt", t("cdot")),
 
+	-- Variables
+	automath("Xn", t("X_n")),
+	automath("Xi", t("X_i")),
+	automath("xn", t("x_n")),
+	automath("xi", t("x_i")),
+
 	-- Symbols
+	automath("prop", t("\\propto")),
+
 	automath("pvalue", t("p\\text{-value}\\,")),
 
 	automath("normal", t("\\mathcal{N}")),
@@ -355,26 +365,70 @@ return {
 
 	automath("<-", t("\\leftarrow")),
 
+	automath("oo", t("\\infty")),
+
 	automath("\\gets", t("\\longleftarrow")),
 
-	automath("theta", t("\\theta")),
+	-- Distributions
+	automath("inNor", fmta("\\sim \\mathcal{N}( <>, <>)", { i(1, "\\mu"), i(2, "\\sigma^2") })),
+	automath("inGam", fmta("\\sim \\Gamma( <>, <>)", { i(1, "\\alpha"), i(2, "\\beta") })),
+	automath("inBin", fmta("\\sim \\Binom( <>, <>)", { i(1, "n"), i(2, "p") })),
+	automath("inUni", fmta("\\sim \\Uniform( <>, <>)", { i(1, "0"), i(2, "1") })),
+	automath("inPoi", fmta("\\sim \\Poisson( <> )", { i(1, "\\lambda") })),
+	automath("inChi", fmta("\\sim \\chi^2_{<>}", { i(1, "n-1") })),
 
-	automath("sigma", t("\\sigma")),
+	-- Greek
+	automath(";a", t("\\alpha")),
+	automath(";b", t("\\beta")),
+	automath(";g", t("\\gamma")),
+	automath(";d", t("\\delta")),
+	automath(";ep", t("\\epsilon")),
+	automath(";z", t("\\zeta")),
+	automath(";et", t("\\eta")),
+	automath(";h", t("\\theta")),
+	automath(";i", t("\\iota")),
+	automath(";k", t("\\kappa")),
+	automath(";l", t("\\lambda")),
+	automath(";m", t("\\mu")),
+	automath(";n", t("\\nu")),
+	automath(";pi", t("\\pi")),
+	automath(";r", t("\\rho")),
+	automath(";s", t("\\sigma")),
+	automath(";t", t("\\tau")),
+	automath(";ph", t("\\phi")),
+	automath(";ch", t("\\chi")),
+	automath(";ps", t("\\psi")),
+	automath(";o", t("\\omega")),
 
-	automath("lambda", t("\\lambda")),
+	automath(";G", t("\\Gamma")),
+	automath(";D", t("\\Delta")),
+	automath(";H", t("\\Theta")),
+	automath(";L", t("\\Lambda")),
+	automath(";Pi", t("\\Pi")),
+	automath(";S", t("\\Sigma")),
+	automath(";Ph", t("\\Phi")),
+	automath(";Ps", t("\\Psi")),
+	automath(";O", t("\\Omega")),
 
-	automath("epsilon", t("\\epsilon")),
-
-	automath("beta", t("\\beta")),
-
-	automath("mu", t("\\mu")),
-
-	automath("alpha", t("\\alpha")),
+	-- automath("theta", t("\\theta")),
+	--
+	-- automath("sigma", t("\\sigma")),
+	--
+	-- automath("lambda", t("\\lambda")),
+	--
+	-- automath("epsilon", t("\\epsilon")),
+	--
+	-- automath("beta", t("\\beta")),
+	--
+	-- automath("mu", t("\\mu")),
+	--
+	-- automath("alpha", t("\\alpha")),
 
 	-- Not in math
-	autonotmath("theta", t("$\\theta$")),
-	autonotmath("lambda", t("$\\lambda$")),
-	autonotmath("sigma", t("$\\sigma$")),
-	autonotmath("Xbar", t("$\\bar{X}$")),
-	autonotmath("Xn", t("$X_n$")),
+	notmath("theta", t("$\\theta$")),
+	notmath("lambda", t("$\\lambda$")),
+	notmath("sigma", t("$\\sigma$")),
+	notmath("Xbar", t("$\\bar{X}$")),
+	notmath("Xn", t("$X_n$")),
+	notmath("pvalue", t("$p$-value")),
 }
