@@ -31,7 +31,12 @@ vim.cmd([[
     let start = v:lnum
     let end = start + v:count - 1
     execute start.','.end.'join'
-    s/[.!?]\zs\s*\ze\S/\r/g
+    " s/[.!?]['’”].\zs\s*\ze\S/\r/g
+    s/\([.,!?][”’'"]*\)\s\+/\1\r/g
+    " let start = v:lnum
+    " let end = start + v:count - 1
+    " execute start.','.end.'join'
+    " s/^\([a-z]\{1}\)/  \1/g
     endfunction
     set formatexpr=OneSentencePerLine()
   ]])
