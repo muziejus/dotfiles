@@ -16,9 +16,12 @@ local function filepath()
 	return icon .. "  " .. path
 end
 
-local function getWords()
-	return tostring(vim.fn.wordcount().words)
-end
+-- local function getWords()
+-- 	return tostring(vim.fn.wordcount().words)
+-- end
+
+local prose = require("nvim-prose")
+
 require("lualine").setup({
 	options = {
 		globalstatus = true,
@@ -41,11 +44,13 @@ require("lualine").setup({
 		},
 		lualine_x = {
 			"PencilMode",
-			getWords,
+			{ prose.word_count, cond = prose.is_available },
+			-- getWords,
 			--"encoding",
 			--"fileformat",
 			{
 				"filetype",
+				colored = false,
 				icon_only = true,
 			},
 		},

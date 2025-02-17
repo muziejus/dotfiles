@@ -1,5 +1,14 @@
 -- Don't forget that TeX things are handled at the ftplugin-level.
 
+require("nvim-prose").setup({
+	wpm = 200.0,
+	filetypes = { "tex", "markdown", "asciidoc" },
+	placeholders = {
+		words = "w",
+		minutes = "min",
+	},
+})
+
 -- Quarto
 require("quarto").setup({
 	debug = false,

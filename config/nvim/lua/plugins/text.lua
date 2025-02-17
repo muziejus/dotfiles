@@ -30,4 +30,5 @@ return {
 			vim.g["pencil#wrapModeDefault"] = "soft"
 		end,
 	},
+	{ "skwee357/nvim-prose" },
 }
