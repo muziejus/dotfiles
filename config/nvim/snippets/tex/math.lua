@@ -291,6 +291,16 @@ return {
 	),
 
 	math(
+		{ trig = "int0", dscr = "Integral on 0, 1" },
+		fmta([[\int_{ <> }^{ <> } <> \diff <> ]], {
+			i(1, "0"),
+			i(2, "1"),
+			i(3, "f(\\theta)"),
+			i(4, "\\theta"),
+		})
+	),
+
+	math(
 		{ trig = "intt", dscr = "Double integral (xy)" },
 		fmta([[\int_{ <> }^{ <> }\int_{ <> }^{ <> } <> \diff <> \diff <>]], {
 			i(1, "-\\infty"),
@@ -366,6 +376,8 @@ return {
 	automath("<-", t("\\leftarrow")),
 
 	automath("oo", t("\\infty")),
+
+	automath("noo", t("n \\rightarrow \\infty")),
 
 	automath("\\gets", t("\\longleftarrow")),
 
