@@ -1,7 +1,7 @@
 local cmp = require("cmp")
 local colors = require("tokyonight.colors").setup()
 
-vim.api.nvim_command("call pencil#init()")
+-- vim.api.nvim_command("call pencil#init()")
 
 cmp.setup.filetype("tex", {
 	sources = cmp.config.sources({
