@@ -409,6 +409,7 @@ return {
 	automath(";t", t("\\tau")),
 	automath(";ph", t("\\phi")),
 	automath(";ch", t("\\chi")),
+	automath(";x", t("\\chi")),
 	automath(";ps", t("\\psi")),
 	automath(";o", t("\\omega")),
 
