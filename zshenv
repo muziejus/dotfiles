@@ -1,69 +1,65 @@
 # Loaded first, before .zprofile
-
-#########################
-#                       #
-#   my .zshenv, sourced by all zsh shells
-#                       #
-#########################
-
-# export TERM=xterm-256color 
-# Don't set the terminal in here. Let the terminal program (alacritty) do it.
+# Should set everything that does not depend on an interactive shell.
 
 export HOME=/Users/moacir
+
+export EDITOR=nvim
+export VISUAL=nvim
+
+
+export LANG=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+
 export zpath=$HOME/.zsh
+
+PATH="$PATH:/Users/moacir/bin"
+PATH="$PATH:/Library/TeX/texbin"
+PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
+PATH="$PATH:/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
+
+export PATH
+
+export PATH="$PATH:$POETRY_HOME/bin"
+export PATH="$CARGO_PATH/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+
+#. /opt/homebrew/opt/asdf/libexec/asdf.sh
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # Load in secret files
 source $HOME/.env
 
 # Hopefully this will force prettierd to stop overriding local settings.
-export PRETTIERD_LOCAL_PRETTIER_ONLY=1
 
-# For lazygit config:
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.config"
 
-# export PYTHONPATH="/Applications/QGIS3.6.app/Contents/Resources/python/"
+
+export CARGO_PATH="$HOME/.cargo"
+export GPG_TTY=$(tty)
 export POETRY_HOME="/Users/moacir/Library/Application Support/pypoetry/venv/bin/poetry"
-
-# export LANG=lt_LT.UTF-8
-# export LC_CTYPE=lt_LT.UTF-8
-# export LANGUAGE=lt_LT.UTF-8
-# export LANG=fr_FR.UTF-8
-# export LC_CTYPE=fr_FR.UTF-8
-# export LANGUAGE=fr_FR.UTF-8
-export LANG=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-
-#export RAILS_ENV=local
+export PRETTIERD_LOCAL_PRETTIER_ONLY=1
 export RAILS_ENV=development
-
+export REPLYTO=moacir@moacir.com
+export STARSHIP_CONFIG="/Users/moacir/.config/starship/starship.toml"
 export WANDERTEXT_DEV_COUCHDB=http://admin:admin@127.0.0.1:5984/wandertext
 
-# So gpg knows where to prompt for a password
-export GPG_TTY=$(tty)
 
-#umask 077  #sets default file protection to rwx for owner
 
-export REPLYTO=moacir@moacir.com
 
-# RealPlayer insists on this...
-export LD_LIBRARY_PATH=/usr/local/rvplayer5.0
+
 
 # here you go. Surprised? (Jeremy will explain this someday)
-PAGER=less
-LESS='-eP"?f%f .?n?m(file %i of %m) ..?lbline %lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'
-export PAGER LESS
-
-# Oh where to print to?
+export PAGER=less
+export LESS='-eP"?f%f .?n?m(file %i of %m) ..?lbline %lb?L/%L. :byte %bB?s/%s. .?e(END) ?x- Next\: %x.:?pB%pB\%..%t"'
 
 # History
 export HISTFILE=$zpath/history
 export HISTSIZE=5000
 export SAVEHIST=$HISTSIZE
 
-export EDITOR=nvim
-export VISUAL=nvim
+
 
 # trn happiness
 NNTPSERVER=uchinews.uchicago.edu
@@ -91,6 +87,3 @@ IRCSERVER='irc.omnitel.net'
 #IRCSERVER='irc.emory.edu'
 #IRCSERVER='irc.lagged.org'
 export IRCNAME IRCNICK IRCPATH IRCSERVER
-
-MOZILLA_HOME='/usr/local/netscape'
-export MOZILLA_HOME
