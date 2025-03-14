@@ -114,6 +114,9 @@ run = 'layout floating'
     # end tell'
     # '''
 
+    # Doesn't look like it works.
+    cmd-tab = []
+
     alt-ctrl-cmd-f = 'fullscreen'
     alt-ctrl-f = 'layout floating tiling'
 
@@ -131,6 +134,16 @@ run = 'layout floating'
     alt-ctrl-j = 'focus down'
     alt-ctrl-k = 'focus up'
     alt-ctrl-l = 'focus right'
+
+    alt-ctrl-t = 'exec-and-forget open -a /Applications/Telegram.app'
+    alt-ctrl-a = 'exec-and-forget open -a /Applications/Arc.app'
+    alt-ctrl-m = 'exec-and-forget open -a /Applications/Messages.app'
+    # alt-ctrl-o = 'exec-and-forget open -a /Applications/Obsidian.app'
+    # alt-ctrl-g = 'exec-and-forget open -a /Applications/Ghostty.app'
+    # alt-ctrl-s = 'exec-and-forget open -a /Applications/Safari.app'
+    # alt-ctrl-q = 'exec-and-forget open -a /System/Applications/QuickTime Player.app'
+    # alt-ctrl-w = 'exec-and-forget open -a /Applications/WezTerm.app'
+    alt-ctrl-w = 'exec-and-forget open -a /Applications/WhatsApp.app'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
     alt-ctrl-cmd-h = 'move left'
