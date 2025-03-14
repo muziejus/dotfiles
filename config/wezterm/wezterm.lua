@@ -8,8 +8,10 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 config = {
-	color_scheme = "AdventureTime",
+	color_scheme = "Tokyo Night",
 	font = wezterm.font("Mononoki Nerd Font"),
+	hide_tab_bar_if_only_one_tab = true,
+	window_decorations = "RESIZE",
 }
 -- and finally, return the configuration to wezterm
 return config
