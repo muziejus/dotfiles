@@ -9,7 +9,11 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = ['exec-and-forget sketchybar']
+after-startup-command = ['exec-and-forget sketchybar',
+'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0' ]
+
+exec-on-workspace-change = ['/bin/bash', '-c',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE']
 
 # Start AeroSpace at login
 start-at-login = true
@@ -37,18 +41,24 @@ default-root-container-orientation = 'auto'
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
 # Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center']
 
-# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
-# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
-# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'telegram'
+if.app-id = 'ru.keepcoder.Telegram'
 run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
 run = 'layout floating'
 
 # Possible values: (qwerty|dvorak)
@@ -70,7 +80,7 @@ run = 'layout floating'
     outer.left =       10
     outer.bottom =     10
     outer.top =        10
-    outer.right =      80
+    outer.right =      70
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -171,5 +181,4 @@ run = 'layout floating'
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
-
   
