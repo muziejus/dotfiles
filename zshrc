@@ -1,7 +1,7 @@
 # Loaded after .zshenv 
 # This is loaded for all interactive shells.
 
-export NU_CONFIG_DIR=/"Users/moacir/.config/nushell"
+export NU_CONFIG_DIR="/Users/moacir/.config/nushell"
 
 # source ~/.zsh/aliases
 
@@ -18,4 +18,4 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 eval "$(starship init zsh)"
 
-nu
+# nu

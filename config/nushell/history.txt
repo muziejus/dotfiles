@@ -1,0 +1,49 @@
+zsh
+exit
+$nu.config-path
+cd .dotfiles/config/
+vi ghostty/config
+exit
+$nu.config-path
+$nu.data-dir
+mkdir ($nu.data-dir | path join "vendor/autoload")<\n>starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+$env.PATH
+cd .dotfiles/config/nushell/
+/opt/homebrew/bin/nvim
+$env.config.buffer_editor = /opt/homebrew/bin/nvim<\n>
+$env.config.buffer_editor = "/opt/homebrew/bin/nvim"<\n>
+zsh
+ls /Library/TeX/texbin
+which xdvi
+$env.PATH
+config nu
+exit
+$env.PATH
+$env.config.buffer_editor = "/opt/homebrew/bin/nvim"
+$env.editor
+/opt/homebrew/bin/nvim .config/nushell/env.nu
+exit
+$env.path
+$nu.config-path
+vi .config/nushell/env.nu
+exit
+$env.path
+nvim .config/nushell/env.nu
+$env.xdg_config_path
+$env.xdg_config_home
+more .zshenv
+vi .config/nushell/env.nu
+exit
+vi .config/nushell/env.nu
+exit
+$env
+more .zshenv
+vi .config/nushell/env.nu
+vi .config/nushell/config.nu
+nvim .config/nushell/aliases.nu
+exit
+mkdir ($nu.data-dir | path join "vendor/autoload")<\n>starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+exit
+cd .config
+lazygit
+cd ../.dotfiles/
