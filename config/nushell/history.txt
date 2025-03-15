@@ -47,3 +47,64 @@ exit
 cd .config
 lazygit
 cd ../.dotfiles/
+lazygit
+which python
+which node
+which ruby
+asdf
+git log
+gl
+glog
+exit
+zsh
+exit
+cd .dotfiles/config/nushell/
+vi config.nu
+nvim config.nu
+nvim env.nu
+vi env.nu
+vi starship.nu
+vi config.nu
+nvim starship.nu
+exit
+vi env.nu
+nvim env.nu
+rcup
+more config.nu
+ls
+cd ..
+ls
+cd ..
+ls
+cd ..
+ls
+nvim
+cd .dotfiles/
+nvim
+mv ../.config/nushell/aliases.nu config/nushell/aliases.nu
+rcup
+exit
+vi
+ls ~/.config/nushell/
+vi config.nu
+nvim config.nu
+vi ../ghostty/
+exit
+exit
+$env.rails_env
+cd .dotfiles/config/
+cd nushell/
+ls
+cd vendor/
+ls
+cd autoload/
+ls
+vi starship.nu
+cd ../../
+vi config.nu
+$env.starship_config
+cd ..
+ls starship/starship.toml
+starship init nu
+mv starship/starship.toml ./
+git rm -r starship/

@@ -28,4 +28,4 @@ $env.config = {
 source ~/.config/nushell/env.nu
 source ~/.config/nushell/aliases.nu
 
-use ~/.cache/starship/init.nu
+# use ~/.config/nushell/starship.nu

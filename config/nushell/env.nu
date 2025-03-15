@@ -15,6 +15,7 @@ $env.GPG_TTY = ^tty
 $env.prettierd_local_prettier_only = 1
 $env.rails_env = "development"
 $env.starship_config = "/Users/moacir/.config/starship/starship.toml"
+$env.sharthip_shell = "nu"
 
 use std "path add"
 # $env.PATH = ($env.PATH | split row (char esep))
@@ -28,6 +29,3 @@ path add ($env.CARGO_PATH | path join "bin")
 path add /opt/homebrew/bin
 path add ($env.poetry_home | path join "bin")
 path add ($env.asdf_data_dir | path join "shims")
-
-mkdir ~/.cache/starship
-starship init nu | save -f ~/.cache/starship/init.nu

@@ -12,4 +12,5 @@ keybind = ctrl+d=new_split:right
 # Empty values reset the configuration to the default value
 font-family = "Nokogiri Nerd Font"
 theme = "tokyonight"
-command = "/opt/homebrew/bin/nu --config /Users/moacir/.config/nushell"
+# command = "/opt/homebrew/bin/nu --config /Users/moacir/.config/nushell"
+command = "/opt/homebrew/bin/nu"
