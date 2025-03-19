@@ -1,3 +1,7 @@
+alias nopen = open
+alias open = ^open
+
+
 alias grep = rg
 alias skim = /Applications/Skim.app/Contents/MacOS/Skim
 alias be = bundle exec
@@ -28,7 +32,8 @@ alias gco = git checkout
 alias gb = git branch
 alias gba = git branch -a
 alias gadd = git add
-alias ga = git add -p
+# alias ga = git add -p
+alias ga = git add
 alias gcoall = git checkout -- .
 alias gr = git remote
 alias gre = git reset
