@@ -23,27 +23,15 @@ enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
-# The 'accordion-padding' specifies the size of accordion padding
-# You can set 0 to disable the padding feature
 accordion-padding = 300
 
-# Possible values: tiles|accordion
-default-root-container-layout = 'tiles'
+default-root-container-layout = 'tiles' # Possible values: tiles|accordion
+default-root-container-orientation = 'auto' # Possible values: horizontal|vertical|auto
 
-# Possible values: horizontal|vertical|auto
-# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
-#               tall monitor (anything higher than wide) gets vertical orientation
-default-root-container-orientation = 'auto'
-
-# Mouse follows focus when focused monitor changes
-# Drop it from your config, if you don't like this behavior
-# See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
-# See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-# Fallback value (if you omit the key): on-focused-monitor-changed = []
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = ['move-mouse window-lazy-center']
 
-automatically-unhide-macos-hidden-apps = false
+automatically-unhide-macos-hidden-apps = false # disable cmd-h?
 
 [[on-window-detected]]
 if.app-id = 'ru.keepcoder.Telegram'
@@ -61,19 +49,9 @@ run = 'layout floating'
 if.app-id = 'com.apple.MobileSMS'
 run = 'layout floating'
 
-# Possible values: (qwerty|dvorak)
-# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
     preset = 'qwerty'
 
-# Gaps between windows (inner-*) and between monitor edges (outer-*).
-# Possible values:
-# - Constant:     gaps.outer.top = 8
-# - Per monitor:  gaps.outer.top = [{ monitor.main = 16 }, { monitor."some-pattern" = 32 }, 24]
-#                 In this example, 24 is a default value when there is no match.
-#                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
-#                 See:
-#                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
     inner.horizontal = 10
     inner.vertical =   10
@@ -104,77 +82,57 @@ run = 'layout floating'
 
     # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
-    # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-    # You can uncomment the following lines to open up terminal with alt + enter shortcut
-    # (like in i3)
-    # alt-enter = '''exec-and-forget osascript -e '
-    # tell application "Terminal"
-    #     do script
-    #     activate
-    # end tell'
-    # '''
-
     # Doesn't look like it works.
     cmd-tab = []
 
-    alt-ctrl-cmd-f = 'fullscreen'
-    alt-ctrl-f = 'layout floating tiling'
-
-    alt-shift-left = 'join-with left'
-    alt-shift-down = 'join-with down'
-    alt-shift-up = 'join-with up'
-    alt-shift-right = 'join-with right'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    alt-ctrl-slash = 'layout tiles horizontal vertical'
-    alt-ctrl-comma = 'layout accordion horizontal vertical'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-    alt-ctrl-h = 'focus left'
-    alt-ctrl-j = 'focus down'
-    alt-ctrl-k = 'focus up'
-    alt-ctrl-l = 'focus right'
-
-    alt-ctrl-t = 'exec-and-forget open -a /Applications/Telegram.app'
-    alt-ctrl-a = 'exec-and-forget open -a /Applications/Arc.app'
-    alt-ctrl-m = 'exec-and-forget open -a /Applications/Messages.app'
-    # alt-ctrl-o = 'exec-and-forget open -a /Applications/Obsidian.app'
-    # alt-ctrl-g = 'exec-and-forget open -a /Applications/Ghostty.app'
-    # alt-ctrl-s = 'exec-and-forget open -a /Applications/Safari.app'
-    # alt-ctrl-q = 'exec-and-forget open -a /System/Applications/QuickTime Player.app'
-    # alt-ctrl-w = 'exec-and-forget open -a /Applications/WezTerm.app'
-    alt-ctrl-w = 'exec-and-forget open -a /Applications/WhatsApp.app'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move
-    alt-ctrl-cmd-h = 'move left'
-    alt-ctrl-cmd-j = 'move down'
-    alt-ctrl-cmd-k = 'move up'
-    alt-ctrl-cmd-l = 'move right'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#resize
-    alt-ctrl-minus = 'resize smart -50'
-    alt-ctrl-equal = 'resize smart +50'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-1 = 'workspace 1'
-    alt-2 = 'workspace 2'
-    alt-3 = 'workspace 3'
-    alt-4 = 'workspace 4'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
-    alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
-    alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
-    alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-    alt-ctrl-tab = 'workspace-back-and-forth'
-    # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-    alt-ctrl-cmd-tab = 'move-workspace-to-monitor --wrap-around next'
-
-    # See: https://nikitabobko.github.io/AeroSpace/commands#mode
+    cmd-h = 'macos-native-minimize'
+    alt-left = 'workspace --wrap-around prev'
+    alt-right = 'workspace --wrap-around next'
     alt-ctrl-cmd-semicolon = 'mode service'
+    alt-space = 'mode leader'
 
+[mode.leader.binding]
+  tab = ['workspace-back-and-forth', 'mode main']
+
+  shift-f = ['fullscreen', 'mode main']
+  f = ['layout floating tiling', 'mode main']
+  slash = ['layout accordion horizontal vertical', 'mode main']
+
+  1 = ['workspace 1', 'mode main']
+  2 = ['workspace 2', 'mode main'] 
+  3 = ['workspace 3', 'mode main']    
+  4 = ['workspace 4', 'mode main'] 
+
+  shift-1 = ['move-node-to-workspace 1 --focus-follows-window', 'mode main']
+  shift-2 = ['move-node-to-workspace 2 --focus-follows-window', 'mode main']
+  shift-3 = ['move-node-to-workspace 3 --focus-follows-window', 'mode main']
+  shift-4 = ['move-node-to-workspace 4 --focus-follows-window', 'mode main']
+
+  h = ['focus left', 'mode main']
+  j = ['focus down', 'mode main']
+  k = ['focus up', 'mode main']
+  l = ['focus right', 'mode main']
+
+  shift-h = ['move left', 'mode main']
+  shift-j = ['move down', 'mode main']
+  shift-k = ['move up', 'mode main']
+  shift-l = ['move right', 'mode main']
+
+  cmd-h = ['join-with left', 'mode main']
+  cmd-j = ['join-with down', 'mode main']
+  cmd-k = ['join-with up', 'mode main']
+  cmd-l = ['join-with right', 'mode main']
+
+  t = ['exec-and-forget open -a /Applications/Telegram.app', 'mode main']
+  a = ['exec-and-forget open -a /Applications/Arc.app', 'mode main']
+  m = ['exec-and-forget open -a /System/Applications/Messages.app', 'mode main']
+  w = ['exec-and-forget open -a /Applications/WhatsApp.app', 'mode main']
+  g = ['exec-and-forget open -a /Applications/Ghostty.app', 'mode main']
+
+  minus = ['resize smart -50', 'mode main']
+  equal = ['resize smart +50', 'mode main']
+
+  esc = ['reload-config', 'mode main']
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 [mode.service.binding]
@@ -186,10 +144,6 @@ run = 'layout floating'
     # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
     #s = ['layout sticky tiling', 'mode main']
 
-    alt-shift-h = ['join-with left', 'mode main']
-    alt-shift-j = ['join-with down', 'mode main']
-    alt-shift-k = ['join-with up', 'mode main']
-    alt-shift-l = ['join-with right', 'mode main']
 
     down = 'volume down'
     up = 'volume up'
