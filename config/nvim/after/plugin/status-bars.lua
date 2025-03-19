@@ -29,12 +29,13 @@ require("lualine").setup({
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = {
+			"buffers",
 			"branch",
 			"diff",
 			{
 				"diagnostics",
 				sources = { "nvim_diagnostic" },
-				sections = { "error", "warn", "info", "hint" },
+				sections = { "error", "warn" },
 				always_visible = is_file_open,
 				update_in_insert = true,
 			},
