@@ -2,3 +2,4 @@ gitconfig
 .luarc.json
 .DS_Store
 node_modules
+history.txt
