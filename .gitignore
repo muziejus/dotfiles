@@ -3,3 +3,4 @@ gitconfig
 .DS_Store
 node_modules
 history.txt
+config/nushell/history.txt
