@@ -1,5 +1,8 @@
 $pdflatex = "xelatex --shell-escape %O %S";
 
+$ENV{'TEXINPUTS'} = ".:~/texmf/tex/latex//:" . ($ENV{'TEXINPUTS'} || "");
+
+
 # $clean_ext = "_minted-%R/* _minted-%R";
 
 push @generated_exts, "cb";
