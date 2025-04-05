@@ -230,6 +230,10 @@ wk.add({
 			{ "<leader>gpom", "<CMD>Git push origin main<CR>", desc = "git commit origin main" },
 		},
 		{
+			name = "+QUARTO",
+			{ "<leader>qm", '<CMD>lua require"nabla".toggle_virt()<cr>', desc = "toggle [m]ath equations" },
+		},
+		{
 			name = "+OBSIDIAN",
 			{ "<leader>oo", "<CMD>ObsidianOpen<CR>", desc = "Open in Obsidian" },
 			{ "<leader>om", "<CMD>ObsidianTemplate<CR>", desc = "Apply Obsidian template" },

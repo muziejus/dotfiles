@@ -26,17 +26,17 @@ require("quarto").setup({
 		},
 	},
 	codeRunner = {
-		enabled = false,
-		default_method = nil, -- 'molten' or 'slime'
+		enabled = true,
+		default_method = "molten", -- 'molten' or 'slime'
 		ft_runners = {}, -- filteype to runner, ie `{python = "molten"}`
 		never_run = { "yaml" },
 	},
-	keymap = {
-		hover = "K",
-		definition = "gd",
-		rename = "<leaderlR",
-		references = "gr",
-	},
+	-- keymap = {
+	-- 	hover = "K",
+	-- 	definition = "gd",
+	-- 	rename = "<leaderlR",
+	-- 	references = "gr",
+	-- },
 })
 
 -- PandocAutoexecCommand = function()

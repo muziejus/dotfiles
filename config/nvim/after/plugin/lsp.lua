@@ -153,6 +153,9 @@ cmp.setup({
 		completion = cmp.config.window.bordered(),
 		documentation = cmp.config.window.bordered(),
 	},
+	completion = {
+		competeopt = "menu,menuone,noinsert",
+	},
 	mapping = {
 		["<C-f>"] = cmp.mapping.scroll_docs(-4), -- cmp_action.luasnip_jump_forward(),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
@@ -197,22 +200,23 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "otter" },
-		{ name = "path" },
-		{ name = "nvim_lsp" },
 		{ name = "nvim_lsp_signature_help" },
+		{ name = "nvim_lsp" },
 		{ name = "luasnip", keyword_length = 3, max_item_count = 3 },
-		-- { name = "pandoc_references" },
+		{ name = "pandoc_references" },
 		{ name = "buffer", keyword_length = 5, max_item_count = 3 },
 		{ name = "spell" },
 		{ name = "treesitter", keyword_length = 5, max_item_count = 3 },
 		{ name = "calc" },
 		{ name = "latex_symbols" },
 		{ name = "emoji" },
+		{ name = "path" },
 	},
 	formatting = {
 		-- fileds = { "abbr", "kind", "menu" },
+
 		format = lspkind.cmp_format({
-			-- mode = "symbol",
+			mode = "symbol",
 			-- maxwidth = 50,
 			-- ellipsis_char = "…",
 			with_text = true,
@@ -221,6 +225,7 @@ cmp.setup({
 				copilot = "[]",
 				luasnip = "[snip]",
 				nvim_lsp = "[LSP]",
+				nvim_lsp_signature_help = "[sig]",
 				buffer = "[buf]",
 				path = "[path]",
 				spell = "[spell]",

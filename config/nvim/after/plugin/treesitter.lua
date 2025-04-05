@@ -1,6 +1,8 @@
 require("nvim-treesitter.configs").setup({
 	-- A list of parser names, or "all" (the five listed parsers should always be installed)
 	ensure_installed = {
+		"r",
+		"python",
 		"javascript",
 		"typescript",
 		"graphql",
@@ -21,6 +23,8 @@ require("nvim-treesitter.configs").setup({
 		"gitcommit",
 		"gitignore",
 		"java",
+		"bash",
+		"dot",
 	},
 	ignore_install = { "json", "latex" },
 
@@ -51,11 +55,24 @@ require("nvim-treesitter.configs").setup({
 
 	indent = {
 		enable = true,
-		disable = { "python", "latex", "markdown" },
+		disable = { "python", "latex" },
 	},
 
 	autopairs = {
 		enable = true,
+	},
+
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true,
+			keymaps = {
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+			},
+		},
 	},
 })
 
