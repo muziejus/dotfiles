@@ -1,3 +1,5 @@
+local null_ls = require("null-ls")
+
 vim.lsp.config['luals'] = {
   cmd = { 'lua-language-server' },
   filetypes = { 'lua' },
@@ -34,12 +36,19 @@ vim.lsp.config["r_language_server"] = {
 }
 vim.lsp.enable("r_language_server")
 
-vim.lsp.config["pyright"] = {
-  cmd = {"pyright-langserver", "--stdio"},
+-- vim.lsp.config["pyright"] = {
+--   cmd = {"pyright-langserver", "--stdio"},
+--   filetypes = { "python" },
+--   root_markers = { ".git", ".gitignore" },
+-- }
+-- vim.lsp.enable("pyright")
+
+vim.lsp.config["ruff"] = {
+  cmd = {"ruff", "server"},
   filetypes = { "python" },
   root_markers = { ".git", ".gitignore" },
 }
-vim.lsp.enable("pyright")
+vim.lsp.enable("ruff")
 
 vim.lsp.config["ember"] = {
   cmd = { "ember-language-server", "--stdio"},
@@ -100,22 +109,6 @@ vim.lsp.config["ts_ls"] = {
 -- 	filetypes = { "quarto" },
 -- })
 --
--- lsp.configure("lua_ls", {
--- 	settings = {
--- 		Lua = {
--- 			runtime = {
--- 				version = "LuaJIT",
--- 			},
--- 			diagnostics = {
--- 				globals = { "vim" },
--- 			},
--- 			telemetry = {
--- 				enable = false,
--- 			},
--- 		},
--- 	},
--- })
---
 -- lsp.on_attach(function(_, bufnr)
 -- 	lsp.default_keymaps({ buffer = bufnr })
 -- 	-- local opts = { buffer = bufnr }
@@ -160,42 +153,42 @@ vim.lsp.config["ts_ls"] = {
 --
 -- lsp.setup()
 
--- local null_ls = require("null-ls")
--- null_ls.setup({
--- 	sources = {
--- 		null_ls.builtins.diagnostics.ruff,
--- 		null_ls.builtins.formatting.black,
--- 		null_ls.builtins.diagnostics.commitlint,
--- 		null_ls.builtins.formatting.prettierd.with({
--- 			-- From my old null-ls setup.
--- 			-- env = {
--- 			-- 	PRETTIERD_LOCAL_PRETTIER_ONLY = 1,
--- 			-- },
--- 			-- prefer_local = "node_modules/.bin",
--- 			filetypes = {
--- 				"css",
--- 				"json",
--- 				"jsonc",
--- 				"javascript",
--- 				"typescript",
--- 				"javascript.glimmer",
--- 				"typscript.glimmer",
--- 				"handlebars",
--- 			},
--- 		}),
--- 		null_ls.builtins.code_actions.gitsigns,
--- 		-- null_ls.builtins.completion.luasnip,
--- 		-- null_ls.builtins.diagnostics.eslint,
--- 		null_ls.builtins.formatting.stylua,
--- 		-- Spell check that has better tooling
--- 		-- all stored locally
--- 		-- https://github.com/streetsidesoftware/cspell
--- 		-- null_ls.builtins.diagnostics.cspell.with({
--- 		--   -- This file is symlinked from my dotfiles repo
--- 		--   extra_args = { "--config", "~/.cspell.json" }
--- 		-- }),
--- 	},
--- })
+null_ls.setup({
+	sources = {
+		null_ls.builtins.code_actions.gitsigns,
+    null_ls.builtins.completion.luasnip,
+		null_ls.builtins.diagnostics.commitlint,
+    -- null_ls.builtins.formatting.black, -- use ruff instead
+    null_ls.builtins.formatting.format_r,
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.prettierd.with({
+			filetypes = {
+				"css",
+				"json",
+				"jsonc",
+				"javascript",
+				"typescript",
+				"javascript.glimmer",
+				"typscript.glimmer",
+				"handlebars",
+        "quarto",
+        "python"
+			},
+      -- From my old null-ls setup.
+			-- env = {
+			-- 	PRETTIERD_LOCAL_PRETTIER_ONLY = 1,
+			-- },
+			-- prefer_local = "node_modules/.bin",
+		}),
+    -- Spell check that has better tooling
+		-- all stored locally
+		-- https://github.com/streetsidesoftware/cspell
+		-- null_ls.builtins.diagnostics.cspell.with({
+		--   -- This file is symlinked from my dotfiles repo
+		--   extra_args = { "--config", "~/.cspell.json" }
+		-- }),
+	},
+})
 
 require("mason").setup({})
 -- require("mason-lspconfig").setup({
