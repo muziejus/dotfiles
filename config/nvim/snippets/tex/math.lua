@@ -36,6 +36,23 @@ local autonotmath = ls.extend_decorator.apply(s, {
 return {
 	autosnippet(
 		{
+			trig = "bga",
+			name = "gather*",
+		},
+		fmta(
+			[[
+      \begin{gather*}
+        <>
+      \end{gather*}
+    ]],
+			{ i(0) }
+		),
+		{
+			condition = conds_expand.line_begin,
+		}
+	),
+	autosnippet(
+		{
 			trig = "bali",
 			name = "align*",
 		},
@@ -94,14 +111,14 @@ return {
 	}),
 
 	automath(
-		{ trig = "mc(%a)", regTrig = true },
+		{ trig = "mcc(%a)", regTrig = true },
 		f(function(_, snip)
 			return "\\mathcal{" .. snip.captures[1] .. "}"
 		end)
 	),
 
 	automath(
-		{ trig = "bb([%a%d])", regTrig = true },
+		{ trig = "mbb([%a%d])", regTrig = true },
 		f(function(_, snip)
 			return "\\mathbb{" .. snip.captures[1] .. "}"
 		end)
@@ -152,7 +169,7 @@ return {
 	automath(
 		{ trig = "([%a0])vec", regTrig = true },
 		f(function(_, snip)
-			return "\\vec{" .. snip.captures[1] .. "}"
+			return "\\bm{" .. snip.captures[1] .. "}"
 		end)
 	),
 
@@ -422,6 +439,12 @@ return {
 	automath(";Ph", t("\\Phi")),
 	automath(";Ps", t("\\Psi")),
 	automath(";O", t("\\Omega")),
+
+  automath("Sigmavec", t("bm{\\Sigma}")),
+  automath("sigmavec", t("bm{\\sigma}")),
+  automath("thetavec", t("bm{\\theta}")),
+  automath("betavec", t("bm{\\beta}")),
+  automath("muvec", t("bm{\\mu}")),
 
 	-- automath("theta", t("\\theta")),
 	--
