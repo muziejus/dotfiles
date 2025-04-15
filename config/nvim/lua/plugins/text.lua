@@ -22,7 +22,7 @@ return {
 	-- { "jbyuki/nabla.nvim" },
 	-- { "vim-pandoc/vim-pandoc" },
 	-- { "vim-pandoc/vim-pandoc-syntax" },
-	-- { "quarto-dev/quarto-nvim" },
+	{ "quarto-dev/quarto-nvim" },
 	{ "jmbuhr/otter.nvim" },
 	{
 		"preservim/vim-pencil",
@@ -31,12 +31,21 @@ return {
 		end,
 	},
 	{ "skwee357/nvim-prose" },
-	-- {
-	-- 	"benlubas/molten-nvim",
-	-- 	version = "^1.0.0",
-	-- 	build = ":UpdateRemotePlugins",
-	-- 	init = function()
-	-- 		vim.g.molten_output_win_max_height = 13
-	-- 	end,
-	-- },
+  {
+      "benlubas/molten-nvim",
+      version = "^1.0.0", -- use version <2.0.0 to avoid breaking changes
+      dependencies = { "3rd/image.nvim" },
+      build = ":UpdateRemotePlugins",
+      init = function()
+          -- these are examples, not defaults. Please see the readme
+          vim.g.molten_image_provider = "image.nvim"
+          vim.g.molten_output_win_max_height = 20
+      end,
+  },
+  {
+  "GCBallesteros/jupytext.nvim",
+  config = true,
+  -- Depending on your nvim distro or config you may need to make the loading not lazy
+  -- lazy=false,
+  }
 }

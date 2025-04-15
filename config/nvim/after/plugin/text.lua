@@ -10,34 +10,34 @@ require("nvim-prose").setup({
 })
 
 -- Quarto
--- require("quarto").setup({
--- 	debug = false,
--- 	closePreviewOnExit = true,
--- 	lspFeatures = {
--- 		enabled = false,
--- 		languages = { "python", "r", "julia", "bash" }, -- javascript?
--- 		chunks = "curly", -- or "all"
--- 		diagnostics = {
--- 			enabled = true,
--- 			triggers = { "BufWritePost" },
--- 		},
--- 		completion = {
--- 			enabled = true,
--- 		},
--- 	},
--- 	codeRunner = {
--- 		enabled = true,
--- 		default_method = "molten", -- 'molten' or 'slime'
--- 		ft_runners = {}, -- filteype to runner, ie `{python = "molten"}`
--- 		never_run = { "yaml" },
--- 	},
--- 	-- keymap = {
--- 	-- 	hover = "K",
--- 	-- 	definition = "gd",
--- 	-- 	rename = "<leaderlR",
--- 	-- 	references = "gr",
--- 	-- },
--- })
+require("quarto").setup({
+	debug = false,
+	closePreviewOnExit = true,
+	lspFeatures = {
+		enabled = false,
+		languages = { "python", "r", "julia", "bash" }, -- javascript?
+		chunks = "curly", -- or "all"
+		diagnostics = {
+			enabled = true,
+			triggers = { "BufWritePost" },
+		},
+		completion = {
+			enabled = true,
+		},
+	},
+	codeRunner = {
+		enabled = true,
+		default_method = "molten", -- 'molten' or 'slime'
+		ft_runners = {}, -- filteype to runner, ie `{python = "molten"}`
+		never_run = { "yaml" },
+	},
+	-- keymap = {
+	-- 	hover = "K",
+	-- 	definition = "gd",
+	-- 	rename = "<leaderlR",
+	-- 	references = "gr",
+	-- },
+})
 
 -- PandocAutoexecCommand = function()
 -- 	local vim_pandoc_template = vim.b.pandoc_yaml_data.vim_pandoc_template

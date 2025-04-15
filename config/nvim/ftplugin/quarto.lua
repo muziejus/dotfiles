@@ -6,7 +6,7 @@ cmp.setup.filetype("quarto", {
 	sources = cmp.config.sources({
 		{ name = "luasnip", keyword_length = 2 },
 		-- { name = "latex_symbols" }, -- don't actually like this one bit.
-		{ name = "nvim_lsp" },
+		{ name = "nvim_lsp", keyword_length = 2 },
 		{ name = "path" },
 		{ name = "nvim_lsp_signature_help" },
 		{ name = "pandoc_references" },
