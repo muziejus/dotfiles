@@ -122,6 +122,11 @@ run = 'layout floating'
   shift-k = ['move up', 'mode main']
   shift-l = ['move right', 'mode main']
 
+  left = ['join-with left', 'mode main']
+  down = ['join-with down', 'mode main']
+  up = ['join-with up', 'mode main']
+  right = ['join-with right', 'mode main']
+
   cmd-h = ['join-with left', 'mode main']
   cmd-j = ['join-with down', 'mode main']
   cmd-k = ['join-with up', 'mode main']
