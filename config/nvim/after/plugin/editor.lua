@@ -74,10 +74,6 @@ require("zen-mode").setup({
 	plugins = {
 		twilight = { enabled = true },
 		gitsigns = { enabled = true },
-		kitty = {
-			enabled = false,
-			font = "+4",
-		},
 	},
 })
 

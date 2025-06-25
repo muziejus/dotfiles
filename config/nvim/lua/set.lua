@@ -36,7 +36,7 @@ local options = {
 	undodir = os.getenv("HOME") .. "/.vim/undodir",
 	undofile = true,
 	-- Search
-	hlsearch = false,
+	hlsearch = true,
 	incsearch = true,
 	-- Color
 	termguicolors = true,

@@ -18,6 +18,8 @@ cmp.setup.filetype("quarto", {
 	}),
 })
 
+vim.g.quarto_python_cmd = vim.fn.trim(vim.fn.system("poetry env info --path")) .. "/bin/python"
+
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 

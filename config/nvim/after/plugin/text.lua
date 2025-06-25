@@ -14,7 +14,7 @@ require("quarto").setup({
 	debug = false,
 	closePreviewOnExit = true,
 	lspFeatures = {
-		enabled = false,
+		enabled = true,
 		languages = { "python", "r", "julia", "bash" }, -- javascript?
 		chunks = "curly", -- or "all"
 		diagnostics = {

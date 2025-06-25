@@ -231,8 +231,23 @@ wk.add({
 		},
 		{
 			name = "+QUARTO",
+      { "<leader>qa", "<CMD>QuartoActivate<CR>", desc= "Activate"},
+      { "<leader>qe", require("otter").export, desc= "Export"},
+      { "<leader>qp", "<CMD>QuartoPreview<CR>", desc= "Preview"},
+      { "<leader>qq", "<CMD>QuartoClosePreview<CR>", desc= "Quiet Preview"},
+      { "<leader>qra", "<CMD>QuartoSendAll<CR>", desc= "Run All"},
+      { "<leader>qrb", "<CMD>QuartoSendBelow<CR>", desc= "Run Below"},
+      { "<leader>qrr", "<CMD>QuartoSendAbove<CR>", desc= "Run to Cursor"},
 			{ "<leader>qm", '<CMD>lua require"nabla".toggle_virt()<cr>', desc = "toggle [m]ath equations" },
 		},
+    {
+      name = "+MOLTEN",
+      { "<leader>mi", "<CMD>MoltenInit<cr>", desc = "Initialize Molten" },
+      { "<leader>mp", "<CMD>MoltenImagePopup<cr>", desc = "Molten image popup" },
+      { "<leader>mb", "<CMD>MoltenOpenInBrowser<cr>", desc = "Molten open in browser" },
+      { "<leader>mh", "<CMD>MoltenHideOutput<cr>", desc = "Molten hide output" },
+      { "<leader>ms", "<CMD>noautocmd MoltenEnterOutput<cr>", desc = "Molten show/enter output" },
+    },
 		{
 			name = "+OBSIDIAN",
 			{ "<leader>oo", "<CMD>ObsidianOpen<CR>", desc = "Open in Obsidian" },
@@ -334,4 +349,10 @@ wk.add({
 	{ "<A->>", "<CMD>BufferMoveNext<CR>", desc = "Move Next Buffer" },
 	{ "<A-p>", "<CMD>BufferPin<CR>", desc = "Pin/Unpin Buffer" },
 	{ "<A-c>", "<CMD>BufferClose<CR>", desc = "Close Buffer" },
+  -- Hop around
+  { "<C-j>", "<CMD>wincmd j<CR>", desc="Hop down"},
+  { "<C-h>", "<CMD>wincmd h<CR>", desc="Hop left"},
+  { "<C-k>", "<CMD>wincmd k<CR>", desc="Hop up"},
+  { "<C-l>", "<CMD>wincmd l<CR>", desc="Hop right"},
+  { "<Esc><Esc>", "<CMD>silent! nohls<CR>", desc="Clear Search Highlight"},
 })

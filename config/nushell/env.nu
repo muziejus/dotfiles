@@ -17,6 +17,8 @@ $env.rails_env = "development"
 $env.starship_config = "/Users/moacir/.config/starship/starship.toml"
 $env.sharthip_shell = "nu"
 $env.texinputs = ".:~/texmf/tex/latex/"
+$env.texmfhome = ".:~/texmf/"
+
 
 use std "path add"
 # $env.PATH = ($env.PATH | split row (char esep))
@@ -31,3 +33,9 @@ path add /opt/homebrew/bin
 path add ($env.poetry_home | path join "bin")
 path add ($env.asdf_data_dir | path join "shims")
 path add /Applications/quarto/bin
+
+$env.quarto_python = (poetry env info --path | str trim | path join "bin" "python")
+
+# ("/Users/moacir/Library/Application 
+#   Support/pypoetry/venv/bin/poetry/bin/poetry" env info --path | path join 
+#   "bin" "python")
