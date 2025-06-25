@@ -15,6 +15,7 @@ return {
 	{ "jmbuhr/cmp-pandoc-references",
     dependencies = { "neovim/nvim-lspconfig" },
   },
+  { "micangl/cmp-vimtex" },
 	{ "kdheepak/cmp-latex-symbols" },
 	{ "mfussenegger/nvim-jdtls" },
 	{ "onsails/lspkind-nvim" },

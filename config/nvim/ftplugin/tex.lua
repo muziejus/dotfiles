@@ -8,6 +8,7 @@ cmp.setup.filetype("tex", {
 		{ name = "luasnip", keyword_length = 2 },
 		-- { name = "latex_symbols" }, -- don't actually like this one bit.
 		{ name = "nvim_lsp" },
+    { name = "vimtex"}
 	}),
 })
 
