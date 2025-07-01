@@ -1,0 +1,112 @@
+
+#|
+This layout maps caps lock to escape forever. 
+
+|#
+
+;; Text after double-semicolons are single-line comments.
+
+#|
+One defcfg entry may be added, which is used for configuration key-pairs. These
+configurations change kanata's behaviour at a more global level than the other
+configuration entries.
+|#
+
+(defcfg
+  #|
+  This configuration will process all keys pressed inside of kanata, even if
+  they are not mapped in defsrc. This is so that certain actions can activate
+  at the right time for certain input sequences. By default, unmapped keys are
+  not processed through kanata due to a Windows issue related to AltGr. If you
+  use AltGr in your keyboard, you will likely want to follow the simple.kbd
+  file while unmapping lctl and ralt from defsrc.
+  |#
+  process-unmapped-keys yes
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lalt lmet           spc            rmet ralt rctl
+)
+
+(defvar
+  ;; Note: consider using different time values for your different fingers.
+  ;; For example, your pinkies might be slower to release keys and index
+  ;; fingers faster.
+  tap-time 200
+  hold-time 200
+  hold-slow 300
+
+  left-hand-keys (
+    q w e r t
+    a s d f g
+    z x c v b
+  )
+  right-hand-keys (
+    y u i o p
+    h j k l ;
+    n m , . /
+  )
+)
+
+(deflayer base
+  @grl _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    @q   @w   @e   @r   _    _    @u   @i   @o   @p   _    _    _
+  esc  @a   @s   @d   @f   _    _    _    _    _    _    _    _
+  @hyp _    _    _    _    _    _    _    _    _    _    _
+  @meh    _    _              _              _    _    _
+)
+
+(deflayer numpad
+  _    _    _    _    _    _    _    kp7  kp8  kp9  _    _    _    _
+  _    _    _    _    _    _    _    kp4  kp5  kp6  min  _    _    _
+  _    _    _    _    _    _    _    kp1  kp2  kp3  +    _    _
+  _    _    _    _    _    _    _    kp0  kp0  .    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer shiftnum
+  _    _    _    _    _    _    _    S-7  S-8  S-9  _    _    _    _
+  _    _    _    _    _    _    _    S-4  S-5  S-6  min  _    _    _
+  _    _    _    _    _    _    _    S-1  S-2  S-3  +    _    _
+  _    _    _    _    _    _    _    S-0  S-0  .    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer punc
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    A-S-min A-[ A-S-[ A-S-]  _    _
+  _    _    _    _    _    _    _    A-min _   _    _    _
+  _    _    _              _              _    _    _
+)
+
+(deflayer brak
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    [    ]    _    _    _    _    _
+  _    _    _    _    _    _    _    S-9  S-0  S-[  S-]  _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(defalias
+  meh (multi lctrl lalt lmet)
+  hyp (multi lsft @meh)
+
+  q (tap-hold $tap-time $hold-slow q lctl)
+  w (tap-hold $tap-time $hold-slow w lalt)
+  e (tap-hold $tap-time $hold-time e lmet)
+  r (tap-hold $tap-time $hold-time r lsft)
+  u (tap-hold $tap-time $hold-time u rsft)
+  i (tap-hold $tap-time $hold-time i rmet)
+  o (tap-hold $tap-time $hold-slow o ralt)
+  p (tap-hold $tap-time $hold-slow p rctl)
+  a (tap-hold $tap-time $hold-slow a (layer-while-held punc))
+  s (tap-hold $tap-time $hold-slow s (layer-while-held brak))
+  d (tap-hold $tap-time $hold-slow d (layer-while-held shiftnum))
+  f (tap-hold $tap-time $hold-slow f (layer-while-held numpad))
+  grl (tap-hold $tap-time $hold-time grv lrld)
+)

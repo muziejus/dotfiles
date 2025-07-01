@@ -83,13 +83,22 @@ run = 'layout floating'
     # All possible commands: https://nikitabobko.github.io/AeroSpace/commands
 
     # Doesn't look like it works.
-    cmd-tab = []
 
     cmd-h = 'macos-native-minimize'
-    alt-left = 'workspace --wrap-around prev'
-    alt-right = 'workspace --wrap-around next'
-    alt-ctrl-cmd-semicolon = 'mode service'
-    alt-space = 'mode leader'
+    cmd-shift-ctrl-alt-h = 'workspace --wrap-around prev'
+    cmd-shift-ctrl-alt-l = 'workspace --wrap-around next'
+    cmd-shift-ctrl-alt-left = 'workspace --wrap-around prev'
+    cmd-shift-ctrl-alt-right = 'workspace --wrap-around next'
+    cmd-shift-ctrl-alt-semicolon = 'mode service'
+
+    # cmd-shift-ctrl-alt-space = 'workspace-back-and-forth'
+    cmd-shift-ctrl-alt-space = 'mode leader'
+    cmd-shift-ctrl-alt-tab = 'move-workspace-to-monitor --wrap-around next'
+
+    cmd-shift-ctrl-alt-f = 'fullscreen'
+    cmd-ctrl-alt-f = 'layout floating tiling'
+
+    cmd-shift-ctrl-alt-esc = 'reload-config'
 
 [mode.leader.binding]
   tab = ['workspace-back-and-forth', 'mode main']
@@ -111,11 +120,6 @@ run = 'layout floating'
   shift-3 = ['move-node-to-workspace 3 --focus-follows-window', 'mode main']
   shift-4 = ['move-node-to-workspace 4 --focus-follows-window', 'mode main']
   shift-5 = ['move-node-to-workspace 5 --focus-follows-window', 'mode main']
-
-  h = ['focus left', 'mode main']
-  j = ['focus down', 'mode main']
-  k = ['focus up', 'mode main']
-  l = ['focus right', 'mode main']
 
   shift-h = ['move left', 'mode main']
   shift-j = ['move down', 'mode main']
