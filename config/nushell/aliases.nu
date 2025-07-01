@@ -37,3 +37,9 @@ alias ga = git add
 alias gcoall = git checkout -- .
 alias gr = git remote
 alias gre = git reset
+
+alias da = dirs add
+alias dn = dirs next
+alias dp = dirs prev
+alias ds = dirs
+alias dg = dirs goto
