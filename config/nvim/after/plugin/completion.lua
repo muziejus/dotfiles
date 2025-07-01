@@ -20,11 +20,24 @@ cmp.setup({
 	},
 	completion = {
 		competeopt = "menu,menuone,noinsert",
+    -- keyword_length = 2,
 	},
 	mapping = {
 		["<C-f>"] = cmp.mapping.scroll_docs(-4), -- cmp_action.luasnip_jump_forward(),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),
-		["<CR>"] = cmp.mapping.confirm({ select = true }),
+    ['<CR>'] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+            if luasnip.expandable() then
+                luasnip.expand()
+            else
+                cmp.confirm({
+                    select = true,
+                })
+            end
+        else
+            fallback()
+        end
+    end),
 		-- ["<C-n>"] = cmp.mapping(function(fallback)
 		-- 	else
 		-- 		fallback()
@@ -34,34 +47,25 @@ cmp.setup({
 		["<C-e>"] = cmp.mapping.abort(),
 		-- ["<Esc>"] = cmp.mapping.abort(),
 		-- ["<C-b>"] = cmp_action.luasnip_jump_backward(),
-		["<Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_next_item()
-			elseif luasnip.choice_active() then
-				luasnip.change_choice(1)
-			elseif luasnip.expandable() then
-				luasnip.expand()
-			-- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-			-- they way you will only jump inside the snippet region
-			elseif luasnip.expand_or_locally_jumpable() then
-				luasnip.expand_or_jump()
-			elseif has_words_before() then
-				cmp.complete()
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
-		["<S-Tab>"] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item()
-			-- elseif luasnip.choice_active() then
-			-- 	luasnip.change_choice(-1)
-			-- elseif luasnip.jumpable(-1) then
-			-- 	luasnip.jump(-1)
-			else
-				fallback()
-			end
-		end, { "i", "s" }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif luasnip.locally_jumpable(1) then
+        luasnip.jump(1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif luasnip.locally_jumpable(-1) then
+        luasnip.jump(-1)
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
 	},
 	sources = {
 		-- { name = "otter" },
@@ -118,6 +122,13 @@ cmp.setup.filetype("gitcommit", {
 		{ name = "conventionalcommits" },
 	}),
 })
+
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
 
 require("cmp_git").setup()
 -- require("cmp_pandoc").setup()

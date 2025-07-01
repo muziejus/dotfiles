@@ -3,12 +3,33 @@ local colors = require("tokyonight.colors").setup()
 
 -- vim.api.nvim_command("call pencil#init({'wrap': 'hard', 'autoformat': 0})")
 
+local npairs = require("nvim-autopairs")
+
+require('nvim-autopairs').remove_rule('"')
+
 cmp.setup.filetype("tex", {
+  enabled = function()
+    -- Don't show completion when:
+    -- 1. Not in insert mode
+    -- 2. The character before cursor is a standalone punctuation
+    local context = require("cmp.config.context")
+    local mode = vim.api.nvim_get_mode().mode
+    if mode ~= "i" then return false end
+    local line = vim.api.nvim_get_current_line()
+    local col = vim.api.nvim_win_get_cursor(0)[2]
+    local char_before = line:sub(col, col)
+    -- Block completion on these characters
+    local unwanted_triggers = "[%.%,%:%;%{%}%[%]%+%-%*%/]"
+    if char_before:match(unwanted_triggers) then
+      return false
+    end
+    return true
+  end,
 	sources = cmp.config.sources({
-		{ name = "luasnip", keyword_length = 2 },
+		{ name = "luasnip", keyword_length = 3 },
 		-- { name = "latex_symbols" }, -- don't actually like this one bit.
-		{ name = "nvim_lsp" },
-    { name = "vimtex"}
+		{ name = "nvim_lsp", keyword_length = 3 },
+    { name = "vimtex" }
 	}),
 })
 

@@ -231,12 +231,23 @@ return {
 		{ condition = conds_expand.line_begin }
 	),
 
+	autosnippet(
+		{ trig = '"', name = "smart quote" },
+    { t("“"), i(1), t("”") }
+	),
+
+	autosnippet(
+		{ trig = "todo", name = "TODO" },
+		fmta("% TODO: <>", { i(1) }),
+		{ condition = conds_expand.line_begin }
+	),
+
 	autosnippet({ trig = "tt", name = "type" }, fmta("\\texttt{<>}", { i(1) })),
 	autosnippet({ trig = "__", name = "ital" }, fmta("\\textit{<>}", { i(1) })),
 	autosnippet({ trig = "**", name = "bold" }, fmta("\\textbf{<>}", { i(1) }), { condition = -minted }),
 
 	s({
-		trig = "([%d%.]+)",
+		trig = "(%-?%d+%.?%d*)",
 		regTrig = true,
 		name = "num",
 	}, {
