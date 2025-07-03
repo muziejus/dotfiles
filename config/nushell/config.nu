@@ -31,4 +31,5 @@ source ~/.config/nushell/env.nu
 source ~/.config/nushell/aliases.nu
 source ~/.config/nushell/tokyonight.nu
 
+# Not needed since starship autoloads from vendor.
 # use ~/.config/nushell/starship.nu
