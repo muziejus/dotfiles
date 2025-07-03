@@ -54,8 +54,8 @@ configuration entries.
 
 (deflayer base
   @grl _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    @q   @w   @e   @r   _    _    @u   @i   @o   @p   _    _    _
-  esc  @a   @s   @d   @f   _    _    _    _    _    _    _    _
+  _    @q   @w   @e   @r   _    _    _    _    _    _    _    _    _
+  @cap @a   @s   @d   @f   _    _    @j   @k   @l   @;    _    _
   @hyp _    _    _    _    _    _    _    _    _    _    _
   @meh    _    _              _              _    _    _
 )
@@ -92,21 +92,30 @@ configuration entries.
   _    _    _              _              _    _    _
 )
 
+(deflayer nav
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    pgdn pgup _    _    _    _    _
+  _    _    _    _    _    _    left down up   rght _   _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
 (defalias
   meh (multi lctrl lalt lmet)
   hyp (multi lsft @meh)
 
-  q (tap-hold $tap-time $hold-slow q lsft)
-  w (tap-hold $tap-time $hold-slow w lctl)
-  e (tap-hold $tap-time $hold-time e lalt)
-  r (tap-hold $tap-time $hold-time r lmet)
-  u (tap-hold $tap-time $hold-time u rmet)
-  i (tap-hold $tap-time $hold-time i ralt)
-  o (tap-hold $tap-time $hold-slow o rctl)
-  p (tap-hold $tap-time $hold-slow p rsft)
-  a (tap-hold $tap-time $hold-slow a (layer-while-held punc))
-  s (tap-hold $tap-time $hold-slow s (layer-while-held brak))
-  d (tap-hold $tap-time $hold-slow d (layer-while-held shiftnum))
-  f (tap-hold $tap-time $hold-slow f (layer-while-held numpad))
+  cap (tap-hold $tap-time $hold-slow esc (layer-while-held nav))
+  a (tap-hold $tap-time $hold-slow a lsft)
+  s (tap-hold $tap-time $hold-slow s lctl)
+  d (tap-hold $tap-time $hold-slow d lalt)
+  f (tap-hold $tap-time $hold-time f lmet)
+  j (tap-hold $tap-time $hold-time j rmet)
+  k (tap-hold $tap-time $hold-slow k ralt)
+  l (tap-hold $tap-time $hold-slow l rctl)
+  ; (tap-hold $tap-time $hold-slow ; rsft)
+  q (tap-hold $tap-time $hold-slow q (layer-while-held punc))
+  w (tap-hold $tap-time $hold-slow w (layer-while-held brak))
+  e (tap-hold $tap-time $hold-slow e (layer-while-held shiftnum))
+  r (tap-hold $tap-time $hold-slow r (layer-while-held numpad))
   grl (tap-hold $tap-time $hold-time grv lrld)
 )
