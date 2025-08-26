@@ -30,9 +30,4 @@ return {
 		},
 	},
 	"abecodes/tabout.nvim",
-	{
-		"folke/zen-mode.nvim",
-		dependencies = { "folke/twilight.nvim" },
-	},
-	{ "goolord/alpha-nvim" }, -- Welcome screen
 }

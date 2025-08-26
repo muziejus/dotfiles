@@ -53,43 +53,6 @@ require("Comment").setup({
 	post_hook = nil,
 })
 
-require("zen-mode").setup({
-	window = {
-		width = 100,
-		height = 1,
-		options = {
-			signcolumn = "yes",
-			number = false,
-			relativenumber = false,
-			cursorline = false,
-			cursorcolumn = false,
-			foldcolumn = "0",
-			list = false,
-		},
-	},
-	plugins = {
-		twilight = { enabled = true },
-		gitsigns = { enabled = true },
-	},
-})
-
-require("twilight").setup({
-	dimming = {
-		alpha = 0.25,
-		color = { "Normal", "#ffffff" },
-		inactive = false,
-	},
-	context = 10,
-	treesitter = true,
-	expand = {
-		"function",
-		"method",
-		"table",
-		"if_statement",
-	},
-	exclude = {}, -- filetypes
-})
-
 require("tabout").setup({
 	tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
 	backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable

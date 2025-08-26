@@ -14,5 +14,9 @@ return {
 		indent = { enabled = true },
 		input = { enabled = true },
 		notifier = { enabled = true },
+		picker = { preset = "ivy" },
+		quickfile = { exclude = { "latex" } },
+		terminal = { enabled = true },
+		zen = { enabled = true },
 	},
 }

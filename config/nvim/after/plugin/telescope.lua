@@ -1,30 +1,30 @@
-local open_with_trouble = require("trouble.sources.telescope").open
-
+-- local open_with_trouble = require("trouble.sources.telescope").open
+-- Lazygit" },
+--
 local telescope = require("telescope")
-local previewers = require("telescope.previewers")
 local actions = require("telescope.actions")
-
-local new_maker = function(filepath, bufnr, opts)
-	opts = opts or {}
-	filepath = vim.fn.expand(filepath)
-	vim.loop.fs_stat(filepath, function(_, stat)
-		if not stat then
-			return
-		end
-		if stat.size > 100000 then
-			return
-		else
-			previewers.buffer_previewer_maker(filepath, bufnr, opts)
-		end
-	end)
-end
-
+--
+-- local new_maker = function(filepath, bufnr, opts)
+-- 	opts = opts or {}
+-- 	filepath = vim.fn.expand(filepath)
+-- 	vim.loop.fs_stat(filepath, function(_, stat)
+-- 		if not stat then
+-- 			return
+-- 		end
+-- 		if stat.size > 100000 then
+-- 			return
+-- 		else
+-- 			previewers.buffer_previewer_maker(filepath, bufnr, opts)
+-- 		end
+-- 	end)
+-- end
+--
 telescope.load_extension("bibtex")
-telescope.load_extension("projections")
-telescope.load_extension("ui-select")
-telescope.load_extension("file_browser")
-telescope.load_extension("dap")
-
+-- telescope.load_extension("projections")
+-- telescope.load_extension("ui-select")
+-- telescope.load_extension("file_browser")
+-- telescope.load_extension("dap")
+--
 telescope.setup({
 	defaults = {
 		buffer_previewer_maker = new_maker,
@@ -42,9 +42,7 @@ telescope.setup({
 			prompt_position = "top",
 		},
 		mappings = {
-			n = { ["<c-t>"] = open_with_trouble },
 			i = {
-				["<c-t>"] = open_with_trouble,
 				["<C-u>"] = false,
 				["<C-d>"] = false,
 				["<esc>"] = actions.close,
