@@ -10,5 +10,6 @@ return {
 		explorer = {
 			replace_netrw = true,
 		},
+		lazygit = { enabled = true },
 	},
 }
