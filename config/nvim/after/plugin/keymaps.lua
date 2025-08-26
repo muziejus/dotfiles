@@ -313,23 +313,6 @@ wk.add({
 	},
 	{ "gR", "<cmd>TroubleToggle lsp_references<cr>", desc = "LSP References" },
 	-- Folding
-	{
-		{
-			"K",
-			function()
-				local winid = require("ufo").peekFoldedLinesUnderCursor()
-				if not winid then
-					vim.lsp.buf.hover()
-				end
-			end,
-			desc = "Peek fold or hover",
-		},
-		{ "zR", require("ufo").openAllFolds, desc = "Open all folds" },
-		{ "zM", require("ufo").closeAllFolds, desc = "Close all folds" },
-		{ "zr", require("ufo").openFoldsExceptKinds, desc = "Open folds except kinds" },
-		{ "zm", require("ufo").closeFoldsWith, desc = "Close folds with" },
-		{ "z<space>", require("ufo").peekFoldedLinesUnderCursor, desc = "Peek folded lines" },
-	},
 	{ "<C-n>", vim.cmd.LTPopOutFiletree, desc = "Toggle Nvim Tree" },
 	-- {"<C-n>", vim.cmd.NvimTreeToggle, desc = "Toggle Nvim Tree" },
 	{ "<C-p>", "<CMD>Telescope git_files<CR>", desc = "Telescope Find Git File" },
