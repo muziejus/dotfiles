@@ -11,5 +11,8 @@ return {
 			replace_netrw = true,
 		},
 		lazygit = { enabled = true },
+		indent = { enabled = true },
+		input = { enabled = true },
+		notifier = { enabled = true },
 	},
 }
