@@ -1,11 +1,3 @@
--- litee.filtree is setup w/ litee in ui.lua
---
--- require("nvim-tree").setup({
---   renderer = {
---     highlight_git = true,
---   },
--- })
-
 require("projections").setup({
 	workspaces = { -- Default workspaces to search for
 		{ "~/Projects", { ".git" } },

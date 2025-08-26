@@ -282,9 +282,17 @@ wk.add({
 			{ "<leader>xs", "<cmd>Trouble symbols toggle focus=false<CR>", desc = "Symbols (Trouble)" },
 		},
 		{
-			name = "Barbar",
+			name = "Buffers and Barbar",
 			{ "<leader>bp", "<CMD>BufferPrevious<CR>", desc = "Previous Buffer" },
 			{ "<leader>bn", "<CMD>BufferNext<CR>", desc = "Next Buffer" },
+			{
+				"<leader>bd",
+				function()
+					require("snacks").bufdelete.delete(0, false)
+				end,
+				desc = "Delete Buffer",
+			},
+
 			{ "<leader>b<", "<CMD>BufferMovePrevious<CR>", desc = "Move Previous Buffer" },
 			{ "<leader>b>", "<CMD>BufferMoveNext<CR>", desc = "Move Next Buffer" },
 			{ "<leader>bx", "<CMD>BufferPin<CR>", desc = "Pin/Unpin Buffer" },
@@ -312,7 +320,13 @@ wk.add({
 	},
 	{ "gR", "<cmd>TroubleToggle lsp_references<cr>", desc = "LSP References" },
 	-- Folding
-	{ "<C-n>", vim.cmd.LTPopOutFiletree, desc = "Toggle Nvim Tree" },
+	{
+		"<C-n>",
+		function()
+			require("snacks").explorer.open()
+		end,
+		desc = "Open Explorer",
+	},
 	-- {"<C-n>", vim.cmd.NvimTreeToggle, desc = "Toggle Nvim Tree" },
 	{ "<C-p>", "<CMD>Telescope git_files<CR>", desc = "Telescope Find Git File" },
 	-- Insert / Visual mode

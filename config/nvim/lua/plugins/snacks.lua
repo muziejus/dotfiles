@@ -5,6 +5,10 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		bufdelete = { enabled = true },
-		dashboard = { example = "files" },
+		dashboard = { example = "compact_files" },
+		dim = { enabled = true },
+		explorer = {
+			replace_netrw = true,
+		},
 	},
 }
