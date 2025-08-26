@@ -1,5 +1,4 @@
 return {
-	"rmagatti/auto-session",
 	"github/copilot.vim",
 	"RRethy/vim-illuminate",
 	-- "tpope/vim-commentary",

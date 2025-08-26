@@ -19,7 +19,6 @@ local new_maker = function(filepath, bufnr, opts)
 	end)
 end
 
-telescope.load_extension("session-lens")
 telescope.load_extension("bibtex")
 telescope.load_extension("projections")
 telescope.load_extension("ui-select")
