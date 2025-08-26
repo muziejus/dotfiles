@@ -92,7 +92,7 @@ run = 'layout floating'
     cmd-shift-ctrl-alt-semicolon = 'mode service'
 
     # cmd-shift-ctrl-alt-space = 'workspace-back-and-forth'
-    cmd-shift-ctrl-alt-space = 'mode leader'
+    alt-space = 'mode leader'
     cmd-shift-ctrl-alt-tab = 'move-workspace-to-monitor --wrap-around next'
 
     cmd-shift-ctrl-alt-f = 'fullscreen'
@@ -108,6 +108,11 @@ run = 'layout floating'
   f = ['layout floating tiling', 'mode main']
   slash = ['layout tiles horizontal vertical', 'mode main']
   comma = ['layout accordion horizontal vertical', 'mode main']
+
+  h = ['workspace --wrap-around prev', 'mode main']
+  l = ['workspace --wrap-around next', 'mode main']
+#  left = 'workspace --wrap-around prev'
+#  right = 'workspace --wrap-around next'
 
   1 = ['workspace 1', 'mode main']
   2 = ['workspace 2', 'mode main'] 
