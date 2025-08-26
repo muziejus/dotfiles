@@ -90,8 +90,10 @@ vim.lsp.config["ts_ls"] = {
 		"typescriptreact",
 		"typescript.tsx",
 	},
-	root_dir = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+	root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
 }
+
+vim.lsp.enable("ts_ls")
 
 require("mason").setup({})
 
