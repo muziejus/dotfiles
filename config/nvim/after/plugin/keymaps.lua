@@ -200,6 +200,20 @@ wk.add({
 				end,
 				desc = "Projects",
 			},
+			{
+				"<leader>fd",
+				function()
+					snacks.picker.lsp_definitions()
+				end,
+				desc = "Definitions",
+			},
+			{
+				"<leader>ft",
+				function()
+					snacks.picker.lsp_type_definitions()
+				end,
+				desc = "Types",
+			},
 		},
 		{ -- g Git
 			{ "<leader>g", group = "Git" },
