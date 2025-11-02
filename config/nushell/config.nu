@@ -29,7 +29,11 @@ use std/dirs
 
 source ~/.config/nushell/env.nu
 source ~/.config/nushell/aliases.nu
-source ~/.config/nushell/tokyonight.nu
+# source ~/.config/nushell/tokyonight.nu
+# source $"($nu.cache-dir)/carapace.nu"
+
+source ~/.config/nushell/zoxide.nu
+
 
 # Not needed since starship autoloads from vendor.
 # use ~/.config/nushell/starship.nu

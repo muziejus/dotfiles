@@ -36,6 +36,10 @@ path add /Applications/quarto/bin
 
 $env.quarto_python = (poetry env info --path | str trim | path join "bin" "python")
 
+$env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
+mkdir $"($nu.cache-dir)"
+carapace _carapace nushell | save --force $"($nu.cache-dir)/carapace.nu"
+
 # ("/Users/moacir/Library/Application 
 #   Support/pypoetry/venv/bin/poetry/bin/poetry" env info --path | path join 
 #   "bin" "python")
