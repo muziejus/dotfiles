@@ -6,11 +6,13 @@
 # Comments start with a `#` and are only valid on their own line.
 # Blank lines are ignored!
 
-keybind = ctrl+z=close_surface
-keybind = ctrl+d=new_split:right
+#keybind = ctrl+z=close_surface
+#keybind = ctrl+d=new_split:right
 
 # Empty values reset the configuration to the default value
 font-family = "Nokogiri Nerd Font"
-theme = "tokyonight"
+theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+mouse-hide-while-typing = true
+window-decoration = true
 # command = "/opt/homebrew/bin/nu --config /Users/moacir/.config/nushell"
 command = "/opt/homebrew/bin/nu"
