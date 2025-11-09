@@ -11,7 +11,7 @@
 
 # Empty values reset the configuration to the default value
 font-family = "Nokogiri Nerd Font"
-theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+theme = Catppuccin Mocha
 mouse-hide-while-typing = true
 window-decoration = true
 # command = "/opt/homebrew/bin/nu --config /Users/moacir/.config/nushell"
