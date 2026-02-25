@@ -119,12 +119,14 @@ run = 'layout floating'
   3 = ['workspace 3', 'mode main']    
   4 = ['workspace 4', 'mode main'] 
   5 = ['workspace 5', 'mode main'] 
+  6 = ['workspace 6', 'mode main'] 
 
   shift-1 = ['move-node-to-workspace 1 --focus-follows-window', 'mode main']
   shift-2 = ['move-node-to-workspace 2 --focus-follows-window', 'mode main']
   shift-3 = ['move-node-to-workspace 3 --focus-follows-window', 'mode main']
   shift-4 = ['move-node-to-workspace 4 --focus-follows-window', 'mode main']
   shift-5 = ['move-node-to-workspace 5 --focus-follows-window', 'mode main']
+  shift-6 = ['move-node-to-workspace 6 --focus-follows-window', 'mode main']
 
   shift-h = ['move left', 'mode main']
   shift-j = ['move down', 'mode main']
