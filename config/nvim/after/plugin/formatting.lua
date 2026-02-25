@@ -1,3 +1,13 @@
+local conform = require("conform")
+
+local ventilate_path = vim.fn.expand("~/.local/bin/ventilate-md")
+
+conform.formatters.ventilate_md = {
+	command = "ventilate-md",
+	stdin = true,
+	args = {},
+}
+
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
@@ -15,13 +25,13 @@ require("conform").setup({
 		html = { "prettierd" },
 		json = { "prettierd" },
 		yaml = { "prettierd" },
-		markdown = { "prettierd" },
+		markdown = { "ventilate_md", "prettierd" },
 		graphql = { "prettierd" },
 		liquid = { "prettierd" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
-		timeout_ms = 1000,
+		timeout_ms = 2000,
 		lsp_format = "fallback",
 	},
 })

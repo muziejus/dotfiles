@@ -6,8 +6,24 @@ nlp = spacy.load("en_core_web_sm")
 
 
 def ventilate(text: str) -> str:
-    doc = nlp(text)
-    return "\n".join(sent.text.strip() for sent in doc.sents)
+    paragraphs = text.split("\n\n")
+    ventilated_paragraphs = []
+
+    for paragraph in paragraphs:
+        stripped = paragraph.strip()
+        if not stripped:
+            ventilated_paragraphs.append("")
+            continue
+
+        if stripped.count(".") + stripped.count("!") + stripped.count("?") <= 1:
+            ventilated_paragraphs.append(stripped)
+            continue
+
+        doc = nlp(paragraph)
+        sentences = [sent.text.strip() for sent in doc.sents]
+        ventilated_paragraphs.append("\n".join(sentences))
+
+    return "\n\n".join(ventilated_paragraphs)
 
 
 def main() -> None:

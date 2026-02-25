@@ -3,6 +3,7 @@
 local wk = require("which-key")
 local harpoon = require("harpoon")
 local snacks = require("snacks")
+local conform = require("conform")
 
 wk.add({
 	{ -- Leader
@@ -512,6 +513,13 @@ wk.add({
 				snacks.picker.lsp_workspace_symbols()
 			end,
 			desc = "LSP Workspace Symbols",
+		},
+		{
+			"gqap",
+			function()
+				conform.format({ bufnr = 0 })
+			end,
+			desc = "Run Conform on paragraph",
 		},
 	},
 	{
