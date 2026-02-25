@@ -28,6 +28,7 @@ use std "path add"
 # $env.PATH = ($env.PATH | uniq)
 path add /Library/TeX/texbin
 path add /Users/moacir/bin
+path add /Users/moacir/.local/bin
 path add ($env.CARGO_PATH | path join "bin")
 path add /opt/homebrew/bin
 path add ($env.poetry_home | path join "bin")
