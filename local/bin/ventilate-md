@@ -1,3 +1,0 @@
-#!/bin/sh
-
-exec ~/.uv-tools/ventilate-md/.venv/bin/ventilate-md "$@"
