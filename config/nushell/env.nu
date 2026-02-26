@@ -34,6 +34,8 @@ path add /opt/homebrew/bin
 path add ($env.poetry_home | path join "bin")
 path add ($env.asdf_data_dir | path join "shims")
 path add /Applications/quarto/bin
+path add /Applications/VirtualBox.app/Contents/MacOS/
+path add /opt/vagrant/bin
 
 $env.quarto_python = (poetry env info --path | str trim | path join "bin" "python")
 
