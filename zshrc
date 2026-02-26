@@ -19,3 +19,5 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 eval "$(starship init zsh)"
 
 # nu
+
+. "$HOME/.local/bin/env"
