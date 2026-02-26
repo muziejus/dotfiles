@@ -54,9 +54,9 @@ vim.g.vimtex_env_toggle_math_map = {
 	["\\["] = "align*",
 }
 
-vim.opt_local.textwidth = 0
+vim.opt_local.textwidth = 0 -- no hard wrapping
 vim.opt_local.formatoptions:remove("t")
-vim.opt_local.wrap = false
+vim.opt_local.wrap = true -- visual wrap is fine.
 
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true

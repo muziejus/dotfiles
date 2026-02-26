@@ -15,13 +15,13 @@ local options = {
 	softtabstop = 2,
 	shiftwidth = 2,
 	expandtab = true,
-	-- Text stuff
-	formatoptions = "tacqwn", -- see https://www.reddit.com/r/vim/comments/95gijh/comment/e3tyuja/
+	-- Text stuff. Prose options changed in ftplugin files.
+	formatoptions = "cqn", -- comments wrap, gq works, handle numbered lists.
+	textwidth = 0,
 	breakindent = true, -- long lines get broken and indented
 	breakindentopt = "shift:2,min:40,sbr",
 	autoindent = true,
 	smartindent = true,
-	textwidth = 75,
 	conceallevel = 0, -- don't obfuscate Markdown
 	-- completeopt = { "menuone", "noselect" }, -- show completion menu but don't autoselect
 	completeopt = "menuone,noinsert", -- show completion menu but don't autoselect

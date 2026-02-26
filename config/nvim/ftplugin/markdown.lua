@@ -8,3 +8,7 @@ vim.opt.spell = true
 vim.api.nvim_command("call pencil#init()")
 
 vim.bo.formatexpr = nil
+
+vim.opt_local.textwidth = 0 -- no hard wrapping
+vim.opt_local.formatoptions:remove("t")
+vim.opt_local.wrap = true -- visual wrap is fine.
