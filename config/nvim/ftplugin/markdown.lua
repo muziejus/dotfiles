@@ -5,8 +5,6 @@
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
-vim.api.nvim_command("call pencil#init()")
-
 vim.bo.formatexpr = nil
 
 vim.opt_local.textwidth = 0 -- no hard wrapping

@@ -1,7 +1,5 @@
 local cmp = require("cmp")
 
-vim.api.nvim_command("call pencil#init({'wrap': 'hard', 'autoformat': 0})")
-
 cmp.setup.filetype("quarto", {
 	sources = cmp.config.sources({
 		{ name = "luasnip", keyword_length = 2 },
