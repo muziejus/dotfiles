@@ -25,19 +25,15 @@ require("conform").setup({
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
-		timeout_ms = 2000,
+		timeout_ms = 5000,
 		lsp_format = "fallback",
+		quiet = true,
 	},
 })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
-		local ft = vim.bo[args.buf].filetype
-		if ft == "tex" then
-			require("conform").format({ bufnr = args.buf, timeout_ms = 10000 })
-		else
-			require("conform").format({ bufnr = args.buf })
-		end
+		require("conform").format({ bufnr = args.buf, timeout_ms = 10000 })
 	end,
 })
