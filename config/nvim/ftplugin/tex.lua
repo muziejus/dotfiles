@@ -1,9 +1,5 @@
 local cmp = require("cmp")
-local colors = require("tokyonight.colors").setup()
-
--- I can't get this to turn the cursor wrap off.
--- vim.api.nvim_command("call pencil#init({'wrap': 'hard', 'autoformat': 1})")
--- vim.g["pencil#cursorwrap"] = 0
+-- local colors = require("tokyonight.colors").setup()
 
 local npairs = require("nvim-autopairs")
 npairs.remove_rule('"')
@@ -58,6 +54,10 @@ vim.g.vimtex_env_toggle_math_map = {
 	["\\["] = "align*",
 }
 
+vim.opt_local.textwidth = 0
+vim.opt_local.formatoptions:remove("t")
+vim.opt_local.wrap = false
+
 vim.opt.spelllang = "en_us"
 vim.opt.spell = true
 
@@ -70,7 +70,7 @@ vim.g.vimtex_view_skim_reading_bar = 1
 vim.g.vimtex_format_enabled = 1
 
 vim.opt["conceallevel"] = 2
-vim.cmd("highlight Conceal guifg=" .. colors.orange .. " guibg=NONE")
+-- vim.cmd("highlight Conceal guifg=" .. colors.orange .. " guibg=NONE")
 
 require("nvim-surround").buffer_setup({
 	surrounds = {

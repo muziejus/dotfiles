@@ -3,8 +3,8 @@ require("lint").linters_by_ft = {
 	typescript = { "eslint_d" },
 	javascriptreact = { "eslint_d" },
 	typescriptreact = { "eslint_d" },
-	python = { "pylint" },
-	markdown = { "vale" },
+	-- python = { "pylint" },
+	-- markdown = { "vale" },
 	-- lua = { "luac" },
 }
 

@@ -63,12 +63,12 @@ lsp.enable("tailwindcss")
 -- ===============================
 -- Markdown diagnostics (Vale)
 -- ===============================
-lsp.config["vale"] = {
-	cmd = { "vale", "--lsp" },
-	filetypes = { "markdown", "md" },
-	root_markers = { ".git", ".vale.ini" },
-}
-lsp.enable("vale")
+-- lsp.config["vale"] = {
+-- 	cmd = { "vale", "--lsp" },
+-- 	filetypes = { "markdown", "md" },
+-- 	root_markers = { ".git", ".vale.ini" },
+-- }
+-- lsp.enable("vale")
 
 -- ===============================
 -- R / Quarto

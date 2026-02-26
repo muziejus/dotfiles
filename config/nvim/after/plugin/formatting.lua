@@ -1,8 +1,6 @@
 local conform = require("conform")
 
-local ventilate_path = vim.fn.expand("~/.local/bin/ventilate-md")
-
-conform.formatters.ventilate_md = {
+conform.formatters.ventilate = {
 	command = "ventilate-md",
 	stdin = true,
 	args = {},
@@ -11,12 +9,11 @@ conform.formatters.ventilate_md = {
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		-- Conform will run multiple formatters sequentially
 		python = { "black" },
 		-- You can customize some of the format options for the filetype (:help conform.format)
 		-- rust = { "rustfmt", lsp_format = "fallback" },
 		-- Conform will run the first available formatter
-		latex = { "latexindent" },
+		tex = { "ventilate", "latexindent" },
 		javascript = { "prettierd" }, --, "prettier", stop_after_first = true },
 		typescript = { "prettierd" },
 		javascriptreact = { "prettierd" },
@@ -25,7 +22,7 @@ require("conform").setup({
 		html = { "prettierd" },
 		json = { "prettierd" },
 		yaml = { "prettierd" },
-		markdown = { "ventilate_md", "prettierd" },
+		markdown = { "ventilate", "prettierd" },
 		graphql = { "prettierd" },
 		liquid = { "prettierd" },
 	},
@@ -39,6 +36,11 @@ require("conform").setup({
 vim.api.nvim_create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
+		local ft = vim.bo[args.buf].filetype
+		if ft == "tex" then
+			require("conform").format({ bufnr = args.buf, timeout_ms = 10000 })
+		else
+			require("conform").format({ bufnr = args.buf })
+		end
 	end,
 })
