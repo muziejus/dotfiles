@@ -1,7 +1,7 @@
 local conform = require("conform")
 
 conform.formatters.ventilate = {
-	command = "ventilate-md",
+	command = "ventilate",
 	stdin = true,
 	args = {},
 }
@@ -10,11 +10,8 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "black" },
-		-- You can customize some of the format options for the filetype (:help conform.format)
-		-- rust = { "rustfmt", lsp_format = "fallback" },
-		-- Conform will run the first available formatter
 		tex = { "ventilate", "latexindent" },
-		javascript = { "prettierd" }, --, "prettier", stop_after_first = true },
+		javascript = { "prettierd" },
 		typescript = { "prettierd" },
 		javascriptreact = { "prettierd" },
 		typescriptreact = { "prettierd" },
