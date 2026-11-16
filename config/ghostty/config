@@ -13,6 +13,6 @@
 font-family = "Nokogiri Nerd Font"
 theme = Catppuccin Mocha
 mouse-hide-while-typing = true
-window-decoration = true
+window-decoration = auto
 # command = "/opt/homebrew/bin/nu --config /Users/moacir/.config/nushell"
 command = "/opt/homebrew/bin/nu"
