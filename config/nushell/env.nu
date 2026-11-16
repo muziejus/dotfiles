@@ -8,7 +8,7 @@ $env.visual = "nvim"
 $env.xdg_config_home = "/Users/moacir/.config"
 $env.xdg_data_home = "/Users/moacir/.config"
 
-$env.poetry_home = "/Users/moacir/Library/Application Support/pypoetry/venv/bin/poetry"
+# $env.poetry_home = "/Users/moacir/Library/Application Support/pypoetry/venv/bin/poetry"
 $env.asdf_data_dir = "/Users/moacir/.asdf"
 $env.cargo_path = "/Users/moacir/.cargo"
 $env.GPG_TTY = ^tty
@@ -31,14 +31,16 @@ path add /Users/moacir/bin
 path add /Users/moacir/.local/bin
 path add ($env.CARGO_PATH | path join "bin")
 path add /opt/homebrew/bin
-path add ($env.poetry_home | path join "bin")
+# path add ($env.poetry_home | path join "bin")
 path add ($env.asdf_data_dir | path join "shims")
 path add /Applications/quarto/bin
 path add /Applications/VirtualBox.app/Contents/MacOS/
 path add /opt/vagrant/bin
 path add /Users/moacir/.volta/bin
+path add /Users/moacir/.cargo/bin
+# last path highest priority
 
-$env.quarto_python = (poetry env info --path | str trim | path join "bin" "python")
+# $env.quarto_python = (poetry env info --path | str trim | path join "bin" "python")
 
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense' # optional
 mkdir $"($nu.cache-dir)"
