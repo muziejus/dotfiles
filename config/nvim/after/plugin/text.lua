@@ -2,7 +2,12 @@
 
 require("nvim-prose").setup({
 	wpm = 200.0,
-	filetypes = { "tex", "quarto", "markdown", "asciidoc" },
+	filetypes = {
+		"tex",
+		"quarto",
+		"markdown",
+		"asciidoc",
+	},
 	placeholders = {
 		words = "w",
 		minutes = "min",

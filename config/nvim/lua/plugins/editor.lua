@@ -1,5 +1,4 @@
 return {
-	"github/copilot.vim",
 	"RRethy/vim-illuminate",
 	-- "tpope/vim-commentary",
 	"numToStr/Comment.nvim",

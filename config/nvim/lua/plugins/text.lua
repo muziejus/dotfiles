@@ -1,4 +1,8 @@
 return {
+	-- {
+	-- 	"MeanderingProgrammer/render-markdown.nvim",
+	-- 	ft = { "markdown", "codecompanion" },
+	-- },
 	{
 		"iamcco/markdown-preview.nvim",
 		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },

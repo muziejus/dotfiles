@@ -10,7 +10,11 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "black" },
-		tex = { "ventilate", "latexindent" },
+		tex = {
+			-- "ventilate",
+			"latexindent",
+		},
+		astro = { "prettier" },
 		javascript = { "prettierd" },
 		typescript = { "prettierd" },
 		javascriptreact = { "prettierd" },
@@ -19,7 +23,10 @@ require("conform").setup({
 		html = { "prettierd" },
 		json = { "prettierd" },
 		yaml = { "prettierd" },
-		markdown = { "ventilate", "prettierd" },
+		markdown = {
+			-- "ventilate",
+			"prettierd",
+		},
 		graphql = { "prettierd" },
 		liquid = { "prettierd" },
 	},

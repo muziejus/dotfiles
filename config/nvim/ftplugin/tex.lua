@@ -4,6 +4,11 @@ local cmp = require("cmp")
 local npairs = require("nvim-autopairs")
 npairs.remove_rule('"')
 
+-- Opt this buffer out of treesitter highlighting + indent
+vim.b.disable_treesitter = true
+pcall(vim.treesitter.stop, 0)
+vim.bo.indentexpr = ""
+
 cmp.setup.filetype("tex", {
 	enabled = function()
 		-- Don't show completion when:

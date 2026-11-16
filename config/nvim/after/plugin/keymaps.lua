@@ -8,63 +8,79 @@ local conform = require("conform")
 wk.add({
 	{ -- Leader
 		{ -- a Harpoon
-			{ "<leader>a", group = "Harpoon" },
+			{ "<leader>a", group = "Action" },
 			{
-				"<leader>aA",
+				"<leader>ac",
 				function()
-					harpoon:list():add()
+					vim.cmd("CodeCompanionChat Toggle")
 				end,
-				desc = "Add to Harpoon",
+				desc = "AI Chat Toggle",
 			},
 			{
-				"<leader>aa",
+				"<leader>ai",
 				function()
-					harpoon:list():select(1)
+					vim.cmd("CodeCompanion inline")
 				end,
-				desc = "Select File 1",
+				mode = "v",
+				desc = "AI Inline (selection)",
 			},
-			{
-				"<leader>as",
-				function()
-					harpoon:list():select(2)
-				end,
-				desc = "Select File 2",
-			},
-			{
-				"<leader>ad",
-				function()
-					harpoon:list():select(3)
-				end,
-				desc = "Select File 3",
-			},
-			{
-				"<leader>af",
-				function()
-					harpoon:list():select(4)
-				end,
-				desc = "Select File 4",
-			},
-			{
-				"<leader>al",
-				function()
-					harpoon.ui:toggle_quick_menu(harpoon:list())
-				end,
-				desc = "List files",
-			},
-			{
-				"<leader>an",
-				function()
-					harpoon:list():next()
-				end,
-				desc = "Next file",
-			},
-			{
-				"<leader>ap",
-				function()
-					harpoon:list():prev()
-				end,
-				desc = "Previous file",
-			},
+			-- 	{ "<leader>a", group = "Harpoon" },
+			-- 	{
+			-- 		"<leader>aA",
+			-- 		function()
+			-- 			harpoon:list():add()
+			-- 		end,
+			-- 		desc = "Add to Harpoon",
+			-- 	},
+			-- 	{
+			-- 		"<leader>aa",
+			-- 		function()
+			-- 			harpoon:list():select(1)
+			-- 		end,
+			-- 		desc = "Select File 1",
+			-- 	},
+			-- 	{
+			-- 		"<leader>as",
+			-- 		function()
+			-- 			harpoon:list():select(2)
+			-- 		end,
+			-- 		desc = "Select File 2",
+			-- 	},
+			-- 	{
+			-- 		"<leader>ad",
+			-- 		function()
+			-- 			harpoon:list():select(3)
+			-- 		end,
+			-- 		desc = "Select File 3",
+			-- 	},
+			-- 	{
+			-- 		"<leader>af",
+			-- 		function()
+			-- 			harpoon:list():select(4)
+			-- 		end,
+			-- 		desc = "Select File 4",
+			-- 	},
+			-- 	{
+			-- 		"<leader>al",
+			-- 		function()
+			-- 			harpoon.ui:toggle_quick_menu(harpoon:list())
+			-- 		end,
+			-- 		desc = "List files",
+			-- 	},
+			-- 	{
+			-- 		"<leader>an",
+			-- 		function()
+			-- 			harpoon:list():next()
+			-- 		end,
+			-- 		desc = "Next file",
+			-- 	},
+			-- 	{
+			-- 		"<leader>ap",
+			-- 		function()
+			-- 			harpoon:list():prev()
+			-- 		end,
+			-- 		desc = "Previous file",
+			-- 	},
 		},
 		{ -- A Actions
 			{ "<leader>A", group = "(VimTeX) Actions" },
